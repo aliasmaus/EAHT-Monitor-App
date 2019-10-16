@@ -52,8 +52,17 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Management_Report_Interface.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Management_Report_Interface.Designer.cs">
+      <DependentUpon>Management_Report_Interface.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Management_Report_Interface.resx">
+      <DependentUpon>Management_Report_Interface.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
