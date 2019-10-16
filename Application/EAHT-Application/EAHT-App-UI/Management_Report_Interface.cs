@@ -31,5 +31,20 @@ namespace EAHT_App_UI
         {
 
         }
+
+        private void MgmtHome_StaffReportButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MgmtHome_MedicalRecordsButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MgmtHome_AlarmReportButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
