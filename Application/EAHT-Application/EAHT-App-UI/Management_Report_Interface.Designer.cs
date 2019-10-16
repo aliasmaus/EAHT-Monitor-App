@@ -35,12 +35,20 @@
             this.MgmtHome_AlarmReportButton = new System.Windows.Forms.Button();
             this.MgmtHome_BackPanel = new System.Windows.Forms.Panel();
             this.MgmtAlarmLog_BackPanel = new System.Windows.Forms.Panel();
-            this.MgmtAlarmLog_LogDataTable = new System.Windows.Forms.DataGridView();
-            this.MgmtAlarmLog_TitleText = new System.Windows.Forms.Label();
+            this.MgmtMedicalRecords_BackPanel = new System.Windows.Forms.Panel();
+            this.MgmtMedicalRecords_TitleText = new System.Windows.Forms.Label();
             this.MgmtAlarmLog_BackButton = new System.Windows.Forms.Button();
+            this.MgmtAlarmLog_TitleText = new System.Windows.Forms.Label();
+            this.MgmtAlarmLog_LogDataTable = new System.Windows.Forms.DataGridView();
+            this.MgmtMedicalRecords_BackButton = new System.Windows.Forms.Button();
+            this.MgmtStaffReports_BackPanel = new System.Windows.Forms.Panel();
+            this.MgmtStaffReport_BackButton = new System.Windows.Forms.Button();
+            this.MgmtStaffReport_TitleText = new System.Windows.Forms.Label();
             this.MgmtHome_BackPanel.SuspendLayout();
             this.MgmtAlarmLog_BackPanel.SuspendLayout();
+            this.MgmtMedicalRecords_BackPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MgmtAlarmLog_LogDataTable)).BeginInit();
+            this.MgmtStaffReports_BackPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // MgmtHome_LogstreamButton
@@ -48,19 +56,19 @@
             this.MgmtHome_LogstreamButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.MgmtHome_LogstreamButton.BackColor = System.Drawing.Color.CadetBlue;
             this.MgmtHome_LogstreamButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MgmtHome_LogstreamButton.Location = new System.Drawing.Point(176, 32);
+            this.MgmtHome_LogstreamButton.Location = new System.Drawing.Point(33, 32);
             this.MgmtHome_LogstreamButton.Name = "MgmtHome_LogstreamButton";
             this.MgmtHome_LogstreamButton.Size = new System.Drawing.Size(200, 150);
             this.MgmtHome_LogstreamButton.TabIndex = 0;
             this.MgmtHome_LogstreamButton.Text = "View Alarm Log Stream";
             this.MgmtHome_LogstreamButton.UseVisualStyleBackColor = false;
-            this.MgmtHome_LogstreamButton.Click += new System.EventHandler(this.button1_Click);
+            this.MgmtHome_LogstreamButton.Click += new System.EventHandler(this.MgmtHome_LogstreamButton_Click);
             // 
             // MgmtHome_StaffReportButton
             // 
             this.MgmtHome_StaffReportButton.BackColor = System.Drawing.Color.CadetBlue;
             this.MgmtHome_StaffReportButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MgmtHome_StaffReportButton.Location = new System.Drawing.Point(442, 32);
+            this.MgmtHome_StaffReportButton.Location = new System.Drawing.Point(299, 32);
             this.MgmtHome_StaffReportButton.Name = "MgmtHome_StaffReportButton";
             this.MgmtHome_StaffReportButton.Size = new System.Drawing.Size(200, 150);
             this.MgmtHome_StaffReportButton.TabIndex = 1;
@@ -83,7 +91,7 @@
             // 
             this.MgmtHome_MedicalRecordsButton.BackColor = System.Drawing.Color.CadetBlue;
             this.MgmtHome_MedicalRecordsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MgmtHome_MedicalRecordsButton.Location = new System.Drawing.Point(176, 242);
+            this.MgmtHome_MedicalRecordsButton.Location = new System.Drawing.Point(33, 242);
             this.MgmtHome_MedicalRecordsButton.Name = "MgmtHome_MedicalRecordsButton";
             this.MgmtHome_MedicalRecordsButton.Size = new System.Drawing.Size(200, 150);
             this.MgmtHome_MedicalRecordsButton.TabIndex = 3;
@@ -95,7 +103,7 @@
             // 
             this.MgmtHome_AlarmReportButton.BackColor = System.Drawing.Color.CadetBlue;
             this.MgmtHome_AlarmReportButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MgmtHome_AlarmReportButton.Location = new System.Drawing.Point(442, 242);
+            this.MgmtHome_AlarmReportButton.Location = new System.Drawing.Point(299, 242);
             this.MgmtHome_AlarmReportButton.Name = "MgmtHome_AlarmReportButton";
             this.MgmtHome_AlarmReportButton.Size = new System.Drawing.Size(200, 150);
             this.MgmtHome_AlarmReportButton.TabIndex = 4;
@@ -109,9 +117,9 @@
             this.MgmtHome_BackPanel.Controls.Add(this.MgmtHome_MedicalRecordsButton);
             this.MgmtHome_BackPanel.Controls.Add(this.MgmtHome_AlarmReportButton);
             this.MgmtHome_BackPanel.Controls.Add(this.MgmtHome_StaffReportButton);
-            this.MgmtHome_BackPanel.Location = new System.Drawing.Point(12, 81);
+            this.MgmtHome_BackPanel.Location = new System.Drawing.Point(178, 81);
             this.MgmtHome_BackPanel.Name = "MgmtHome_BackPanel";
-            this.MgmtHome_BackPanel.Size = new System.Drawing.Size(818, 416);
+            this.MgmtHome_BackPanel.Size = new System.Drawing.Size(533, 416);
             this.MgmtHome_BackPanel.TabIndex = 5;
             // 
             // MgmtAlarmLog_BackPanel
@@ -119,18 +127,45 @@
             this.MgmtAlarmLog_BackPanel.Controls.Add(this.MgmtAlarmLog_BackButton);
             this.MgmtAlarmLog_BackPanel.Controls.Add(this.MgmtAlarmLog_TitleText);
             this.MgmtAlarmLog_BackPanel.Controls.Add(this.MgmtAlarmLog_LogDataTable);
+            this.MgmtAlarmLog_BackPanel.Enabled = false;
             this.MgmtAlarmLog_BackPanel.Location = new System.Drawing.Point(12, 81);
             this.MgmtAlarmLog_BackPanel.Name = "MgmtAlarmLog_BackPanel";
             this.MgmtAlarmLog_BackPanel.Size = new System.Drawing.Size(818, 416);
             this.MgmtAlarmLog_BackPanel.TabIndex = 6;
+            this.MgmtAlarmLog_BackPanel.Visible = false;
             // 
-            // MgmtAlarmLog_LogDataTable
+            // MgmtMedicalRecords_BackPanel
             // 
-            this.MgmtAlarmLog_LogDataTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.MgmtAlarmLog_LogDataTable.Location = new System.Drawing.Point(18, 63);
-            this.MgmtAlarmLog_LogDataTable.Name = "MgmtAlarmLog_LogDataTable";
-            this.MgmtAlarmLog_LogDataTable.Size = new System.Drawing.Size(773, 329);
-            this.MgmtAlarmLog_LogDataTable.TabIndex = 0;
+            this.MgmtMedicalRecords_BackPanel.Controls.Add(this.MgmtMedicalRecords_BackButton);
+            this.MgmtMedicalRecords_BackPanel.Controls.Add(this.MgmtMedicalRecords_TitleText);
+            this.MgmtMedicalRecords_BackPanel.Enabled = false;
+            this.MgmtMedicalRecords_BackPanel.Location = new System.Drawing.Point(12, 83);
+            this.MgmtMedicalRecords_BackPanel.Name = "MgmtMedicalRecords_BackPanel";
+            this.MgmtMedicalRecords_BackPanel.Size = new System.Drawing.Size(818, 416);
+            this.MgmtMedicalRecords_BackPanel.TabIndex = 3;
+            this.MgmtMedicalRecords_BackPanel.Visible = false;
+            // 
+            // MgmtMedicalRecords_TitleText
+            // 
+            this.MgmtMedicalRecords_TitleText.AutoSize = true;
+            this.MgmtMedicalRecords_TitleText.Enabled = false;
+            this.MgmtMedicalRecords_TitleText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MgmtMedicalRecords_TitleText.Location = new System.Drawing.Point(18, 18);
+            this.MgmtMedicalRecords_TitleText.Name = "MgmtMedicalRecords_TitleText";
+            this.MgmtMedicalRecords_TitleText.Size = new System.Drawing.Size(236, 24);
+            this.MgmtMedicalRecords_TitleText.TabIndex = 0;
+            this.MgmtMedicalRecords_TitleText.Text = "Patient Medical Records";
+            // 
+            // MgmtAlarmLog_BackButton
+            // 
+            this.MgmtAlarmLog_BackButton.BackColor = System.Drawing.SystemColors.Control;
+            this.MgmtAlarmLog_BackButton.Location = new System.Drawing.Point(716, 21);
+            this.MgmtAlarmLog_BackButton.Name = "MgmtAlarmLog_BackButton";
+            this.MgmtAlarmLog_BackButton.Size = new System.Drawing.Size(75, 23);
+            this.MgmtAlarmLog_BackButton.TabIndex = 2;
+            this.MgmtAlarmLog_BackButton.Text = "Back";
+            this.MgmtAlarmLog_BackButton.UseVisualStyleBackColor = false;
+            this.MgmtAlarmLog_BackButton.Click += new System.EventHandler(this.MgmtAlarmLog_BackButton_Click);
             // 
             // MgmtAlarmLog_TitleText
             // 
@@ -142,14 +177,54 @@
             this.MgmtAlarmLog_TitleText.TabIndex = 1;
             this.MgmtAlarmLog_TitleText.Text = "Bed Monitor Alarm Log";
             // 
-            // MgmtAlarmLog_BackButton
+            // MgmtAlarmLog_LogDataTable
             // 
-            this.MgmtAlarmLog_BackButton.Location = new System.Drawing.Point(716, 21);
-            this.MgmtAlarmLog_BackButton.Name = "MgmtAlarmLog_BackButton";
-            this.MgmtAlarmLog_BackButton.Size = new System.Drawing.Size(75, 23);
-            this.MgmtAlarmLog_BackButton.TabIndex = 2;
-            this.MgmtAlarmLog_BackButton.Text = "Back";
-            this.MgmtAlarmLog_BackButton.UseVisualStyleBackColor = true;
+            this.MgmtAlarmLog_LogDataTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.MgmtAlarmLog_LogDataTable.Location = new System.Drawing.Point(18, 63);
+            this.MgmtAlarmLog_LogDataTable.Name = "MgmtAlarmLog_LogDataTable";
+            this.MgmtAlarmLog_LogDataTable.Size = new System.Drawing.Size(773, 329);
+            this.MgmtAlarmLog_LogDataTable.TabIndex = 0;
+            // 
+            // MgmtMedicalRecords_BackButton
+            // 
+            this.MgmtMedicalRecords_BackButton.Location = new System.Drawing.Point(716, 21);
+            this.MgmtMedicalRecords_BackButton.Name = "MgmtMedicalRecords_BackButton";
+            this.MgmtMedicalRecords_BackButton.Size = new System.Drawing.Size(75, 23);
+            this.MgmtMedicalRecords_BackButton.TabIndex = 1;
+            this.MgmtMedicalRecords_BackButton.Text = "Back";
+            this.MgmtMedicalRecords_BackButton.UseVisualStyleBackColor = true;
+            this.MgmtMedicalRecords_BackButton.Click += new System.EventHandler(this.MgmtMedicalRecords_BackButton_Click);
+            // 
+            // MgmtStaffReports_BackPanel
+            // 
+            this.MgmtStaffReports_BackPanel.Controls.Add(this.MgmtStaffReport_BackButton);
+            this.MgmtStaffReports_BackPanel.Controls.Add(this.MgmtStaffReport_TitleText);
+            this.MgmtStaffReports_BackPanel.Enabled = false;
+            this.MgmtStaffReports_BackPanel.Location = new System.Drawing.Point(12, 81);
+            this.MgmtStaffReports_BackPanel.Name = "MgmtStaffReports_BackPanel";
+            this.MgmtStaffReports_BackPanel.Size = new System.Drawing.Size(818, 416);
+            this.MgmtStaffReports_BackPanel.TabIndex = 6;
+            this.MgmtStaffReports_BackPanel.Visible = false;
+            // 
+            // MgmtStaffReport_BackButton
+            // 
+            this.MgmtStaffReport_BackButton.Location = new System.Drawing.Point(716, 21);
+            this.MgmtStaffReport_BackButton.Name = "MgmtStaffReport_BackButton";
+            this.MgmtStaffReport_BackButton.Size = new System.Drawing.Size(75, 23);
+            this.MgmtStaffReport_BackButton.TabIndex = 1;
+            this.MgmtStaffReport_BackButton.Text = "Back";
+            this.MgmtStaffReport_BackButton.UseVisualStyleBackColor = true;
+            this.MgmtStaffReport_BackButton.Click += new System.EventHandler(this.MgmtStaffReports_BackButton_Click);
+            // 
+            // MgmtStaffReport_TitleText
+            // 
+            this.MgmtStaffReport_TitleText.AutoSize = true;
+            this.MgmtStaffReport_TitleText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MgmtStaffReport_TitleText.Location = new System.Drawing.Point(18, 18);
+            this.MgmtStaffReport_TitleText.Name = "MgmtStaffReport_TitleText";
+            this.MgmtStaffReport_TitleText.Size = new System.Drawing.Size(237, 24);
+            this.MgmtStaffReport_TitleText.TabIndex = 0;
+            this.MgmtStaffReport_TitleText.Text = "Staff Sign In/Out Reports";
             // 
             // Management_Report_Interface
             // 
@@ -157,6 +232,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.BurlyWood;
             this.ClientSize = new System.Drawing.Size(842, 509);
+            this.Controls.Add(this.MgmtStaffReports_BackPanel);
+            this.Controls.Add(this.MgmtMedicalRecords_BackPanel);
             this.Controls.Add(this.MgmtAlarmLog_BackPanel);
             this.Controls.Add(this.MgmtHome_BackPanel);
             this.Controls.Add(this.Mgmt_TitleText);
@@ -166,7 +243,11 @@
             this.MgmtHome_BackPanel.ResumeLayout(false);
             this.MgmtAlarmLog_BackPanel.ResumeLayout(false);
             this.MgmtAlarmLog_BackPanel.PerformLayout();
+            this.MgmtMedicalRecords_BackPanel.ResumeLayout(false);
+            this.MgmtMedicalRecords_BackPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MgmtAlarmLog_LogDataTable)).EndInit();
+            this.MgmtStaffReports_BackPanel.ResumeLayout(false);
+            this.MgmtStaffReports_BackPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -184,5 +265,11 @@
         private System.Windows.Forms.Label MgmtAlarmLog_TitleText;
         private System.Windows.Forms.DataGridView MgmtAlarmLog_LogDataTable;
         private System.Windows.Forms.Button MgmtAlarmLog_BackButton;
+        private System.Windows.Forms.Panel MgmtMedicalRecords_BackPanel;
+        private System.Windows.Forms.Label MgmtMedicalRecords_TitleText;
+        private System.Windows.Forms.Button MgmtMedicalRecords_BackButton;
+        private System.Windows.Forms.Panel MgmtStaffReports_BackPanel;
+        private System.Windows.Forms.Button MgmtStaffReport_BackButton;
+        private System.Windows.Forms.Label MgmtStaffReport_TitleText;
     }
 }
