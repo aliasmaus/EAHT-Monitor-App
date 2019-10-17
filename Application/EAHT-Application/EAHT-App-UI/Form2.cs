@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WindowsFormsApp1
+namespace EAHT_App_UI
 {
     public partial class login_page : Form
     {
@@ -17,7 +17,12 @@ namespace WindowsFormsApp1
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Exit_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void Login_Click(object sender, EventArgs e)
         {
             //goto whatever page is next
         }
