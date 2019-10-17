@@ -26,41 +26,56 @@ namespace EAHT_App_UI
         {
             MgmtStaffReports_BackPanel.Enabled = true;
             MgmtStaffReports_BackPanel.Visible = true;
+            //MgmtHome_BackPanel.Enabled = false;
         }
 
         private void MgmtHome_MedicalRecordsButton_Click(object sender, EventArgs e)
         {
             MgmtMedicalRecords_BackPanel.Enabled = true;
             MgmtMedicalRecords_BackPanel.Visible = true;
+            //MgmtHome_BackPanel.Enabled = false;
         }
 
         private void MgmtHome_AlarmReportButton_Click(object sender, EventArgs e)
         {
-
+            MgmtAlarmReports_BackPanel.Visible = true;
+            MgmtAlarmReports_BackPanel.Enabled = true;
+            //MgmtHome_BackPanel.Enabled = false;
         }
 
         private void MgmtAlarmLog_BackButton_Click(object sender, EventArgs e)
         {
             MgmtAlarmLog_BackPanel.Enabled = false;
             MgmtAlarmLog_BackPanel.Visible = false;
+            //MgmtHome_BackPanel.Enabled = true;
         }
 
         private void MgmtHome_LogstreamButton_Click(object sender, EventArgs e)
         {
             MgmtAlarmLog_BackPanel.Enabled = true;
             MgmtAlarmLog_BackPanel.Visible = true;
+            //MgmtHome_BackPanel.Enabled = false;
         }
 
         private void MgmtStaffReports_BackButton_Click(object sender, EventArgs e)
         {
             MgmtStaffReports_BackPanel.Enabled = false;
             MgmtStaffReports_BackPanel.Visible = false;
+            //MgmtHome_BackPanel.Enabled = true;
         }
 
         private void MgmtMedicalRecords_BackButton_Click(object sender, EventArgs e)
         {
             MgmtMedicalRecords_BackPanel.Visible = false;
             MgmtMedicalRecords_BackPanel.Enabled = false;
+            //MgmtHome_BackPanel.Enabled = true;
+        }
+
+        private void MgmtAlarmReports_BackButton_Click(object sender, EventArgs e)
+        {
+            MgmtAlarmReports_BackPanel.Visible = false;
+            MgmtAlarmReports_BackPanel.Enabled = false;
+            //MgmtHome_BackPanel.Enabled = true;
         }
     }
 }
