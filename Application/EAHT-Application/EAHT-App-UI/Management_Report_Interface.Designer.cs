@@ -1,5 +1,8 @@
 ﻿namespace EAHT_App_UI
 {
+    /// <summary>
+    /// Auto-generated, don't tamper
+    /// </summary>
     partial class Management_Report_Interface
     {
         /// <summary>

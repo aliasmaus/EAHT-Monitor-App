@@ -12,6 +12,9 @@ namespace EAHT_App_UI
 {
     public partial class Management_Report_Interface : Form
     {
+        /// <summary>
+        /// Initializer for Interface
+        /// </summary>
         public Management_Report_Interface()
         {
             InitializeComponent();
@@ -23,12 +26,14 @@ namespace EAHT_App_UI
         }
 
         //Event handlers for management interface buttons
-        
-        //Toggle page function
+
+        /// <summary>
+        /// Toggles panels (different screens) on the user interface on/off
+        /// </summary>
+        /// <param name="page">The Panel to show/hide </param>
+        /// <param name="onoff">true = Visible + Enabled, false = Invisible + Disabled</param>
         private void TogglePage(Panel page, bool onoff)
-            // Used to toggle pages on and off in the management interface
-            // which is built by layering panels and controlling their
-            // visibility & enabling/disabling controls
+            // 
         {
             page.Enabled = onoff;
             page.Visible = onoff;
