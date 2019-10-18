@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.29324.140
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EAHT-App-UI", "EAHT-App-UI\EAHT-App-UI.csproj", "{2410F097-8AC9-488A-98A4-DF1B1E912F49}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EAHT-Engine", "EAHT-Engine\EAHT-Engine.csproj", "{6F6F102C-C38B-4B19-BBFC-24CB668B5133}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{2410F097-8AC9-488A-98A4-DF1B1E912F49}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2410F097-8AC9-488A-98A4-DF1B1E912F49}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2410F097-8AC9-488A-98A4-DF1B1E912F49}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F6F102C-C38B-4B19-BBFC-24CB668B5133}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F6F102C-C38B-4B19-BBFC-24CB668B5133}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F6F102C-C38B-4B19-BBFC-24CB668B5133}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F6F102C-C38B-4B19-BBFC-24CB668B5133}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

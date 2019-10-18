@@ -28,3 +28,30 @@ visit the [GitKraken website](https://www.gitkraken.com/git-client) and download
 Once you have installed the software, open it and you will be able to sign in to your GitHub account.  There will be an authorisation step, just accept :)
 
 Here is a handy [cheat sheet](https://www.gitkraken.com/downloads/gitkraken-cheat-sheet-jun19.pdf)
+
+## Development Documentation & Best Practice Notes
+
+Please keep UI code in the UI project and use the engine for all other code.  
+
+To use your code classes in the UI project just add the line
+
+`using EAHT_Engine;`
+
+to the top of the UI class file.
+
+Reference classes and methods as you would from any other c# library
+
+For example:
+Instantiating an object
+`myObject = new EAHT_Engine.MyClass();`
+Calling a method on an object
+`myObject.MyMethod()`
+Calling a static method
+`EAHT_Engine.MyClass.MyStaticMethod()`
+
+
+### UI
+
+### Engine
+
+### Database
