@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EAHT-App-UI", "EAHT-App-UI\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EAHT-Engine", "EAHT-Engine\EAHT-Engine.csproj", "{6F6F102C-C38B-4B19-BBFC-24CB668B5133}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EAHT-EngineTests", "EAHT-EngineTests\EAHT-EngineTests.csproj", "{1390D657-A62E-4DCF-83E4-2180568C4EC2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{6F6F102C-C38B-4B19-BBFC-24CB668B5133}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6F6F102C-C38B-4B19-BBFC-24CB668B5133}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6F6F102C-C38B-4B19-BBFC-24CB668B5133}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1390D657-A62E-4DCF-83E4-2180568C4EC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1390D657-A62E-4DCF-83E4-2180568C4EC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1390D657-A62E-4DCF-83E4-2180568C4EC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1390D657-A62E-4DCF-83E4-2180568C4EC2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
