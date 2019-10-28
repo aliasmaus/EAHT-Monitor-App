@@ -47,8 +47,8 @@ namespace EAHT_App_UI
         private void button3_Click(object sender, EventArgs e)
         {
             //It goes to Login page
-            login_page login_Page = new login_page();
-            login_Page.ShowDialog();
+            Login login = new Login();
+            login.ShowDialog();
         }
 
         private void button1_Click(object sender, EventArgs e)
