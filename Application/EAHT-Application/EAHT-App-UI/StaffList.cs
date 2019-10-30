@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace EAHT_App_UI
 {
-    public partial class StaffDetails : Form
+    public partial class StaffList : Form
     {
-        public StaffDetails()
+        public StaffList()
         {
             InitializeComponent();
         }
 
-        private void StaffDetails_Load(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
 
         }
