@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Make_Your_Code_Classes_In_This_Project_Not_The_UI.cs" />
+    <Compile Include="MonitorSensor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
