@@ -1,0 +1,9 @@
+C:\Users\Strawberry & Cream\source\repos\ETAHDesign\ETAHDesign\bin\Debug\ETAHDesign.exe.config
+C:\Users\Strawberry & Cream\source\repos\ETAHDesign\ETAHDesign\bin\Debug\ETAHDesign.exe
+C:\Users\Strawberry & Cream\source\repos\ETAHDesign\ETAHDesign\bin\Debug\ETAHDesign.pdb
+C:\Users\Strawberry & Cream\source\repos\ETAHDesign\ETAHDesign\obj\Debug\ETAHDesign.csprojAssemblyReference.cache
+C:\Users\Strawberry & Cream\source\repos\ETAHDesign\ETAHDesign\obj\Debug\ETAHDesign.Form1.resources
+C:\Users\Strawberry & Cream\source\repos\ETAHDesign\ETAHDesign\obj\Debug\ETAHDesign.Properties.Resources.resources
+C:\Users\Strawberry & Cream\source\repos\ETAHDesign\ETAHDesign\obj\Debug\ETAHDesign.csproj.GenerateResource.cache
+C:\Users\Strawberry & Cream\source\repos\ETAHDesign\ETAHDesign\obj\Debug\ETAHDesign.exe
+C:\Users\Strawberry & Cream\source\repos\ETAHDesign\ETAHDesign\obj\Debug\ETAHDesign.pdb
