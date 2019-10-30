@@ -34,10 +34,10 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(294, 55);
+            this.textBox1.Location = new System.Drawing.Point(428, 55);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(481, 362);
+            this.textBox1.Size = new System.Drawing.Size(645, 503);
             this.textBox1.TabIndex = 0;
             // 
             // textBox2
@@ -45,7 +45,7 @@
             this.textBox2.Location = new System.Drawing.Point(25, 161);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(233, 256);
+            this.textBox2.Size = new System.Drawing.Size(343, 397);
             this.textBox2.TabIndex = 1;
             // 
             // StaffDetails
@@ -53,7 +53,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.BurlyWood;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1123, 626);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.ForeColor = System.Drawing.Color.BurlyWood;
