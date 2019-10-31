@@ -1,7 +1,7 @@
 ﻿namespace EAHT_App_UI
 {
     /// <summary>
-    /// Auto-generated, don't tamper
+    /// UI Class for Management section of UI
     /// </summary>
     partial class Management_Report_Interface
     {
