@@ -10,21 +10,11 @@ using System.Windows.Forms;
 
 namespace EAHT_App_UI
 {
-    public partial class login_page : Form
+    public partial class Form1 : Form
     {
-        public login_page()
+        public Form1()
         {
             InitializeComponent();
-        }
-
-        private void Exit_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
-        private void Login_Click(object sender, EventArgs e)
-        {
-            //goto whatever page is next
         }
     }
 }
