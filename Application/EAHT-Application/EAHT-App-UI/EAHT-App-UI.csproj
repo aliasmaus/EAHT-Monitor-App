@@ -63,6 +63,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddContactPatient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddContactPatient.Designer.cs">
+      <DependentUpon>AddContactPatient.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,6 +86,18 @@
     </Compile>
     <Compile Include="MainPage.Designer.cs">
       <DependentUpon>MainPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Patient Details.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Patient Details.Designer.cs">
+      <DependentUpon>Patient Details.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PatientList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientList.Designer.cs">
+      <DependentUpon>PatientList.cs</DependentUpon>
     </Compile>
     <Compile Include="StaffContactAdd.cs">
       <SubType>Form</SubType>
@@ -107,6 +125,9 @@
     <Compile Include="StaffDetails.Designer.cs">
       <DependentUpon>StaffDetails.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddContactPatient.resx">
+      <DependentUpon>AddContactPatient.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -115,6 +136,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Management_Report_Interface.resx">
       <DependentUpon>Management_Report_Interface.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Patient Details.resx">
+      <DependentUpon>Patient Details.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientList.resx">
+      <DependentUpon>PatientList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
