@@ -39,21 +39,21 @@
             this.MgmtHome_BackPanel = new System.Windows.Forms.Panel();
             this.MgmtAlarmLog_BackPanel = new System.Windows.Forms.Panel();
             this.MgmtAlarmLog_BackButton = new System.Windows.Forms.Button();
+            this.MgmtAlarmLog_TitleText = new System.Windows.Forms.Label();
+            this.MgmtAlarmLog_LogDataTable = new System.Windows.Forms.DataGridView();
             this.MgmtStaffReports_BackPanel = new System.Windows.Forms.Panel();
             this.MgmtStaffReport_BackButton = new System.Windows.Forms.Button();
             this.MgmtStaffReport_TitleText = new System.Windows.Forms.Label();
-            this.MgmtAlarmLog_TitleText = new System.Windows.Forms.Label();
-            this.MgmtAlarmLog_LogDataTable = new System.Windows.Forms.DataGridView();
             this.MgmtMedicalRecords_BackPanel = new System.Windows.Forms.Panel();
             this.MgmtMedicalRecords_BackButton = new System.Windows.Forms.Button();
             this.MgmtMedicalRecords_TitleText = new System.Windows.Forms.Label();
             this.MgmtAlarmReports_BackPanel = new System.Windows.Forms.Panel();
-            this.MgmtAlarmReports_TitleText = new System.Windows.Forms.Label();
             this.MgmtAlarmReports_BackButton = new System.Windows.Forms.Button();
+            this.MgmtAlarmReports_TitleText = new System.Windows.Forms.Label();
             this.MgmtHome_BackPanel.SuspendLayout();
             this.MgmtAlarmLog_BackPanel.SuspendLayout();
-            this.MgmtStaffReports_BackPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MgmtAlarmLog_LogDataTable)).BeginInit();
+            this.MgmtStaffReports_BackPanel.SuspendLayout();
             this.MgmtMedicalRecords_BackPanel.SuspendLayout();
             this.MgmtAlarmReports_BackPanel.SuspendLayout();
             this.SuspendLayout();
@@ -152,6 +152,24 @@
             this.MgmtAlarmLog_BackButton.UseVisualStyleBackColor = false;
             this.MgmtAlarmLog_BackButton.Click += new System.EventHandler(this.MgmtAlarmLog_BackButton_Click);
             // 
+            // MgmtAlarmLog_TitleText
+            // 
+            this.MgmtAlarmLog_TitleText.AutoSize = true;
+            this.MgmtAlarmLog_TitleText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MgmtAlarmLog_TitleText.Location = new System.Drawing.Point(14, 18);
+            this.MgmtAlarmLog_TitleText.Name = "MgmtAlarmLog_TitleText";
+            this.MgmtAlarmLog_TitleText.Size = new System.Drawing.Size(224, 24);
+            this.MgmtAlarmLog_TitleText.TabIndex = 1;
+            this.MgmtAlarmLog_TitleText.Text = "Bed Monitor Alarm Log";
+            // 
+            // MgmtAlarmLog_LogDataTable
+            // 
+            this.MgmtAlarmLog_LogDataTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.MgmtAlarmLog_LogDataTable.Location = new System.Drawing.Point(18, 63);
+            this.MgmtAlarmLog_LogDataTable.Name = "MgmtAlarmLog_LogDataTable";
+            this.MgmtAlarmLog_LogDataTable.Size = new System.Drawing.Size(773, 329);
+            this.MgmtAlarmLog_LogDataTable.TabIndex = 0;
+            // 
             // MgmtStaffReports_BackPanel
             // 
             this.MgmtStaffReports_BackPanel.Controls.Add(this.MgmtStaffReport_BackButton);
@@ -182,24 +200,6 @@
             this.MgmtStaffReport_TitleText.Size = new System.Drawing.Size(237, 24);
             this.MgmtStaffReport_TitleText.TabIndex = 0;
             this.MgmtStaffReport_TitleText.Text = "Staff Sign In/Out Reports";
-            // 
-            // MgmtAlarmLog_TitleText
-            // 
-            this.MgmtAlarmLog_TitleText.AutoSize = true;
-            this.MgmtAlarmLog_TitleText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MgmtAlarmLog_TitleText.Location = new System.Drawing.Point(14, 18);
-            this.MgmtAlarmLog_TitleText.Name = "MgmtAlarmLog_TitleText";
-            this.MgmtAlarmLog_TitleText.Size = new System.Drawing.Size(224, 24);
-            this.MgmtAlarmLog_TitleText.TabIndex = 1;
-            this.MgmtAlarmLog_TitleText.Text = "Bed Monitor Alarm Log";
-            // 
-            // MgmtAlarmLog_LogDataTable
-            // 
-            this.MgmtAlarmLog_LogDataTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.MgmtAlarmLog_LogDataTable.Location = new System.Drawing.Point(18, 63);
-            this.MgmtAlarmLog_LogDataTable.Name = "MgmtAlarmLog_LogDataTable";
-            this.MgmtAlarmLog_LogDataTable.Size = new System.Drawing.Size(773, 329);
-            this.MgmtAlarmLog_LogDataTable.TabIndex = 0;
             // 
             // MgmtMedicalRecords_BackPanel
             // 
@@ -244,16 +244,6 @@
             this.MgmtAlarmReports_BackPanel.TabIndex = 7;
             this.MgmtAlarmReports_BackPanel.Visible = false;
             // 
-            // MgmtAlarmReports_TitleText
-            // 
-            this.MgmtAlarmReports_TitleText.AutoSize = true;
-            this.MgmtAlarmReports_TitleText.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MgmtAlarmReports_TitleText.Location = new System.Drawing.Point(19, 15);
-            this.MgmtAlarmReports_TitleText.Name = "MgmtAlarmReports_TitleText";
-            this.MgmtAlarmReports_TitleText.Size = new System.Drawing.Size(161, 25);
-            this.MgmtAlarmReports_TitleText.TabIndex = 0;
-            this.MgmtAlarmReports_TitleText.Text = "Alarm Reports";
-            // 
             // MgmtAlarmReports_BackButton
             // 
             this.MgmtAlarmReports_BackButton.Location = new System.Drawing.Point(697, 16);
@@ -263,6 +253,16 @@
             this.MgmtAlarmReports_BackButton.Text = "Back";
             this.MgmtAlarmReports_BackButton.UseVisualStyleBackColor = true;
             this.MgmtAlarmReports_BackButton.Click += new System.EventHandler(this.MgmtAlarmReports_BackButton_Click);
+            // 
+            // MgmtAlarmReports_TitleText
+            // 
+            this.MgmtAlarmReports_TitleText.AutoSize = true;
+            this.MgmtAlarmReports_TitleText.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MgmtAlarmReports_TitleText.Location = new System.Drawing.Point(19, 15);
+            this.MgmtAlarmReports_TitleText.Name = "MgmtAlarmReports_TitleText";
+            this.MgmtAlarmReports_TitleText.Size = new System.Drawing.Size(161, 25);
+            this.MgmtAlarmReports_TitleText.TabIndex = 0;
+            this.MgmtAlarmReports_TitleText.Text = "Alarm Reports";
             // 
             // Management_Report_Interface
             // 
@@ -277,14 +277,14 @@
             this.Controls.Add(this.MgmtHome_BackPanel);
             this.Controls.Add(this.Mgmt_TitleText);
             this.Name = "Management_Report_Interface";
-            this.Text = "Management_Report_Interface";
+            this.Text = "Management Report Interface";
             this.Load += new System.EventHandler(this.Management_Report_Interface_Load);
             this.MgmtHome_BackPanel.ResumeLayout(false);
             this.MgmtAlarmLog_BackPanel.ResumeLayout(false);
             this.MgmtAlarmLog_BackPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.MgmtAlarmLog_LogDataTable)).EndInit();
             this.MgmtStaffReports_BackPanel.ResumeLayout(false);
             this.MgmtStaffReports_BackPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.MgmtAlarmLog_LogDataTable)).EndInit();
             this.MgmtMedicalRecords_BackPanel.ResumeLayout(false);
             this.MgmtMedicalRecords_BackPanel.PerformLayout();
             this.MgmtAlarmReports_BackPanel.ResumeLayout(false);

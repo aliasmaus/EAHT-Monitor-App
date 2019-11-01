@@ -83,6 +83,12 @@
     <Compile Include="MainPage.Designer.cs">
       <DependentUpon>MainPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="MonitorPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MonitorPage.designer.cs">
+      <DependentUpon>MonitorPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="PatientList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,7 +123,7 @@
     </Compile>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
-	</EmbeddedResource>
+    </EmbeddedResource>
     <EmbeddedResource Include="LoginPage.resx">
       <DependentUpon>LoginPage.cs</DependentUpon>
     </EmbeddedResource>
@@ -126,6 +132,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Management_Report_Interface.resx">
       <DependentUpon>Management_Report_Interface.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MonitorPage.resx">
+      <DependentUpon>MonitorPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PatientList.resx">
       <DependentUpon>PatientList.cs</DependentUpon>
