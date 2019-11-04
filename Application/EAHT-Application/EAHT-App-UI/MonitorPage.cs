@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ETAHDesign
+namespace EAHT_App_UI
 {
     public partial class MonitorPage : Form
     {
@@ -38,6 +38,11 @@ namespace ETAHDesign
         }
 
         private void BayValue_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MonitorPage_Load(object sender, EventArgs e)
         {
 
         }
