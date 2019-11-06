@@ -1,0 +1,5 @@
+﻿CREATE TABLE [dbo].[Patients]
+(
+	[Patient_ID] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [Name] VARCHAR(50) NULL
+)
