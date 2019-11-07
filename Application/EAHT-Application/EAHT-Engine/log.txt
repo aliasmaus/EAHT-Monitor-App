@@ -6422,6 +6422,7 @@
 {"message":"Completed Scope:BuildCommand.Apply Theme in 0.0041 milliseconds.","source":"BuildCommand.Apply Theme","date_time":"2019-10-22T14:17:39.6309352Z","message_severity":"verbose","correlation_id":"C9D878C6-8716-4A15-A958-6661A8E61110.2.185.1"}
 {"message":"Completed Scope:BuildCommand in 4903.1921 milliseconds.","source":"BuildCommand","date_time":"2019-10-22T14:17:39.6309352Z","message_severity":"info","correlation_id":"C9D878C6-8716-4A15-A958-6661A8E61110.2.186"}
 {"message":"Completed in 14074.8495 milliseconds","date_time":"2019-10-22T14:17:39.6319353Z","message_severity":"info","correlation_id":"C9D878C6-8716-4A15-A958-6661A8E61110.3"}
+<<<<<<< HEAD
 {"message":"Config file \"C:\\Users\\franc\\OneDrive\\Documents\\EAHT-Monitor-App\\EAHT-Monitor-App\\EAHT-Monitor-App\\Application\\EAHT-Application\\EAHT-Engine/docfx.json\" is used.","date_time":"2019-11-01T11:21:53.0662626Z","message_severity":"verbose"}
 {"message":"Using msbuild D:\\Visual Studio\\Visual Studio\\MSBuild\\Current\\Bin as inner compiler.","source":"MetadataCommand.ExtractMetadata","date_time":"2019-11-01T11:21:53.2128714Z","message_severity":"info","correlation_id":"884E5E40-1AB2-488F-A766-3A2E876F41A4.1.1.1"}
 {"message":"Loading projects...","source":"MetadataCommand.ExtractMetadata","date_time":"2019-11-01T11:21:53.7564173Z","message_severity":"info","correlation_id":"884E5E40-1AB2-488F-A766-3A2E876F41A4.1.1.2"}
