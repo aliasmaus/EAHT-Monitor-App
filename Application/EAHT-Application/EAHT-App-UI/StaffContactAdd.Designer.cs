@@ -253,6 +253,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "StaffContactAdd";
             this.Text = "Add/ Modify Staff Contact Details";
+            this.Load += new System.EventHandler(this.StaffContactAdd_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
