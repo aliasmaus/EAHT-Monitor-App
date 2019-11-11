@@ -21,5 +21,25 @@ namespace EAHT_App_UI
         {
 
         }
+        //Text box to show the Contact details
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+
+
+            Console.WriteLine("First Name: {0}"), FirstName;
+            Console.WriteLine("Last Name: ");
+            Console.WriteLine("Position: ");
+            Console.WriteLine("Id Number: ");
+            Console.WriteLine("Contact Number: ");
+            Console.WriteLine("Address: ");
+            Console.WriteLine("Additional Information: ");
+        }
+
+        //Text Box where to read the activity of an individual user
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            Console.WriteLine("Alarms triggered: ");
+        }
     }
 }
