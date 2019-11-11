@@ -12,6 +12,8 @@ namespace EAHT_App_UI
 {
     public partial class MainPage : Form
     {
+        static Random rng = new Random();
+
         public MainPage()
         {
             InitializeComponent();
@@ -58,6 +60,25 @@ namespace EAHT_App_UI
 
         private void MainPage_Load_1(object sender, EventArgs e)
         {
+
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void timer1_Tick_1(object sender, EventArgs e)
+        {
+            label2.Text = "Temp.:" + rng.Next(35, 40) + "Celcius";
+            label3.Text = "Breath Rate" + rng.Next(10, 25) + "bpm";
+            label4.Text = "Pulse" + rng.Next(0, 100);
+            label5.Text = "L:" + rng.Next(1, 10) + "H:" + rng.Next(10, 20);
 
         }
     }
