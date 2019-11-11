@@ -55,5 +55,10 @@ namespace EAHT_App_UI
         {
             
         }
+
+        private void MainPage_Load_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
