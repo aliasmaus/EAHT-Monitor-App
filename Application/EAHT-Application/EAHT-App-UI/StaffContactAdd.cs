@@ -18,6 +18,7 @@ namespace EAHT_App_UI
         public static string SetValueForText4 = "";
         public static string SetValueForText5 = "";
         public static string SetValueForText6 = "";
+        public static string SetValueForText7 = "";
 
         public StaffContactAdd()
         {
@@ -27,7 +28,11 @@ namespace EAHT_App_UI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            SetValueForText1 = txtName.Text;
+            StaffList obj = new StaffList();
+            obj.Name = txtFirstName.Text;
+            obj.LastName = txtLastName.Text;
+            SetValueForText1 = txtFirstName.Text;
+            SetValueForText7 = txtLastName.Text;
             SetValueForText2 = txtPosition.Text;
             SetValueForText3 = txtIdNumber.Text;
             SetValueForText4 = txtContactNumber.Text;
