@@ -46,5 +46,10 @@ namespace EAHT_App_UI
         {
 
         }
+
+        private void pulseVariable_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
