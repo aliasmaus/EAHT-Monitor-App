@@ -155,6 +155,7 @@
             this.SaveTemperatureValue.TabIndex = 13;
             this.SaveTemperatureValue.Text = "Save Value";
             this.SaveTemperatureValue.UseVisualStyleBackColor = true;
+            this.SaveTemperatureValue.Click += new System.EventHandler(this.SaveTemperatureValue_Click);
             // 
             // SavePulseValue
             // 
@@ -165,6 +166,7 @@
             this.SavePulseValue.TabIndex = 14;
             this.SavePulseValue.Text = "Save Value";
             this.SavePulseValue.UseVisualStyleBackColor = true;
+            this.SavePulseValue.Click += new System.EventHandler(this.SavePulseValue_Click);
             // 
             // SaveBreathingValue
             // 
@@ -175,6 +177,7 @@
             this.SaveBreathingValue.TabIndex = 15;
             this.SaveBreathingValue.Text = "Save Value";
             this.SaveBreathingValue.UseVisualStyleBackColor = true;
+            this.SaveBreathingValue.Click += new System.EventHandler(this.SaveBreathingValue_Click);
             // 
             // ReturnButton
             // 
@@ -185,6 +188,7 @@
             this.ReturnButton.TabIndex = 16;
             this.ReturnButton.Text = "Return";
             this.ReturnButton.UseVisualStyleBackColor = true;
+            this.ReturnButton.Click += new System.EventHandler(this.ReturnButton_Click);
             // 
             // AlarmMessage
             // 
@@ -214,6 +218,7 @@
             this.tempVariable.Name = "tempVariable";
             this.tempVariable.Size = new System.Drawing.Size(120, 22);
             this.tempVariable.TabIndex = 19;
+            this.tempVariable.TextChanged += new System.EventHandler(this.tempVariable_TextChanged);
             // 
             // bloodVariable
             // 
@@ -221,6 +226,7 @@
             this.bloodVariable.Name = "bloodVariable";
             this.bloodVariable.Size = new System.Drawing.Size(120, 22);
             this.bloodVariable.TabIndex = 20;
+            this.bloodVariable.TextChanged += new System.EventHandler(this.bloodVariable_TextChanged);
             // 
             // pulseVariable
             // 
@@ -236,6 +242,7 @@
             this.breatingVariable.Name = "breatingVariable";
             this.breatingVariable.Size = new System.Drawing.Size(120, 22);
             this.breatingVariable.TabIndex = 22;
+            this.breatingVariable.TextChanged += new System.EventHandler(this.breatingVariable_TextChanged);
             // 
             // MonitorPage
             // 

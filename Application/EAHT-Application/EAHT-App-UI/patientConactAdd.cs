@@ -29,8 +29,8 @@ namespace EAHT_App_UI
             obj.Address = txtAddress.Text;                  //Variable needs to be made
             obj.AddInformation = txtAddInformation.Text;    //Variable needs to be made
 
-            PatientDetails stdtils = new PatientDetails();
-            stdtils.Show();
+            PatientDetails patientDetails = new PatientDetails();
+            patientDetails.Show();
         }
 
         private void previousPageButton_Click(object sender, EventArgs e)
