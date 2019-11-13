@@ -27,13 +27,13 @@ namespace EAHT_App_UI
 
 
 
-            Console.WriteLine("First Name: {0}"), FirstName;
-            Console.WriteLine("Last Name: ");
-            Console.WriteLine("Position: ");
-            Console.WriteLine("Id Number: ");
-            Console.WriteLine("Contact Number: ");
-            Console.WriteLine("Address: ");
-            Console.WriteLine("Additional Information: ");
+            //Console.WriteLine("First Name: {0}"), FirstName;
+            //Console.WriteLine("Last Name: ");
+            //Console.WriteLine("Position: ");
+            //Console.WriteLine("Id Number: ");
+            //Console.WriteLine("Contact Number: ");
+           // Console.WriteLine("Address: ");
+            //Console.WriteLine("Additional Information: ");
         }
 
         //Text Box where to read the activity of an individual user

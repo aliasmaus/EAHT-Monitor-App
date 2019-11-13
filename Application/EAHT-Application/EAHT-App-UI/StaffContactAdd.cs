@@ -23,13 +23,13 @@ namespace EAHT_App_UI
         {
             //Create objects from values type on textbox in Contact Register
             StaffDetails obj = new StaffDetails();
-            obj.FirstName = txtFirstName.Text;
-            obj.LastName = txtLastName.Text;
-            obj.Position = txtPosition.Text;
-            obj.IdNumber = txtIdNumber.Text;
-            obj.ContactNumber = txtContactNumber.Text;
-            obj.Address = txtAddress.Text;
-            obj.AddInformation = txtAddInformation.Text;
+            //obj.FirstName = txtFirstName.Text;
+            //obj.LastName = txtLastName.Text;
+            //obj.Position = txtPosition.Text;
+            //obj.IdNumber = txtIdNumber.Text;
+            //obj.ContactNumber = txtContactNumber.Text;
+            //obj.Address = txtAddress.Text;
+            //obj.AddInformation = txtAddInformation.Text;
 
             listStaff.Items.Add(obj.ToString());
 

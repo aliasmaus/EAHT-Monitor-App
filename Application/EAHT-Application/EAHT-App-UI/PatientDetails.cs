@@ -20,8 +20,8 @@ namespace EAHT_App_UI
         private void previousPageButton_Click(object sender, EventArgs e)
         {
             // Button used to return to previous page
-            MonitorPage monitorPage = new MonitorPage();
-            monitorPage.Show();
+            //MonitorPage monitorPage = new MonitorPage();
+            //monitorPage.Show();
         }
 
         private void mainPageButton_Click(object sender, EventArgs e)
