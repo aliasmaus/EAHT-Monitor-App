@@ -137,10 +137,10 @@ namespace EAHT_App_UI
 
         private void PageUpdate(object sender, EventArgs e)
         {
-            this.Monitor1_CurrentReading.Text = bed.getMonitor1Read();
-            this.Monitor2_CurrentReading.Text = bed.getMonitor2Read();
-            this.Monitor3_CurrentReading.Text = bed.getMonitor3Read();
-            this.Monitor4_CurrentReading.Text = bed.getMonitor4Read();
+            this.Monitor1_CurrentReading.Text = bed.GetMonitor1Read();
+            this.Monitor2_CurrentReading.Text = bed.GetMonitor2Read();
+            this.Monitor3_CurrentReading.Text = bed.GetMonitor3Read();
+            this.Monitor4_CurrentReading.Text = bed.GetMonitor4Read();
         }
 
         private void ChangeMonitor1(object sender, EventArgs e)

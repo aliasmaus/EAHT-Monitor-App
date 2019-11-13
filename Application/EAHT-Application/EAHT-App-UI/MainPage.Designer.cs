@@ -34,14 +34,18 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.groupBox9 = new System.Windows.Forms.GroupBox();
-            this.groupBox10 = new System.Windows.Forms.GroupBox();
-            this.groupBox11 = new System.Windows.Forms.GroupBox();
-            this.groupBox12 = new System.Windows.Forms.GroupBox();
-            this.groupBox13 = new System.Windows.Forms.GroupBox();
-            this.groupBox14 = new System.Windows.Forms.GroupBox();
-            this.groupBox15 = new System.Windows.Forms.GroupBox();
-            this.groupBox16 = new System.Windows.Forms.GroupBox();
+            this.Bed5_GroupBox = new System.Windows.Forms.GroupBox();
+            this.Bed6_GroupBox = new System.Windows.Forms.GroupBox();
+            this.Bed7_GroupBox = new System.Windows.Forms.GroupBox();
+            this.Bed8_GroupBox = new System.Windows.Forms.GroupBox();
+            this.Bed2_GroupBox = new System.Windows.Forms.GroupBox();
+            this.Bed3_GroupBox = new System.Windows.Forms.GroupBox();
+            this.Bed4_GroupBox = new System.Windows.Forms.GroupBox();
+            this.Bed1_GroupBox = new System.Windows.Forms.GroupBox();
+            this.B1M3_Name = new System.Windows.Forms.Label();
+            this.B1M4_Name = new System.Windows.Forms.Label();
+            this.B1M2_Name = new System.Windows.Forms.Label();
+            this.B1M1_Name = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
@@ -52,57 +56,96 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button3 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
-            this.label28 = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
-            this.label30 = new System.Windows.Forms.Label();
-            this.label31 = new System.Windows.Forms.Label();
-            this.label32 = new System.Windows.Forms.Label();
-            this.label33 = new System.Windows.Forms.Label();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.Update = new System.Windows.Forms.Timer(this.components);
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.Bed1_InspectButton = new System.Windows.Forms.Button();
+            this.B1M1_Reading = new System.Windows.Forms.Label();
+            this.B1M2_Reading = new System.Windows.Forms.Label();
+            this.B1M3_Reading = new System.Windows.Forms.Label();
+            this.B1M4_Reading = new System.Windows.Forms.Label();
+            this.Bed2_InspectButton = new System.Windows.Forms.Button();
+            this.Bed3_InspectButton = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
+            this.B2M4_Reading = new System.Windows.Forms.Label();
+            this.B2M3_Reading = new System.Windows.Forms.Label();
+            this.B2M2_Reading = new System.Windows.Forms.Label();
+            this.B2M1_Reading = new System.Windows.Forms.Label();
+            this.B2M3_Name = new System.Windows.Forms.Label();
+            this.B2M4_Name = new System.Windows.Forms.Label();
+            this.B2M2_Name = new System.Windows.Forms.Label();
+            this.B2M1_Name = new System.Windows.Forms.Label();
+            this.B3M4_Reading = new System.Windows.Forms.Label();
+            this.B3M3_Reading = new System.Windows.Forms.Label();
+            this.B3M2_Name = new System.Windows.Forms.Label();
+            this.B3M2_Reading = new System.Windows.Forms.Label();
+            this.B3M1_Name = new System.Windows.Forms.Label();
+            this.B3M1_Reading = new System.Windows.Forms.Label();
+            this.B3M4_Name = new System.Windows.Forms.Label();
+            this.B3M3_Name = new System.Windows.Forms.Label();
+            this.B4M4_Reading = new System.Windows.Forms.Label();
+            this.B4M3_Reading = new System.Windows.Forms.Label();
+            this.B4M2_Name = new System.Windows.Forms.Label();
+            this.B4M2_Reading = new System.Windows.Forms.Label();
+            this.B4M1_Name = new System.Windows.Forms.Label();
+            this.B4M1_Reading = new System.Windows.Forms.Label();
+            this.B4M4_Name = new System.Windows.Forms.Label();
+            this.B4M3_Name = new System.Windows.Forms.Label();
+            this.B5M4_Reading = new System.Windows.Forms.Label();
+            this.B5M3_Reading = new System.Windows.Forms.Label();
+            this.B5M2_Name = new System.Windows.Forms.Label();
+            this.B5M2_Reading = new System.Windows.Forms.Label();
+            this.B5M1_Name = new System.Windows.Forms.Label();
+            this.B5M1_Reading = new System.Windows.Forms.Label();
+            this.B5M4_Name = new System.Windows.Forms.Label();
+            this.B5M3_Name = new System.Windows.Forms.Label();
+            this.B6M4_Reading = new System.Windows.Forms.Label();
+            this.B6M3_Reading = new System.Windows.Forms.Label();
+            this.B6M2_Name = new System.Windows.Forms.Label();
+            this.B6M2_Reading = new System.Windows.Forms.Label();
+            this.B6M1_Name = new System.Windows.Forms.Label();
+            this.B6M1_Reading = new System.Windows.Forms.Label();
+            this.B6M4_Name = new System.Windows.Forms.Label();
+            this.B6M3_Name = new System.Windows.Forms.Label();
+            this.B7M4_Reading = new System.Windows.Forms.Label();
+            this.B7M3_Reading = new System.Windows.Forms.Label();
+            this.B7M2_Name = new System.Windows.Forms.Label();
+            this.B7M2_Reading = new System.Windows.Forms.Label();
+            this.B7M1_Name = new System.Windows.Forms.Label();
+            this.B7M1_Reading = new System.Windows.Forms.Label();
+            this.B7M4_Name = new System.Windows.Forms.Label();
+            this.B7M3_Name = new System.Windows.Forms.Label();
+            this.B8M4_Reading = new System.Windows.Forms.Label();
+            this.B8M3_Reading = new System.Windows.Forms.Label();
+            this.B8M2_Name = new System.Windows.Forms.Label();
+            this.B8M2_Reading = new System.Windows.Forms.Label();
+            this.B8M1_Name = new System.Windows.Forms.Label();
+            this.B8M1_Reading = new System.Windows.Forms.Label();
+            this.B8M4_Name = new System.Windows.Forms.Label();
+            this.B8M3_Name = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.groupBox9.SuspendLayout();
-            this.groupBox10.SuspendLayout();
-            this.groupBox11.SuspendLayout();
-            this.groupBox12.SuspendLayout();
-            this.groupBox13.SuspendLayout();
-            this.groupBox14.SuspendLayout();
-            this.groupBox15.SuspendLayout();
-            this.groupBox16.SuspendLayout();
+            this.Bed5_GroupBox.SuspendLayout();
+            this.Bed6_GroupBox.SuspendLayout();
+            this.Bed7_GroupBox.SuspendLayout();
+            this.Bed8_GroupBox.SuspendLayout();
+            this.Bed2_GroupBox.SuspendLayout();
+            this.Bed3_GroupBox.SuspendLayout();
+            this.Bed4_GroupBox.SuspendLayout();
+            this.Bed1_GroupBox.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(752, 12);
+            this.button1.Location = new System.Drawing.Point(564, 10);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(137, 42);
+            this.button1.Size = new System.Drawing.Size(103, 34);
             this.button1.TabIndex = 0;
             this.button1.Text = "Patient Record";
             this.button1.UseVisualStyleBackColor = true;
@@ -110,9 +153,10 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(895, 12);
+            this.button2.Location = new System.Drawing.Point(671, 10);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(142, 42);
+            this.button2.Size = new System.Drawing.Size(106, 34);
             this.button2.TabIndex = 1;
             this.button2.Text = "Management Login";
             this.button2.UseVisualStyleBackColor = true;
@@ -122,9 +166,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.label1.Location = new System.Drawing.Point(380, 9);
+            this.label1.Location = new System.Drawing.Point(285, 7);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(241, 29);
+            this.label1.Size = new System.Drawing.Size(186, 25);
             this.label1.TabIndex = 2;
             this.label1.Text = "East Anglia Hospital";
             // 
@@ -132,142 +177,234 @@
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(12, 124);
+            this.tabControl1.Location = new System.Drawing.Point(91, 80);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1025, 274);
+            this.tabControl1.Size = new System.Drawing.Size(661, 379);
             this.tabControl1.TabIndex = 4;
             // 
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.Black;
-            this.tabPage1.Controls.Add(this.groupBox9);
-            this.tabPage1.Controls.Add(this.groupBox10);
-            this.tabPage1.Controls.Add(this.groupBox11);
-            this.tabPage1.Controls.Add(this.groupBox12);
-            this.tabPage1.Controls.Add(this.groupBox13);
-            this.tabPage1.Controls.Add(this.groupBox14);
-            this.tabPage1.Controls.Add(this.groupBox15);
-            this.tabPage1.Controls.Add(this.groupBox16);
+            this.tabPage1.Controls.Add(this.flowLayoutPanel1);
             this.tabPage1.ForeColor = System.Drawing.Color.White;
-            this.tabPage1.Location = new System.Drawing.Point(4, 25);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1017, 245);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(2);
+            this.tabPage1.Size = new System.Drawing.Size(653, 353);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Bay 1";
             // 
-            // groupBox9
+            // Bed5_GroupBox
             // 
-            this.groupBox9.Controls.Add(this.label21);
-            this.groupBox9.Controls.Add(this.label20);
-            this.groupBox9.Controls.Add(this.label19);
-            this.groupBox9.Controls.Add(this.label18);
-            this.groupBox9.ForeColor = System.Drawing.Color.White;
-            this.groupBox9.Location = new System.Drawing.Point(26, 138);
-            this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(200, 100);
-            this.groupBox9.TabIndex = 7;
-            this.groupBox9.TabStop = false;
-            this.groupBox9.Text = "Monitor 5";
+            this.Bed5_GroupBox.Controls.Add(this.B5M4_Reading);
+            this.Bed5_GroupBox.Controls.Add(this.B5M3_Reading);
+            this.Bed5_GroupBox.Controls.Add(this.B5M2_Name);
+            this.Bed5_GroupBox.Controls.Add(this.B5M2_Reading);
+            this.Bed5_GroupBox.Controls.Add(this.B5M1_Name);
+            this.Bed5_GroupBox.Controls.Add(this.B5M1_Reading);
+            this.Bed5_GroupBox.Controls.Add(this.B5M4_Name);
+            this.Bed5_GroupBox.Controls.Add(this.B5M3_Name);
+            this.Bed5_GroupBox.Controls.Add(this.button4);
+            this.Bed5_GroupBox.ForeColor = System.Drawing.Color.White;
+            this.Bed5_GroupBox.Location = new System.Drawing.Point(2, 156);
+            this.Bed5_GroupBox.Margin = new System.Windows.Forms.Padding(2);
+            this.Bed5_GroupBox.Name = "Bed5_GroupBox";
+            this.Bed5_GroupBox.Padding = new System.Windows.Forms.Padding(2);
+            this.Bed5_GroupBox.Size = new System.Drawing.Size(150, 150);
+            this.Bed5_GroupBox.TabIndex = 7;
+            this.Bed5_GroupBox.TabStop = false;
+            this.Bed5_GroupBox.Text = "Monitor 5";
             // 
-            // groupBox10
+            // Bed6_GroupBox
             // 
-            this.groupBox10.Controls.Add(this.label25);
-            this.groupBox10.Controls.Add(this.label24);
-            this.groupBox10.Controls.Add(this.label23);
-            this.groupBox10.Controls.Add(this.label22);
-            this.groupBox10.ForeColor = System.Drawing.Color.White;
-            this.groupBox10.Location = new System.Drawing.Point(282, 138);
-            this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(200, 100);
-            this.groupBox10.TabIndex = 13;
-            this.groupBox10.TabStop = false;
-            this.groupBox10.Text = "Monitor 6";
+            this.Bed6_GroupBox.Controls.Add(this.B6M4_Reading);
+            this.Bed6_GroupBox.Controls.Add(this.button6);
+            this.Bed6_GroupBox.Controls.Add(this.B6M3_Reading);
+            this.Bed6_GroupBox.Controls.Add(this.B6M2_Name);
+            this.Bed6_GroupBox.Controls.Add(this.B6M3_Name);
+            this.Bed6_GroupBox.Controls.Add(this.B6M2_Reading);
+            this.Bed6_GroupBox.Controls.Add(this.B6M4_Name);
+            this.Bed6_GroupBox.Controls.Add(this.B6M1_Name);
+            this.Bed6_GroupBox.Controls.Add(this.B6M1_Reading);
+            this.Bed6_GroupBox.ForeColor = System.Drawing.Color.White;
+            this.Bed6_GroupBox.Location = new System.Drawing.Point(156, 156);
+            this.Bed6_GroupBox.Margin = new System.Windows.Forms.Padding(2);
+            this.Bed6_GroupBox.Name = "Bed6_GroupBox";
+            this.Bed6_GroupBox.Padding = new System.Windows.Forms.Padding(2);
+            this.Bed6_GroupBox.Size = new System.Drawing.Size(150, 150);
+            this.Bed6_GroupBox.TabIndex = 13;
+            this.Bed6_GroupBox.TabStop = false;
+            this.Bed6_GroupBox.Text = "Monitor 6";
             // 
-            // groupBox11
+            // Bed7_GroupBox
             // 
-            this.groupBox11.Controls.Add(this.label29);
-            this.groupBox11.Controls.Add(this.label28);
-            this.groupBox11.Controls.Add(this.label27);
-            this.groupBox11.Controls.Add(this.label26);
-            this.groupBox11.ForeColor = System.Drawing.Color.White;
-            this.groupBox11.Location = new System.Drawing.Point(554, 138);
-            this.groupBox11.Name = "groupBox11";
-            this.groupBox11.Size = new System.Drawing.Size(200, 100);
-            this.groupBox11.TabIndex = 8;
-            this.groupBox11.TabStop = false;
-            this.groupBox11.Text = "Monitor 7";
+            this.Bed7_GroupBox.Controls.Add(this.B7M4_Reading);
+            this.Bed7_GroupBox.Controls.Add(this.button7);
+            this.Bed7_GroupBox.Controls.Add(this.B7M3_Reading);
+            this.Bed7_GroupBox.Controls.Add(this.B7M2_Name);
+            this.Bed7_GroupBox.Controls.Add(this.B7M3_Name);
+            this.Bed7_GroupBox.Controls.Add(this.B7M2_Reading);
+            this.Bed7_GroupBox.Controls.Add(this.B7M4_Name);
+            this.Bed7_GroupBox.Controls.Add(this.B7M1_Name);
+            this.Bed7_GroupBox.Controls.Add(this.B7M1_Reading);
+            this.Bed7_GroupBox.ForeColor = System.Drawing.Color.White;
+            this.Bed7_GroupBox.Location = new System.Drawing.Point(310, 156);
+            this.Bed7_GroupBox.Margin = new System.Windows.Forms.Padding(2);
+            this.Bed7_GroupBox.Name = "Bed7_GroupBox";
+            this.Bed7_GroupBox.Padding = new System.Windows.Forms.Padding(2);
+            this.Bed7_GroupBox.Size = new System.Drawing.Size(150, 150);
+            this.Bed7_GroupBox.TabIndex = 8;
+            this.Bed7_GroupBox.TabStop = false;
+            this.Bed7_GroupBox.Text = "Monitor 7";
             // 
-            // groupBox12
+            // Bed8_GroupBox
             // 
-            this.groupBox12.Controls.Add(this.label33);
-            this.groupBox12.Controls.Add(this.label32);
-            this.groupBox12.Controls.Add(this.label31);
-            this.groupBox12.Controls.Add(this.label30);
-            this.groupBox12.ForeColor = System.Drawing.Color.White;
-            this.groupBox12.Location = new System.Drawing.Point(790, 138);
-            this.groupBox12.Name = "groupBox12";
-            this.groupBox12.Size = new System.Drawing.Size(200, 100);
-            this.groupBox12.TabIndex = 9;
-            this.groupBox12.TabStop = false;
-            this.groupBox12.Text = "Monitor 8";
+            this.Bed8_GroupBox.Controls.Add(this.B8M4_Reading);
+            this.Bed8_GroupBox.Controls.Add(this.button8);
+            this.Bed8_GroupBox.Controls.Add(this.B8M3_Reading);
+            this.Bed8_GroupBox.Controls.Add(this.B8M1_Name);
+            this.Bed8_GroupBox.Controls.Add(this.B8M2_Name);
+            this.Bed8_GroupBox.Controls.Add(this.B8M3_Name);
+            this.Bed8_GroupBox.Controls.Add(this.B8M2_Reading);
+            this.Bed8_GroupBox.Controls.Add(this.B8M4_Name);
+            this.Bed8_GroupBox.Controls.Add(this.B8M1_Reading);
+            this.Bed8_GroupBox.ForeColor = System.Drawing.Color.White;
+            this.Bed8_GroupBox.Location = new System.Drawing.Point(464, 156);
+            this.Bed8_GroupBox.Margin = new System.Windows.Forms.Padding(2);
+            this.Bed8_GroupBox.Name = "Bed8_GroupBox";
+            this.Bed8_GroupBox.Padding = new System.Windows.Forms.Padding(2);
+            this.Bed8_GroupBox.Size = new System.Drawing.Size(150, 150);
+            this.Bed8_GroupBox.TabIndex = 9;
+            this.Bed8_GroupBox.TabStop = false;
+            this.Bed8_GroupBox.Text = "Monitor 8";
             // 
-            // groupBox13
+            // Bed2_GroupBox
             // 
-            this.groupBox13.Controls.Add(this.label9);
-            this.groupBox13.Controls.Add(this.label8);
-            this.groupBox13.Controls.Add(this.label7);
-            this.groupBox13.Controls.Add(this.label6);
-            this.groupBox13.ForeColor = System.Drawing.Color.White;
-            this.groupBox13.Location = new System.Drawing.Point(282, 17);
-            this.groupBox13.Name = "groupBox13";
-            this.groupBox13.Size = new System.Drawing.Size(200, 100);
-            this.groupBox13.TabIndex = 10;
-            this.groupBox13.TabStop = false;
-            this.groupBox13.Text = "Monitor 2";
+            this.Bed2_GroupBox.Controls.Add(this.B2M4_Reading);
+            this.Bed2_GroupBox.Controls.Add(this.Bed2_InspectButton);
+            this.Bed2_GroupBox.Controls.Add(this.B2M3_Reading);
+            this.Bed2_GroupBox.Controls.Add(this.B2M2_Name);
+            this.Bed2_GroupBox.Controls.Add(this.B2M2_Reading);
+            this.Bed2_GroupBox.Controls.Add(this.B2M1_Name);
+            this.Bed2_GroupBox.Controls.Add(this.B2M1_Reading);
+            this.Bed2_GroupBox.Controls.Add(this.B2M4_Name);
+            this.Bed2_GroupBox.Controls.Add(this.B2M3_Name);
+            this.Bed2_GroupBox.ForeColor = System.Drawing.Color.White;
+            this.Bed2_GroupBox.Location = new System.Drawing.Point(156, 2);
+            this.Bed2_GroupBox.Margin = new System.Windows.Forms.Padding(2);
+            this.Bed2_GroupBox.Name = "Bed2_GroupBox";
+            this.Bed2_GroupBox.Padding = new System.Windows.Forms.Padding(2);
+            this.Bed2_GroupBox.Size = new System.Drawing.Size(150, 150);
+            this.Bed2_GroupBox.TabIndex = 10;
+            this.Bed2_GroupBox.TabStop = false;
+            this.Bed2_GroupBox.Text = "Monitor 2";
             // 
-            // groupBox14
+            // Bed3_GroupBox
             // 
-            this.groupBox14.Controls.Add(this.label13);
-            this.groupBox14.Controls.Add(this.label12);
-            this.groupBox14.Controls.Add(this.label11);
-            this.groupBox14.Controls.Add(this.label10);
-            this.groupBox14.ForeColor = System.Drawing.Color.White;
-            this.groupBox14.Location = new System.Drawing.Point(554, 17);
-            this.groupBox14.Name = "groupBox14";
-            this.groupBox14.Size = new System.Drawing.Size(200, 100);
-            this.groupBox14.TabIndex = 11;
-            this.groupBox14.TabStop = false;
-            this.groupBox14.Text = "Monitor 3";
+            this.Bed3_GroupBox.Controls.Add(this.B3M4_Reading);
+            this.Bed3_GroupBox.Controls.Add(this.Bed3_InspectButton);
+            this.Bed3_GroupBox.Controls.Add(this.B3M3_Reading);
+            this.Bed3_GroupBox.Controls.Add(this.B3M2_Name);
+            this.Bed3_GroupBox.Controls.Add(this.B3M3_Name);
+            this.Bed3_GroupBox.Controls.Add(this.B3M2_Reading);
+            this.Bed3_GroupBox.Controls.Add(this.B3M4_Name);
+            this.Bed3_GroupBox.Controls.Add(this.B3M1_Name);
+            this.Bed3_GroupBox.Controls.Add(this.B3M1_Reading);
+            this.Bed3_GroupBox.ForeColor = System.Drawing.Color.White;
+            this.Bed3_GroupBox.Location = new System.Drawing.Point(310, 2);
+            this.Bed3_GroupBox.Margin = new System.Windows.Forms.Padding(2);
+            this.Bed3_GroupBox.Name = "Bed3_GroupBox";
+            this.Bed3_GroupBox.Padding = new System.Windows.Forms.Padding(2);
+            this.Bed3_GroupBox.Size = new System.Drawing.Size(150, 150);
+            this.Bed3_GroupBox.TabIndex = 11;
+            this.Bed3_GroupBox.TabStop = false;
+            this.Bed3_GroupBox.Text = "Monitor 3";
             // 
-            // groupBox15
+            // Bed4_GroupBox
             // 
-            this.groupBox15.Controls.Add(this.label14);
-            this.groupBox15.Controls.Add(this.label15);
-            this.groupBox15.Controls.Add(this.label16);
-            this.groupBox15.Controls.Add(this.label17);
-            this.groupBox15.ForeColor = System.Drawing.Color.White;
-            this.groupBox15.Location = new System.Drawing.Point(790, 17);
-            this.groupBox15.Name = "groupBox15";
-            this.groupBox15.Size = new System.Drawing.Size(200, 100);
-            this.groupBox15.TabIndex = 12;
-            this.groupBox15.TabStop = false;
-            this.groupBox15.Text = "Monitor 4";
+            this.Bed4_GroupBox.Controls.Add(this.B4M4_Reading);
+            this.Bed4_GroupBox.Controls.Add(this.button5);
+            this.Bed4_GroupBox.Controls.Add(this.B4M3_Reading);
+            this.Bed4_GroupBox.Controls.Add(this.B4M2_Name);
+            this.Bed4_GroupBox.Controls.Add(this.B4M3_Name);
+            this.Bed4_GroupBox.Controls.Add(this.B4M2_Reading);
+            this.Bed4_GroupBox.Controls.Add(this.B4M4_Name);
+            this.Bed4_GroupBox.Controls.Add(this.B4M1_Name);
+            this.Bed4_GroupBox.Controls.Add(this.B4M1_Reading);
+            this.Bed4_GroupBox.ForeColor = System.Drawing.Color.White;
+            this.Bed4_GroupBox.Location = new System.Drawing.Point(464, 2);
+            this.Bed4_GroupBox.Margin = new System.Windows.Forms.Padding(2);
+            this.Bed4_GroupBox.Name = "Bed4_GroupBox";
+            this.Bed4_GroupBox.Padding = new System.Windows.Forms.Padding(2);
+            this.Bed4_GroupBox.Size = new System.Drawing.Size(150, 150);
+            this.Bed4_GroupBox.TabIndex = 12;
+            this.Bed4_GroupBox.TabStop = false;
+            this.Bed4_GroupBox.Text = "Monitor 4";
             // 
-            // groupBox16
+            // Bed1_GroupBox
             // 
-            this.groupBox16.Controls.Add(this.label5);
-            this.groupBox16.Controls.Add(this.label4);
-            this.groupBox16.Controls.Add(this.label3);
-            this.groupBox16.Controls.Add(this.label2);
-            this.groupBox16.ForeColor = System.Drawing.Color.White;
-            this.groupBox16.Location = new System.Drawing.Point(26, 17);
-            this.groupBox16.Name = "groupBox16";
-            this.groupBox16.Size = new System.Drawing.Size(200, 100);
-            this.groupBox16.TabIndex = 6;
-            this.groupBox16.TabStop = false;
-            this.groupBox16.Text = "Monitor 1";
+            this.Bed1_GroupBox.Controls.Add(this.B1M4_Reading);
+            this.Bed1_GroupBox.Controls.Add(this.B1M3_Reading);
+            this.Bed1_GroupBox.Controls.Add(this.B1M2_Reading);
+            this.Bed1_GroupBox.Controls.Add(this.B1M1_Reading);
+            this.Bed1_GroupBox.Controls.Add(this.Bed1_InspectButton);
+            this.Bed1_GroupBox.Controls.Add(this.B1M3_Name);
+            this.Bed1_GroupBox.Controls.Add(this.B1M4_Name);
+            this.Bed1_GroupBox.Controls.Add(this.B1M2_Name);
+            this.Bed1_GroupBox.Controls.Add(this.B1M1_Name);
+            this.Bed1_GroupBox.ForeColor = System.Drawing.Color.White;
+            this.Bed1_GroupBox.Location = new System.Drawing.Point(2, 2);
+            this.Bed1_GroupBox.Margin = new System.Windows.Forms.Padding(2);
+            this.Bed1_GroupBox.Name = "Bed1_GroupBox";
+            this.Bed1_GroupBox.Padding = new System.Windows.Forms.Padding(2);
+            this.Bed1_GroupBox.Size = new System.Drawing.Size(150, 150);
+            this.Bed1_GroupBox.TabIndex = 6;
+            this.Bed1_GroupBox.TabStop = false;
+            this.Bed1_GroupBox.Text = "Bed Number";
+            this.Bed1_GroupBox.Enter += new System.EventHandler(this.groupBox16_Enter);
+            // 
+            // B1M3_Name
+            // 
+            this.B1M3_Name.AutoSize = true;
+            this.B1M3_Name.Location = new System.Drawing.Point(12, 64);
+            this.B1M3_Name.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.B1M3_Name.Name = "B1M3_Name";
+            this.B1M3_Name.Size = new System.Drawing.Size(51, 13);
+            this.B1M3_Name.TabIndex = 3;
+            this.B1M3_Name.Text = "Monitor 3";
+            // 
+            // B1M4_Name
+            // 
+            this.B1M4_Name.AutoSize = true;
+            this.B1M4_Name.Location = new System.Drawing.Point(83, 64);
+            this.B1M4_Name.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.B1M4_Name.Name = "B1M4_Name";
+            this.B1M4_Name.Size = new System.Drawing.Size(51, 13);
+            this.B1M4_Name.TabIndex = 2;
+            this.B1M4_Name.Text = "Monitor 4";
+            // 
+            // B1M2_Name
+            // 
+            this.B1M2_Name.AutoSize = true;
+            this.B1M2_Name.Location = new System.Drawing.Point(83, 23);
+            this.B1M2_Name.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.B1M2_Name.Name = "B1M2_Name";
+            this.B1M2_Name.Size = new System.Drawing.Size(51, 13);
+            this.B1M2_Name.TabIndex = 1;
+            this.B1M2_Name.Text = "Monitor 2";
+            // 
+            // B1M1_Name
+            // 
+            this.B1M1_Name.AutoSize = true;
+            this.B1M1_Name.Location = new System.Drawing.Point(12, 23);
+            this.B1M1_Name.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.B1M1_Name.Name = "B1M1_Name";
+            this.B1M1_Name.Size = new System.Drawing.Size(51, 13);
+            this.B1M1_Name.TabIndex = 0;
+            this.B1M1_Name.Text = "Monitor 1";
             // 
             // tabPage2
             // 
@@ -281,19 +418,22 @@
             this.tabPage2.Controls.Add(this.groupBox4);
             this.tabPage2.Controls.Add(this.groupBox1);
             this.tabPage2.ForeColor = System.Drawing.Color.White;
-            this.tabPage2.Location = new System.Drawing.Point(4, 25);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1017, 245);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(2);
+            this.tabPage2.Size = new System.Drawing.Size(653, 353);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Bay 2";
             // 
             // groupBox8
             // 
             this.groupBox8.ForeColor = System.Drawing.Color.White;
-            this.groupBox8.Location = new System.Drawing.Point(23, 137);
+            this.groupBox8.Location = new System.Drawing.Point(17, 111);
+            this.groupBox8.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(200, 100);
+            this.groupBox8.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox8.Size = new System.Drawing.Size(150, 81);
             this.groupBox8.TabIndex = 1;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Monitor 5";
@@ -301,9 +441,11 @@
             // groupBox5
             // 
             this.groupBox5.ForeColor = System.Drawing.Color.White;
-            this.groupBox5.Location = new System.Drawing.Point(279, 137);
+            this.groupBox5.Location = new System.Drawing.Point(209, 111);
+            this.groupBox5.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(200, 100);
+            this.groupBox5.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox5.Size = new System.Drawing.Size(150, 81);
             this.groupBox5.TabIndex = 5;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Monitor 6";
@@ -311,9 +453,11 @@
             // groupBox6
             // 
             this.groupBox6.ForeColor = System.Drawing.Color.White;
-            this.groupBox6.Location = new System.Drawing.Point(551, 137);
+            this.groupBox6.Location = new System.Drawing.Point(413, 111);
+            this.groupBox6.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(200, 100);
+            this.groupBox6.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox6.Size = new System.Drawing.Size(150, 81);
             this.groupBox6.TabIndex = 1;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Monitor 7";
@@ -321,9 +465,11 @@
             // groupBox7
             // 
             this.groupBox7.ForeColor = System.Drawing.Color.White;
-            this.groupBox7.Location = new System.Drawing.Point(787, 137);
+            this.groupBox7.Location = new System.Drawing.Point(590, 111);
+            this.groupBox7.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(200, 100);
+            this.groupBox7.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox7.Size = new System.Drawing.Size(150, 81);
             this.groupBox7.TabIndex = 1;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Monitor 8";
@@ -331,9 +477,11 @@
             // groupBox2
             // 
             this.groupBox2.ForeColor = System.Drawing.Color.Wheat;
-            this.groupBox2.Location = new System.Drawing.Point(279, 16);
+            this.groupBox2.Location = new System.Drawing.Point(209, 13);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(200, 100);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox2.Size = new System.Drawing.Size(150, 81);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Monitor 2";
@@ -341,9 +489,11 @@
             // groupBox3
             // 
             this.groupBox3.ForeColor = System.Drawing.Color.White;
-            this.groupBox3.Location = new System.Drawing.Point(551, 16);
+            this.groupBox3.Location = new System.Drawing.Point(413, 13);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(200, 100);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox3.Size = new System.Drawing.Size(150, 81);
             this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Monitor 3";
@@ -351,9 +501,11 @@
             // groupBox4
             // 
             this.groupBox4.ForeColor = System.Drawing.Color.White;
-            this.groupBox4.Location = new System.Drawing.Point(787, 16);
+            this.groupBox4.Location = new System.Drawing.Point(590, 13);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(200, 100);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox4.Size = new System.Drawing.Size(150, 81);
             this.groupBox4.TabIndex = 1;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Monitor 4";
@@ -362,349 +514,746 @@
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Black;
             this.groupBox1.ForeColor = System.Drawing.Color.Bisque;
-            this.groupBox1.Location = new System.Drawing.Point(23, 16);
+            this.groupBox1.Location = new System.Drawing.Point(17, 13);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(200, 100);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Size = new System.Drawing.Size(150, 81);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Monitor 1";
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(16, 8);
+            this.button3.Location = new System.Drawing.Point(12, 6);
+            this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(76, 40);
+            this.button3.Size = new System.Drawing.Size(57, 32);
             this.button3.TabIndex = 5;
             this.button3.Text = "Log off";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(16, 28);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(46, 17);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "label2";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(111, 28);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(46, 17);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "label3";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(111, 64);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(46, 17);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "label4";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(16, 64);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(46, 17);
-            this.label5.TabIndex = 3;
-            this.label5.Text = "label5";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(20, 28);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(46, 17);
-            this.label6.TabIndex = 4;
-            this.label6.Text = "label6";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(114, 28);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(46, 17);
-            this.label7.TabIndex = 5;
-            this.label7.Text = "label7";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(114, 64);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(46, 17);
-            this.label8.TabIndex = 6;
-            this.label8.Text = "label8";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(20, 64);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(46, 17);
-            this.label9.TabIndex = 7;
-            this.label9.Text = "label9";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(13, 64);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(54, 17);
-            this.label10.TabIndex = 1;
-            this.label10.Text = "label10";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(133, 25);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(54, 17);
-            this.label11.TabIndex = 2;
-            this.label11.Text = "label11";
-            this.label11.Click += new System.EventHandler(this.label11_Click);
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(13, 28);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(54, 17);
-            this.label12.TabIndex = 3;
-            this.label12.Text = "label12";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(133, 64);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(54, 17);
-            this.label13.TabIndex = 4;
-            this.label13.Text = "label13";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(19, 25);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(54, 17);
-            this.label14.TabIndex = 6;
-            this.label14.Text = "label14";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(19, 64);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(54, 17);
-            this.label15.TabIndex = 7;
-            this.label15.Text = "label15";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(111, 25);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(54, 17);
-            this.label16.TabIndex = 8;
-            this.label16.Text = "label16";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(111, 64);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(54, 17);
-            this.label17.TabIndex = 9;
-            this.label17.Text = "label17";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(16, 18);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(54, 17);
-            this.label18.TabIndex = 1;
-            this.label18.Text = "label18";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(16, 67);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(54, 17);
-            this.label19.TabIndex = 2;
-            this.label19.Text = "label19";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(127, 18);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(54, 17);
-            this.label20.TabIndex = 3;
-            this.label20.Text = "label20";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(127, 67);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(54, 17);
-            this.label21.TabIndex = 4;
-            this.label21.Text = "label21";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(6, 18);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(54, 17);
-            this.label22.TabIndex = 5;
-            this.label22.Text = "label22";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(12, 67);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(54, 17);
-            this.label23.TabIndex = 6;
-            this.label23.Text = "label23";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(114, 18);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(54, 17);
-            this.label24.TabIndex = 7;
-            this.label24.Text = "label24";
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(114, 67);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(54, 17);
-            this.label25.TabIndex = 8;
-            this.label25.Text = "label25";
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(23, 18);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(54, 17);
-            this.label26.TabIndex = 2;
-            this.label26.Text = "label26";
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(133, 18);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(54, 17);
-            this.label27.TabIndex = 3;
-            this.label27.Text = "label27";
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(23, 67);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(54, 17);
-            this.label28.TabIndex = 4;
-            this.label28.Text = "label28";
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(133, 67);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(54, 17);
-            this.label29.TabIndex = 5;
-            this.label29.Text = "label29";
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(19, 18);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(54, 17);
-            this.label30.TabIndex = 2;
-            this.label30.Text = "label30";
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(131, 18);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(54, 17);
-            this.label31.TabIndex = 3;
-            this.label31.Text = "label31";
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(19, 67);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(54, 17);
-            this.label32.TabIndex = 4;
-            this.label32.Text = "label32";
-            // 
-            // label33
-            // 
-            this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(131, 67);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(54, 17);
-            this.label33.TabIndex = 5;
-            this.label33.Text = "label33";
-            // 
-            // timer1
-            // 
-            this.timer1.Interval = 5000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick_1);
+            // Update
+            // 
+            this.Update.Enabled = true;
+            this.Update.Interval = 1000;
+            this.Update.Tick += new System.EventHandler(this.Update_MainPage);
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.AllowDrop = true;
+            this.flowLayoutPanel1.Controls.Add(this.Bed1_GroupBox);
+            this.flowLayoutPanel1.Controls.Add(this.Bed2_GroupBox);
+            this.flowLayoutPanel1.Controls.Add(this.Bed3_GroupBox);
+            this.flowLayoutPanel1.Controls.Add(this.Bed4_GroupBox);
+            this.flowLayoutPanel1.Controls.Add(this.Bed5_GroupBox);
+            this.flowLayoutPanel1.Controls.Add(this.Bed6_GroupBox);
+            this.flowLayoutPanel1.Controls.Add(this.Bed7_GroupBox);
+            this.flowLayoutPanel1.Controls.Add(this.Bed8_GroupBox);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(5, 5);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(634, 341);
+            this.flowLayoutPanel1.TabIndex = 14;
+            // 
+            // Bed1_InspectButton
+            // 
+            this.Bed1_InspectButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Bed1_InspectButton.ForeColor = System.Drawing.Color.Black;
+            this.Bed1_InspectButton.Location = new System.Drawing.Point(49, 113);
+            this.Bed1_InspectButton.Name = "Bed1_InspectButton";
+            this.Bed1_InspectButton.Size = new System.Drawing.Size(57, 23);
+            this.Bed1_InspectButton.TabIndex = 4;
+            this.Bed1_InspectButton.Text = "Inspect";
+            this.Bed1_InspectButton.UseVisualStyleBackColor = true;
+            this.Bed1_InspectButton.Click += new System.EventHandler(this.Open_Bed_1);
+            // 
+            // B1M1_Reading
+            // 
+            this.B1M1_Reading.AutoSize = true;
+            this.B1M1_Reading.Location = new System.Drawing.Point(15, 40);
+            this.B1M1_Reading.Name = "B1M1_Reading";
+            this.B1M1_Reading.Size = new System.Drawing.Size(21, 13);
+            this.B1M1_Reading.TabIndex = 5;
+            this.B1M1_Reading.Text = "##";
+            // 
+            // B1M2_Reading
+            // 
+            this.B1M2_Reading.AutoSize = true;
+            this.B1M2_Reading.Location = new System.Drawing.Point(85, 40);
+            this.B1M2_Reading.Name = "B1M2_Reading";
+            this.B1M2_Reading.Size = new System.Drawing.Size(21, 13);
+            this.B1M2_Reading.TabIndex = 6;
+            this.B1M2_Reading.Text = "##";
+            // 
+            // B1M3_Reading
+            // 
+            this.B1M3_Reading.AutoSize = true;
+            this.B1M3_Reading.Location = new System.Drawing.Point(15, 77);
+            this.B1M3_Reading.Name = "B1M3_Reading";
+            this.B1M3_Reading.Size = new System.Drawing.Size(21, 13);
+            this.B1M3_Reading.TabIndex = 7;
+            this.B1M3_Reading.Text = "##";
+            // 
+            // B1M4_Reading
+            // 
+            this.B1M4_Reading.AutoSize = true;
+            this.B1M4_Reading.Location = new System.Drawing.Point(85, 77);
+            this.B1M4_Reading.Name = "B1M4_Reading";
+            this.B1M4_Reading.Size = new System.Drawing.Size(21, 13);
+            this.B1M4_Reading.TabIndex = 8;
+            this.B1M4_Reading.Text = "##";
+            // 
+            // Bed2_InspectButton
+            // 
+            this.Bed2_InspectButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Bed2_InspectButton.ForeColor = System.Drawing.Color.Black;
+            this.Bed2_InspectButton.Location = new System.Drawing.Point(49, 113);
+            this.Bed2_InspectButton.Name = "Bed2_InspectButton";
+            this.Bed2_InspectButton.Size = new System.Drawing.Size(57, 23);
+            this.Bed2_InspectButton.TabIndex = 9;
+            this.Bed2_InspectButton.Text = "Inspect";
+            this.Bed2_InspectButton.UseVisualStyleBackColor = true;
+            this.Bed2_InspectButton.Click += new System.EventHandler(this.Open_Bed_2);
+            // 
+            // Bed3_InspectButton
+            // 
+            this.Bed3_InspectButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Bed3_InspectButton.ForeColor = System.Drawing.Color.Black;
+            this.Bed3_InspectButton.Location = new System.Drawing.Point(44, 113);
+            this.Bed3_InspectButton.Name = "Bed3_InspectButton";
+            this.Bed3_InspectButton.Size = new System.Drawing.Size(57, 23);
+            this.Bed3_InspectButton.TabIndex = 10;
+            this.Bed3_InspectButton.Text = "Inspect";
+            this.Bed3_InspectButton.UseVisualStyleBackColor = true;
+            this.Bed3_InspectButton.Click += new System.EventHandler(this.Open_Bed_3);
+            // 
+            // button5
+            // 
+            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.ForeColor = System.Drawing.Color.Black;
+            this.button5.Location = new System.Drawing.Point(46, 113);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(57, 23);
+            this.button5.TabIndex = 10;
+            this.button5.Text = "Inspect";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.Open_Bed_4);
+            // 
+            // button4
+            // 
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.ForeColor = System.Drawing.Color.Black;
+            this.button4.Location = new System.Drawing.Point(49, 106);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(57, 23);
+            this.button4.TabIndex = 10;
+            this.button4.Text = "Inspect";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.Open_Bed_5);
+            // 
+            // button6
+            // 
+            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button6.ForeColor = System.Drawing.Color.Black;
+            this.button6.Location = new System.Drawing.Point(49, 106);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(57, 23);
+            this.button6.TabIndex = 14;
+            this.button6.Text = "Inspect";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.Open_Bed_6);
+            // 
+            // button7
+            // 
+            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button7.ForeColor = System.Drawing.Color.Black;
+            this.button7.Location = new System.Drawing.Point(44, 106);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(57, 23);
+            this.button7.TabIndex = 10;
+            this.button7.Text = "Inspect";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.Open_Bed_7);
+            // 
+            // button8
+            // 
+            this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button8.ForeColor = System.Drawing.Color.Black;
+            this.button8.Location = new System.Drawing.Point(46, 106);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(57, 23);
+            this.button8.TabIndex = 10;
+            this.button8.Text = "Inspect";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.Open_Bed_8);
+            // 
+            // B2M4_Reading
+            // 
+            this.B2M4_Reading.AutoSize = true;
+            this.B2M4_Reading.Location = new System.Drawing.Point(85, 77);
+            this.B2M4_Reading.Name = "B2M4_Reading";
+            this.B2M4_Reading.Size = new System.Drawing.Size(21, 13);
+            this.B2M4_Reading.TabIndex = 16;
+            this.B2M4_Reading.Text = "##";
+            // 
+            // B2M3_Reading
+            // 
+            this.B2M3_Reading.AutoSize = true;
+            this.B2M3_Reading.Location = new System.Drawing.Point(15, 77);
+            this.B2M3_Reading.Name = "B2M3_Reading";
+            this.B2M3_Reading.Size = new System.Drawing.Size(21, 13);
+            this.B2M3_Reading.TabIndex = 15;
+            this.B2M3_Reading.Text = "##";
+            // 
+            // B2M2_Reading
+            // 
+            this.B2M2_Reading.AutoSize = true;
+            this.B2M2_Reading.Location = new System.Drawing.Point(85, 40);
+            this.B2M2_Reading.Name = "B2M2_Reading";
+            this.B2M2_Reading.Size = new System.Drawing.Size(21, 13);
+            this.B2M2_Reading.TabIndex = 14;
+            this.B2M2_Reading.Text = "##";
+            // 
+            // B2M1_Reading
+            // 
+            this.B2M1_Reading.AutoSize = true;
+            this.B2M1_Reading.Location = new System.Drawing.Point(15, 40);
+            this.B2M1_Reading.Name = "B2M1_Reading";
+            this.B2M1_Reading.Size = new System.Drawing.Size(21, 13);
+            this.B2M1_Reading.TabIndex = 13;
+            this.B2M1_Reading.Text = "##";
+            // 
+            // B2M3_Name
+            // 
+            this.B2M3_Name.AutoSize = true;
+            this.B2M3_Name.Location = new System.Drawing.Point(12, 64);
+            this.B2M3_Name.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.B2M3_Name.Name = "B2M3_Name";
+            this.B2M3_Name.Size = new System.Drawing.Size(51, 13);
+            this.B2M3_Name.TabIndex = 12;
+            this.B2M3_Name.Text = "Monitor 3";
+            // 
+            // B2M4_Name
+            // 
+            this.B2M4_Name.AutoSize = true;
+            this.B2M4_Name.Location = new System.Drawing.Point(83, 64);
+            this.B2M4_Name.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.B2M4_Name.Name = "B2M4_Name";
+            this.B2M4_Name.Size = new System.Drawing.Size(51, 13);
+            this.B2M4_Name.TabIndex = 11;
+            this.B2M4_Name.Text = "Monitor 4";
+            // 
+            // B2M2_Name
+            // 
+            this.B2M2_Name.AutoSize = true;
+            this.B2M2_Name.Location = new System.Drawing.Point(83, 23);
+            this.B2M2_Name.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.B2M2_Name.Name = "B2M2_Name";
+            this.B2M2_Name.Size = new System.Drawing.Size(51, 13);
+            this.B2M2_Name.TabIndex = 10;
+            this.B2M2_Name.Text = "Monitor 2";
+            // 
+            // B2M1_Name
+            // 
+            this.B2M1_Name.AutoSize = true;
+            this.B2M1_Name.Location = new System.Drawing.Point(12, 23);
+            this.B2M1_Name.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.B2M1_Name.Name = "B2M1_Name";
+            this.B2M1_Name.Size = new System.Drawing.Size(51, 13);
+            this.B2M1_Name.TabIndex = 9;
+            this.B2M1_Name.Text = "Monitor 1";
+            // 
+            // B3M4_Reading
+            // 
+            this.B3M4_Reading.AutoSize = true;
+            this.B3M4_Reading.Location = new System.Drawing.Point(88, 77);
+            this.B3M4_Reading.Name = "B3M4_Reading";
+            this.B3M4_Reading.Size = new System.Drawing.Size(21, 13);
+            this.B3M4_Reading.TabIndex = 24;
+            this.B3M4_Reading.Text = "##";
+            // 
+            // B3M3_Reading
+            // 
+            this.B3M3_Reading.AutoSize = true;
+            this.B3M3_Reading.Location = new System.Drawing.Point(18, 77);
+            this.B3M3_Reading.Name = "B3M3_Reading";
+            this.B3M3_Reading.Size = new System.Drawing.Size(21, 13);
+            this.B3M3_Reading.TabIndex = 23;
+            this.B3M3_Reading.Text = "##";
+            // 
+            // B3M2_Name
+            // 
+            this.B3M2_Name.AutoSize = true;
+            this.B3M2_Name.Location = new System.Drawing.Point(86, 23);
+            this.B3M2_Name.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.B3M2_Name.Name = "B3M2_Name";
+            this.B3M2_Name.Size = new System.Drawing.Size(51, 13);
+            this.B3M2_Name.TabIndex = 18;
+            this.B3M2_Name.Text = "Monitor 2";
+            // 
+            // B3M2_Reading
+            // 
+            this.B3M2_Reading.AutoSize = true;
+            this.B3M2_Reading.Location = new System.Drawing.Point(88, 40);
+            this.B3M2_Reading.Name = "B3M2_Reading";
+            this.B3M2_Reading.Size = new System.Drawing.Size(21, 13);
+            this.B3M2_Reading.TabIndex = 22;
+            this.B3M2_Reading.Text = "##";
+            // 
+            // B3M1_Name
+            // 
+            this.B3M1_Name.AutoSize = true;
+            this.B3M1_Name.Location = new System.Drawing.Point(15, 23);
+            this.B3M1_Name.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.B3M1_Name.Name = "B3M1_Name";
+            this.B3M1_Name.Size = new System.Drawing.Size(51, 13);
+            this.B3M1_Name.TabIndex = 17;
+            this.B3M1_Name.Text = "Monitor 1";
+            // 
+            // B3M1_Reading
+            // 
+            this.B3M1_Reading.AutoSize = true;
+            this.B3M1_Reading.Location = new System.Drawing.Point(18, 40);
+            this.B3M1_Reading.Name = "B3M1_Reading";
+            this.B3M1_Reading.Size = new System.Drawing.Size(21, 13);
+            this.B3M1_Reading.TabIndex = 21;
+            this.B3M1_Reading.Text = "##";
+            // 
+            // B3M4_Name
+            // 
+            this.B3M4_Name.AutoSize = true;
+            this.B3M4_Name.Location = new System.Drawing.Point(86, 64);
+            this.B3M4_Name.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.B3M4_Name.Name = "B3M4_Name";
+            this.B3M4_Name.Size = new System.Drawing.Size(51, 13);
+            this.B3M4_Name.TabIndex = 19;
+            this.B3M4_Name.Text = "Monitor 4";
+            // 
+            // B3M3_Name
+            // 
+            this.B3M3_Name.AutoSize = true;
+            this.B3M3_Name.Location = new System.Drawing.Point(15, 64);
+            this.B3M3_Name.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.B3M3_Name.Name = "B3M3_Name";
+            this.B3M3_Name.Size = new System.Drawing.Size(51, 13);
+            this.B3M3_Name.TabIndex = 20;
+            this.B3M3_Name.Text = "Monitor 3";
+            // 
+            // B4M4_Reading
+            // 
+            this.B4M4_Reading.AutoSize = true;
+            this.B4M4_Reading.Location = new System.Drawing.Point(85, 77);
+            this.B4M4_Reading.Name = "B4M4_Reading";
+            this.B4M4_Reading.Size = new System.Drawing.Size(21, 13);
+            this.B4M4_Reading.TabIndex = 32;
+            this.B4M4_Reading.Text = "##";
+            // 
+            // B4M3_Reading
+            // 
+            this.B4M3_Reading.AutoSize = true;
+            this.B4M3_Reading.Location = new System.Drawing.Point(15, 77);
+            this.B4M3_Reading.Name = "B4M3_Reading";
+            this.B4M3_Reading.Size = new System.Drawing.Size(21, 13);
+            this.B4M3_Reading.TabIndex = 31;
+            this.B4M3_Reading.Text = "##";
+            // 
+            // B4M2_Name
+            // 
+            this.B4M2_Name.AutoSize = true;
+            this.B4M2_Name.Location = new System.Drawing.Point(83, 23);
+            this.B4M2_Name.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.B4M2_Name.Name = "B4M2_Name";
+            this.B4M2_Name.Size = new System.Drawing.Size(51, 13);
+            this.B4M2_Name.TabIndex = 26;
+            this.B4M2_Name.Text = "Monitor 2";
+            // 
+            // B4M2_Reading
+            // 
+            this.B4M2_Reading.AutoSize = true;
+            this.B4M2_Reading.Location = new System.Drawing.Point(85, 40);
+            this.B4M2_Reading.Name = "B4M2_Reading";
+            this.B4M2_Reading.Size = new System.Drawing.Size(21, 13);
+            this.B4M2_Reading.TabIndex = 30;
+            this.B4M2_Reading.Text = "##";
+            // 
+            // B4M1_Name
+            // 
+            this.B4M1_Name.AutoSize = true;
+            this.B4M1_Name.Location = new System.Drawing.Point(12, 23);
+            this.B4M1_Name.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.B4M1_Name.Name = "B4M1_Name";
+            this.B4M1_Name.Size = new System.Drawing.Size(51, 13);
+            this.B4M1_Name.TabIndex = 25;
+            this.B4M1_Name.Text = "Monitor 1";
+            // 
+            // B4M1_Reading
+            // 
+            this.B4M1_Reading.AutoSize = true;
+            this.B4M1_Reading.Location = new System.Drawing.Point(15, 40);
+            this.B4M1_Reading.Name = "B4M1_Reading";
+            this.B4M1_Reading.Size = new System.Drawing.Size(21, 13);
+            this.B4M1_Reading.TabIndex = 29;
+            this.B4M1_Reading.Text = "##";
+            // 
+            // B4M4_Name
+            // 
+            this.B4M4_Name.AutoSize = true;
+            this.B4M4_Name.Location = new System.Drawing.Point(83, 64);
+            this.B4M4_Name.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.B4M4_Name.Name = "B4M4_Name";
+            this.B4M4_Name.Size = new System.Drawing.Size(51, 13);
+            this.B4M4_Name.TabIndex = 27;
+            this.B4M4_Name.Text = "Monitor 4";
+            // 
+            // B4M3_Name
+            // 
+            this.B4M3_Name.AutoSize = true;
+            this.B4M3_Name.Location = new System.Drawing.Point(12, 64);
+            this.B4M3_Name.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.B4M3_Name.Name = "B4M3_Name";
+            this.B4M3_Name.Size = new System.Drawing.Size(51, 13);
+            this.B4M3_Name.TabIndex = 28;
+            this.B4M3_Name.Text = "Monitor 3";
+            // 
+            // B5M4_Reading
+            // 
+            this.B5M4_Reading.AutoSize = true;
+            this.B5M4_Reading.Location = new System.Drawing.Point(85, 81);
+            this.B5M4_Reading.Name = "B5M4_Reading";
+            this.B5M4_Reading.Size = new System.Drawing.Size(21, 13);
+            this.B5M4_Reading.TabIndex = 24;
+            this.B5M4_Reading.Text = "##";
+            // 
+            // B5M3_Reading
+            // 
+            this.B5M3_Reading.AutoSize = true;
+            this.B5M3_Reading.Location = new System.Drawing.Point(15, 81);
+            this.B5M3_Reading.Name = "B5M3_Reading";
+            this.B5M3_Reading.Size = new System.Drawing.Size(21, 13);
+            this.B5M3_Reading.TabIndex = 23;
+            this.B5M3_Reading.Text = "##";
+            // 
+            // B5M2_Name
+            // 
+            this.B5M2_Name.AutoSize = true;
+            this.B5M2_Name.Location = new System.Drawing.Point(83, 27);
+            this.B5M2_Name.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.B5M2_Name.Name = "B5M2_Name";
+            this.B5M2_Name.Size = new System.Drawing.Size(51, 13);
+            this.B5M2_Name.TabIndex = 18;
+            this.B5M2_Name.Text = "Monitor 2";
+            // 
+            // B5M2_Reading
+            // 
+            this.B5M2_Reading.AutoSize = true;
+            this.B5M2_Reading.Location = new System.Drawing.Point(85, 44);
+            this.B5M2_Reading.Name = "B5M2_Reading";
+            this.B5M2_Reading.Size = new System.Drawing.Size(21, 13);
+            this.B5M2_Reading.TabIndex = 22;
+            this.B5M2_Reading.Text = "##";
+            // 
+            // B5M1_Name
+            // 
+            this.B5M1_Name.AutoSize = true;
+            this.B5M1_Name.Location = new System.Drawing.Point(12, 27);
+            this.B5M1_Name.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.B5M1_Name.Name = "B5M1_Name";
+            this.B5M1_Name.Size = new System.Drawing.Size(51, 13);
+            this.B5M1_Name.TabIndex = 17;
+            this.B5M1_Name.Text = "Monitor 1";
+            // 
+            // B5M1_Reading
+            // 
+            this.B5M1_Reading.AutoSize = true;
+            this.B5M1_Reading.Location = new System.Drawing.Point(15, 44);
+            this.B5M1_Reading.Name = "B5M1_Reading";
+            this.B5M1_Reading.Size = new System.Drawing.Size(21, 13);
+            this.B5M1_Reading.TabIndex = 21;
+            this.B5M1_Reading.Text = "##";
+            // 
+            // B5M4_Name
+            // 
+            this.B5M4_Name.AutoSize = true;
+            this.B5M4_Name.Location = new System.Drawing.Point(83, 68);
+            this.B5M4_Name.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.B5M4_Name.Name = "B5M4_Name";
+            this.B5M4_Name.Size = new System.Drawing.Size(51, 13);
+            this.B5M4_Name.TabIndex = 19;
+            this.B5M4_Name.Text = "Monitor 4";
+            // 
+            // B5M3_Name
+            // 
+            this.B5M3_Name.AutoSize = true;
+            this.B5M3_Name.Location = new System.Drawing.Point(12, 68);
+            this.B5M3_Name.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.B5M3_Name.Name = "B5M3_Name";
+            this.B5M3_Name.Size = new System.Drawing.Size(51, 13);
+            this.B5M3_Name.TabIndex = 20;
+            this.B5M3_Name.Text = "Monitor 3";
+            // 
+            // B6M4_Reading
+            // 
+            this.B6M4_Reading.AutoSize = true;
+            this.B6M4_Reading.Location = new System.Drawing.Point(85, 81);
+            this.B6M4_Reading.Name = "B6M4_Reading";
+            this.B6M4_Reading.Size = new System.Drawing.Size(21, 13);
+            this.B6M4_Reading.TabIndex = 32;
+            this.B6M4_Reading.Text = "##";
+            // 
+            // B6M3_Reading
+            // 
+            this.B6M3_Reading.AutoSize = true;
+            this.B6M3_Reading.Location = new System.Drawing.Point(15, 81);
+            this.B6M3_Reading.Name = "B6M3_Reading";
+            this.B6M3_Reading.Size = new System.Drawing.Size(21, 13);
+            this.B6M3_Reading.TabIndex = 31;
+            this.B6M3_Reading.Text = "##";
+            // 
+            // B6M2_Name
+            // 
+            this.B6M2_Name.AutoSize = true;
+            this.B6M2_Name.Location = new System.Drawing.Point(83, 27);
+            this.B6M2_Name.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.B6M2_Name.Name = "B6M2_Name";
+            this.B6M2_Name.Size = new System.Drawing.Size(51, 13);
+            this.B6M2_Name.TabIndex = 26;
+            this.B6M2_Name.Text = "Monitor 2";
+            // 
+            // B6M2_Reading
+            // 
+            this.B6M2_Reading.AutoSize = true;
+            this.B6M2_Reading.Location = new System.Drawing.Point(85, 44);
+            this.B6M2_Reading.Name = "B6M2_Reading";
+            this.B6M2_Reading.Size = new System.Drawing.Size(21, 13);
+            this.B6M2_Reading.TabIndex = 30;
+            this.B6M2_Reading.Text = "##";
+            // 
+            // B6M1_Name
+            // 
+            this.B6M1_Name.AutoSize = true;
+            this.B6M1_Name.Location = new System.Drawing.Point(12, 27);
+            this.B6M1_Name.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.B6M1_Name.Name = "B6M1_Name";
+            this.B6M1_Name.Size = new System.Drawing.Size(51, 13);
+            this.B6M1_Name.TabIndex = 25;
+            this.B6M1_Name.Text = "Monitor 1";
+            // 
+            // B6M1_Reading
+            // 
+            this.B6M1_Reading.AutoSize = true;
+            this.B6M1_Reading.Location = new System.Drawing.Point(15, 44);
+            this.B6M1_Reading.Name = "B6M1_Reading";
+            this.B6M1_Reading.Size = new System.Drawing.Size(21, 13);
+            this.B6M1_Reading.TabIndex = 29;
+            this.B6M1_Reading.Text = "##";
+            // 
+            // B6M4_Name
+            // 
+            this.B6M4_Name.AutoSize = true;
+            this.B6M4_Name.Location = new System.Drawing.Point(83, 68);
+            this.B6M4_Name.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.B6M4_Name.Name = "B6M4_Name";
+            this.B6M4_Name.Size = new System.Drawing.Size(51, 13);
+            this.B6M4_Name.TabIndex = 27;
+            this.B6M4_Name.Text = "Monitor 4";
+            // 
+            // B6M3_Name
+            // 
+            this.B6M3_Name.AutoSize = true;
+            this.B6M3_Name.Location = new System.Drawing.Point(12, 68);
+            this.B6M3_Name.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.B6M3_Name.Name = "B6M3_Name";
+            this.B6M3_Name.Size = new System.Drawing.Size(51, 13);
+            this.B6M3_Name.TabIndex = 28;
+            this.B6M3_Name.Text = "Monitor 3";
+            // 
+            // B7M4_Reading
+            // 
+            this.B7M4_Reading.AutoSize = true;
+            this.B7M4_Reading.Location = new System.Drawing.Point(88, 81);
+            this.B7M4_Reading.Name = "B7M4_Reading";
+            this.B7M4_Reading.Size = new System.Drawing.Size(21, 13);
+            this.B7M4_Reading.TabIndex = 40;
+            this.B7M4_Reading.Text = "##";
+            // 
+            // B7M3_Reading
+            // 
+            this.B7M3_Reading.AutoSize = true;
+            this.B7M3_Reading.Location = new System.Drawing.Point(18, 81);
+            this.B7M3_Reading.Name = "B7M3_Reading";
+            this.B7M3_Reading.Size = new System.Drawing.Size(21, 13);
+            this.B7M3_Reading.TabIndex = 39;
+            this.B7M3_Reading.Text = "##";
+            // 
+            // B7M2_Name
+            // 
+            this.B7M2_Name.AutoSize = true;
+            this.B7M2_Name.Location = new System.Drawing.Point(86, 27);
+            this.B7M2_Name.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.B7M2_Name.Name = "B7M2_Name";
+            this.B7M2_Name.Size = new System.Drawing.Size(51, 13);
+            this.B7M2_Name.TabIndex = 34;
+            this.B7M2_Name.Text = "Monitor 2";
+            // 
+            // B7M2_Reading
+            // 
+            this.B7M2_Reading.AutoSize = true;
+            this.B7M2_Reading.Location = new System.Drawing.Point(88, 44);
+            this.B7M2_Reading.Name = "B7M2_Reading";
+            this.B7M2_Reading.Size = new System.Drawing.Size(21, 13);
+            this.B7M2_Reading.TabIndex = 38;
+            this.B7M2_Reading.Text = "##";
+            // 
+            // B7M1_Name
+            // 
+            this.B7M1_Name.AutoSize = true;
+            this.B7M1_Name.Location = new System.Drawing.Point(15, 27);
+            this.B7M1_Name.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.B7M1_Name.Name = "B7M1_Name";
+            this.B7M1_Name.Size = new System.Drawing.Size(51, 13);
+            this.B7M1_Name.TabIndex = 33;
+            this.B7M1_Name.Text = "Monitor 1";
+            // 
+            // B7M1_Reading
+            // 
+            this.B7M1_Reading.AutoSize = true;
+            this.B7M1_Reading.Location = new System.Drawing.Point(18, 44);
+            this.B7M1_Reading.Name = "B7M1_Reading";
+            this.B7M1_Reading.Size = new System.Drawing.Size(21, 13);
+            this.B7M1_Reading.TabIndex = 37;
+            this.B7M1_Reading.Text = "##";
+            // 
+            // B7M4_Name
+            // 
+            this.B7M4_Name.AutoSize = true;
+            this.B7M4_Name.Location = new System.Drawing.Point(86, 68);
+            this.B7M4_Name.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.B7M4_Name.Name = "B7M4_Name";
+            this.B7M4_Name.Size = new System.Drawing.Size(51, 13);
+            this.B7M4_Name.TabIndex = 35;
+            this.B7M4_Name.Text = "Monitor 4";
+            // 
+            // B7M3_Name
+            // 
+            this.B7M3_Name.AutoSize = true;
+            this.B7M3_Name.Location = new System.Drawing.Point(15, 68);
+            this.B7M3_Name.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.B7M3_Name.Name = "B7M3_Name";
+            this.B7M3_Name.Size = new System.Drawing.Size(51, 13);
+            this.B7M3_Name.TabIndex = 36;
+            this.B7M3_Name.Text = "Monitor 3";
+            // 
+            // B8M4_Reading
+            // 
+            this.B8M4_Reading.AutoSize = true;
+            this.B8M4_Reading.Location = new System.Drawing.Point(88, 81);
+            this.B8M4_Reading.Name = "B8M4_Reading";
+            this.B8M4_Reading.Size = new System.Drawing.Size(21, 13);
+            this.B8M4_Reading.TabIndex = 48;
+            this.B8M4_Reading.Text = "##";
+            // 
+            // B8M3_Reading
+            // 
+            this.B8M3_Reading.AutoSize = true;
+            this.B8M3_Reading.Location = new System.Drawing.Point(18, 81);
+            this.B8M3_Reading.Name = "B8M3_Reading";
+            this.B8M3_Reading.Size = new System.Drawing.Size(21, 13);
+            this.B8M3_Reading.TabIndex = 47;
+            this.B8M3_Reading.Text = "##";
+            // 
+            // B8M2_Name
+            // 
+            this.B8M2_Name.AutoSize = true;
+            this.B8M2_Name.Location = new System.Drawing.Point(86, 27);
+            this.B8M2_Name.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.B8M2_Name.Name = "B8M2_Name";
+            this.B8M2_Name.Size = new System.Drawing.Size(51, 13);
+            this.B8M2_Name.TabIndex = 42;
+            this.B8M2_Name.Text = "Monitor 2";
+            // 
+            // B8M2_Reading
+            // 
+            this.B8M2_Reading.AutoSize = true;
+            this.B8M2_Reading.Location = new System.Drawing.Point(88, 44);
+            this.B8M2_Reading.Name = "B8M2_Reading";
+            this.B8M2_Reading.Size = new System.Drawing.Size(21, 13);
+            this.B8M2_Reading.TabIndex = 46;
+            this.B8M2_Reading.Text = "##";
+            // 
+            // B8M1_Name
+            // 
+            this.B8M1_Name.AutoSize = true;
+            this.B8M1_Name.Location = new System.Drawing.Point(15, 27);
+            this.B8M1_Name.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.B8M1_Name.Name = "B8M1_Name";
+            this.B8M1_Name.Size = new System.Drawing.Size(51, 13);
+            this.B8M1_Name.TabIndex = 41;
+            this.B8M1_Name.Text = "Monitor 1";
+            // 
+            // B8M1_Reading
+            // 
+            this.B8M1_Reading.AutoSize = true;
+            this.B8M1_Reading.Location = new System.Drawing.Point(18, 44);
+            this.B8M1_Reading.Name = "B8M1_Reading";
+            this.B8M1_Reading.Size = new System.Drawing.Size(21, 13);
+            this.B8M1_Reading.TabIndex = 45;
+            this.B8M1_Reading.Text = "##";
+            // 
+            // B8M4_Name
+            // 
+            this.B8M4_Name.AutoSize = true;
+            this.B8M4_Name.Location = new System.Drawing.Point(86, 68);
+            this.B8M4_Name.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.B8M4_Name.Name = "B8M4_Name";
+            this.B8M4_Name.Size = new System.Drawing.Size(51, 13);
+            this.B8M4_Name.TabIndex = 43;
+            this.B8M4_Name.Text = "Monitor 4";
+            // 
+            // B8M3_Name
+            // 
+            this.B8M3_Name.AutoSize = true;
+            this.B8M3_Name.Location = new System.Drawing.Point(15, 68);
+            this.B8M3_Name.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.B8M3_Name.Name = "B8M3_Name";
+            this.B8M3_Name.Size = new System.Drawing.Size(51, 13);
+            this.B8M3_Name.TabIndex = 44;
+            this.B8M3_Name.Text = "Monitor 3";
             // 
             // MainPage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.BurlyWood;
-            this.ClientSize = new System.Drawing.Size(1123, 626);
+            this.ClientSize = new System.Drawing.Size(842, 509);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MainPage";
             this.Load += new System.EventHandler(this.MainPage_Load_1);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            this.groupBox9.ResumeLayout(false);
-            this.groupBox9.PerformLayout();
-            this.groupBox10.ResumeLayout(false);
-            this.groupBox10.PerformLayout();
-            this.groupBox11.ResumeLayout(false);
-            this.groupBox11.PerformLayout();
-            this.groupBox12.ResumeLayout(false);
-            this.groupBox12.PerformLayout();
-            this.groupBox13.ResumeLayout(false);
-            this.groupBox13.PerformLayout();
-            this.groupBox14.ResumeLayout(false);
-            this.groupBox14.PerformLayout();
-            this.groupBox15.ResumeLayout(false);
-            this.groupBox15.PerformLayout();
-            this.groupBox16.ResumeLayout(false);
-            this.groupBox16.PerformLayout();
+            this.Bed5_GroupBox.ResumeLayout(false);
+            this.Bed5_GroupBox.PerformLayout();
+            this.Bed6_GroupBox.ResumeLayout(false);
+            this.Bed6_GroupBox.PerformLayout();
+            this.Bed7_GroupBox.ResumeLayout(false);
+            this.Bed7_GroupBox.PerformLayout();
+            this.Bed8_GroupBox.ResumeLayout(false);
+            this.Bed8_GroupBox.PerformLayout();
+            this.Bed2_GroupBox.ResumeLayout(false);
+            this.Bed2_GroupBox.PerformLayout();
+            this.Bed3_GroupBox.ResumeLayout(false);
+            this.Bed3_GroupBox.PerformLayout();
+            this.Bed4_GroupBox.ResumeLayout(false);
+            this.Bed4_GroupBox.PerformLayout();
+            this.Bed1_GroupBox.ResumeLayout(false);
+            this.Bed1_GroupBox.PerformLayout();
             this.tabPage2.ResumeLayout(false);
+            this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -717,14 +1266,14 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.GroupBox groupBox9;
-        private System.Windows.Forms.GroupBox groupBox10;
-        private System.Windows.Forms.GroupBox groupBox11;
-        private System.Windows.Forms.GroupBox groupBox12;
-        private System.Windows.Forms.GroupBox groupBox13;
-        private System.Windows.Forms.GroupBox groupBox14;
-        private System.Windows.Forms.GroupBox groupBox15;
-        private System.Windows.Forms.GroupBox groupBox16;
+        private System.Windows.Forms.GroupBox Bed5_GroupBox;
+        private System.Windows.Forms.GroupBox Bed6_GroupBox;
+        private System.Windows.Forms.GroupBox Bed7_GroupBox;
+        private System.Windows.Forms.GroupBox Bed8_GroupBox;
+        private System.Windows.Forms.GroupBox Bed2_GroupBox;
+        private System.Windows.Forms.GroupBox Bed3_GroupBox;
+        private System.Windows.Forms.GroupBox Bed4_GroupBox;
+        private System.Windows.Forms.GroupBox Bed1_GroupBox;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.GroupBox groupBox8;
         private System.Windows.Forms.GroupBox groupBox5;
@@ -735,38 +1284,79 @@
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.Label label33;
-        private System.Windows.Forms.Label label32;
-        private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label B1M3_Name;
+        private System.Windows.Forms.Label B1M4_Name;
+        private System.Windows.Forms.Label B1M2_Name;
+        private System.Windows.Forms.Label B1M1_Name;
+        private System.Windows.Forms.Timer Update;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Button Bed1_InspectButton;
+        private System.Windows.Forms.Label B1M4_Reading;
+        private System.Windows.Forms.Label B1M3_Reading;
+        private System.Windows.Forms.Label B1M2_Reading;
+        private System.Windows.Forms.Label B1M1_Reading;
+        private System.Windows.Forms.Button Bed2_InspectButton;
+        private System.Windows.Forms.Button Bed3_InspectButton;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Label B2M4_Reading;
+        private System.Windows.Forms.Label B2M3_Reading;
+        private System.Windows.Forms.Label B2M2_Name;
+        private System.Windows.Forms.Label B2M2_Reading;
+        private System.Windows.Forms.Label B2M1_Name;
+        private System.Windows.Forms.Label B2M1_Reading;
+        private System.Windows.Forms.Label B2M4_Name;
+        private System.Windows.Forms.Label B2M3_Name;
+        private System.Windows.Forms.Label B3M4_Reading;
+        private System.Windows.Forms.Label B3M3_Reading;
+        private System.Windows.Forms.Label B3M2_Name;
+        private System.Windows.Forms.Label B3M3_Name;
+        private System.Windows.Forms.Label B3M2_Reading;
+        private System.Windows.Forms.Label B3M4_Name;
+        private System.Windows.Forms.Label B3M1_Name;
+        private System.Windows.Forms.Label B3M1_Reading;
+        private System.Windows.Forms.Label B4M4_Reading;
+        private System.Windows.Forms.Label B4M3_Reading;
+        private System.Windows.Forms.Label B4M2_Name;
+        private System.Windows.Forms.Label B4M3_Name;
+        private System.Windows.Forms.Label B4M2_Reading;
+        private System.Windows.Forms.Label B4M4_Name;
+        private System.Windows.Forms.Label B4M1_Name;
+        private System.Windows.Forms.Label B4M1_Reading;
+        private System.Windows.Forms.Label B5M4_Reading;
+        private System.Windows.Forms.Label B5M3_Reading;
+        private System.Windows.Forms.Label B5M2_Name;
+        private System.Windows.Forms.Label B5M2_Reading;
+        private System.Windows.Forms.Label B5M1_Name;
+        private System.Windows.Forms.Label B5M1_Reading;
+        private System.Windows.Forms.Label B5M4_Name;
+        private System.Windows.Forms.Label B5M3_Name;
+        private System.Windows.Forms.Label B6M4_Reading;
+        private System.Windows.Forms.Label B6M3_Reading;
+        private System.Windows.Forms.Label B6M2_Name;
+        private System.Windows.Forms.Label B6M3_Name;
+        private System.Windows.Forms.Label B6M2_Reading;
+        private System.Windows.Forms.Label B6M4_Name;
+        private System.Windows.Forms.Label B6M1_Name;
+        private System.Windows.Forms.Label B6M1_Reading;
+        private System.Windows.Forms.Label B7M4_Reading;
+        private System.Windows.Forms.Label B7M3_Reading;
+        private System.Windows.Forms.Label B7M2_Name;
+        private System.Windows.Forms.Label B7M3_Name;
+        private System.Windows.Forms.Label B7M2_Reading;
+        private System.Windows.Forms.Label B7M4_Name;
+        private System.Windows.Forms.Label B7M1_Name;
+        private System.Windows.Forms.Label B7M1_Reading;
+        private System.Windows.Forms.Label B8M4_Reading;
+        private System.Windows.Forms.Label B8M3_Reading;
+        private System.Windows.Forms.Label B8M1_Name;
+        private System.Windows.Forms.Label B8M2_Name;
+        private System.Windows.Forms.Label B8M3_Name;
+        private System.Windows.Forms.Label B8M2_Reading;
+        private System.Windows.Forms.Label B8M4_Name;
+        private System.Windows.Forms.Label B8M1_Reading;
     }
 }

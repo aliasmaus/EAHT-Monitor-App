@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace EAHT_Engine
 {
+    /// <summary>
+    /// Functionality related to beds
+    /// </summary>
     public class Bed
     {
         private int bedNumber;
@@ -14,18 +17,29 @@ namespace EAHT_Engine
         private Monitor monitor3;
         private Monitor monitor4;
 
+        /// <summary>
+        /// Initializes the bed
+        /// </summary>
+        /// <param name="ID">The bed number</param>
         public Bed(int ID)
         {
             this.bedNumber = ID;
         }
 
+        /// <summary>
+        /// Get only, gets the bed's designated number
+        /// </summary>
         public int BedNumber { get => bedNumber; }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>Gets the current monitor1 name</returns>
         public string GetMonitor1Text()
         {
             if (monitor1 is null)
             {
-                return " ";
+                return "Unassigned";
             }
             else
             {
@@ -33,44 +47,44 @@ namespace EAHT_Engine
             }
         }
 
-        public string getMonitor2Text()
+        public string GetMonitor2Text()
         {
             if (monitor2 is null)
             {
-                return " ";
+                return "Unassigned";
             }
             else
             {
                 return monitor2.Name;
             }
         }
-        public string getMonitor3Text()
+        public string GetMonitor3Text()
         {
             if (monitor3 is null)
             {
-                return " ";
+                return "Unassigned";
             }
             else
             {
                 return monitor3.Name;
             }
         }
-        public string getMonitor4Text()
+        public string GetMonitor4Text()
         {
             if (monitor4 is null)
             {
-                return " ";
+                return "Unassigned";
             }
             else
             {
                 return monitor4.Name;
             }
         }
-        public string getMonitor1Read()
+        public string GetMonitor1Read()
         {
             if (monitor1 is null)
             {
-                return " ";
+                return "#####";
             }
             else
             {
@@ -78,33 +92,33 @@ namespace EAHT_Engine
             }
         }
 
-        public string getMonitor2Read()
+        public string GetMonitor2Read()
         {
             if (monitor2 is null)
             {
-                return " ";
+                return "#####";
             }
             else
             {
                 return monitor2.Read();
             }
         }
-        public string getMonitor3Read()
+        public string GetMonitor3Read()
         {
             if (monitor3 is null)
             {
-                return " ";
+                return "#####";
             }
             else
             {
                 return monitor3.Read();
             }
         }
-        public string getMonitor4Read()
+        public string GetMonitor4Read()
         {
             if (monitor4 is null)
             {
-                return " ";
+                return "#####";
             }
             else
             {
