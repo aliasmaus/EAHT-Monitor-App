@@ -46,5 +46,10 @@ namespace EAHT_App_UI
             MainPage mainPage = new MainPage();
             mainPage.Show();
         }
+
+        private void firstNameTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

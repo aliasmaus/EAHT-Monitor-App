@@ -31,6 +31,8 @@ namespace EAHT_App_UI
             obj.Address = txtAddress.Text;
             obj.AddInformation = txtAddInformation.Text;
 
+            listStaff.Items.Add(obj.ToString());
+
             StaffDetails stdtils = new StaffDetails();
             stdtils.Show();
         }
@@ -48,6 +50,20 @@ namespace EAHT_App_UI
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            // Button used to return to the main page
+            MainPage mainPage = new MainPage();
+            mainPage.Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            // Button used to return to the previous page
+            MonitorPage monitorPage = new MonitorPage();
+            monitorPage.Show();
         }
     }
 }
