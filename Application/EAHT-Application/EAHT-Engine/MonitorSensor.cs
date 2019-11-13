@@ -20,6 +20,11 @@ namespace EAHT_Engine
         private double currentValue;
 
         /// <summary>
+        /// Get the most recent reading from the sensor
+        /// </summary>
+        public double CurrentValue { get => currentValue; }
+
+        /// <summary>
         /// Initializes the monitor sensor
         /// </summary>
         /// <param name="freq">Read frequency in milliseconds for the sensor</param>
