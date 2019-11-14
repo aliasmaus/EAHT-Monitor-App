@@ -190,6 +190,7 @@ publish/
 # in these scripts will be unencrypted
 PublishScripts/
 
+log.txt
 # NuGet Packages
 *.nupkg
 # NuGet Symbol Packages
