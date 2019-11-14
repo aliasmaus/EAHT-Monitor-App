@@ -14,6 +14,7 @@ namespace EAHT_Engine
         private string name;
         private MonitorSensor sensor1;
         private MonitorSensor sensor2;
+        private Alarm alarm;
 
         /// <summary>
         /// Constructs a monitor for use in a bed
@@ -25,17 +26,17 @@ namespace EAHT_Engine
             switch(monitorType)
             {
                 case "Blood Pressure":
-                    sensor1 = new MonitorSensor(1000, 80, 1);
-                    sensor2 = new MonitorSensor(1000, 120, 1);
+                    sensor1 = new MonitorSensor(1000, 80, 1,85,75);
+                    sensor2 = new MonitorSensor(1000, 120, 1,150,100);
                     break;
                 case "Temperature":
-                    sensor1 = new MonitorSensor(1000, 37.5, 0.05);
+                    sensor1 = new MonitorSensor(1000, 37.5, 0.05,37.7,37.4);
                     break;
                 case "Heart Rate":
-                    sensor1 = new MonitorSensor(1000, 70, 1);
+                    sensor1 = new MonitorSensor(1000, 70, 1,140,50);
                     break;
                 case "Breathing Rate":
-                    sensor1 = new MonitorSensor(1000, 16, 0.05);
+                    sensor1 = new MonitorSensor(1000, 16, 0.05,20,10);
                     break;
             }
         }
@@ -58,6 +59,23 @@ namespace EAHT_Engine
                 default:
                     return Math.Round(sensor1.CurrentValue, 2).ToString();
             }
+
         }
+        public bool GetAlarms()
+        {
+            switch(name)
+            {
+                case "Blood Pressure":
+                    bool alarmStatus = false;
+                    if (sensor1.IsAlarmed || sensor2.IsAlarmed)
+                    {
+                        alarmStatus = true;
+                    }
+                    return alarmStatus;
+                default:
+                    return sensor1.IsAlarmed;
+            }
+        }
+
     }
 }

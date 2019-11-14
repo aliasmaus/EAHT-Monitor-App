@@ -141,6 +141,39 @@ namespace EAHT_App_UI
             this.Monitor2_CurrentReading.Text = bed.GetMonitor2Read();
             this.Monitor3_CurrentReading.Text = bed.GetMonitor3Read();
             this.Monitor4_CurrentReading.Text = bed.GetMonitor4Read();
+            bool[] alarms = bed.GetAlarms();
+            if (alarms[0])
+            {
+                this.Monitor1_Background.BackColor = System.Drawing.Color.Red;
+            }
+            else
+            {
+                this.Monitor1_Background.BackColor = System.Drawing.Color.CadetBlue;
+            }
+            if (alarms[1])
+            {
+                this.Monitor2_Background.BackColor = System.Drawing.Color.Red;
+            }
+            else
+            {
+                this.Monitor2_Background.BackColor = System.Drawing.Color.CadetBlue;
+            }
+            if (alarms[2])
+            {
+                this.Monitor3_Background.BackColor = System.Drawing.Color.Red;
+            }
+            else
+            {
+                this.Monitor3_Background.BackColor = System.Drawing.Color.CadetBlue;
+            }
+            if (alarms[3])
+            {
+                this.Monitor4_Background.BackColor = System.Drawing.Color.Red;
+            }
+            else
+            {
+                this.Monitor4_Background.BackColor = System.Drawing.Color.CadetBlue;
+            }
         }
 
         private void ChangeMonitor1(object sender, EventArgs e)

@@ -125,6 +125,40 @@ namespace EAHT_Engine
                 return monitor4.Read();
             }
         }
+        public bool[] GetAlarms()
+        {
+            bool[] alarms = new bool[4] { false,false,false,false};
+            if (!(monitor1 is null))
+            {
+                if (monitor1.GetAlarms())
+                {
+                    alarms[0] = true;
+                }
+            }
+            if (!(monitor2 is null))
+            {
+                if (monitor2.GetAlarms())
+                {
+                    alarms[1] = true;
+                }
+            }
+            if (!(monitor3 is null))
+            {
+                if (monitor3.GetAlarms())
+                {
+                    alarms[2] = true;
+                }
+            }
+            if (!(monitor4 is null))
+            {
+                if (monitor4.GetAlarms())
+                {
+                    alarms[3] = true;
+                }
+            }
+
+            return alarms;
+        }
 
         /// <summary>
         /// <para>Creates a new instance of a monitor of the chosen type and inserts it into the chosen slot</para>

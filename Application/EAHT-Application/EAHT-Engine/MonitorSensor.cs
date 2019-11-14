@@ -16,13 +16,25 @@ namespace EAHT_Engine
         private double startValue; // initial reading value
         private double readRange; // range that each reading can vary from the last (either above or below)
         private Timer readTimer; // timer to generate read event
-        private Random random;
-        private double currentValue;
+        private Random random; // random to get random difference
+        private double currentValue; // the current value of the sensor
+        private double currentUpper; // the upper limit for acceptable readings (value greater than this will trigger alarm)
+        private double currentLower; // the lower limit for acceptable readings (value lower than this will trigger alarm)
+        private bool isAlarmed;
 
         /// <summary>
         /// Get the most recent reading from the sensor
         /// </summary>
         public double CurrentValue { get => currentValue; }
+        /// <summary>
+        /// Upper limit, value beyond which an alarm is triggered
+        /// </summary>
+        public double CurrentUpper { get => currentUpper; set => currentUpper = value; }
+        /// <summary>
+        /// Lower limit, value below which an alarm is triggered
+        /// </summary>
+        public double CurrentLower { get => currentLower; set => currentLower = value; }
+        public bool IsAlarmed { get => isAlarmed; set => isAlarmed = value; }
 
         /// <summary>
         /// Initializes the monitor sensor
@@ -30,7 +42,9 @@ namespace EAHT_Engine
         /// <param name="freq">Read frequency in milliseconds for the sensor</param>
         /// <param name="start">An initial reading to base the subsequent readings on</param>
         /// <param name="rng">The range that subsequent readings may vary above or below the current reading</param>
-        public MonitorSensor(double freq, double start, double rng)
+        /// <param name="upper">Upper limit for this sensor</param>
+        /// <param name="lower">Lower limit for this sensor</param>
+        public MonitorSensor(double freq, double start, double rng, double upper, double lower)
         {
             this.readFrequency = freq;
             this.startValue = start;
@@ -38,6 +52,8 @@ namespace EAHT_Engine
             this.readTimer = new Timer(freq);
             this.random = new Random();
             this.readRange = rng;
+            this.currentLower = lower;
+            this.currentUpper = upper;
 
             readTimer.Elapsed += ReadTimer_Elapsed;
             readTimer.Start();
@@ -46,6 +62,7 @@ namespace EAHT_Engine
         private void ReadTimer_Elapsed(object sender, ElapsedEventArgs e)
         {
             UpdateSelf();
+            isAlarmed = CheckForAlarms();
         }
 
         /// <summary>
@@ -55,6 +72,18 @@ namespace EAHT_Engine
         public double TakeReading() => (random.NextDouble() - 0.5) * readRange + currentValue;
 
         private void UpdateSelf() => currentValue = TakeReading();
+
+        private bool CheckForAlarms()
+        {
+            if(currentValue>=currentUpper || currentValue<=currentLower)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
     }    
 }

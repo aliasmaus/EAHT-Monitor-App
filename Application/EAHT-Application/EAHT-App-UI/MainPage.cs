@@ -172,6 +172,19 @@ namespace EAHT_App_UI
             B8M4_Reading.Text = bed8.GetMonitor4Read();
             Bed8_GroupBox.Text = "Bed " + bed8.BedNumber.ToString();
 
+            bool[] alarms = bay.FindAlarms();
+            GroupBox[] bedBackgrounds = new GroupBox[8] {Bed1_GroupBox,Bed2_GroupBox,Bed3_GroupBox,Bed4_GroupBox,Bed5_GroupBox,Bed6_GroupBox,Bed7_GroupBox,Bed8_GroupBox};
+            for (int i=0; i<8; i++)
+            {
+                if(alarms[i])
+                {
+                    bedBackgrounds[i].BackColor = System.Drawing.Color.Red;
+                }
+                else
+                {
+                    bedBackgrounds[i].BackColor = System.Drawing.Color.CadetBlue;
+                }
+            }
         }
 
         private void Open_Bed_2(object sender, EventArgs e)
