@@ -25,132 +25,76 @@ namespace EAHT_App_UI
 
         private void PageUpdate(object sender, EventArgs e)
         {
-            this.Monitor1_CurrentReading.Text = bed.GetMonitor1Read();
-            this.Monitor2_CurrentReading.Text = bed.GetMonitor2Read();
-            this.Monitor3_CurrentReading.Text = bed.GetMonitor3Read();
-            this.Monitor4_CurrentReading.Text = bed.GetMonitor4Read();
-            bool[] alarms = bed.GetAlarms();
-            if (alarms[0])
-            {
-                this.Monitor1_Background.BackColor = System.Drawing.Color.Red;
-                string[] messages = bed.GetAlarmMessages();
-                string messageText = "";
-                for(int i=0; i<4; i++)
-                {
-                    if (!(messages[i]==""))
-                    {
-                        messageText += messages[i] + "\n";
-                    }
-                }
-                AlarmMessage.Text = messageText;
-            }
-            else
-            {
-                this.Monitor1_Background.BackColor = System.Drawing.Color.CadetBlue;
-            }
-            if (alarms[1])
-            {
-                this.Monitor2_Background.BackColor = System.Drawing.Color.Red;
-            }
-            else
-            {
-                this.Monitor2_Background.BackColor = System.Drawing.Color.CadetBlue;
-            }
-            if (alarms[2])
-            {
-                this.Monitor3_Background.BackColor = System.Drawing.Color.Red;
-            }
-            else
-            {
-                this.Monitor3_Background.BackColor = System.Drawing.Color.CadetBlue;
-            }
-            if (alarms[3])
-            {
-                this.Monitor4_Background.BackColor = System.Drawing.Color.Red;
-            }
-            else
-            {
-                this.Monitor4_Background.BackColor = System.Drawing.Color.CadetBlue;
-            }
+            this.Monitor1_CurrentReading.Text = bed.Monitors[0].Read();
+            this.Monitor2_CurrentReading.Text = bed.Monitors[1].Read();
+            this.Monitor3_CurrentReading.Text = bed.Monitors[2].Read();
+            this.Monitor4_CurrentReading.Text = bed.Monitors[3].Read();
         }
 
         private void ChangeMonitor1(object sender, EventArgs e)
         {
             bed.InsertMonitor(Monitor1_Choice.SelectedIndex + 1, 1);
-            double[][] minmax = bed.GetMonitorMinMax(1);
-            monitor1_MinValueSelect.Value = (decimal)minmax[0][0];
-            monitor1_MaxValueSelect.Value = (decimal)minmax[1][0];
+            monitor1_MinValueSelect.Value = (decimal)bed.Monitors[0].Sensor.CurrentLower;
+            monitor1_MaxValueSelect.Value = (decimal)bed.Monitors[0].Sensor.CurrentUpper;
         }
 
         private void ChangeMonitor2(object sender, EventArgs e)
         {
             bed.InsertMonitor(Monitor2_Choice.SelectedIndex + 1, 2);
-            double[][] minmax = bed.GetMonitorMinMax(2);
-            monitor2_MinValueSelect.Value = (decimal)minmax[0][0];
-            monitor2_MaxValueSelect.Value = (decimal)minmax[1][0];
+            monitor1_MinValueSelect.Value = (decimal)bed.Monitors[1].Sensor.CurrentLower;
+            monitor1_MaxValueSelect.Value = (decimal)bed.Monitors[1].Sensor.CurrentUpper;
         }
 
         private void ChangeMonitor3(object sender, EventArgs e)
         {
             bed.InsertMonitor(Monitor3_Choice.SelectedIndex + 1, 3);
-            double[][] minmax = bed.GetMonitorMinMax(3);
-            monitor3_MinValueSelect.Value = (decimal)minmax[0][0];
-            monitor3_MaxValueSelect.Value = (decimal)minmax[1][0];
+            monitor1_MinValueSelect.Value = (decimal)bed.Monitors[2].Sensor.CurrentLower;
+            monitor1_MaxValueSelect.Value = (decimal)bed.Monitors[2].Sensor.CurrentUpper;
         }
 
         private void ChangeMonitor4(object sender, EventArgs e)
         {
             bed.InsertMonitor(Monitor4_Choice.SelectedIndex + 1, 4);
-            double[][] minmax = bed.GetMonitorMinMax(4);
-            monitor4_MinValueSelect.Value = (decimal)minmax[0][0];
-            monitor4_MaxValueSelect.Value = (decimal)minmax[1][0];
+            monitor1_MinValueSelect.Value = (decimal)bed.Monitors[3].Sensor.CurrentLower;
+            monitor1_MaxValueSelect.Value = (decimal)bed.Monitors[3].Sensor.CurrentUpper;
         }
 
-        private void Monitor3_CurrentReading_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Monitor1_CurrentReading_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void Monitor1MinChanged(object sender, EventArgs e)
         {
-            bed.SetMonitor1Min((double)monitor1_MinValueSelect.Value,false);
+            bed.Monitors[0].SetMin((double)monitor1_MinValueSelect.Value);
         }
 
         private void Monitor1MaxChanged(object sender, EventArgs e)
         {
-            bed.SetMonitor1Max((double)monitor1_MaxValueSelect.Value, false);
+            bed.Monitors[0].SetMax((double)monitor1_MaxValueSelect.Value);
         }
         private void Monitor2MinChanged(object sender, EventArgs e)
         {
-            bed.SetMonitor2Min((double)monitor2_MinValueSelect.Value, false);
+            bed.Monitors[1].SetMin((double)monitor2_MinValueSelect.Value);
         }
 
         private void Monitor2MaxChanged(object sender, EventArgs e)
         {
-            bed.SetMonitor2Max((double)monitor2_MaxValueSelect.Value, false);
+            bed.Monitors[1].SetMax((double)monitor1_MaxValueSelect.Value);
         }
         private void Monitor3MinChanged(object sender, EventArgs e)
         {
-            bed.SetMonitor3Min((double)monitor3_MinValueSelect.Value, false);
+            bed.Monitors[2].SetMin((double)monitor3_MinValueSelect.Value);
         }
 
         private void Monitor3MaxChanged(object sender, EventArgs e)
         {
-            bed.SetMonitor3Max((double)monitor3_MaxValueSelect.Value, false);
+            bed.Monitors[2].SetMax((double)monitor1_MaxValueSelect.Value);
         }
         private void Monitor4MinChanged(object sender, EventArgs e)
         {
-            bed.SetMonitor4Min((double)monitor4_MinValueSelect.Value, false);
+            bed.Monitors[3].SetMin((double)monitor4_MinValueSelect.Value);
         }
 
         private void Monitor4MaxChanged(object sender, EventArgs e)
         {
-            bed.SetMonitor4Max((double)monitor4_MaxValueSelect.Value, false);
+            bed.Monitors[3].SetMax((double)monitor1_MaxValueSelect.Value);
         }
     }
 
