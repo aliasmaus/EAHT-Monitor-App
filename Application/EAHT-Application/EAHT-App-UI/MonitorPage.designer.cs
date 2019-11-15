@@ -106,7 +106,6 @@
             this.Monitor1_CurrentReading.TabIndex = 19;
             this.Monitor1_CurrentReading.Text = "##";
             this.Monitor1_CurrentReading.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.Monitor1_CurrentReading.Click += new System.EventHandler(this.Monitor1_CurrentReading_Click);
             // 
             // Monitor3_CurrentReading
             // 
@@ -118,7 +117,6 @@
             this.Monitor3_CurrentReading.TabIndex = 20;
             this.Monitor3_CurrentReading.Text = "##";
             this.Monitor3_CurrentReading.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.Monitor3_CurrentReading.Click += new System.EventHandler(this.Monitor3_CurrentReading_Click);
             // 
             // Monitor2_CurrentReading
             // 

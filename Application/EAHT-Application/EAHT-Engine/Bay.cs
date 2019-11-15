@@ -9,40 +9,19 @@ namespace EAHT_Engine
     public class Bay
     {
         private int bayNumber;
-        private List<Bed> beds = new List<Bed>();
+        private Bed[] beds;
+
+        public Bed[] Beds { get => beds; }
 
         public Bay(int ID)
         {
+            this.beds = new Bed[Options.BedsPerBay];
             this.bayNumber = ID;
-            for (int i=1; i<9; i++)
+            for (int i=0; i<beds.Length; i++)
             {
-                beds.Add(new Bed(i));
+                beds[i] = new Bed(i+1);
             }
         }
 
-        public Bed GetBedByID(int ID)
-        {
-            foreach (Bed bed in beds)
-            {
-                if (bed.BedNumber == ID)
-                {
-                    return bed;
-                }
-            }
-            throw new Exception("No bed found");
-        }
-        public bool[] FindAlarms()
-        {
-            bool[] alarms = new bool[8] { false, false, false, false, false, false, false, false };
-            foreach (Bed bed in beds)
-            {
-                bool[] bedalarms = bed.GetAlarms();
-                if (bedalarms.Contains<bool>(true))
-                {
-                    alarms[bed.BedNumber - 1] = true;
-                }
-            }
-            return alarms;
-        }
     }
 }
