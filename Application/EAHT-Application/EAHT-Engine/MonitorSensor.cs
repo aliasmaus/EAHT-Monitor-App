@@ -22,6 +22,7 @@ namespace EAHT_Engine
         private double currentLower; // the lower limit for acceptable readings (value lower than this will trigger alarm)
         private bool isAlarmed;
 
+
         /// <summary>
         /// Get the most recent reading from the sensor
         /// </summary>

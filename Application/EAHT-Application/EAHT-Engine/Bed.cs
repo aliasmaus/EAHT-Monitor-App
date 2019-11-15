@@ -133,6 +133,7 @@ namespace EAHT_Engine
                 if (monitor1.GetAlarms())
                 {
                     alarms[0] = true;
+
                 }
             }
             if (!(monitor2 is null))
@@ -158,6 +159,24 @@ namespace EAHT_Engine
             }
 
             return alarms;
+        }
+        public string[] GetAlarmMessages()
+        {
+            string[] messages = new string[4];
+            bool[] alarms =  GetAlarms();
+            for (int i = 0; i < 4; i++)
+            {
+                if (alarms[i])
+                {
+                    messages[i] = monitor1.alarm.GetMessage();
+                }
+                else
+                {
+                    messages[i] = "";
+                }
+            }
+            return messages;
+
         }
 
         /// <summary>
@@ -209,5 +228,111 @@ namespace EAHT_Engine
             return monitor;
         }
 
+        public double[][] GetMonitorMinMax(int monitorNumber)
+        {
+            switch(monitorNumber)
+            {
+                case 1:
+                    return new double[2][] { monitor1.Min(), monitor1.Max() };
+                case 2:
+                    return new double[2][] { monitor2.Min(), monitor2.Max() };
+                case 3:
+                    return new double[2][] { monitor3.Min(), monitor3.Max() };
+                case 4:
+                    return new double[2][] { monitor4.Min(), monitor4.Max() };
+                default:
+                    return new double[2][];
+            }
+            
+        }
+
+        public void SetMonitor1Min(double value, bool sensor2)
+        {
+            if (sensor2)
+            {
+                monitor1.SetMin(value, 2);
+            }
+            else
+            {
+                monitor1.SetMin(value, 1);
+            }
+        }
+        public void SetMonitor2Min(double value, bool sensor2)
+        {
+            if (sensor2)
+            {
+                monitor2.SetMin(value, 2);
+            }
+            else
+            {
+                monitor2.SetMin(value, 1);
+            }
+        }
+        public void SetMonitor3Min(double value, bool sensor2)
+        {
+            if (sensor2)
+            {
+                monitor3.SetMin(value, 2);
+            }
+            else
+            {
+                monitor3.SetMin(value, 1);
+            }
+        }
+        public void SetMonitor4Min(double value, bool sensor2)
+        {
+            if (sensor2)
+            {
+                monitor4.SetMin(value, 2);
+            }
+            else
+            {
+                monitor4.SetMin(value, 1);
+            }
+        }
+        public void SetMonitor1Max(double value, bool sensor2)
+        {
+            if (sensor2)
+            {
+                monitor1.SetMax(value, 2);
+            }
+            else
+            {
+                monitor1.SetMax(value, 1);
+            }
+        }
+        public void SetMonitor2Max(double value, bool sensor2)
+        {
+            if (sensor2)
+            {
+                monitor2.SetMax(value, 2);
+            }
+            else
+            {
+                monitor2.SetMax(value, 1);
+            }
+        }
+        public void SetMonitor3Max(double value, bool sensor2)
+        {
+            if (sensor2)
+            {
+                monitor3.SetMax(value, 2);
+            }
+            else
+            {
+                monitor3.SetMax(value, 1);
+            }
+        }
+        public void SetMonitor4Max(double value, bool sensor2)
+        {
+            if (sensor2)
+            {
+                monitor4.SetMax(value, 2);
+            }
+            else
+            {
+                monitor4.SetMax(value, 1);
+            }
+        }
     }
 }

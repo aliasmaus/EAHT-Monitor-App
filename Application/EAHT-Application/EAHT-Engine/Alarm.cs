@@ -51,5 +51,9 @@ namespace EAHT_Engine
             this.attendee = attendee;
             RecordAlarm();
         }
+        public string GetMessage()
+        {
+            return reason;
+        }
     }
 }

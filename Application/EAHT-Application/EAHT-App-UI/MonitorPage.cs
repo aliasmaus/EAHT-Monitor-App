@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using EAHT_Engine;
+using System;
 using System.Windows.Forms;
-using EAHT_Engine;
 
 namespace EAHT_App_UI
 {
@@ -24,116 +17,11 @@ namespace EAHT_App_UI
             InitializeComponent();
             this.bed = bed;
         }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label9_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label13_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void BayValue_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void MonitorPage_Load(object sender, EventArgs e)
         {
             this.BedValue.Text = "BED " + bed.BedNumber.ToString();
         }
 
-        private void pulseVariable_TextChanged(object sender, EventArgs e)
-        {
-            // Code used within the text box
-            // Random number generator for the pulse text box
-            //Random randomPulse = new Random();
-            //randomPulse.Next(60, 100);
-            //Console.WriteLine("{0}", randomPulse);
-        }
-
-        private void tempVariable_TextChanged(object sender, EventArgs e)
-        {
-            // Code used within the text box
-            // Random number generator for the temperature text box
-            //Random randomTemp = new Random();
-            //randomTemp.Next(36, 38);
-            //Console.WriteLine("{0}", randomTemp);
-
-        }
-
-        private void bloodVariable_TextChanged(object sender, EventArgs e)
-        {
-            // Code used within the text box
-            // Random number generator for the blood text box
-            //Random randomBlood = new Random();
-            //randomBlood.Next(60, 90);
-            //Console.WriteLine("{0}", randomBlood);
-        }
-
-        private void breatingVariable_TextChanged(object sender, EventArgs e)
-        {
-            // Code used within the text box
-            // Random number generator for the breating text box
-            //Random randomBreathing = new Random();
-            //randomBreathing.Next(12, 16);
-            //Console.WriteLine("{0}", randomBreathing);
-        }
-
-        private void SaveTemperatureValue_Click(object sender, EventArgs e)
-        {
-            // Save the temeperature value button
-            //MonitorPage obj = new MonitorPage();
-            //obj.temperatureValue = txtTemperatureValue.text; // Variable needs to be made
-
-            //MonitorPage monitorPage = new MonitorPage();
-            //monitorPage.Show();
-        }
-
-        private void SavePulseValue_Click(object sender, EventArgs e)
-        {
-            // Save the pulse rate value button
-            //MonitorPage obj = new MonitorPage();
-            //obj.pulseValue = txtPulseValue.text; // Variable needs to be made
-
-            //MonitorPage monitorPage = new MonitorPage();
-            //monitorPage.Show();
-        }
-
-        private void SaveBreathingValue_Click(object sender, EventArgs e)
-        {
-            // Save the breathing rate value button
-            //MonitorPage obj = new MonitorPage();
-            //obj.breathingValue = txtBreathingValue.text; // Variable needs to be made
-
-            //MonitorPage monitorPage = new MonitorPage();
-            //monitorPage.Show();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            // Save the blood pressure value button
-            //MonitorPage obj = new MonitorPage();
-            //obj.bloodValue = txtBloodValue.txt // Variable need to be made
-
-            //MonitorPage monitorPage = new MonitorPage();
-            //monitorPage.Show();
-        }
-
-
-        private void ReturnButton_Click(object sender, EventArgs e)
-        {
-            // Button to return to the previous page
-            MainPage mainPage = new MainPage();
-            mainPage.Show();
-        }
 
         private void PageUpdate(object sender, EventArgs e)
         {
@@ -145,6 +33,16 @@ namespace EAHT_App_UI
             if (alarms[0])
             {
                 this.Monitor1_Background.BackColor = System.Drawing.Color.Red;
+                string[] messages = bed.GetAlarmMessages();
+                string messageText = "";
+                for(int i=0; i<4; i++)
+                {
+                    if (!(messages[i]==""))
+                    {
+                        messageText += messages[i] + "\n";
+                    }
+                }
+                AlarmMessage.Text = messageText;
             }
             else
             {
@@ -179,27 +77,81 @@ namespace EAHT_App_UI
         private void ChangeMonitor1(object sender, EventArgs e)
         {
             bed.InsertMonitor(Monitor1_Choice.SelectedIndex + 1, 1);
-
+            double[][] minmax = bed.GetMonitorMinMax(1);
+            monitor1_MinValueSelect.Value = (decimal)minmax[0][0];
+            monitor1_MaxValueSelect.Value = (decimal)minmax[1][0];
         }
 
         private void ChangeMonitor2(object sender, EventArgs e)
         {
             bed.InsertMonitor(Monitor2_Choice.SelectedIndex + 1, 2);
+            double[][] minmax = bed.GetMonitorMinMax(2);
+            monitor2_MinValueSelect.Value = (decimal)minmax[0][0];
+            monitor2_MaxValueSelect.Value = (decimal)minmax[1][0];
         }
 
         private void ChangeMonitor3(object sender, EventArgs e)
         {
             bed.InsertMonitor(Monitor3_Choice.SelectedIndex + 1, 3);
+            double[][] minmax = bed.GetMonitorMinMax(3);
+            monitor3_MinValueSelect.Value = (decimal)minmax[0][0];
+            monitor3_MaxValueSelect.Value = (decimal)minmax[1][0];
         }
 
         private void ChangeMonitor4(object sender, EventArgs e)
         {
             bed.InsertMonitor(Monitor4_Choice.SelectedIndex + 1, 4);
+            double[][] minmax = bed.GetMonitorMinMax(4);
+            monitor4_MinValueSelect.Value = (decimal)minmax[0][0];
+            monitor4_MaxValueSelect.Value = (decimal)minmax[1][0];
         }
 
         private void Monitor3_CurrentReading_Click(object sender, EventArgs e)
         {
 
         }
+
+        private void Monitor1_CurrentReading_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Monitor1MinChanged(object sender, EventArgs e)
+        {
+            bed.SetMonitor1Min((double)monitor1_MinValueSelect.Value,false);
+        }
+
+        private void Monitor1MaxChanged(object sender, EventArgs e)
+        {
+            bed.SetMonitor1Max((double)monitor1_MaxValueSelect.Value, false);
+        }
+        private void Monitor2MinChanged(object sender, EventArgs e)
+        {
+            bed.SetMonitor2Min((double)monitor2_MinValueSelect.Value, false);
+        }
+
+        private void Monitor2MaxChanged(object sender, EventArgs e)
+        {
+            bed.SetMonitor2Max((double)monitor2_MaxValueSelect.Value, false);
+        }
+        private void Monitor3MinChanged(object sender, EventArgs e)
+        {
+            bed.SetMonitor3Min((double)monitor3_MinValueSelect.Value, false);
+        }
+
+        private void Monitor3MaxChanged(object sender, EventArgs e)
+        {
+            bed.SetMonitor3Max((double)monitor3_MaxValueSelect.Value, false);
+        }
+        private void Monitor4MinChanged(object sender, EventArgs e)
+        {
+            bed.SetMonitor4Min((double)monitor4_MinValueSelect.Value, false);
+        }
+
+        private void Monitor4MaxChanged(object sender, EventArgs e)
+        {
+            bed.SetMonitor4Max((double)monitor4_MaxValueSelect.Value, false);
+        }
     }
+
 }
