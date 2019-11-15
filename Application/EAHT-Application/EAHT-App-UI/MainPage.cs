@@ -31,41 +31,11 @@ namespace EAHT_App_UI
             management_Report_Interface.ShowDialog();
         }
 
-        private void richTextBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void richTextBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void button3_Click(object sender, EventArgs e)
         {
             //It goes to Login page
             Login login = new Login();
             login.ShowDialog();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void MainPage_Load_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label11_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-
         }
 
         private void timer1_Tick_1(object sender, EventArgs e)
@@ -74,11 +44,6 @@ namespace EAHT_App_UI
             B1M2_Name.Text = "Breath Rate" + rng.Next(10, 25) + "bpm";
             B1M4_Name.Text = "Pulse" + rng.Next(0, 100);
             B1M3_Name.Text = "L:" + rng.Next(1, 10) + "H:" + rng.Next(10, 20);
-
-        }
-
-        private void groupBox16_Enter(object sender, EventArgs e)
-        {
 
         }
 
@@ -91,6 +56,7 @@ namespace EAHT_App_UI
 
         private void Update_MainPage(object sender, EventArgs e)
         {
+            //Update all text fields
             Bed bed = bay.GetBedByID(1);
             B1M1_Name.Text = bed.GetMonitor1Text();
             B1M2_Name.Text = bed.GetMonitor2Text();
@@ -161,7 +127,7 @@ namespace EAHT_App_UI
             B7M3_Reading.Text = bed7.GetMonitor3Read();
             B7M4_Reading.Text = bed7.GetMonitor4Read();
             Bed7_GroupBox.Text = "Bed " + bed7.BedNumber.ToString();
-            Bed bed8 = bay.GetBedByID(2);
+            Bed bed8 = bay.GetBedByID(8);
             B8M1_Name.Text = bed8.GetMonitor1Text();
             B8M2_Name.Text = bed8.GetMonitor2Text();
             B8M3_Name.Text = bed8.GetMonitor3Text();
@@ -172,6 +138,9 @@ namespace EAHT_App_UI
             B8M4_Reading.Text = bed8.GetMonitor4Read();
             Bed8_GroupBox.Text = "Bed " + bed8.BedNumber.ToString();
 
+            //Update bed background colours
+            // Red if alarm active
+            // Blue if no alarms
             bool[] alarms = bay.FindAlarms();
             GroupBox[] bedBackgrounds = new GroupBox[8] {Bed1_GroupBox,Bed2_GroupBox,Bed3_GroupBox,Bed4_GroupBox,Bed5_GroupBox,Bed6_GroupBox,Bed7_GroupBox,Bed8_GroupBox};
             for (int i=0; i<8; i++)
