@@ -35,13 +35,14 @@ namespace EAHT_App_UI
             this.BedValue = new System.Windows.Forms.Label();
             this.pageUpdater = new System.Windows.Forms.Timer(this.components);
             this.MonitorPageFlowPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // AlarmMessage
             // 
             this.AlarmMessage.AutoSize = true;
             this.AlarmMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AlarmMessage.Location = new System.Drawing.Point(183, 320);
+            this.AlarmMessage.Location = new System.Drawing.Point(196, 335);
             this.AlarmMessage.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.AlarmMessage.Name = "AlarmMessage";
             this.AlarmMessage.Size = new System.Drawing.Size(208, 20);
@@ -52,7 +53,7 @@ namespace EAHT_App_UI
             // 
             this.BedValue.AutoSize = true;
             this.BedValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BedValue.Location = new System.Drawing.Point(11, 10);
+            this.BedValue.Location = new System.Drawing.Point(251, 11);
             this.BedValue.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.BedValue.Name = "BedValue";
             this.BedValue.Size = new System.Drawing.Size(98, 20);
@@ -69,16 +70,31 @@ namespace EAHT_App_UI
             // 
             this.MonitorPageFlowPanel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.MonitorPageFlowPanel.AutoScroll = true;
-            this.MonitorPageFlowPanel.Location = new System.Drawing.Point(15, 34);
+            this.MonitorPageFlowPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.MonitorPageFlowPanel.Location = new System.Drawing.Point(40, 33);
             this.MonitorPageFlowPanel.Name = "MonitorPageFlowPanel";
-            this.MonitorPageFlowPanel.Size = new System.Drawing.Size(566, 273);
+            this.MonitorPageFlowPanel.Size = new System.Drawing.Size(530, 300);
             this.MonitorPageFlowPanel.TabIndex = 30;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "eek",
+            "hello",
+            "whatever"});
+            this.comboBox1.Location = new System.Drawing.Point(40, 13);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 31;
             // 
             // MonitorPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.BurlyWood;
             this.ClientSize = new System.Drawing.Size(600, 366);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.MonitorPageFlowPanel);
             this.Controls.Add(this.BedValue);
             this.Controls.Add(this.AlarmMessage);
@@ -100,6 +116,7 @@ namespace EAHT_App_UI
         private System.Windows.Forms.Label AlarmMessage;
         private System.Windows.Forms.Timer pageUpdater;
         private System.Windows.Forms.FlowLayoutPanel MonitorPageFlowPanel;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
 

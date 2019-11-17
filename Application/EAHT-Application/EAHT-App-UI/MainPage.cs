@@ -7,84 +7,111 @@ namespace EAHT_App_UI
     public partial class MainPage : Form
     {
         static Random rng = new Random();
-        private Bay bay = new Bay(1);
-        private System.Windows.Forms.GroupBox[] frames;
-        private System.Windows.Forms.Label[][] monitorNameLabels;
-        private System.Windows.Forms.Label[][] monitorValueLabels;
-        private System.Windows.Forms.Button[] inspectBedButtons;
+        private Ward ward;
+        private System.Windows.Forms.GroupBox[][] frames;
+        private System.Windows.Forms.Label[][][] monitorNameLabels;
+        private System.Windows.Forms.Label[][][] monitorValueLabels;
+        private System.Windows.Forms.Button[][] inspectBedButtons;
+        private System.Windows.Forms.TabPage[] bayTabs;
 
         public MainPage()
         {
             InitializeComponent();
+            ward = new Ward(0);
+        }
+        public MainPage(Ward ward)
+        {
+            InitializeComponent();
+            this.ward = ward;
         }
 
         private void MainPage_Load(object sender, EventArgs e)
         {
             //Create dynamic bed display
             // Create Arrays for controls
-            int nBeds = bay.Beds.Length;
-            int nMonitors = bay.Beds[0].Monitors.Length;
-            frames = new GroupBox[nBeds];
-            monitorNameLabels = new Label[nBeds][];
-            monitorValueLabels = new Label[nBeds][];
-            inspectBedButtons = new Button[nBeds];
+            int nBays = ward.Bays.Length;
+            int nBeds = ward.Bays[0].Beds.Length;
+            int nMonitors = ward.Bays[0].Beds[0].Monitors.Length;
+            bayTabs = new TabPage[nBays];
+            frames = new GroupBox[nBays][];
+            monitorNameLabels = new Label[nBays][][];
+            monitorValueLabels = new Label[nBays][][];
+            inspectBedButtons = new Button[nBays][];
+            WardLabel.Text = ward.Name;
 
-            // for each bed add controls and configure
-            for(int i=0; i<nBeds; i++)
+            // for each bay on ward
+            for(int bay = 0; bay < ward.Bays.Length; bay++)
             {
-                //add extra arrays
-                monitorNameLabels[i] = new Label[nMonitors];
-                monitorValueLabels[i] = new Label[nMonitors];
-                //add controls for each bed
-                frames[i] = new GroupBox();
-                inspectBedButtons[i] = new Button();
-                //add controls to their containers
-                BayPanel.Controls.Add(frames[i]);
-                frames[i].Controls.Add(inspectBedButtons[i]);
-                //
-                //configure controls for beds
-                //text
-                frames[i].Text = "Bed " + (i+1).ToString();
-                inspectBedButtons[i].Text = "Inspect";
-                //size
-                frames[i].Size = new System.Drawing.Size(150, 150);
-                inspectBedButtons[i].Size = new System.Drawing.Size(60, 25);
-                //position
-                inspectBedButtons[i].Location = new System.Drawing.Point(50, 110);
-                //click event
-                this.inspectBedButtons[i].Click += new EventHandler(Open_Bed);
-
-                for (int j=0; j<nMonitors;j++)
+                //create tabs for bays
+                bayTabs[bay] = new TabPage();
+                //add bays to tab control
+                BayDisplayTabControl.Controls.Add(bayTabs[bay]);
+                //configure tabs
+                bayTabs[bay].Text = "Bay " + (bay + 1).ToString();
+                frames[bay] = new GroupBox[nBeds];
+                monitorNameLabels[bay] = new Label[nBeds][];
+                monitorValueLabels[bay] = new Label[nBeds][];
+                inspectBedButtons[bay] = new Button[nBeds];
+                // for each bed add controls and configure
+                for (int bed = 0; bed < nBeds; bed++)
                 {
-                    // add controls for each monitor in each bed
-                    monitorNameLabels[i][j] = new Label();
-                    monitorValueLabels[i][j] = new Label();
-                    // add controls to containers
-                    frames[i].Controls.Add(monitorNameLabels[i][j]);
-                    frames[i].Controls.Add(monitorValueLabels[i][j]);
-                    //configure controls for monitors
+                    //add extra arrays
+                    monitorNameLabels[bay][bed] = new Label[nMonitors];
+                    monitorValueLabels[bay][bed] = new Label[nMonitors];
+                    //add controls for each bed
+                    frames[bay][bed] = new GroupBox();
+                    bayTabs[bay].Controls.Add(frames[bay][bed]);
+                    inspectBedButtons[bay][bed] = new Button();
+                    //add controls to their containers
+                    frames[bay][bed].Controls.Add(inspectBedButtons[bay][bed]);
+                    //
+                    //configure controls for beds
+                    //names
+                    inspectBedButtons[bay][bed].Name = "Button_" + bed.ToString();
                     //text
-                    monitorNameLabels[i][j].Text = "Monitor " + j.ToString();
-                    monitorValueLabels[i][j].Text = "###";
+                    frames[bay][bed].Text = "Bed " + (bed + 1).ToString();
+                    inspectBedButtons[bay][bed].Text = "Inspect";
                     //size
-                    monitorNameLabels[i][j].Size = new System.Drawing.Size(60,20);
-                    monitorValueLabels[i][j].Size = new System.Drawing.Size(60,20);
+                    frames[bay][bed].Size = new System.Drawing.Size(150, 150);
+                    inspectBedButtons[bay][bed].Size = new System.Drawing.Size(60, 25);
                     //position
-                    int x = 15;
-                    if((j + 1) / 2 % 2 == 0)
+                    inspectBedButtons[bay][bed].Location = new System.Drawing.Point(50, 110);
+                    //click event
+                    this.inspectBedButtons[bay][bed].Click += new EventHandler(Open_Bed);
+
+                    for (int monitor = 0; monitor < nMonitors; monitor++)
                     {
-                        x += 70;
+                        // add controls for each monitor in each bed
+                        monitorNameLabels[bay][bed][monitor] = new Label();
+                        monitorValueLabels[bay][bed][monitor] = new Label();
+                        // add controls to containers
+                        frames[bay][bed].Controls.Add(monitorNameLabels[bay][bed][monitor]);
+                        frames[bay][bed].Controls.Add(monitorValueLabels[bay][bed][monitor]);
+                        //configure controls for monitors
+                        //text
+                        monitorNameLabels[bay][bed][monitor].Text = "Monitor " + monitor.ToString();
+                        monitorValueLabels[bay][bed][monitor].Text = "###";
+                        //size
+                        monitorNameLabels[bay][bed][monitor].Size = new System.Drawing.Size(60, 20);
+                        monitorValueLabels[bay][bed][monitor].Size = new System.Drawing.Size(60, 20);
+                        //position
+                        int x = 15;
+                        if ((monitor + 1) / 2 % 2 == 0)
+                        {
+                            x += 70;
+                        }
+                        int y1 = 25;
+                        int y2 = 40;
+                        if (monitor > 1)
+                        {
+                            y1 += 40;
+                            y2 += 40;
+                        }
+                        monitorNameLabels[bay][bed][monitor].Location = new System.Drawing.Point(x, y1);
+                        monitorValueLabels[bay][bed][monitor].Location = new System.Drawing.Point(x, y2);
                     }
-                    int y1 = 25;
-                    int y2 = 40;
-                    if (j>1)
-                    {
-                        y1 += 40;
-                        y2 += 40;
-                    }
-                    monitorNameLabels[i][j].Location = new System.Drawing.Point(x,y1);
-                    monitorValueLabels[i][j].Location = new System.Drawing.Point(x,y2);
                 }
+            
             }
         }
 
@@ -109,31 +136,35 @@ namespace EAHT_App_UI
 
         private void Open_Bed(object sender, EventArgs e)
         {
-            int bedIndex = 0;
-            MonitorPage monitorPage = new MonitorPage(bay.Beds[bedIndex]);
+            int bedIndex = Convert.ToInt32((sender as Control).Name.Substring(7).Trim());
+            MonitorPage monitorPage = new MonitorPage(ward.Bays[0].Beds[bedIndex]);
             monitorPage.Show();
         }
 
         private void Update_MainPage(object sender, EventArgs e)
         {
-            //for each bed
-            for (int bed = 0; bed<bay.Beds.Length; bed++)
+            //for each bay
+            for (int bay = 0; bay < ward.Bays.Length; bay++)
             {
-                //for each monitor
-                for( int monitor=0; monitor<bay.Beds[0].Monitors.Length; monitor++)
+                //for each bed
+                for (int bed = 0; bed < ward.Bays[0].Beds.Length; bed++)
                 {
-                    if (!(bay.Beds[bed].Monitors[monitor] is null))
+                    //for each monitor
+                    for (int monitor = 0; monitor < ward.Bays[0].Beds[0].Monitors.Length; monitor++)
                     {
-                        monitorNameLabels[bed][monitor].Text = bay.Beds[bed].Monitors[monitor].Name;
-                        monitorValueLabels[bed][monitor].Text = bay.Beds[bed].Monitors[monitor].Read();
+                        if (!(ward.Bays[bay].Beds[bed].Monitors[monitor] is null))
+                        {
+                            monitorNameLabels[bay][bed][monitor].Text = ward.Bays[bay].Beds[bed].Monitors[monitor].Name;
+                            monitorValueLabels[bay][bed][monitor].Text = ward.Bays[bay].Beds[bed].Monitors[monitor].Read();
+                        }
+                        else
+                        {
+                            monitorNameLabels[bay][bed][monitor].Text = "Monitor " + (monitor + 1).ToString();
+                            monitorValueLabels[bay][bed][monitor].Text = "inactive";
+                        }
                     }
-                    else
-                    {
-                        monitorNameLabels[bed][monitor].Text = "Monitor " + (monitor+1).ToString();
-                        monitorValueLabels[bed][monitor].Text = "inactive";
-                    }
-                }
 
+                }
             }
             
         }

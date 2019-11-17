@@ -18,10 +18,10 @@ namespace EAHT_Engine
         /// Initializes the bed
         /// </summary>
         /// <param name="ID">The bed number</param>
-        public Bed(int ID)
+        public Bed(int ID, int nMonitors)
         {
             this.bedNumber = ID;
-            this.monitors = new Monitor[Options.MonitorSlotsPerBed];
+            this.monitors = new Monitor[nMonitors];
         }
 
         /// <summary>
@@ -47,6 +47,10 @@ namespace EAHT_Engine
             monitor = new Monitor(monitorType);
             //insert the monitor
             monitors[monitorNumber - 1] = monitor;
+        }
+        public string[] GetPossibleMonitors()
+        {
+            return Options.MonitorTypes;
         }
     }
 }

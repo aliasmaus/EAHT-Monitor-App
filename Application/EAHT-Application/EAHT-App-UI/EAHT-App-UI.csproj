@@ -133,6 +133,12 @@
     <Compile Include="StaffDetails.Designer.cs">
       <DependentUpon>StaffDetails.cs</DependentUpon>
     </Compile>
+    <Compile Include="WelcomePage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WelcomePage.Designer.cs">
+      <DependentUpon>WelcomePage.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -175,6 +181,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="StaffList.resx">
       <DependentUpon>StaffList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WelcomePage.resx">
+      <DependentUpon>WelcomePage.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="api\index.md" />
     <None Include="articles\intro.md" />
