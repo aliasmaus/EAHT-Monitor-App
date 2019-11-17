@@ -31,5 +31,18 @@ namespace EAHT_Engine
             }
             throw new Exception("No bed found");
         }
+        public bool[] FindAlarms()
+        {
+            bool[] alarms = new bool[8] { false, false, false, false, false, false, false, false };
+            foreach (Bed bed in beds)
+            {
+                bool[] bedalarms = bed.GetAlarms();
+                if (bedalarms.Contains<bool>(true))
+                {
+                    alarms[bed.BedNumber - 1] = true;
+                }
+            }
+            return alarms;
+        }
     }
 }

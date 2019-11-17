@@ -31,7 +31,8 @@ namespace EAHT_App_UI
             //obj.Address = txtAddress.Text;
             //obj.AddInformation = txtAddInformation.Text;
 
-            listStaff.Items.Add(obj.ToString());
+            //listStaff.Items.Add(obj.ToString());
+
 
             StaffDetails stdtils = new StaffDetails();
             stdtils.Show();
@@ -62,8 +63,8 @@ namespace EAHT_App_UI
         private void button4_Click(object sender, EventArgs e)
         {
             // Button used to return to the previous page
-            MonitorPage monitorPage = new MonitorPage();
-            monitorPage.Show();
+            //MonitorPage monitorPage = new MonitorPage();
+            //monitorPage.Show();
         }
     }
 }

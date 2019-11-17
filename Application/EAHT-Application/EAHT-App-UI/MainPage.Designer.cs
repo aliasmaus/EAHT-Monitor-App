@@ -149,7 +149,6 @@
             this.button1.TabIndex = 0;
             this.button1.Text = "Patient Record";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -364,7 +363,6 @@
             this.Bed1_GroupBox.TabIndex = 6;
             this.Bed1_GroupBox.TabStop = false;
             this.Bed1_GroupBox.Text = "Bed Number";
-            this.Bed1_GroupBox.Enter += new System.EventHandler(this.groupBox16_Enter);
             // 
             // B1M3_Name
             // 
@@ -1233,7 +1231,7 @@
             this.Controls.Add(this.button1);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MainPage";
-            this.Load += new System.EventHandler(this.MainPage_Load_1);
+            this.Load += new System.EventHandler(this.MainPage_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.Bed5_GroupBox.ResumeLayout(false);
