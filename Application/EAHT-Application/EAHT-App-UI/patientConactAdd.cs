@@ -43,8 +43,8 @@ namespace EAHT_App_UI
         private void mainPageButton_Click(object sender, EventArgs e)
         {
             // Button used to return to the main page
-            MainPage mainPage = new MainPage();
-            mainPage.Show();
+            //MainPage mainPage = new MainPage();
+            //mainPage.Show();
         }
 
         private void firstNameTextBox_TextChanged(object sender, EventArgs e)

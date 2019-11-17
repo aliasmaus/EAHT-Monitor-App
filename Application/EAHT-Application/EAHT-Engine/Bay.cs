@@ -13,13 +13,13 @@ namespace EAHT_Engine
 
         public Bed[] Beds { get => beds; }
 
-        public Bay(int ID)
+        public Bay(int ID, int nBeds, int nMonitors)
         {
-            this.beds = new Bed[Options.BedsPerBay];
+            this.beds = new Bed[nBeds];
             this.bayNumber = ID;
-            for (int i=0; i<beds.Length; i++)
+            for (int bed=0; bed<beds.Length; bed++)
             {
-                beds[i] = new Bed(i+1);
+                beds[bed] = new Bed(bed+1,nMonitors);
             }
         }
 
