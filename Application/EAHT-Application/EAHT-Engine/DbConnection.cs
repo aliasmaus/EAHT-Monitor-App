@@ -24,7 +24,7 @@ namespace EAHT_Engine
         /// private System.Data.SqlClient.SqlDataAdapter dataAdapter;
         /// </code>
         /// </summary>
-        private string connectionString;
+        private readonly string connectionString = Properties.Settings.Default.DbConnection;
         private System.Data.SqlClient.SqlConnection dbConnection;
         private System.Data.SqlClient.SqlDataAdapter dataAdapter;
 
@@ -58,12 +58,13 @@ namespace EAHT_Engine
         /// }
         /// </code>
         /// </summary>
-        public void openConnection()
+        public System.Data.SqlClient.SqlConnection OpenConnection()
         {
             // create the connection to the database
             dbConnection = new System.Data.SqlClient.SqlConnection(connectionString);
             //open the connection
             dbConnection.Open();
+            return dbConnection;
         }
 
         /// <summary>
@@ -78,7 +79,7 @@ namespace EAHT_Engine
         /// }
         /// </code>
         /// </summary>
-        public void closeConnection()
+        public void CloseConnection()
         {
             //close the connection to the database
             dbConnection.Close();
@@ -104,7 +105,7 @@ namespace EAHT_Engine
         /// </summary>
         /// <param name="sqlStatement">An SQL statement to execute in the database</param>
         /// <returns>The dataset output by the input SQL statement</returns>
-        public System.Data.DataSet getDataSet(string sqlStatement)
+        public System.Data.DataSet GetDataSet(string sqlStatement)
         {
             System.Data.DataSet dataSet;
             // create the object dataAdapter
@@ -114,6 +115,15 @@ namespace EAHT_Engine
             dataAdapter.Fill(dataSet);
             //return the dataSet
             return dataSet;
+        }
+        /// <summary>
+        /// executes a SQL statement in the database
+        /// </summary>
+        /// <param name="nonQuery"></param>
+        public System.Data.SqlClient.SqlCommand GetSqlCommand(string nonQuery)
+        {
+            System.Data.SqlClient.SqlCommand sql = new System.Data.SqlClient.SqlCommand(nonQuery);
+            return sql;
         }
     }
 }

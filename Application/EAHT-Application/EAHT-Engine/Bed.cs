@@ -7,18 +7,18 @@ using System.Threading.Tasks;
 namespace EAHT_Engine
 {
     /// <summary>
-    /// Functionality related to beds
+    /// Beds contain a number of monitors
     /// </summary>
     public class Bed
     {
-        private int bedNumber;
-        private Monitor[] monitors;
+        private readonly int bedNumber;
+        private readonly Monitor[] monitors;
 
         /// <summary>
         /// Initializes the bed
         /// </summary>
         /// <param name="ID">The bed number</param>
-        public Bed(int ID, int nMonitors)
+        public Bed(int ID, int nMonitors, int bay)
         {
             this.bedNumber = ID;
             this.monitors = new Monitor[nMonitors];
@@ -50,7 +50,7 @@ namespace EAHT_Engine
         }
         public string[] GetPossibleMonitors()
         {
-            return Options.MonitorTypes;
+            return SqlQueryExecutor.GetColumnValuesAsString("Monitors");
         }
     }
 }

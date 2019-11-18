@@ -6,7 +6,7 @@ namespace EAHT_App_UI
 {
     public partial class MonitorPage : Form
     {
-        private Bed bed;
+        private readonly Bed bed;
         private System.Windows.Forms.GroupBox[] frames;
         private System.Windows.Forms.ComboBox[] dropdowns;
         private System.Windows.Forms.Label[] values;
@@ -29,7 +29,7 @@ namespace EAHT_App_UI
         }
         private void MonitorPage_Load(object sender, EventArgs e)
         {
-            this.BedValue.Text = "BED " + bed.BedNumber.ToString();
+            this.BedValue.Text = "BED " + (bed.BedNumber+1).ToString();
             //initialize arrays
             int nMonitors = bed.Monitors.Length;
             frames = new GroupBox[nMonitors];

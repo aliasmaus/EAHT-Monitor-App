@@ -6,10 +6,13 @@ using System.Threading.Tasks;
 
 namespace EAHT_Engine
 {
+    /// <summary>
+    /// Bays contain beds
+    /// </summary>
     public class Bay
     {
-        private int bayNumber;
-        private Bed[] beds;
+        private readonly int bayNumber;
+        private readonly Bed[] beds;
 
         public Bed[] Beds { get => beds; }
 
@@ -17,9 +20,9 @@ namespace EAHT_Engine
         {
             this.beds = new Bed[nBeds];
             this.bayNumber = ID;
-            for (int bed=0; bed<beds.Length; bed++)
+            for (int bed=0; bed<nBeds; bed++)
             {
-                beds[bed] = new Bed(bed+1,nMonitors);
+                beds[bed] = new Bed(bed,nMonitors,ID);
             }
         }
 
