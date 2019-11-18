@@ -35,7 +35,6 @@ namespace EAHT_App_UI
             this.BedValue = new System.Windows.Forms.Label();
             this.pageUpdater = new System.Windows.Forms.Timer(this.components);
             this.MonitorPageFlowPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // AlarmMessage
@@ -76,25 +75,12 @@ namespace EAHT_App_UI
             this.MonitorPageFlowPanel.Size = new System.Drawing.Size(530, 300);
             this.MonitorPageFlowPanel.TabIndex = 30;
             // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "eek",
-            "hello",
-            "whatever"});
-            this.comboBox1.Location = new System.Drawing.Point(40, 13);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 31;
-            // 
             // MonitorPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.BurlyWood;
             this.ClientSize = new System.Drawing.Size(600, 366);
-            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.MonitorPageFlowPanel);
             this.Controls.Add(this.BedValue);
             this.Controls.Add(this.AlarmMessage);
@@ -116,7 +102,6 @@ namespace EAHT_App_UI
         private System.Windows.Forms.Label AlarmMessage;
         private System.Windows.Forms.Timer pageUpdater;
         private System.Windows.Forms.FlowLayoutPanel MonitorPageFlowPanel;
-        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
 

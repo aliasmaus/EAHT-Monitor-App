@@ -12,15 +12,16 @@ namespace EAHT_Engine
     /// </summary>
     public class Monitor
     {
-        private MonitorSensor sensor;
-        private int round; //The number of decimal places to round readings to.
-        private string name;
-        private string[] sensorTypes;
-        private double[] defaultValues;
-        private double[] defaultMinValues;
-        private double[] defaultMaxValues;
-        private double[] readRanges;
-        private int[] readFrequencies;
+        private readonly MonitorSensor sensor;
+        private readonly int round; //The number of decimal places to round readings to.
+        private readonly string name;
+        private readonly List<string> sensorTypes = new List<string>();
+        private readonly List<double> defaultValues = new List<double>();
+        private readonly List<double> defaultMinValues = new List<double>();
+        private readonly List<double> defaultMaxValues = new List<double>();
+        private readonly List<double> readRanges = new List<double>();
+        private readonly List<int> readFrequencies = new List<int>();
+        private readonly List<int> readRounds = new List<int>();
 
         /// <summary>
         /// Constructs a monitor for use in a bed
@@ -28,64 +29,31 @@ namespace EAHT_Engine
         /// <param name="monitorType">The type of monitor to create</param>
         public Monitor(int monitorType)
         {
-            DataSet monitorTypeInfo;
-            DbConnection connection = new DbConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\EAHT-Database.mdf;Integrated Security=True;Connect Timeout=30");
-            connection.openConnection();
-            monitorTypeInfo = connection.getDataSet("SELECT * from Monitors;");
-            connection.closeConnection();
+            DataSet monitorTypeInfo = SqlQueryExecutor.SelectAllFromTable("Monitors");
             DataTableReader reader = monitorTypeInfo.CreateDataReader();
-            reader.Read();
-            while(true)
+            while(reader.Read())
             {
-                int i = 0;
-                try
-                {
-                    sensorTypes[i] = reader.GetString(1);
-                    defaultValues[i] = reader.GetDouble(5);
-                    defaultMinValues[i] = reader.GetDouble(3);
-                    defaultMaxValues[i] = reader.GetDouble(4);
-                    readRanges[i] = reader.GetDouble(6);
-                    readFrequencies[i] = reader.GetInt32(2);
-                    reader.Read();
-                    i++;
-                }
-                catch
-                {
-                    break;
-                }
+                sensorTypes.Add(reader.GetString(1));
+                defaultValues.Add(reader.GetDouble(5));
+                defaultMinValues.Add(reader.GetDouble(3));
+                defaultMaxValues.Add(reader.GetDouble(4));
+                readRanges.Add(reader.GetDouble(6));
+                readFrequencies.Add(reader.GetInt32(2));
+                readRounds.Add(2);
             }
-            this.name = Options.MonitorTypes[monitorType];
-            switch(Name)
-            {
-                case "Blood Pressure (Sys)":
-                    sensor = new MonitorSensor(Options.BloodPressureSys_DefaultReadFrequency, Options.BloodPressureSys_DefaultValue, Options.BloodPressureSys_DefaultReadRange,Options.BloodPressureSys_DefaultUpper,Options.BloodPressureSys_DefaultLower);
-                    round = Options.BloodPressureSys_ReadRound;
-                    break;
-                case "Blood Pressure (Dia)":
-                    sensor = new MonitorSensor(Options.BloodPressureDia_DefaultReadFrequency, Options.BloodPressureDia_DefaultValue, Options.BloodPressureDia_DefaultReadRange, Options.BloodPressureDia_DefaultUpper, Options.BloodPressureDia_DefaultLower);
-                    round = Options.BloodPressureDia_ReadRound;
-                    break;
-                case "Temperature":
-                    sensor = new MonitorSensor(Options.Temperature_DefaultReadFrequency, Options.Temperature_DefaultValue, Options.Temperature_DefaultReadRange, Options.Temperature_DefaultUpper, Options.Temperature_DefaultLower);
-                    round = Options.Temperature_ReadRound;
-                    break;
-                case "Heart Rate":
-                    sensor = new MonitorSensor(Options.HeartRate_DefaultReadFrequency, Options.HeartRate_DefaultValue, Options.HeartRate_DefaultReadRange, Options.HeartRate_DefaultUpper, Options.HeartRate_DefaultLower);
-                    round = Options.HeartRate_ReadRound;
-                    break;
-                case "Breathing Rate":
-                    sensor = new MonitorSensor(Options.BreathingRate_DefaultReadFrequency, Options.BreathingRate_DefaultValue, Options.BreathingRate_DefaultReadRange, Options.BreathingRate_DefaultUpper, Options.BreathingRate_DefaultLower);
-                    round = Options.BreathingRate_ReadRound;
-                    break;
-            }
+            this.name = sensorTypes[monitorType];
+            sensor = new MonitorSensor(readFrequencies[monitorType], defaultValues[monitorType], readRanges[monitorType], defaultMaxValues[monitorType], defaultMinValues[monitorType]);
+            round = readRounds[monitorType];
         }
 
         /// <summary>
         /// Gets the name property of the sensor.
         /// </summary>
         public string Name { get => name; }
+        /// <summary>
+        /// Gets the sensor currently attached to the monitor
+        /// </summary>
         public MonitorSensor Sensor { get => sensor; }
-
         /// <summary>
         /// Get a string representing the current reading from the sensor(s) in the monitor, rounded appropriately.
         /// </summary>
@@ -120,6 +88,8 @@ namespace EAHT_Engine
             }
                     
         }
-
+        /// <summary>
+        /// Clears the current alarm
+        /// </summary>
     }
 }
