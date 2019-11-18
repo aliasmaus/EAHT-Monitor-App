@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using EAHT_Engine;
+using System.Data;
 
 namespace EAHT_App_UI
 {
@@ -103,7 +104,25 @@ namespace EAHT_App_UI
 
                 }
             }
-            
+
+            //This was debugging to check that alarms were being entered into the database correctly - Remove at end
+            //AlarmDbTestLabel.Text = "";
+            //DataSet alarmData = SqlQueryExecutor.SelectAllFromTable("Alarm_Records");
+            //DataTableReader alarmReader = alarmData.CreateDataReader();
+            //if(alarmReader.Read())
+            //{
+            //    AlarmDbTestLabel.Text = alarmReader.GetString(1) + " ";
+            //    AlarmDbTestLabel.Text += alarmReader.GetValue(2).ToString() + " ";
+            //    AlarmDbTestLabel.Text += alarmReader.GetValue(3).ToString() + " ";
+            //    AlarmDbTestLabel.Text += alarmReader.GetValue(4).ToString() + " ";
+            //    AlarmDbTestLabel.Text += alarmReader.GetString(5) + " ";
+            //    AlarmDbTestLabel.Text += alarmReader.GetValue(6).ToString() + " ";
+            //    AlarmDbTestLabel.Text += alarmReader.GetValue(7).ToString() + " ";
+            //    AlarmDbTestLabel.Text += alarmReader.GetValue(8).ToString() + " ";
+            //    AlarmDbTestLabel.Text += alarmReader.GetValue(9).ToString() + " ";
+
+            //}
+
         }
 
         private void InitializeDynamicControls(int nBays, int nBeds, int nMonitors)

@@ -36,6 +36,7 @@
             this.button3 = new System.Windows.Forms.Button();
             this.Updater = new System.Windows.Forms.Timer(this.components);
             this.WardLabel = new System.Windows.Forms.Label();
+            this.AlarmDbTestLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
@@ -106,6 +107,15 @@
             this.WardLabel.TabIndex = 6;
             this.WardLabel.Text = "Ward Name";
             // 
+            // AlarmDbTestLabel
+            // 
+            this.AlarmDbTestLabel.AutoSize = true;
+            this.AlarmDbTestLabel.Location = new System.Drawing.Point(178, 477);
+            this.AlarmDbTestLabel.Name = "AlarmDbTestLabel";
+            this.AlarmDbTestLabel.Size = new System.Drawing.Size(94, 13);
+            this.AlarmDbTestLabel.TabIndex = 7;
+            this.AlarmDbTestLabel.Text = "AlarmDbTestLabel";
+            // 
             // MainPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -113,6 +123,7 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.BurlyWood;
             this.ClientSize = new System.Drawing.Size(842, 509);
+            this.Controls.Add(this.AlarmDbTestLabel);
             this.Controls.Add(this.WardLabel);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.BayDisplayTabControl);
@@ -136,5 +147,6 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Timer Updater;
         private System.Windows.Forms.Label WardLabel;
+        private System.Windows.Forms.Label AlarmDbTestLabel;
     }
 }

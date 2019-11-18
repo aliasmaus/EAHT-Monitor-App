@@ -32,7 +32,7 @@ namespace EAHT_Engine
         /// Gets the list of monitors for the bed
         /// </summary>
         public Monitor[] Monitors { get => monitors; }
-        
+
         /// <summary>
         /// <para>Creates a new instance of a monitor of the chosen type and inserts it into the chosen slot</para>
         /// <para>1 - Blood Pressure, 2 - Temperature, 3 - Heart Rate, 4 - Breathing Rate</para>
@@ -51,6 +51,25 @@ namespace EAHT_Engine
         public string[] GetPossibleMonitors()
         {
             return SqlQueryExecutor.GetColumnValuesAsString("Monitors");
+        }
+        public bool[] GetMonitorAlarmStatuses()
+        {
+            bool[] statuses = new bool[monitors.Length];
+            for (int monitor = 0; monitor < monitors.Length; monitor++)
+            {
+                if (!(Monitors[monitor] is null))
+                {
+                    if (monitors[monitor].Sensor.CurrentValue <= monitors[monitor].Sensor.CurrentLower || monitors[monitor].Sensor.CurrentValue >= monitors[monitor].Sensor.CurrentUpper)
+                    {
+                        statuses[monitor] = true;
+                    }
+                    else
+                    {
+                        statuses[monitor] = false;
+                    }
+                }
+            }
+            return statuses;
         }
     }
 }

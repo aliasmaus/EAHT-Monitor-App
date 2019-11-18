@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using EAHT_Engine;
+using System.Timers;
 
 namespace EAHT_App_UI
 {
@@ -22,9 +24,8 @@ namespace EAHT_App_UI
 
         private void Management_Report_Interface_Load(object sender, EventArgs e)
         {
- 
+            
         }
-
         //Event handlers for management interface buttons
 
         /// <summary>
@@ -80,5 +81,6 @@ namespace EAHT_App_UI
         {
             TogglePage(MgmtAlarmReports_BackPanel, false);
         }
+       
     }
 }

@@ -96,11 +96,20 @@ namespace EAHT_App_UI
 
         private void PageUpdate(object sender, EventArgs e)
         {
+            bool[] alarmStatuses = bed.GetMonitorAlarmStatuses();
             for (int monitor =0; monitor < bed.Monitors.Length; monitor ++)
             {
                 if (!(bed.Monitors[monitor] is null))
                 {
                     values[monitor].Text = bed.Monitors[monitor].Read();
+                    if(alarmStatuses[monitor])
+                    {
+                        frames[monitor].BackColor = System.Drawing.Color.Red;
+                    }
+                    else
+                    {
+                        frames[monitor].BackColor = System.Drawing.Color.CadetBlue;
+                    }
                 }
             }
 
