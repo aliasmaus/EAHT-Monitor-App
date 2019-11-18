@@ -6,43 +6,25 @@ using System.Threading.Tasks;
 
 namespace EAHT_Engine
 {
+    /// <summary>
+    /// Bays contain beds
+    /// </summary>
     public class Bay
     {
-        private int bayNumber;
-        private List<Bed> beds = new List<Bed>();
+        private readonly int bayNumber;
+        private readonly Bed[] beds;
 
-        public Bay(int ID)
+        public Bed[] Beds { get => beds; }
+
+        public Bay(int ID, int nBeds, int nMonitors)
         {
+            this.beds = new Bed[nBeds];
             this.bayNumber = ID;
-            for (int i=1; i<9; i++)
+            for (int bed=0; bed<nBeds; bed++)
             {
-                beds.Add(new Bed(i));
+                beds[bed] = new Bed(bed,nMonitors,ID);
             }
         }
 
-        public Bed GetBedByID(int ID)
-        {
-            foreach (Bed bed in beds)
-            {
-                if (bed.BedNumber == ID)
-                {
-                    return bed;
-                }
-            }
-            throw new Exception("No bed found");
-        }
-        public bool[] FindAlarms()
-        {
-            bool[] alarms = new bool[8] { false, false, false, false, false, false, false, false };
-            foreach (Bed bed in beds)
-            {
-                bool[] bedalarms = bed.GetAlarms();
-                if (bedalarms.Contains<bool>(true))
-                {
-                    alarms[bed.BedNumber - 1] = true;
-                }
-            }
-            return alarms;
-        }
     }
 }

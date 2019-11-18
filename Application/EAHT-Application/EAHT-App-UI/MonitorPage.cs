@@ -6,151 +6,150 @@ namespace EAHT_App_UI
 {
     public partial class MonitorPage : Form
     {
-        private Bed bed;
+        private readonly Bed bed;
+        private System.Windows.Forms.GroupBox[] frames;
+        private System.Windows.Forms.ComboBox[] dropdowns;
+        private System.Windows.Forms.Label[] values;
+        private System.Windows.Forms.Label[] minLabels;
+        private System.Windows.Forms.Label[] maxLabels;
+        private System.Windows.Forms.NumericUpDown[] minSelectors;
+        private System.Windows.Forms.NumericUpDown[] maxSelectors;
 
         /// <summary>
-        /// Initializes a monitor page
+        /// Creates the monitor display panels and configures them depending on the 
+        /// bed chosen.
         /// </summary>
         /// <param name="bed">The bed to display/configure</param>
         public MonitorPage(Bed bed)
         {
+            { 
             InitializeComponent();
-            this.bed = bed;
+                this.bed = bed;   
+            }
         }
         private void MonitorPage_Load(object sender, EventArgs e)
         {
-            this.BedValue.Text = "BED " + bed.BedNumber.ToString();
+            this.BedValue.Text = "BED " + (bed.BedNumber+1).ToString();
+            //initialize arrays
+            int nMonitors = bed.Monitors.Length;
+            frames = new GroupBox[nMonitors];
+            dropdowns = new ComboBox[nMonitors];
+            values = new Label[nMonitors];
+            minLabels = new Label[nMonitors];
+            maxLabels = new Label[nMonitors];
+            minSelectors = new NumericUpDown[nMonitors];
+            maxSelectors = new NumericUpDown[nMonitors];
+            // for each monitor
+            for (int monitor = 0; monitor < nMonitors; monitor++)
+            {
+                // create design elements
+                frames[monitor] = new GroupBox();
+                dropdowns[monitor] = new ComboBox();
+                values[monitor] = new Label();
+                minLabels[monitor] = new Label();
+                maxLabels[monitor] = new Label();
+                minSelectors[monitor] = new NumericUpDown();
+                maxSelectors[monitor] = new NumericUpDown();
+                // add controls to their containers
+                MonitorPageFlowPanel.Controls.Add(frames[monitor]);
+                frames[monitor].Controls.Add(dropdowns[monitor]);
+                frames[monitor].Controls.Add(values[monitor]);
+                frames[monitor].Controls.Add(minLabels[monitor]);
+                frames[monitor].Controls.Add(maxLabels[monitor]);
+                frames[monitor].Controls.Add(minSelectors[monitor]);
+                frames[monitor].Controls.Add(maxSelectors[monitor]);
+                // set names
+                dropdowns[monitor].Name = "Dropdown_" + monitor.ToString();
+                minSelectors[monitor].Name = "MinSel_" + monitor.ToString();
+                maxSelectors[monitor].Name = "MaxSel_" + monitor.ToString();
+                // set static text
+                values[monitor].Text = "loading";
+                minLabels[monitor].Text = "Alarms: Min";
+                maxLabels[monitor].Text = "Max";
+                // add options to dropdowns
+                dropdowns[monitor].Items.AddRange(bed.GetPossibleMonitors());
+                // set positions
+                dropdowns[monitor].Location = new System.Drawing.Point(70, 11);
+                values[monitor].Location = new System.Drawing.Point(10, 35);
+                minLabels[monitor].Location = new System.Drawing.Point(10, 100);
+                maxLabels[monitor].Location = new System.Drawing.Point(128, 100);
+                minSelectors[monitor].Location = new System.Drawing.Point(69, 98);
+                maxSelectors[monitor].Location = new System.Drawing.Point(156, 98);
+                // set sizes
+                frames[monitor].Size = new System.Drawing.Size(250, 130);
+                minLabels[monitor].Size = new System.Drawing.Size(50, 13);
+                maxLabels[monitor].Size = new System.Drawing.Size(30, 13);
+                values[monitor].Size = new System.Drawing.Size(200, 55);
+                minSelectors[monitor].Size = new System.Drawing.Size(50, 20);
+                maxSelectors[monitor].Size = new System.Drawing.Size(50, 20);
+                // set fonts
+                values[monitor].Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                // set colours
+                frames[monitor].BackColor = System.Drawing.Color.CadetBlue;
+                // add events
+                dropdowns[monitor].SelectedIndexChanged += new EventHandler(ChangeMonitor);
+                minSelectors[monitor].ValueChanged += new EventHandler(MonitorMinChanged);
+                maxSelectors[monitor].ValueChanged += new EventHandler(MonitorMaxChanged);
+            }
         }
 
 
         private void PageUpdate(object sender, EventArgs e)
         {
-            this.Monitor1_CurrentReading.Text = bed.GetMonitor1Read();
-            this.Monitor2_CurrentReading.Text = bed.GetMonitor2Read();
-            this.Monitor3_CurrentReading.Text = bed.GetMonitor3Read();
-            this.Monitor4_CurrentReading.Text = bed.GetMonitor4Read();
-            bool[] alarms = bed.GetAlarms();
-            if (alarms[0])
+            bool[] alarmStatuses = bed.GetMonitorAlarmStatuses();
+            for (int monitor =0; monitor < bed.Monitors.Length; monitor ++)
             {
-                this.Monitor1_Background.BackColor = System.Drawing.Color.Red;
-                string[] messages = bed.GetAlarmMessages();
-                string messageText = "";
-                for(int i=0; i<4; i++)
+                if (!(bed.Monitors[monitor] is null))
                 {
-                    if (!(messages[i]==""))
+                    values[monitor].Text = bed.Monitors[monitor].Read();
+                    if(alarmStatuses[monitor])
                     {
-                        messageText += messages[i] + "\n";
+                        frames[monitor].BackColor = System.Drawing.Color.Red;
+                    }
+                    else
+                    {
+                        frames[monitor].BackColor = System.Drawing.Color.CadetBlue;
                     }
                 }
-                AlarmMessage.Text = messageText;
             }
-            else
+
+        }
+
+        private void ChangeMonitor(object sender, EventArgs e)
+        {
+            int monitor = Convert.ToInt32((sender as Control).Name.Substring(9));
+            int monitorType = (sender as ComboBox).SelectedIndex;
+            bed.Monitors[monitor] = new Monitor(monitorType);
+            double low = bed.Monitors[monitor].Sensor.CurrentLower;
+            double high = bed.Monitors[monitor].Sensor.CurrentUpper;
+            double range = low / 2;
+            minSelectors[monitor].Minimum = (decimal)(low - range);
+            minSelectors[monitor].Maximum = (decimal)(low + range);
+            maxSelectors[monitor].Minimum = (decimal)(high - range);
+            maxSelectors[monitor].Maximum = (decimal)(high + range);
+            minSelectors[monitor].Value = (decimal)low;
+            maxSelectors[monitor].Value = (decimal)high;
+        }
+
+        private void MonitorMinChanged(object sender, EventArgs e)
+        {
+            //if monitor exists update its min value
+            int monitor = Convert.ToInt32((sender as Control).Name.Substring(7));
+            if (!(bed.Monitors[monitor] is null))
             {
-                this.Monitor1_Background.BackColor = System.Drawing.Color.CadetBlue;
+                double value = (double)minSelectors[monitor].Value;
+                bed.Monitors[monitor].SetMin(value);
             }
-            if (alarms[1])
+        }
+        private void MonitorMaxChanged(object sender, EventArgs e)
+        {
+            // If monitor exists, update its max value
+            int monitor = Convert.ToInt32((sender as Control).Name.Substring(7));
+            if (!(bed.Monitors[monitor] is null))
             {
-                this.Monitor2_Background.BackColor = System.Drawing.Color.Red;
+                double value = (double)maxSelectors[monitor].Value;
+                bed.Monitors[monitor].SetMax(value);
             }
-            else
-            {
-                this.Monitor2_Background.BackColor = System.Drawing.Color.CadetBlue;
-            }
-            if (alarms[2])
-            {
-                this.Monitor3_Background.BackColor = System.Drawing.Color.Red;
-            }
-            else
-            {
-                this.Monitor3_Background.BackColor = System.Drawing.Color.CadetBlue;
-            }
-            if (alarms[3])
-            {
-                this.Monitor4_Background.BackColor = System.Drawing.Color.Red;
-            }
-            else
-            {
-                this.Monitor4_Background.BackColor = System.Drawing.Color.CadetBlue;
-            }
-        }
-
-        private void ChangeMonitor1(object sender, EventArgs e)
-        {
-            bed.InsertMonitor(Monitor1_Choice.SelectedIndex + 1, 1);
-            double[][] minmax = bed.GetMonitorMinMax(1);
-            monitor1_MinValueSelect.Value = (decimal)minmax[0][0];
-            monitor1_MaxValueSelect.Value = (decimal)minmax[1][0];
-        }
-
-        private void ChangeMonitor2(object sender, EventArgs e)
-        {
-            bed.InsertMonitor(Monitor2_Choice.SelectedIndex + 1, 2);
-            double[][] minmax = bed.GetMonitorMinMax(2);
-            monitor2_MinValueSelect.Value = (decimal)minmax[0][0];
-            monitor2_MaxValueSelect.Value = (decimal)minmax[1][0];
-        }
-
-        private void ChangeMonitor3(object sender, EventArgs e)
-        {
-            bed.InsertMonitor(Monitor3_Choice.SelectedIndex + 1, 3);
-            double[][] minmax = bed.GetMonitorMinMax(3);
-            monitor3_MinValueSelect.Value = (decimal)minmax[0][0];
-            monitor3_MaxValueSelect.Value = (decimal)minmax[1][0];
-        }
-
-        private void ChangeMonitor4(object sender, EventArgs e)
-        {
-            bed.InsertMonitor(Monitor4_Choice.SelectedIndex + 1, 4);
-            double[][] minmax = bed.GetMonitorMinMax(4);
-            monitor4_MinValueSelect.Value = (decimal)minmax[0][0];
-            monitor4_MaxValueSelect.Value = (decimal)minmax[1][0];
-        }
-
-        private void Monitor3_CurrentReading_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Monitor1_CurrentReading_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Monitor1MinChanged(object sender, EventArgs e)
-        {
-            bed.SetMonitor1Min((double)monitor1_MinValueSelect.Value,false);
-        }
-
-        private void Monitor1MaxChanged(object sender, EventArgs e)
-        {
-            bed.SetMonitor1Max((double)monitor1_MaxValueSelect.Value, false);
-        }
-        private void Monitor2MinChanged(object sender, EventArgs e)
-        {
-            bed.SetMonitor2Min((double)monitor2_MinValueSelect.Value, false);
-        }
-
-        private void Monitor2MaxChanged(object sender, EventArgs e)
-        {
-            bed.SetMonitor2Max((double)monitor2_MaxValueSelect.Value, false);
-        }
-        private void Monitor3MinChanged(object sender, EventArgs e)
-        {
-            bed.SetMonitor3Min((double)monitor3_MinValueSelect.Value, false);
-        }
-
-        private void Monitor3MaxChanged(object sender, EventArgs e)
-        {
-            bed.SetMonitor3Max((double)monitor3_MaxValueSelect.Value, false);
-        }
-        private void Monitor4MinChanged(object sender, EventArgs e)
-        {
-            bed.SetMonitor4Min((double)monitor4_MinValueSelect.Value, false);
-        }
-
-        private void Monitor4MaxChanged(object sender, EventArgs e)
-        {
-            bed.SetMonitor4Max((double)monitor4_MaxValueSelect.Value, false);
         }
     }
 

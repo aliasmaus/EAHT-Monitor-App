@@ -1,22 +1,41 @@
 ﻿using System;
 using System.Windows.Forms;
 using EAHT_Engine;
+using System.Data;
 
 namespace EAHT_App_UI
 {
     public partial class MainPage : Form
     {
-        static Random rng = new Random();
-        private Bay bay = new Bay(1);
+        static readonly Random rng = new Random();
+        private readonly Ward ward;
+        private System.Windows.Forms.GroupBox[][] frames;
+        private System.Windows.Forms.Label[][][] monitorNameLabels;
+        private System.Windows.Forms.Label[][][] monitorValueLabels;
+        private System.Windows.Forms.Button[][] inspectBedButtons;
+        private System.Windows.Forms.TabPage[] bayTabs;
+        private System.Windows.Forms.FlowLayoutPanel[] bayFlowPanels;
 
         public MainPage()
         {
             InitializeComponent();
+            ward = new Ward(0);
+        }
+        public MainPage(Ward ward)
+        {
+            InitializeComponent();
+            this.ward = ward;
+            WardLabel.Text = ward.Name;
         }
 
         private void MainPage_Load(object sender, EventArgs e)
         {
-
+            // Get ward info
+            int nBays = ward.Bays.Length;
+            int nBeds = ward.Bays[0].Beds.Length;
+            int nMonitors = ward.Bays[0].Beds[0].Monitors.Length;
+            // Load dynamic display elements
+            InitializeDynamicControls(nBays, nBeds, nMonitors);
         }
 
         private void fontDialog1_Apply(object sender, EventArgs e)
@@ -38,164 +57,180 @@ namespace EAHT_App_UI
             login.ShowDialog();
         }
 
-        private void timer1_Tick_1(object sender, EventArgs e)
+        private void Open_Bed(object sender, EventArgs e)
         {
-            B1M1_Name.Text = "Temp.:" + rng.Next(35, 40) + "Celcius";
-            B1M2_Name.Text = "Breath Rate" + rng.Next(10, 25) + "bpm";
-            B1M4_Name.Text = "Pulse" + rng.Next(0, 100);
-            B1M3_Name.Text = "L:" + rng.Next(1, 10) + "H:" + rng.Next(10, 20);
-
-        }
-
-        private void Open_Bed_1(object sender, EventArgs e)
-        {
-            MonitorPage monitorPage = new MonitorPage(bay.GetBedByID(1));
+            int bedIndex = Convert.ToInt32((sender as Control).Name.Substring(7).Trim());
+            MonitorPage monitorPage = new MonitorPage(ward.Bays[0].Beds[bedIndex]);
             monitorPage.Show();
-
         }
 
         private void Update_MainPage(object sender, EventArgs e)
         {
-            //Update all text fields
-            Bed bed = bay.GetBedByID(1);
-            B1M1_Name.Text = bed.GetMonitor1Text();
-            B1M2_Name.Text = bed.GetMonitor2Text();
-            B1M3_Name.Text = bed.GetMonitor3Text();
-            B1M4_Name.Text = bed.GetMonitor4Text();
-            B1M1_Reading.Text = bed.GetMonitor1Read();
-            B1M2_Reading.Text = bed.GetMonitor2Read();
-            B1M3_Reading.Text = bed.GetMonitor3Read();
-            B1M4_Reading.Text = bed.GetMonitor4Read();
-            Bed1_GroupBox.Text = "Bed " + bed.BedNumber.ToString();
-            Bed bed2 = bay.GetBedByID(2);
-            B2M1_Name.Text = bed2.GetMonitor1Text();
-            B2M2_Name.Text = bed2.GetMonitor2Text();
-            B2M3_Name.Text = bed2.GetMonitor3Text();
-            B2M4_Name.Text = bed2.GetMonitor4Text();
-            B2M1_Reading.Text = bed2.GetMonitor1Read();
-            B2M2_Reading.Text = bed2.GetMonitor2Read();
-            B2M3_Reading.Text = bed2.GetMonitor3Read();
-            B2M4_Reading.Text = bed2.GetMonitor4Read();
-            Bed2_GroupBox.Text = "Bed " + bed2.BedNumber.ToString();
-            Bed bed3 = bay.GetBedByID(3);
-            B3M1_Name.Text = bed3.GetMonitor1Text();
-            B3M2_Name.Text = bed3.GetMonitor2Text();
-            B3M3_Name.Text = bed3.GetMonitor3Text();
-            B3M4_Name.Text = bed3.GetMonitor4Text();
-            B3M1_Reading.Text = bed3.GetMonitor1Read();
-            B3M2_Reading.Text = bed3.GetMonitor2Read();
-            B3M3_Reading.Text = bed3.GetMonitor3Read();
-            B3M4_Reading.Text = bed3.GetMonitor4Read();
-            Bed3_GroupBox.Text = "Bed " + bed3.BedNumber.ToString();
-            Bed bed4 = bay.GetBedByID(4);
-            B4M1_Name.Text = bed4.GetMonitor1Text();
-            B4M2_Name.Text = bed4.GetMonitor2Text();
-            B4M3_Name.Text = bed4.GetMonitor3Text();
-            B4M4_Name.Text = bed4.GetMonitor4Text();
-            B4M1_Reading.Text = bed4.GetMonitor1Read();
-            B4M2_Reading.Text = bed4.GetMonitor2Read();
-            B4M3_Reading.Text = bed4.GetMonitor3Read();
-            B4M4_Reading.Text = bed4.GetMonitor4Read();
-            Bed4_GroupBox.Text = "Bed " + bed4.BedNumber.ToString();
-            Bed bed5 = bay.GetBedByID(5);
-            B5M1_Name.Text = bed5.GetMonitor1Text();
-            B5M2_Name.Text = bed5.GetMonitor2Text();
-            B5M3_Name.Text = bed5.GetMonitor3Text();
-            B5M4_Name.Text = bed5.GetMonitor4Text();
-            B5M1_Reading.Text = bed5.GetMonitor1Read();
-            B5M2_Reading.Text = bed5.GetMonitor2Read();
-            B5M3_Reading.Text = bed5.GetMonitor3Read();
-            B5M4_Reading.Text = bed5.GetMonitor4Read();
-            Bed5_GroupBox.Text = "Bed " + bed5.BedNumber.ToString();
-            Bed bed6 = bay.GetBedByID(6);
-            B6M1_Name.Text = bed6.GetMonitor1Text();
-            B6M2_Name.Text = bed6.GetMonitor2Text();
-            B6M3_Name.Text = bed6.GetMonitor3Text();
-            B6M4_Name.Text = bed6.GetMonitor4Text();
-            B6M1_Reading.Text = bed6.GetMonitor1Read();
-            B6M2_Reading.Text = bed6.GetMonitor2Read();
-            B6M3_Reading.Text = bed6.GetMonitor3Read();
-            B6M4_Reading.Text = bed6.GetMonitor4Read();
-            Bed6_GroupBox.Text = "Bed " + bed6.BedNumber.ToString();
-            Bed bed7 = bay.GetBedByID(7);
-            B7M1_Name.Text = bed7.GetMonitor1Text();
-            B7M2_Name.Text = bed7.GetMonitor2Text();
-            B7M3_Name.Text = bed7.GetMonitor3Text();
-            B7M4_Name.Text = bed7.GetMonitor4Text();
-            B7M1_Reading.Text = bed7.GetMonitor1Read();
-            B7M2_Reading.Text = bed7.GetMonitor2Read();
-            B7M3_Reading.Text = bed7.GetMonitor3Read();
-            B7M4_Reading.Text = bed7.GetMonitor4Read();
-            Bed7_GroupBox.Text = "Bed " + bed7.BedNumber.ToString();
-            Bed bed8 = bay.GetBedByID(8);
-            B8M1_Name.Text = bed8.GetMonitor1Text();
-            B8M2_Name.Text = bed8.GetMonitor2Text();
-            B8M3_Name.Text = bed8.GetMonitor3Text();
-            B8M4_Name.Text = bed8.GetMonitor4Text();
-            B8M1_Reading.Text = bed8.GetMonitor1Read();
-            B8M2_Reading.Text = bed8.GetMonitor2Read();
-            B8M3_Reading.Text = bed8.GetMonitor3Read();
-            B8M4_Reading.Text = bed8.GetMonitor4Read();
-            Bed8_GroupBox.Text = "Bed " + bed8.BedNumber.ToString();
-
-            //Update bed background colours
-            // Red if alarm active
-            // Blue if no alarms
-            bool[] alarms = bay.FindAlarms();
-            GroupBox[] bedBackgrounds = new GroupBox[8] {Bed1_GroupBox,Bed2_GroupBox,Bed3_GroupBox,Bed4_GroupBox,Bed5_GroupBox,Bed6_GroupBox,Bed7_GroupBox,Bed8_GroupBox};
-            for (int i=0; i<8; i++)
+            bool[][][] alarmLocations = ward.SearchForAlarms();
+            ward.UpdateAlarmArray(alarmLocations);
+            //for each bay
+            for (int bay = 0; bay < ward.Bays.Length; bay++)
             {
-                if(alarms[i])
+                //for each bed
+                for (int bed = 0; bed < ward.Bays[0].Beds.Length; bed++)
                 {
-                    bedBackgrounds[i].BackColor = System.Drawing.Color.Red;
+                    bool colourBedRed = false;
+                    //for each monitor
+                    for (int monitor = 0; monitor < ward.Bays[0].Beds[0].Monitors.Length; monitor++)
+                    {
+                        if (!(ward.Bays[bay].Beds[bed].Monitors[monitor] is null))
+                        {
+                            monitorNameLabels[bay][bed][monitor].Text = ward.Bays[bay].Beds[bed].Monitors[monitor].Name;
+                            monitorValueLabels[bay][bed][monitor].Text = ward.Bays[bay].Beds[bed].Monitors[monitor].Read();
+                        }
+                        else
+                        {
+                            monitorNameLabels[bay][bed][monitor].Text = "Monitor " + (monitor + 1).ToString();
+                            monitorValueLabels[bay][bed][monitor].Text = "inactive";
+                        }
+                        if(alarmLocations[bay][bed][monitor])
+                        {
+                            colourBedRed = true;
+                        }
+                    }
+                    if(colourBedRed)
+                    {
+                        frames[bay][bed].BackColor = System.Drawing.Color.Red;
+                    }
+                    else
+                    {
+                        frames[bay][bed].BackColor = System.Drawing.Color.CadetBlue;
+                    }
+
                 }
-                else
+            }
+
+            //This was debugging to check that alarms were being entered into the database correctly - Remove at end
+            //AlarmDbTestLabel.Text = "";
+            //DataSet alarmData = SqlQueryExecutor.SelectAllFromTable("Alarm_Records");
+            //DataTableReader alarmReader = alarmData.CreateDataReader();
+            //if(alarmReader.Read())
+            //{
+            //    AlarmDbTestLabel.Text = alarmReader.GetString(1) + " ";
+            //    AlarmDbTestLabel.Text += alarmReader.GetValue(2).ToString() + " ";
+            //    AlarmDbTestLabel.Text += alarmReader.GetValue(3).ToString() + " ";
+            //    AlarmDbTestLabel.Text += alarmReader.GetValue(4).ToString() + " ";
+            //    AlarmDbTestLabel.Text += alarmReader.GetString(5) + " ";
+            //    AlarmDbTestLabel.Text += alarmReader.GetValue(6).ToString() + " ";
+            //    AlarmDbTestLabel.Text += alarmReader.GetValue(7).ToString() + " ";
+            //    AlarmDbTestLabel.Text += alarmReader.GetValue(8).ToString() + " ";
+            //    AlarmDbTestLabel.Text += alarmReader.GetValue(9).ToString() + " ";
+
+            //}
+
+        }
+
+        private void InitializeDynamicControls(int nBays, int nBeds, int nMonitors)
+        {
+            // Initialize arrays to hold controls
+            InitializeControlArrays(nBays);
+
+            // Initialize bays and controls
+            for (int bay = 0; bay < nBays; bay++)
+            {
+                InitializeBays(bay, nBeds);   
+                
+                // Initialize each bed control group
+                for (int bed = 0; bed < nBeds; bed++)
                 {
-                    bedBackgrounds[i].BackColor = System.Drawing.Color.CadetBlue;
+                    InitializeBeds(bay, bed, nMonitors);
+                    // Initialize each monitor control group
+                    for (int monitor = 0; monitor < nMonitors; monitor++)
+                    {
+                        InitializeMonitors(bed, bay, monitor);
+                    }
                 }
             }
         }
-
-        private void Open_Bed_2(object sender, EventArgs e)
+        private void InitializeControlArrays(int nBays)
         {
-            MonitorPage monitorPage = new MonitorPage(bay.GetBedByID(2));
-            monitorPage.Show();
+            bayTabs = new TabPage[nBays];
+            frames = new GroupBox[nBays][];
+            monitorNameLabels = new Label[nBays][][];
+            monitorValueLabels = new Label[nBays][][];
+            inspectBedButtons = new Button[nBays][];
+            bayFlowPanels = new FlowLayoutPanel[nBays];
         }
 
-        private void Open_Bed_3(object sender, EventArgs e)
+        private void InitializeBays(int bay, int nBeds)
         {
-            MonitorPage monitorPage = new MonitorPage(bay.GetBedByID(3));
-            monitorPage.Show();
+            //create tabs for bays
+            bayTabs[bay] = new TabPage();
+            bayFlowPanels[bay] = new FlowLayoutPanel();
+            //add bays to tab control
+            BayDisplayTabControl.Controls.Add(bayTabs[bay]);
+            //add flow layout panels to tabs
+            bayTabs[bay].Controls.Add(bayFlowPanels[bay]);
+            //configure tabs
+            bayTabs[bay].Text = "Bay " + (bay + 1).ToString();
+            //configure flow layout panels
+            bayFlowPanels[bay].Size = new System.Drawing.Size(650, 370);
+            frames[bay] = new GroupBox[nBeds];
+            monitorNameLabels[bay] = new Label[nBeds][];
+            monitorValueLabels[bay] = new Label[nBeds][];
+            inspectBedButtons[bay] = new Button[nBeds];
         }
-
-        private void Open_Bed_4(object sender, EventArgs e)
+        private void InitializeBeds(int bay, int bed, int nMonitors)
         {
-            MonitorPage monitorPage = new MonitorPage(bay.GetBedByID(4));
-            monitorPage.Show();
+            //add extra arrays
+            monitorNameLabels[bay][bed] = new Label[nMonitors];
+            monitorValueLabels[bay][bed] = new Label[nMonitors];
+            //add controls for each bed
+            frames[bay][bed] = new GroupBox();
+            bayFlowPanels[bay].Controls.Add(frames[bay][bed]);
+            inspectBedButtons[bay][bed] = new Button();
+            //add controls to their containers
+            frames[bay][bed].Controls.Add(inspectBedButtons[bay][bed]);
+            //
+            //configure controls for beds
+            //names
+            inspectBedButtons[bay][bed].Name = "Button_" + bed.ToString();
+            //text
+            frames[bay][bed].Text = "Bed " + (bed + 1).ToString();
+            inspectBedButtons[bay][bed].Text = "Inspect";
+            //size
+            frames[bay][bed].Size = new System.Drawing.Size(150, 150);
+            inspectBedButtons[bay][bed].Size = new System.Drawing.Size(60, 25);
+            //position
+            inspectBedButtons[bay][bed].Location = new System.Drawing.Point(50, 110);
+            //click event
+            this.inspectBedButtons[bay][bed].Click += new EventHandler(Open_Bed);
         }
-
-        private void Open_Bed_5(object sender, EventArgs e)
+        private void InitializeMonitors(int bed, int bay, int monitor)
         {
-            MonitorPage monitorPage = new MonitorPage(bay.GetBedByID(5));
-            monitorPage.Show();
-        }
-
-        private void Open_Bed_6(object sender, EventArgs e)
-        {
-            MonitorPage monitorPage = new MonitorPage(bay.GetBedByID(6));
-            monitorPage.Show();
-        }
-
-        private void Open_Bed_7(object sender, EventArgs e)
-        {
-            MonitorPage monitorPage = new MonitorPage(bay.GetBedByID(7));
-            monitorPage.Show();
-        }
-
-        private void Open_Bed_8(object sender, EventArgs e)
-        {
-            MonitorPage monitorPage = new MonitorPage(bay.GetBedByID(8));
-            monitorPage.Show();
+            // add controls for each monitor in each bed
+            monitorNameLabels[bay][bed][monitor] = new Label();
+            monitorValueLabels[bay][bed][monitor] = new Label();
+            // add controls to containers
+            frames[bay][bed].Controls.Add(monitorNameLabels[bay][bed][monitor]);
+            frames[bay][bed].Controls.Add(monitorValueLabels[bay][bed][monitor]);
+            //configure controls for monitors
+            //text
+            monitorNameLabels[bay][bed][monitor].Text = "Monitor " + monitor.ToString();
+            monitorValueLabels[bay][bed][monitor].Text = "###";
+            //size
+            monitorNameLabels[bay][bed][monitor].Size = new System.Drawing.Size(60, 13);
+            monitorValueLabels[bay][bed][monitor].Size = new System.Drawing.Size(60, 13);
+            //position
+            int x = 15;
+            if ((monitor + 1) / 2 % 2 == 0)
+            {
+                x += 70;
+            }
+            int y1 = 25;
+            int y2 = 40;
+            if (monitor > 1)
+            {
+                y1 += 40;
+                y2 += 40;
+            }
+            monitorNameLabels[bay][bed][monitor].Location = new System.Drawing.Point(x, y1);
+            monitorValueLabels[bay][bed][monitor].Location = new System.Drawing.Point(x, y2);
         }
     }
 }

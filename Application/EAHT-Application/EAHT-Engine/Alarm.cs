@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
 
 namespace EAHT_Engine
 {
@@ -11,26 +12,38 @@ namespace EAHT_Engine
     /// </summary>
     public class Alarm
     {
-        private DateTime startTime;
-        private string reason;
-        private int bed;
-        private int bay;
-        private string assignee;
-        private string attendee;
+        private readonly DateTime startTime;
         private DateTime endTime;
+        private bool isActive = false;
+        private bool notificationsSent = false;
+        private readonly Ward wardRef;
+        private readonly int bayNumber;
+        private readonly int bedNumber;
+        private readonly int monitorNumber;
+        private readonly MonitorSensor sensor;
+        private string notes;
+        private readonly Timer updater;
 
         /// <summary>
         /// Create new alarm
         /// </summary>
-        /// <param name="reason">The reason the alarm was triggered</param>
-        /// <param name="bay">The bay in which the alarm was triggered</param>
-        /// <param name="bed">The bed in which the alarm was triggered</param>
-        public Alarm(string reason,int bay, int bed)
+        public Alarm(Ward ward, int bay, int bed, int monitor)
         {
             this.startTime = DateTime.Now;
-            this.reason = reason;
-            this.bed = bed;
-            this.bay = bay;
+            this.isActive = true;
+            this.wardRef = ward;
+            this.sensor = ward.Bays[bay].Beds[bed].Monitors[monitor].Sensor;
+            this.bedNumber = bed;
+            this.bayNumber = bay;
+            this.monitorNumber = monitor;
+            updater = new Timer(1000);
+            updater.Elapsed += Updater_Elapsed;
+            updater.Start();
+        }
+
+        private void Updater_Elapsed(object sender, ElapsedEventArgs e)
+        {
+            CheckStatus();
         }
 
         /// <summary>
@@ -38,22 +51,45 @@ namespace EAHT_Engine
         /// </summary>
         public void RecordAlarm()
         {
+            string[] values = new string[9];
+            values[0] = "\'" + wardRef.Name + "\'";
+            values[1] = bayNumber.ToString();
+            values[2] = bedNumber.ToString();
+            values[4] = "\'" + wardRef.Bays[bayNumber].Beds[bayNumber].Monitors[monitorNumber].Name + "\'";
+            values[3] = monitorNumber.ToString();
+            values[5] = "\'" + startTime.ToString() + "\'";
+            values[6] = "\'" + endTime.ToString() + "\'";
+            values[7] = "\'" + notes + "\'";
+            values[8] = "\'none\'";
+            string datacolumnstring = "(Ward, Bay, Bed, Monitor, Monitor_Type, Start_Time, End_Time, Notes, Intervening_Staff_Member)";
 
+            SqlQueryExecutor.InsertIntoTable("Alarm_Records", values, datacolumnstring);
         }
-
         /// <summary>
         /// Called when the alarm ends (either because it is shut off or vital signs fall within accepted levels again)
         /// </summary>
-        /// <param name="attendee"></param>
-        public void EndAlarm(string attendee)
+        public void EndAlarm()
         {
             endTime = DateTime.Now;
-            this.attendee = attendee;
+            isActive = false;
             RecordAlarm();
         }
-        public string GetMessage()
+        private void CheckStatus()
         {
-            return reason;
+            if (sensor.CurrentValue <= sensor.CurrentLower || sensor.CurrentValue >= sensor.CurrentUpper)
+            {
+
+            }
+            else
+            {
+                updater.Stop();
+                notes = "Alarm ended due to readings returning to normal range.";
+                EndAlarm();
+            }
+        }
+        private void SendNotification()
+        {
+            notificationsSent = true;
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
 
 namespace EAHT_Engine
 {
@@ -11,167 +12,84 @@ namespace EAHT_Engine
     /// </summary>
     public class Monitor
     {
-        private string name;
-        private MonitorSensor sensor1;
-        private MonitorSensor sensor2;
-        public Alarm alarm;
-        private int bay;
-        private int bed;
+        private readonly MonitorSensor sensor;
+        private readonly int round; //The number of decimal places to round readings to.
+        private readonly string name;
+        private readonly List<string> sensorTypes = new List<string>();
+        private readonly List<double> defaultValues = new List<double>();
+        private readonly List<double> defaultMinValues = new List<double>();
+        private readonly List<double> defaultMaxValues = new List<double>();
+        private readonly List<double> readRanges = new List<double>();
+        private readonly List<int> readFrequencies = new List<int>();
+        private readonly List<int> readRounds = new List<int>();
 
         /// <summary>
         /// Constructs a monitor for use in a bed
         /// </summary>
         /// <param name="monitorType">The type of monitor to create</param>
-        public Monitor(string monitorType)
+        public Monitor(int monitorType)
         {
-            this.name = monitorType;
-            switch(monitorType)
+            DataSet monitorTypeInfo = SqlQueryExecutor.SelectAllFromTable("Monitors");
+            DataTableReader reader = monitorTypeInfo.CreateDataReader();
+            while(reader.Read())
             {
-                case "Blood Pressure":
-                    sensor1 = new MonitorSensor(1000, 80, 1,85,75);
-                    sensor2 = new MonitorSensor(1000, 120, 1,150,100);
-                    break;
-                case "Temperature":
-                    sensor1 = new MonitorSensor(1000, 37.5, 0.05,37.7,37.4);
-                    break;
-                case "Heart Rate":
-                    sensor1 = new MonitorSensor(1000, 70, 1,140,50);
-                    break;
-                case "Breathing Rate":
-                    sensor1 = new MonitorSensor(1000, 16, 0.05,20,12);
-                    break;
+                sensorTypes.Add(reader.GetString(1));
+                defaultValues.Add(reader.GetDouble(5));
+                defaultMinValues.Add(reader.GetDouble(3));
+                defaultMaxValues.Add(reader.GetDouble(4));
+                readRanges.Add(reader.GetDouble(6));
+                readFrequencies.Add(reader.GetInt32(2));
+                readRounds.Add(2);
             }
+            this.name = sensorTypes[monitorType];
+            sensor = new MonitorSensor(readFrequencies[monitorType], defaultValues[monitorType], readRanges[monitorType], defaultMaxValues[monitorType], defaultMinValues[monitorType]);
+            round = readRounds[monitorType];
         }
 
         /// <summary>
         /// Gets the name property of the sensor.
         /// </summary>
         public string Name { get => name; }
-
+        /// <summary>
+        /// Gets the sensor currently attached to the monitor
+        /// </summary>
+        public MonitorSensor Sensor { get => sensor; }
         /// <summary>
         /// Get a string representing the current reading from the sensor(s) in the monitor, rounded appropriately.
         /// </summary>
         /// <returns>Current value of the most recent sensor(s) read.</returns>
         public string Read()
         {
-            switch (name)
+             return Math.Round(sensor.CurrentValue, round).ToString();
+        }
+        /// <summary>
+        /// Set the minimum acceptable level for the alarm.
+        /// </summary>
+        /// <param name="value">alarm level lower</param>
+        public void SetMin(double value)
+        {
+            //if sensor exists, adjust value
+            if (!(sensor is null))
             {
-                case "Blood Pressure":
-                    return Math.Round(sensor1.CurrentValue).ToString() + " / " + Math.Round(sensor2.CurrentValue).ToString();
-                default:
-                    return Math.Round(sensor1.CurrentValue, 2).ToString();
+                sensor.CurrentLower = value;
             }
 
         }
-        public bool GetAlarms()
+        /// <summary>
+        /// set the maximum acceptable level for the alarm.
+        /// </summary>
+        /// <param name="value">alarm level higher</param>
+        public void SetMax(double value)
         {
-            switch(name)
+            //if sensor exists, adjust value
+            if (!(sensor is null))
             {
-                case "Blood Pressure":
-                    bool alarmStatus = false;
-                    if (sensor1.IsAlarmed || sensor2.IsAlarmed)
-                    {
-                        alarmStatus = true;
-                        CreateAlarmIfNoneExist();
-                    }
-                    else
-                    {
-                        ClearAlarmIfExists("TESTID");
-                    }
-                    return alarmStatus;
-                default:
-                    if (sensor1.IsAlarmed)
-                    {
-                        CreateAlarmIfNoneExist();
-                    }
-                    else
-                    {
-                        ClearAlarmIfExists("TESTID");
-                    }
-                    return sensor1.IsAlarmed;
+                sensor.CurrentUpper = value;
             }
+                    
         }
-        private void TriggerAlarm()
-        {
-            alarm = new Alarm(name + "Alarm", bay, bed);
-        }
-        public void CreateAlarmIfNoneExist()
-        {
-            if(alarm is null)
-            {
-                TriggerAlarm();
-            }
-        }
-        private void TerminateAlarm(string whoTerminated)
-        {
-            alarm.EndAlarm(whoTerminated);
-            alarm.RecordAlarm();
-            alarm = null;
-        }
-        public void ClearAlarmIfExists(string whoTerminated)
-        {
-            if (!(alarm is null))
-            {
-                TerminateAlarm(whoTerminated);
-            }
-        }
-        public double[] Min()
-        {
-            switch (name)
-            {
-                case "Blood Pressure":
-                    return new double[2] { sensor1.CurrentLower, sensor2.CurrentLower };
-                default:
-                    return new double[1] { sensor1.CurrentLower };
-            }
-        }
-        public double[] Max()
-        {
-            switch (name)
-            {
-                case "Blood Pressure":
-                    return new double[2] { sensor1.CurrentUpper, sensor2.CurrentUpper };
-                default:
-                    return new double[1] { sensor1.CurrentUpper };
-            }
-        }
-
-        public void SetMin(double value, int sensor)
-        {
-            switch(sensor)
-            {
-                case 1:
-                    if (!(sensor1 is null))
-                    {
-                        sensor1.CurrentLower = value;
-                    }
-                    break;
-                case 2:
-                    if (!(sensor2 is null))
-                    {
-                        sensor2.CurrentLower = value;
-                    }
-                    break;
-            }
-        }
-        public void SetMax(double value, int sensor)
-        {
-            switch(sensor)
-            {
-                case 1:
-                    if (!(sensor1 is null))
-                    {
-                        sensor1.CurrentUpper = value;
-                    }
-                    break;
-                case 2:
-                    if (!(sensor2 is null))
-                    {
-                        sensor2.CurrentUpper = value;
-                    }
-                    break;
-            }
-        }
-
+        /// <summary>
+        /// Clears the current alarm
+        /// </summary>
     }
 }
