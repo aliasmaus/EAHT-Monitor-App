@@ -25,10 +25,11 @@ namespace EAHT_App_UI
 
         private void Login_Click(object sender, EventArgs e)
         {
-                    
-       
+
+            string connStr = Properties.Settings.Default.DBconnection;
+
             // It allows comunication between the Database's source and the application
-            System.Data.SqlClient.SqlConnection dbConnection = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = C:\EAHT - Monitor - App\Application\EAHT - Application\EAHT - Engine\EAHT - Database.mdf; Integrated Security = True; Connect Timeout = 30");
+            System.Data.SqlClient.SqlConnection dbConnection = new SqlConnection(connStr);// @"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = C:\EAHT - Monitor - App\Application\EAHT - Application\EAHT - Engine\EAHT - Database.mdf; Integrated Security = True; Connect Timeout = 30");
 
             //SQL query. 
             SqlDataAdapter dataAdapter= new SqlDataAdapter("SELECT * FROM Login WHERE username = ' " + textBox1.Text + " 'AND password = ' " + textBox2.Text + "'", dbConnection);
