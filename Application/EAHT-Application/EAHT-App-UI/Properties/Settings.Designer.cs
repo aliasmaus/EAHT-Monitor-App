@@ -26,8 +26,9 @@ namespace EAHT_App_UI.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\DB\\DBLogin.mdf;Integrated " +
-            "Security=True;Connect Timeout=30")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\EAHT-Monitor-App\\Applicati" +
+            "on\\EAHT-Application\\EAHT-Engine\\EAHT-Database.mdf;Integrated Security=True;Conne" +
+            "ct Timeout=30")]
         public string DBconnection {
             get {
                 return ((string)(this["DBconnection"]));
