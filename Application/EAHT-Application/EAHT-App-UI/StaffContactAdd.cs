@@ -32,10 +32,7 @@ namespace EAHT_App_UI
             //obj.AddInformation = txtAddInformation.Text;
 
             //listStaff.Items.Add(obj.ToString());
-<<<<<<< Updated upstream
 
-=======
->>>>>>> Stashed changes
 
             StaffDetails stdtils = new StaffDetails();
             stdtils.Show();
@@ -68,14 +65,11 @@ namespace EAHT_App_UI
             // Button used to return to the previous page
             //MonitorPage monitorPage = new MonitorPage();
             //monitorPage.Show();
-<<<<<<< Updated upstream
-=======
+
         }
 
         private void txtIdNumber_TextChanged(object sender, EventArgs e)
         {
-
->>>>>>> Stashed changes
         }
     }
 }
