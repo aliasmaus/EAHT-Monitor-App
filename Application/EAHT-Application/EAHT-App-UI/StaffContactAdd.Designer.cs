@@ -187,6 +187,7 @@
             this.txtIdNumber.Name = "txtIdNumber";
             this.txtIdNumber.Size = new System.Drawing.Size(132, 22);
             this.txtIdNumber.TabIndex = 13;
+            this.txtIdNumber.TextChanged += new System.EventHandler(this.txtIdNumber_TextChanged);
             // 
             // txtContactNumber
             // 

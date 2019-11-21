@@ -65,6 +65,11 @@ namespace EAHT_App_UI
             // Button used to return to the previous page
             //MonitorPage monitorPage = new MonitorPage();
             //monitorPage.Show();
+
+        }
+
+        private void txtIdNumber_TextChanged(object sender, EventArgs e)
+        {
         }
     }
 }
