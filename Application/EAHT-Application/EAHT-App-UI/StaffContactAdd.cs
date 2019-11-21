@@ -21,7 +21,7 @@ namespace EAHT_App_UI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //Create objects from values type on textbox in Contact Register
+            // Create objects from values type on textbox in Contact Register
             StaffDetails obj = new StaffDetails();
             //obj.FirstName = txtFirstName.Text;
             //obj.LastName = txtLastName.Text;
@@ -63,14 +63,16 @@ namespace EAHT_App_UI
         private void button4_Click(object sender, EventArgs e)
         {
             // Button used to return to the previous page
-            //MonitorPage monitorPage = new MonitorPage();
-            //monitorPage.Show();
-
+           
+            StaffList staffList = new StaffList();
+            staffList.Show();
         }
 
         private void txtIdNumber_TextChanged(object sender, EventArgs e)
         {
         }
+
+  
     }
 }
 

@@ -137,6 +137,7 @@
             // 
             // MgmtAlarmLog_BackPanel
             // 
+            this.MgmtAlarmLog_BackPanel.Controls.Add(this.MgmtStaffReports_BackPanel);
             this.MgmtAlarmLog_BackPanel.Controls.Add(this.MgmtMedicalRecords_BackPanel);
             this.MgmtAlarmLog_BackPanel.Controls.Add(this.MgmtAlarmLog_BackButton);
             this.MgmtAlarmLog_BackPanel.Controls.Add(this.MgmtAlarmLog_TitleText);
@@ -164,7 +165,6 @@
             // 
             // MgmtAlarmReports_BackPanel
             // 
-            this.MgmtAlarmReports_BackPanel.Controls.Add(this.MgmtStaffReports_BackPanel);
             this.MgmtAlarmReports_BackPanel.Controls.Add(this.MgmtAlarmReports_BackButton);
             this.MgmtAlarmReports_BackPanel.Controls.Add(this.MgmtAlarmReports_TitleText);
             this.MgmtAlarmReports_BackPanel.Enabled = false;
@@ -180,12 +180,13 @@
             this.MgmtStaffReports_BackPanel.Controls.Add(this.MgmtStaffReport_BackButton);
             this.MgmtStaffReports_BackPanel.Controls.Add(this.MgmtStaffReport_TitleText);
             this.MgmtStaffReports_BackPanel.Enabled = false;
-            this.MgmtStaffReports_BackPanel.Location = new System.Drawing.Point(133, 124);
+            this.MgmtStaffReports_BackPanel.Location = new System.Drawing.Point(15, 26);
             this.MgmtStaffReports_BackPanel.Margin = new System.Windows.Forms.Padding(4);
             this.MgmtStaffReports_BackPanel.Name = "MgmtStaffReports_BackPanel";
             this.MgmtStaffReports_BackPanel.Size = new System.Drawing.Size(1067, 492);
             this.MgmtStaffReports_BackPanel.TabIndex = 6;
             this.MgmtStaffReports_BackPanel.Visible = false;
+            this.MgmtStaffReports_BackPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.MgmtStaffReports_BackPanel_Paint);
             // 
             // MgmtStaffReport_BackButton
             // 
@@ -208,6 +209,7 @@
             this.MgmtStaffReport_TitleText.Size = new System.Drawing.Size(301, 29);
             this.MgmtStaffReport_TitleText.TabIndex = 0;
             this.MgmtStaffReport_TitleText.Text = "Staff Sign In/Out Reports";
+            this.MgmtStaffReport_TitleText.Click += new System.EventHandler(this.MgmtStaffReport_TitleText_Click);
             // 
             // MgmtAlarmReports_BackButton
             // 

@@ -80,5 +80,16 @@ namespace EAHT_App_UI
         {
             TogglePage(MgmtAlarmReports_BackPanel, false);
         }
+
+        private void MgmtStaffReport_TitleText_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MgmtStaffReports_BackPanel_Paint(object sender, PaintEventArgs e)
+        {
+            StaffList staffList = new StaffList();
+            staffList.Show();
+        }
     }
 }
