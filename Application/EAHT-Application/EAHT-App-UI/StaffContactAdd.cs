@@ -33,7 +33,6 @@ namespace EAHT_App_UI
 
             //listStaff.Items.Add(obj.ToString());
 
-
             StaffDetails stdtils = new StaffDetails();
             stdtils.Show();
         }

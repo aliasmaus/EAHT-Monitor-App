@@ -14,7 +14,6 @@ namespace EAHT_Engine
     {
         private readonly string name;
         private readonly Bay[] bays;
-        private readonly string infoString;
         private Alarm[][][] alarms;
         /// <summary>
         /// Initializes the ward by retrieving ward data from the database
@@ -32,7 +31,6 @@ namespace EAHT_Engine
             int nBays = reader.GetInt32(2);
             int nBeds = reader.GetInt32(3);
             int nMonitors = reader.GetInt32(4);
-            infoString = name + "-\nBays: " + nBays.ToString() + "\nBeds: " + nBeds.ToString() + "\nMonitors: " + nMonitors.ToString();
             //Load bays
             bays = new Bay[nBays];
             for(int bay = 0; bay<nBays; bay++)
@@ -51,10 +49,10 @@ namespace EAHT_Engine
             }
 
         }
-
+        //The bays on the ward
         public Bay[] Bays { get => bays; }
+        //The name of the ward
         public string Name { get => name; }
-        public string InfoString { get => infoString; }
         /// <summary>
         /// Get an array of bools representing required alarm locations
         /// true 
