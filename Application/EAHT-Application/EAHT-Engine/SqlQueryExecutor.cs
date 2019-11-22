@@ -141,6 +141,7 @@ namespace EAHT_Engine
             sqlCommand.Connection = dbConnection;
             sqlCommand.ExecuteNonQuery();
             connection.CloseConnection();
+            sqlCommand.Dispose();
         }
         /// <summary>
         /// Updates the named column values in the filtered rows in the named table
@@ -155,6 +156,7 @@ namespace EAHT_Engine
             string statement = "UPDATE " + tableName + " ADD (" + updates + whereClause + whereCondition + endQuery;
             System.Data.SqlClient.SqlCommand sqlCommand = connection.GetSqlCommand(statement);
             sqlCommand.ExecuteNonQuery();
+            sqlCommand.Dispose();
             connection.CloseConnection();
         }
     }

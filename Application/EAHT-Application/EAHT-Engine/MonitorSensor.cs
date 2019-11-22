@@ -12,8 +12,6 @@ namespace EAHT_Engine
     /// </summary>
     public class MonitorSensor
     {
-        private double readFrequency; // (milliseconds)
-        private double startValue; // initial reading value
         private double readRange; // range that each reading can vary from the last (either above or below)
         private Timer readTimer; // timer to generate read event
         private Random random; // random to get random difference
@@ -47,8 +45,6 @@ namespace EAHT_Engine
         /// <param name="lower">Lower limit for this sensor</param>
         public MonitorSensor(double freq, double start, double rng, double upper, double lower)
         {
-            this.readFrequency = freq;
-            this.startValue = start;
             this.currentValue = start;
             this.readTimer = new Timer(freq);
             this.random = new Random();

@@ -7,7 +7,6 @@ namespace EAHT_App_UI
 {
     public partial class MainPage : Form
     {
-        static readonly Random rng = new Random();
         private readonly Ward ward;
         private System.Windows.Forms.GroupBox[][] frames;
         private System.Windows.Forms.Label[][][] monitorNameLabels;

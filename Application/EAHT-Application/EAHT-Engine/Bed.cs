@@ -18,7 +18,7 @@ namespace EAHT_Engine
         /// Initializes the bed
         /// </summary>
         /// <param name="ID">The bed number</param>
-        public Bed(int ID, int nMonitors, int bay)
+        public Bed(int ID, int nMonitors)
         {
             this.bedNumber = ID;
             this.monitors = new Monitor[nMonitors];

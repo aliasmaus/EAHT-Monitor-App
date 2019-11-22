@@ -22,7 +22,7 @@ namespace EAHT_Engine
             this.bayNumber = ID;
             for (int bed=0; bed<nBeds; bed++)
             {
-                beds[bed] = new Bed(bed,nMonitors,ID);
+                beds[bed] = new Bed(bed,nMonitors);
             }
         }
 

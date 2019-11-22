@@ -1,6 +1,6 @@
 ﻿namespace EAHT_App_UI
 {
-    partial class MainForm
+    partial class Login
     {
         /// <summary>
         /// Required designer variable.

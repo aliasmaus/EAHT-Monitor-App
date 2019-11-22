@@ -14,6 +14,7 @@ namespace EAHT_App_UI
         private System.Windows.Forms.Label[] maxLabels;
         private System.Windows.Forms.NumericUpDown[] minSelectors;
         private System.Windows.Forms.NumericUpDown[] maxSelectors;
+        private System.Windows.Forms.Button[] silenceButtons;
 
         /// <summary>
         /// Creates the monitor display panels and configures them depending on the 
@@ -39,6 +40,7 @@ namespace EAHT_App_UI
             maxLabels = new Label[nMonitors];
             minSelectors = new NumericUpDown[nMonitors];
             maxSelectors = new NumericUpDown[nMonitors];
+            silenceButtons = new Button[nMonitors];
             // for each monitor
             for (int monitor = 0; monitor < nMonitors; monitor++)
             {
@@ -50,6 +52,10 @@ namespace EAHT_App_UI
                 maxLabels[monitor] = new Label();
                 minSelectors[monitor] = new NumericUpDown();
                 maxSelectors[monitor] = new NumericUpDown();
+                silenceButtons[monitor] = new Button();
+                // hide and disable silence buttons
+                silenceButtons[monitor].Enabled = false;
+                silenceButtons[monitor].Visible = false;
                 // add controls to their containers
                 MonitorPageFlowPanel.Controls.Add(frames[monitor]);
                 frames[monitor].Controls.Add(dropdowns[monitor]);
@@ -58,6 +64,7 @@ namespace EAHT_App_UI
                 frames[monitor].Controls.Add(maxLabels[monitor]);
                 frames[monitor].Controls.Add(minSelectors[monitor]);
                 frames[monitor].Controls.Add(maxSelectors[monitor]);
+                frames[monitor].Controls.Add(silenceButtons[monitor]);
                 // set names
                 dropdowns[monitor].Name = "Dropdown_" + monitor.ToString();
                 minSelectors[monitor].Name = "MinSel_" + monitor.ToString();
@@ -66,20 +73,23 @@ namespace EAHT_App_UI
                 values[monitor].Text = "loading";
                 minLabels[monitor].Text = "Alarms: Min";
                 maxLabels[monitor].Text = "Max";
+                silenceButtons[monitor].Text = "Silence Alarm";
                 // add options to dropdowns
                 dropdowns[monitor].Items.AddRange(bed.GetPossibleMonitors());
                 // set positions
                 dropdowns[monitor].Location = new System.Drawing.Point(70, 11);
-                values[monitor].Location = new System.Drawing.Point(10, 35);
+                values[monitor].Location = new System.Drawing.Point(5, 35);
                 minLabels[monitor].Location = new System.Drawing.Point(10, 100);
                 maxLabels[monitor].Location = new System.Drawing.Point(128, 100);
-                minSelectors[monitor].Location = new System.Drawing.Point(69, 98);
+                minSelectors[monitor].Location = new System.Drawing.Point(80, 98);
                 maxSelectors[monitor].Location = new System.Drawing.Point(156, 98);
+                silenceButtons[monitor].Location = new System.Drawing.Point(170,50);
                 // set sizes
                 frames[monitor].Size = new System.Drawing.Size(250, 130);
                 minLabels[monitor].Size = new System.Drawing.Size(50, 13);
                 maxLabels[monitor].Size = new System.Drawing.Size(30, 13);
-                values[monitor].Size = new System.Drawing.Size(200, 55);
+                values[monitor].Size = new System.Drawing.Size(150, 55);
+                values[monitor].AutoSize = false;
                 minSelectors[monitor].Size = new System.Drawing.Size(50, 20);
                 maxSelectors[monitor].Size = new System.Drawing.Size(50, 20);
                 // set fonts
@@ -90,9 +100,16 @@ namespace EAHT_App_UI
                 dropdowns[monitor].SelectedIndexChanged += new EventHandler(ChangeMonitor);
                 minSelectors[monitor].ValueChanged += new EventHandler(MonitorMinChanged);
                 maxSelectors[monitor].ValueChanged += new EventHandler(MonitorMaxChanged);
+                silenceButtons[monitor].Click += new EventHandler(SilenceAlarm);
+                //debugging
+                //values[monitor].Visible = false;
             }
         }
 
+        private void SilenceAlarm(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
 
         private void PageUpdate(object sender, EventArgs e)
         {
@@ -104,11 +121,16 @@ namespace EAHT_App_UI
                     values[monitor].Text = bed.Monitors[monitor].Read();
                     if(alarmStatuses[monitor])
                     {
+                        //TODO: finish silence button visibility implementation
                         frames[monitor].BackColor = System.Drawing.Color.Red;
+                        silenceButtons[monitor].Visible = true;
+                        silenceButtons[monitor].Enabled = true;
                     }
                     else
                     {
                         frames[monitor].BackColor = System.Drawing.Color.CadetBlue;
+                        silenceButtons[monitor].Visible = false;
+                        silenceButtons[monitor].Enabled = false;
                     }
                 }
             }

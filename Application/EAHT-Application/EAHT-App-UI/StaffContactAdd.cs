@@ -62,13 +62,14 @@ namespace EAHT_App_UI
         private void button4_Click(object sender, EventArgs e)
         {
             // Button used to return to the previous page
-           
-            StaffList staffList = new StaffList();
-            staffList.Show();
+            //MonitorPage monitorPage = new MonitorPage();
+            //monitorPage.Show();
+
         }
 
         private void txtIdNumber_TextChanged(object sender, EventArgs e)
         {
+
         }
 
   

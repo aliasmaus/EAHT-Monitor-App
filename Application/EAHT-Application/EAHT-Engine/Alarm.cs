@@ -12,8 +12,8 @@ namespace EAHT_Engine
     /// Alarm is cleared when readings fall back within the acceptable range.  
     /// If an alarm is silenced it will still continue to update until levels fall within acceptable range
     /// </summary>
-    // TODO: when an alarm is silenced begin a timer to see how long it takes for the problem to be fixed
-    // TODO: add columns to database for time after silencing, time silenced
+    // TODO: add columns to database for time silenced.
+
     public class Alarm
     {
         private readonly DateTime startTime;
@@ -29,11 +29,12 @@ namespace EAHT_Engine
         private string notes;
         private readonly Timer updater;
         private bool isSilenced;
+        private DateTime silencedTime;
 
         /// <summary>
         /// Indicates wether or not a staff member has intervened and silenced the alarm
         /// </summary>
-        public bool IsSilenced { get => isSilenced; set => isSilenced = value; }
+        public bool IsSilenced { get => isSilenced; }
 
         /// <summary>
         /// Create new alarm
@@ -51,6 +52,7 @@ namespace EAHT_Engine
             updater = new Timer(1000);
             updater.Elapsed += Updater_Elapsed;
             updater.Start();
+            SendNotification();
         }
 
         private void Updater_Elapsed(object sender, ElapsedEventArgs e)
@@ -58,10 +60,11 @@ namespace EAHT_Engine
             CheckStatus();
         }
 
+        // TODO: update record alarm function to account for silenced alarms
         /// <summary>
         /// Record alarm data in to database
         /// </summary>
-        public void RecordAlarm()
+        private void RecordAlarm()
         {
             string[] values = new string[9];
             values[0] = "\'" + wardRef.Name + "\'";
@@ -78,9 +81,9 @@ namespace EAHT_Engine
             SqlQueryExecutor.InsertIntoTable("Alarm_Records", values, datacolumnstring);
         }
         /// <summary>
-        /// Called when the alarm ends (either because it is shut off or vital signs fall within accepted levels again)
+        /// Called when the alarm ends (because vital signs fall within accepted levels again)
         /// </summary>
-        public void EndAlarm()
+        private void EndAlarm()
         {
             endTime = DateTime.Now;
             RecordAlarm();
@@ -108,9 +111,17 @@ namespace EAHT_Engine
                 }
             }
         }
+        // TODO: properly implement alarm notification 
         private void SendNotification()
         {
             notificationsSent = true;
+        }
+        // TODO: when login class completed alarm needs to record person that silenced the alarm.
+        public void SilenceAlarm()
+        {
+            isSilenced = true;
+            silencedTime = DateTime.Now;
+            //staffMemberThatSilenced = login.staffID;
         }
     }
 }
