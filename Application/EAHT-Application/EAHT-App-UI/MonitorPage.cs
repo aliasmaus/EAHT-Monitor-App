@@ -151,6 +151,7 @@ namespace EAHT_App_UI
                 bed.Monitors[monitor].SetMax(value);
             }
         }
+
     }
 
 }

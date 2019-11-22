@@ -8,8 +8,12 @@ using System.Timers;
 namespace EAHT_Engine
 {
     /// <summary>
-    /// An alarm is created when a reading goes outside of acceptable levels
+    /// An alarm is created when a reading goes outside of acceptable levels.  
+    /// Alarm is cleared when readings fall back within the acceptable range.  
+    /// If an alarm is silenced it will still continue to update until levels fall within acceptable range
     /// </summary>
+    // TODO: when an alarm is silenced begin a timer to see how long it takes for the problem to be fixed
+    // TODO: add columns to database for time after silencing, time silenced
     public class Alarm
     {
         private readonly DateTime startTime;
@@ -21,8 +25,15 @@ namespace EAHT_Engine
         private readonly int bedNumber;
         private readonly int monitorNumber;
         private readonly MonitorSensor sensor;
+        private readonly string monitorName;
         private string notes;
         private readonly Timer updater;
+        private bool isSilenced;
+
+        /// <summary>
+        /// Indicates wether or not a staff member has intervened and silenced the alarm
+        /// </summary>
+        public bool IsSilenced { get => isSilenced; set => isSilenced = value; }
 
         /// <summary>
         /// Create new alarm
@@ -33,6 +44,7 @@ namespace EAHT_Engine
             this.isActive = true;
             this.wardRef = ward;
             this.sensor = ward.Bays[bay].Beds[bed].Monitors[monitor].Sensor;
+            this.monitorName = ward.Bays[bay].Beds[bed].Monitors[monitor].Name;
             this.bedNumber = bed;
             this.bayNumber = bay;
             this.monitorNumber = monitor;
@@ -55,7 +67,7 @@ namespace EAHT_Engine
             values[0] = "\'" + wardRef.Name + "\'";
             values[1] = bayNumber.ToString();
             values[2] = bedNumber.ToString();
-            values[4] = "\'" + wardRef.Bays[bayNumber].Beds[bayNumber].Monitors[monitorNumber].Name + "\'";
+            values[4] = "\'" + monitorName + "\'";
             values[3] = monitorNumber.ToString();
             values[5] = "\'" + startTime.ToString() + "\'";
             values[6] = "\'" + endTime.ToString() + "\'";
@@ -71,8 +83,8 @@ namespace EAHT_Engine
         public void EndAlarm()
         {
             endTime = DateTime.Now;
-            isActive = false;
             RecordAlarm();
+            isActive = false;
         }
         private void CheckStatus()
         {
@@ -82,9 +94,18 @@ namespace EAHT_Engine
             }
             else
             {
-                updater.Stop();
-                notes = "Alarm ended due to readings returning to normal range.";
-                EndAlarm();
+                if (isSilenced)
+                {
+                    updater.Stop();
+                    notes = "Silenced by staff member";
+                    RecordAlarm();
+                }
+                else
+                {
+                    updater.Stop();
+                    notes = "Alarm ended due to readings returning to normal range.";
+                    EndAlarm();
+                }
             }
         }
         private void SendNotification()

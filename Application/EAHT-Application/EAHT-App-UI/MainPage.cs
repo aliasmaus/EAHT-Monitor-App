@@ -59,8 +59,10 @@ namespace EAHT_App_UI
 
         private void Open_Bed(object sender, EventArgs e)
         {
-            int bedIndex = Convert.ToInt32((sender as Control).Name.Substring(7).Trim());
-            MonitorPage monitorPage = new MonitorPage(ward.Bays[0].Beds[bedIndex]);
+            string[] info = (sender as Control).Name.Split( '_' );
+            int bayIndex = Convert.ToInt32(info[0]);
+            int bedIndex = Convert.ToInt32(info[1]);
+            MonitorPage monitorPage = new MonitorPage(ward.Bays[bayIndex].Beds[bedIndex]);
             monitorPage.Show();
         }
 
@@ -72,11 +74,11 @@ namespace EAHT_App_UI
             for (int bay = 0; bay < ward.Bays.Length; bay++)
             {
                 //for each bed
-                for (int bed = 0; bed < ward.Bays[0].Beds.Length; bed++)
+                for (int bed = 0; bed < ward.Bays[bay].Beds.Length; bed++)
                 {
                     bool colourBedRed = false;
                     //for each monitor
-                    for (int monitor = 0; monitor < ward.Bays[0].Beds[0].Monitors.Length; monitor++)
+                    for (int monitor = 0; monitor < ward.Bays[bay].Beds[bed].Monitors.Length; monitor++)
                     {
                         if (!(ward.Bays[bay].Beds[bed].Monitors[monitor] is null))
                         {
@@ -162,6 +164,7 @@ namespace EAHT_App_UI
             //create tabs for bays
             bayTabs[bay] = new TabPage();
             bayFlowPanels[bay] = new FlowLayoutPanel();
+            bayFlowPanels[bay].AutoScroll = true;
             //add bays to tab control
             BayDisplayTabControl.Controls.Add(bayTabs[bay]);
             //add flow layout panels to tabs
@@ -189,7 +192,7 @@ namespace EAHT_App_UI
             //
             //configure controls for beds
             //names
-            inspectBedButtons[bay][bed].Name = "Button_" + bed.ToString();
+            inspectBedButtons[bay][bed].Name = bay.ToString() + "_" + bed.ToString();
             //text
             frames[bay][bed].Text = "Bed " + (bed + 1).ToString();
             inspectBedButtons[bay][bed].Text = "Inspect";
@@ -218,7 +221,7 @@ namespace EAHT_App_UI
             monitorValueLabels[bay][bed][monitor].Size = new System.Drawing.Size(60, 13);
             //position
             int x = 15;
-            if ((monitor + 1) / 2 % 2 == 0)
+            if ((monitor) % 2 == 1)
             {
                 x += 70;
             }

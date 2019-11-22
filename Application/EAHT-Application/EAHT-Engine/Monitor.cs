@@ -88,8 +88,6 @@ namespace EAHT_Engine
             }
                     
         }
-        /// <summary>
-        /// Clears the current alarm
-        /// </summary>
+        public string[] SensorTypes { get => sensorTypes.ToArray(); }
     }
 }
