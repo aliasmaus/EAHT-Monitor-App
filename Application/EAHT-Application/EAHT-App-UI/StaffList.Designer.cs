@@ -40,6 +40,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(930, 403);
             this.textBox1.TabIndex = 0;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // button2
             // 
@@ -59,6 +60,7 @@
             this.button3.TabIndex = 3;
             this.button3.Text = "Back to Main";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // StaffList
             // 
@@ -70,7 +72,7 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.textBox1);
             this.Name = "StaffList";
-            this.Text = "StaffDetails";
+            this.Text = "Staff Members List";
             this.ResumeLayout(false);
             this.PerformLayout();
 

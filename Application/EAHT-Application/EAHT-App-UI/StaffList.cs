@@ -21,5 +21,18 @@ namespace EAHT_App_UI
         {
 
         }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            //Show data recorded from Staff Members
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            // Button used to return to the main page
+            MainPage mainPage = new MainPage();
+            mainPage.Show();
+        }
     }
 }
