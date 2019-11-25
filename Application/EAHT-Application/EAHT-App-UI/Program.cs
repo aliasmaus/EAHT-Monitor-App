@@ -15,10 +15,16 @@ namespace EAHT_App_UI
         [STAThread]
         static void Main()
         {
-            
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new WelcomePage(SqlQueryExecutor.GetColumnValuesAsString("Ward_Settings")));
-        }
+
+         Application.EnableVisualStyles();
+         Application.SetCompatibleTextRenderingDefault(false);
+         Application.Run(new WelcomePage(SqlQueryExecutor.GetColumnValuesAsString("Ward_Settings")));
+
+         //Program opens with Login page
+         //Application.EnableVisualStyles();
+         //Application.SetCompatibleTextRenderingDefault(false);
+         //Application.Run(new Login());
+
+            }
     }
 }
