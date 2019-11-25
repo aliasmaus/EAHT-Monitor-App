@@ -68,7 +68,6 @@ namespace EAHT_App_UI
         private void Update_MainPage(object sender, EventArgs e)
         {
             bool[][][] alarmLocations = ward.SearchForAlarms();
-            ward.UpdateAlarmArray(alarmLocations);
             //for each bay
             for (int bay = 0; bay < ward.Bays.Length; bay++)
             {

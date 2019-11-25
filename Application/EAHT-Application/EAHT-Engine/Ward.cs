@@ -14,7 +14,6 @@ namespace EAHT_Engine
     {
         private readonly string name;
         private readonly Bay[] bays;
-        private Alarm[][][] alarms;
         /// <summary>
         /// Initializes the ward by retrieving ward data from the database
         /// </summary>
@@ -35,17 +34,7 @@ namespace EAHT_Engine
             bays = new Bay[nBays];
             for(int bay = 0; bay<nBays; bay++)
             {
-                bays[bay] = new Bay(bay, nBeds, nMonitors);
-            }
-            //load alarm arrays
-            alarms = new Alarm[nBays][][];
-            for (int bay = 0; bay < nBays; bay++)
-            {
-                alarms[bay] = new Alarm[nBeds][];
-                for (int bed = 0; bed < nBeds; bed++)
-                {
-                    alarms[bay][bed] = new Alarm[nMonitors];
-                }
+                bays[bay] = new Bay(bay, nBeds, nMonitors, this);
             }
 
         }
@@ -71,53 +60,13 @@ namespace EAHT_Engine
                     {
                         if (!(bays[bay].Beds[bed].Monitors[monitor] is null))
                         {
-                            double high = bays[bay].Beds[bed].Monitors[monitor].Sensor.CurrentUpper;
-                            double low = bays[bay].Beds[bed].Monitors[monitor].Sensor.CurrentLower;
-                            double value = bays[bay].Beds[bed].Monitors[monitor].Sensor.CurrentValue;
-                            if (value <= low || value >= high)
-                            {
-                                alarmLocations[bay][bed][monitor] = true;
-                            }
-                            else
-                            {
-                                alarmLocations[bay][bed][monitor] = false;
-                            }
+                            alarmLocations[bay][bed][monitor] = bays[bay].Beds[bed].Monitors[monitor].CheckForAlarm();
                         }
                         
                     }
                 }
             }
             return alarmLocations;
-        }
-        /// <summary>
-        /// Creates new alarms in locations marked as true if no alarm exists, removes alarms in locations marked false if alarm exists.
-        /// </summary>
-        /// <param name="locations">3d array [bays][beds][monitors] true for alarmed, false for unalarmed</param>
-        public void UpdateAlarmArray(bool[][][] locations)
-        {
-            for (int bay = 0; bay < alarms.Length; bay++)
-            {
-                for(int bed = 0; bed < alarms[bay].Length; bed++)
-                {
-                    for (int monitor = 0; monitor < alarms[bay][bed].Length; monitor ++)
-                    {
-                        if(locations[bay][bed][monitor])
-                        {
-                            if(alarms[bay][bed][monitor] is null)
-                            {
-                                alarms[bay][bed][monitor] = new Alarm(this,bay,bed,monitor);
-                            }
-                        }
-                        else
-                        {
-                            if(!(alarms[bay][bed][monitor] is null))
-                            {
-                                alarms[bay][bed][monitor] = null;
-                            }
-                        }
-                    }
-                }
-            }
         }
     }
 }

@@ -12,7 +12,6 @@ namespace EAHT_Engine
     /// Alarm is cleared when readings fall back within the acceptable range.  
     /// If an alarm is silenced it will still continue to update until levels fall within acceptable range
     /// </summary>
-    // TODO: add columns to database for time silenced.
 
     public class Alarm
     {
@@ -60,13 +59,29 @@ namespace EAHT_Engine
             CheckStatus();
         }
 
-        // TODO: update record alarm function to account for silenced alarms
+        // TODO: update record alarm function to account staff member that silenced
         /// <summary>
         /// Record alarm data in to database
         /// </summary>
         private void RecordAlarm()
         {
-            string[] values = new string[9];
+            string[] values;
+            string datacolumnstring;
+            if (isSilenced)
+            {
+                values = new string[10];
+                datacolumnstring = "(Ward, Bay, Bed, Monitor, Monitor_Type, Start_Time, End_Time, Notes, Intervening_Staff_Member, Time_Silenced)";
+                // NEED TO IMPLEMENT STAFF ID HERE
+                values[8] = "\'to implement\'";
+                values[9] = "\'" + silencedTime.ToString() + "\'";
+            }
+            else
+            {
+                values = new string[9];
+                values[8] = "\'none\'";
+                datacolumnstring = "(Ward, Bay, Bed, Monitor, Monitor_Type, Start_Time, End_Time, Notes, Intervening_Staff_Member)";
+            }
+            
             values[0] = "\'" + wardRef.Name + "\'";
             values[1] = bayNumber.ToString();
             values[2] = bedNumber.ToString();
@@ -75,9 +90,6 @@ namespace EAHT_Engine
             values[5] = "\'" + startTime.ToString() + "\'";
             values[6] = "\'" + endTime.ToString() + "\'";
             values[7] = "\'" + notes + "\'";
-            values[8] = "\'none\'";
-            string datacolumnstring = "(Ward, Bay, Bed, Monitor, Monitor_Type, Start_Time, End_Time, Notes, Intervening_Staff_Member)";
-
             SqlQueryExecutor.InsertIntoTable("Alarm_Records", values, datacolumnstring);
         }
         /// <summary>
@@ -101,7 +113,7 @@ namespace EAHT_Engine
                 {
                     updater.Stop();
                     notes = "Silenced by staff member";
-                    RecordAlarm();
+                    EndAlarm();
                 }
                 else
                 {

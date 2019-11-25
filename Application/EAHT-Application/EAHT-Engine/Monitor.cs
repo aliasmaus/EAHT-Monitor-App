@@ -22,15 +22,25 @@ namespace EAHT_Engine
         private readonly List<double> readRanges = new List<double>();
         private readonly List<int> readFrequencies = new List<int>();
         private readonly List<int> readRounds = new List<int>();
+        private Alarm alarm;
+        private Ward ward;
+        private int bed;
+        private int bay;
+        private int number;
 
         /// <summary>
         /// Constructs a monitor for use in a bed
         /// </summary>
         /// <param name="monitorType">The type of monitor to create</param>
-        public Monitor(int monitorType)
+        /// <param name="ward"></param>
+        /// <param name="bay"></param>
+        /// <param name="bed"></param>
+        /// <param name="number"></param>
+        public Monitor(int monitorType, Ward ward, int bay, int bed, int number)
         {
             DataSet monitorTypeInfo = SqlQueryExecutor.SelectAllFromTable("Monitors");
             DataTableReader reader = monitorTypeInfo.CreateDataReader();
+            this.ward = ward;
             while(reader.Read())
             {
                 sensorTypes.Add(reader.GetString(1));
@@ -89,5 +99,30 @@ namespace EAHT_Engine
                     
         }
         public string[] SensorTypes { get => sensorTypes.ToArray(); }
+        public Alarm Alarm { get => alarm; }
+
+        public bool CheckForAlarm()
+        {
+            if (sensor.CurrentValue <= sensor.CurrentLower || sensor.CurrentValue >= sensor.CurrentUpper)
+            {
+                if(alarm is null)
+                {
+                    alarm = new Alarm(ward,bay,bed,number);
+                }
+                if(alarm.IsSilenced)
+                {
+                    return false;
+                }
+                return true;
+            }
+            else 
+            {
+                if(!(alarm is null))
+                {
+                    alarm = null;
+                }
+                return false;
+            }
+        }
     }
 }

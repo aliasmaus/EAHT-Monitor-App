@@ -17,7 +17,7 @@ namespace EAHT_App_UI
         {
             InitializeComponent();
             string[] columns = new string[7] {"Id_Number","First_Name","Last_Name","Position","Contact_Number","Address","Add_Information" };
-            dataGridView1.DataSource = SqlQueryExecutor.SelectColumnsFromTable(columns,"Staff");
+            //dataGridView1.DataSource = SqlQueryExecutor.SelectColumnsFromTable(columns,"Staff");
         }
 
         private void button2_Click(object sender, EventArgs e)

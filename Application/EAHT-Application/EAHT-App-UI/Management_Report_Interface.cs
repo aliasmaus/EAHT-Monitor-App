@@ -20,6 +20,10 @@ namespace EAHT_App_UI
         public Management_Report_Interface()
         {
             InitializeComponent();
+            MgmtAlarmLog_BackPanel.Location = new System.Drawing.Point(21,81);
+            MgmtAlarmReports_BackPanel.Location = new System.Drawing.Point(21, 81);
+            MgmtMedicalRecords_BackPanel.Location = new System.Drawing.Point(21, 81);
+            MgmtStaffReports_BackPanel.Location = new System.Drawing.Point(21, 81);
         }
 
         private void Management_Report_Interface_Load(object sender, EventArgs e)
@@ -89,8 +93,8 @@ namespace EAHT_App_UI
 
         private void MgmtStaffReports_BackPanel_Paint(object sender, PaintEventArgs e)
         {
-            StaffList staffList = new StaffList();
-            staffList.Show();
+            //StaffList staffList = new StaffList();
+            //staffList.Show();
         }
     }
 }

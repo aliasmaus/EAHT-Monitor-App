@@ -28,6 +28,7 @@ namespace EAHT_App_UI
                 this.bed = bed;   
             }
         }
+        // TODO: if active monitor, put the values in dropdown, min, max
         private void MonitorPage_Load(object sender, EventArgs e)
         {
             this.BedValue.Text = "BED " + (bed.BedNumber+1).ToString();
@@ -69,8 +70,9 @@ namespace EAHT_App_UI
                 dropdowns[monitor].Name = "Dropdown_" + monitor.ToString();
                 minSelectors[monitor].Name = "MinSel_" + monitor.ToString();
                 maxSelectors[monitor].Name = "MaxSel_" + monitor.ToString();
+                silenceButtons[monitor].Name = "SilBut_" + monitor.ToString();
                 // set static text
-                values[monitor].Text = "loading";
+                values[monitor].Text = "###";
                 minLabels[monitor].Text = "Alarms: Min";
                 maxLabels[monitor].Text = "Max";
                 silenceButtons[monitor].Text = "Silence Alarm";
@@ -108,7 +110,9 @@ namespace EAHT_App_UI
 
         private void SilenceAlarm(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            bed.Monitors[Convert.ToInt32((sender as Button).Name.Substring(7))].Alarm.SilenceAlarm();
+            (sender as Control).Enabled = false;
+            (sender as Control).Visible = false;
         }
 
         private void PageUpdate(object sender, EventArgs e)
@@ -123,8 +127,11 @@ namespace EAHT_App_UI
                     {
                         //TODO: finish silence button visibility implementation
                         frames[monitor].BackColor = System.Drawing.Color.Red;
-                        silenceButtons[monitor].Visible = true;
-                        silenceButtons[monitor].Enabled = true;
+                        if (!(bed.Monitors[monitor].Alarm.IsSilenced))
+                        {
+                            silenceButtons[monitor].Visible = true;
+                            silenceButtons[monitor].Enabled = true;
+                        }
                     }
                     else
                     {
@@ -141,7 +148,7 @@ namespace EAHT_App_UI
         {
             int monitor = Convert.ToInt32((sender as Control).Name.Substring(9));
             int monitorType = (sender as ComboBox).SelectedIndex;
-            bed.Monitors[monitor] = new Monitor(monitorType);
+            bed.InsertMonitor(monitorType, monitor);
             double low = bed.Monitors[monitor].Sensor.CurrentLower;
             double high = bed.Monitors[monitor].Sensor.CurrentUpper;
             double range = low / 2;
