@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using EAHT_Engine;
+
 
 namespace EAHT_App_UI
 {
@@ -16,23 +18,25 @@ namespace EAHT_App_UI
         public StaffContactAdd()
         {
             InitializeComponent();
+         
 
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             // Create objects from values type on textbox in Contact Register
-            StaffDetails obj = new StaffDetails();
-            //obj.FirstName = txtFirstName.Text;
-            //obj.LastName = txtLastName.Text;
-            //obj.Position = txtPosition.Text;
-            //obj.IdNumber = txtIdNumber.Text;
-            //obj.ContactNumber = txtContactNumber.Text;
-            //obj.Address = txtAddress.Text;
-            //obj.AddInformation = txtAddInformation.Text;
+            string[] obj = new string[7];
+            obj[0] = txtFirstName.Text;
+            obj[1] = txtLastName.Text;
+            obj[2] = txtPosition.Text;
+            obj[3] = txtIdNumber.Text;
+            obj[4] = txtContactNumber.Text;
+            obj[5] = txtAddress.Text;
+            obj[6] = txtAddInformation.Text;
+            obj[7] = txtPassword.Text;
 
             //listStaff.Items.Add(obj.ToString());
-
+            SqlQueryExecutor.InsertIntoTable("Staff", obj, "(First_Name, Last_Name, Position, Id_Number, Contact_Number, Address, Add_Information, Password_Hash)");
             StaffDetails stdtils = new StaffDetails();
             stdtils.Show();
         }
@@ -72,7 +76,10 @@ namespace EAHT_App_UI
 
         }
 
-  
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 
