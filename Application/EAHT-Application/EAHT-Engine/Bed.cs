@@ -20,11 +20,12 @@ namespace EAHT_Engine
         /// Initializes the bed
         /// </summary>
         /// <param name="ID">The bed number</param>
-        public Bed(int ID, int nMonitors, Ward ward)
+        public Bed(int ID, int nMonitors, Ward ward, int bay)
         {
             this.bedNumber = ID;
             this.monitors = new Monitor[nMonitors];
             this.wardRef = ward;
+            this.bayID = bay;
         }
 
         /// <summary>

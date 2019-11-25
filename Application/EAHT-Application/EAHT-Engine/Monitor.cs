@@ -41,6 +41,8 @@ namespace EAHT_Engine
             DataSet monitorTypeInfo = SqlQueryExecutor.SelectAllFromTable("Monitors");
             DataTableReader reader = monitorTypeInfo.CreateDataReader();
             this.ward = ward;
+            this.bay = bay;
+            this.bed = bed;
             while(reader.Read())
             {
                 sensorTypes.Add(reader.GetString(1));

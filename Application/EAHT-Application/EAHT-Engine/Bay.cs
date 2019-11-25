@@ -24,7 +24,7 @@ namespace EAHT_Engine
             this.wardRef = ward;
             for (int bed=0; bed<nBeds; bed++)
             {
-                beds[bed] = new Bed(bed,nMonitors,ward);
+                beds[bed] = new Bed(bed,nMonitors,ward,ID);
             }
         }
 
