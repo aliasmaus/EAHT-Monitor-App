@@ -15,8 +15,7 @@ namespace EAHT_App_UI
         public Login()
         {
             InitializeComponent();
-
-            }
+        }
             //Enter code here for your version of username and userpassword 
             LoginBackEnd login = new LoginBackEnd("admin", "1234");
 
