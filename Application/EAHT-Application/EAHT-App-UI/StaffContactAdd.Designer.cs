@@ -46,6 +46,8 @@
             this.txtAddInformation = new System.Windows.Forms.TextBox();
             this.txtLastName = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
@@ -68,6 +70,7 @@
             this.button3.TabIndex = 2;
             this.button3.Text = "Delete Staff";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
@@ -218,12 +221,30 @@
             this.label7.TabIndex = 18;
             this.label7.Text = "Last Name:";
             // 
+            // txtPassword
+            // 
+            this.txtPassword.Location = new System.Drawing.Point(401, 391);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(132, 22);
+            this.txtPassword.TabIndex = 19;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(180, 391);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(73, 17);
+            this.label8.TabIndex = 20;
+            this.label8.Text = "Password:";
+            // 
             // StaffContactAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.BurlyWood;
             this.ClientSize = new System.Drawing.Size(1123, 626);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtLastName);
             this.Controls.Add(this.txtAddInformation);
@@ -271,5 +292,7 @@
         private System.Windows.Forms.TextBox txtAddInformation;
         private System.Windows.Forms.TextBox txtLastName;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtPassword;
+        private System.Windows.Forms.Label label8;
     }
 }
