@@ -105,13 +105,9 @@ namespace EAHT_Engine
         {
             if (sensor.CurrentValue <= sensor.CurrentLower || sensor.CurrentValue >= sensor.CurrentUpper)
             {
-                if(alarm is null)
+                if (alarm is null)
                 {
-                    alarm = new Alarm(ward,bay,bed,number);
-                }
-                if(alarm.IsSilenced)
-                {
-                    return false;
+                    alarm = new Alarm(ward, bay, bed, number);
                 }
                 return true;
             }

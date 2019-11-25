@@ -117,22 +117,45 @@ namespace EAHT_App_UI
 
         private void PageUpdate(object sender, EventArgs e)
         {
-            bool[] alarmStatuses = bed.GetMonitorAlarmStatuses();
+            string message = "";
             for (int monitor =0; monitor < bed.Monitors.Length; monitor ++)
             {
                 if (!(bed.Monitors[monitor] is null))
                 {
                     values[monitor].Text = bed.Monitors[monitor].Read();
-                    if(alarmStatuses[monitor])
+                    // If there is an alarm
+                    if(bed.Monitors[monitor].CheckForAlarm())
                     {
-                        //TODO: finish silence button visibility implementation
-                        frames[monitor].BackColor = System.Drawing.Color.Red;
+                        // Generate the alarm message text
+                        message += bed.Monitors[monitor].Name;
+                        if(bed.Monitors[monitor].Sensor.CurrentValue <= bed.Monitors[monitor].Sensor.CurrentLower)
+                        {
+                            message += " below acceptable value" + Environment.NewLine;
+                        }
+                        else
+                        {
+                            message += " above acceptable value" + Environment.NewLine;
+                        }
+
+                        // If the alarm isn't silenced, make the background red, show the silence button, 
                         if (!(bed.Monitors[monitor].Alarm.IsSilenced))
                         {
+                            frames[monitor].BackColor = System.Drawing.Color.Red;
                             silenceButtons[monitor].Visible = true;
                             silenceButtons[monitor].Enabled = true;
+                            
+                        }
+                        // If it is silenced, hide the silence button and make the background normal
+                        // indicate the alarm is silenced in the message box
+                        else
+                        {
+                            frames[monitor].BackColor = System.Drawing.Color.CadetBlue;
+                            silenceButtons[monitor].Visible = false;
+                            silenceButtons[monitor].Enabled = false;
+                            message += bed.Monitors[monitor].Name + " alarm has been silenced (monitor " + (monitor + 1).ToString() + ")"  + Environment.NewLine;
                         }
                     }
+                    // If there's no alarm make the display normal
                     else
                     {
                         frames[monitor].BackColor = System.Drawing.Color.CadetBlue;
@@ -140,6 +163,11 @@ namespace EAHT_App_UI
                         silenceButtons[monitor].Enabled = false;
                     }
                 }
+            }
+            // Update the alarm message if it has changed
+            if(message != AlarmMessage.Text)
+            {
+                AlarmMessage.Text = message;
             }
 
         }
