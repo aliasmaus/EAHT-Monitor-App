@@ -31,22 +31,11 @@ namespace EAHT_App_UI
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.AlarmMessage = new System.Windows.Forms.Label();
             this.BedValue = new System.Windows.Forms.Label();
             this.pageUpdater = new System.Windows.Forms.Timer(this.components);
             this.MonitorPageFlowPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.AlarmMessage = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
-            // 
-            // AlarmMessage
-            // 
-            this.AlarmMessage.AutoSize = true;
-            this.AlarmMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AlarmMessage.Location = new System.Drawing.Point(196, 335);
-            this.AlarmMessage.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.AlarmMessage.Name = "AlarmMessage";
-            this.AlarmMessage.Size = new System.Drawing.Size(208, 20);
-            this.AlarmMessage.TabIndex = 17;
-            this.AlarmMessage.Text = "Alarm Preset Message Here";
             // 
             // BedValue
             // 
@@ -72,8 +61,17 @@ namespace EAHT_App_UI
             this.MonitorPageFlowPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.MonitorPageFlowPanel.Location = new System.Drawing.Point(40, 33);
             this.MonitorPageFlowPanel.Name = "MonitorPageFlowPanel";
-            this.MonitorPageFlowPanel.Size = new System.Drawing.Size(530, 300);
+            this.MonitorPageFlowPanel.Size = new System.Drawing.Size(530, 280);
             this.MonitorPageFlowPanel.TabIndex = 30;
+            // 
+            // AlarmMessage
+            // 
+            this.AlarmMessage.Location = new System.Drawing.Point(40, 320);
+            this.AlarmMessage.Multiline = true;
+            this.AlarmMessage.Name = "AlarmMessage";
+            this.AlarmMessage.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.AlarmMessage.Size = new System.Drawing.Size(530, 40);
+            this.AlarmMessage.TabIndex = 31;
             // 
             // MonitorPage
             // 
@@ -81,9 +79,9 @@ namespace EAHT_App_UI
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.BurlyWood;
             this.ClientSize = new System.Drawing.Size(600, 366);
+            this.Controls.Add(this.AlarmMessage);
             this.Controls.Add(this.MonitorPageFlowPanel);
             this.Controls.Add(this.BedValue);
-            this.Controls.Add(this.AlarmMessage);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MonitorPage";
             this.Text = "Monitor Detailed View";
@@ -97,11 +95,9 @@ namespace EAHT_App_UI
 
         //Value of the bed being displayed
         private System.Windows.Forms.Label BedValue;
-        
-        //Alarm message
-        private System.Windows.Forms.Label AlarmMessage;
         private System.Windows.Forms.Timer pageUpdater;
         private System.Windows.Forms.FlowLayoutPanel MonitorPageFlowPanel;
+        private System.Windows.Forms.TextBox AlarmMessage;
     }
 }
 

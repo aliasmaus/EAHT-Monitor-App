@@ -28,6 +28,7 @@ namespace EAHT_App_UI
                 this.bed = bed;   
             }
         }
+        // TODO: if active monitor, put the values in dropdown, min, max
         private void MonitorPage_Load(object sender, EventArgs e)
         {
             this.BedValue.Text = "BED " + (bed.BedNumber+1).ToString();
@@ -69,8 +70,9 @@ namespace EAHT_App_UI
                 dropdowns[monitor].Name = "Dropdown_" + monitor.ToString();
                 minSelectors[monitor].Name = "MinSel_" + monitor.ToString();
                 maxSelectors[monitor].Name = "MaxSel_" + monitor.ToString();
+                silenceButtons[monitor].Name = "SilBut_" + monitor.ToString();
                 // set static text
-                values[monitor].Text = "loading";
+                values[monitor].Text = "###";
                 minLabels[monitor].Text = "Alarms: Min";
                 maxLabels[monitor].Text = "Max";
                 silenceButtons[monitor].Text = "Silence Alarm";
@@ -108,24 +110,52 @@ namespace EAHT_App_UI
 
         private void SilenceAlarm(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            bed.Monitors[Convert.ToInt32((sender as Button).Name.Substring(7))].Alarm.SilenceAlarm();
+            (sender as Control).Enabled = false;
+            (sender as Control).Visible = false;
         }
 
         private void PageUpdate(object sender, EventArgs e)
         {
-            bool[] alarmStatuses = bed.GetMonitorAlarmStatuses();
+            string message = "";
             for (int monitor =0; monitor < bed.Monitors.Length; monitor ++)
             {
                 if (!(bed.Monitors[monitor] is null))
                 {
                     values[monitor].Text = bed.Monitors[monitor].Read();
-                    if(alarmStatuses[monitor])
+                    // If there is an alarm
+                    if(bed.Monitors[monitor].CheckForAlarm())
                     {
-                        //TODO: finish silence button visibility implementation
-                        frames[monitor].BackColor = System.Drawing.Color.Red;
-                        silenceButtons[monitor].Visible = true;
-                        silenceButtons[monitor].Enabled = true;
+                        // Generate the alarm message text
+                        message += bed.Monitors[monitor].Name;
+                        if(bed.Monitors[monitor].Sensor.CurrentValue <= bed.Monitors[monitor].Sensor.CurrentLower)
+                        {
+                            message += " below acceptable value" + Environment.NewLine;
+                        }
+                        else
+                        {
+                            message += " above acceptable value" + Environment.NewLine;
+                        }
+
+                        // If the alarm isn't silenced, make the background red, show the silence button, 
+                        if (!(bed.Monitors[monitor].Alarm.IsSilenced))
+                        {
+                            frames[monitor].BackColor = System.Drawing.Color.Red;
+                            silenceButtons[monitor].Visible = true;
+                            silenceButtons[monitor].Enabled = true;
+                            
+                        }
+                        // If it is silenced, hide the silence button and make the background normal
+                        // indicate the alarm is silenced in the message box
+                        else
+                        {
+                            frames[monitor].BackColor = System.Drawing.Color.CadetBlue;
+                            silenceButtons[monitor].Visible = false;
+                            silenceButtons[monitor].Enabled = false;
+                            message += bed.Monitors[monitor].Name + " alarm has been silenced (monitor " + (monitor + 1).ToString() + ")"  + Environment.NewLine;
+                        }
                     }
+                    // If there's no alarm make the display normal
                     else
                     {
                         frames[monitor].BackColor = System.Drawing.Color.CadetBlue;
@@ -134,6 +164,11 @@ namespace EAHT_App_UI
                     }
                 }
             }
+            // Update the alarm message if it has changed
+            if(message != AlarmMessage.Text)
+            {
+                AlarmMessage.Text = message;
+            }
 
         }
 
@@ -141,7 +176,7 @@ namespace EAHT_App_UI
         {
             int monitor = Convert.ToInt32((sender as Control).Name.Substring(9));
             int monitorType = (sender as ComboBox).SelectedIndex;
-            bed.Monitors[monitor] = new Monitor(monitorType);
+            bed.InsertMonitor(monitorType, monitor);
             double low = bed.Monitors[monitor].Sensor.CurrentLower;
             double high = bed.Monitors[monitor].Sensor.CurrentUpper;
             double range = low / 2;

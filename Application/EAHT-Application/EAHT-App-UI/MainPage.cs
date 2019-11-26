@@ -67,8 +67,8 @@ namespace EAHT_App_UI
 
         private void Update_MainPage(object sender, EventArgs e)
         {
+            string messages = "";
             bool[][][] alarmLocations = ward.SearchForAlarms();
-            ward.UpdateAlarmArray(alarmLocations);
             //for each bay
             for (int bay = 0; bay < ward.Bays.Length; bay++)
             {
@@ -91,8 +91,22 @@ namespace EAHT_App_UI
                         }
                         if(alarmLocations[bay][bed][monitor])
                         {
-                            colourBedRed = true;
+                            messages += ward.Bays[bay].Beds[bed].Monitors[monitor].Name + " alarm is active at - Bay: " + (bay+1) + " Bed: " + (bed+1);
+                            if(!ward.Bays[bay].Beds[bed].Monitors[monitor].Alarm.IsSilenced)
+                            {
+                                colourBedRed = true;
+                            }
+                            else
+                            {
+                                colourBedRed = false;
+                                messages += " (This alarm has been silenced)";
+                            }
+                            messages += Environment.NewLine;
                         }
+                    }
+                    if (messages != AlarmMessages.Text)
+                    {
+                        AlarmMessages.Text = messages;
                     }
                     if(colourBedRed)
                     {

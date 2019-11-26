@@ -13,15 +13,19 @@ namespace EAHT_Engine
     {
         private readonly int bedNumber;
         private readonly Monitor[] monitors;
+        private readonly Ward wardRef;
+        private int bayID;
 
         /// <summary>
         /// Initializes the bed
         /// </summary>
         /// <param name="ID">The bed number</param>
-        public Bed(int ID, int nMonitors)
+        public Bed(int ID, int nMonitors, Ward ward, int bay)
         {
             this.bedNumber = ID;
             this.monitors = new Monitor[nMonitors];
+            this.wardRef = ward;
+            this.bayID = bay;
         }
 
         /// <summary>
@@ -35,18 +39,16 @@ namespace EAHT_Engine
 
         /// <summary>
         /// <para>Creates a new instance of a monitor of the chosen type and inserts it into the chosen slot</para>
-        /// <para>1 - Blood Pressure, 2 - Temperature, 3 - Heart Rate, 4 - Breathing Rate</para>
         /// </summary>
         /// <param name="monitorType">Type of monitor to insert (see key above)</param>
         /// <param name="monitorNumber">Which monitor slot to attach the monitor to</param>
-        /// <returns>Monitor if succesful</returns>
         public void InsertMonitor(int monitorType, int monitorNumber)
         {
             Monitor monitor;
             //create the monitor to insert
-            monitor = new Monitor(monitorType);
+            monitor = new Monitor(monitorType, wardRef, bayID, bedNumber, monitorNumber);
             //insert the monitor
-            monitors[monitorNumber - 1] = monitor;
+            monitors[monitorNumber] = monitor;
         }
         public string[] GetPossibleMonitors()
         {
@@ -59,14 +61,7 @@ namespace EAHT_Engine
             {
                 if (!(Monitors[monitor] is null))
                 {
-                    if (monitors[monitor].Sensor.CurrentValue <= monitors[monitor].Sensor.CurrentLower || monitors[monitor].Sensor.CurrentValue >= monitors[monitor].Sensor.CurrentUpper)
-                    {
-                        statuses[monitor] = true;
-                    }
-                    else
-                    {
-                        statuses[monitor] = false;
-                    }
+                    statuses[monitor] = Monitors[monitor].CheckForAlarm();
                 }
             }
             return statuses;
