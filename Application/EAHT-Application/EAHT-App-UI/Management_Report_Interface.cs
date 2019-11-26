@@ -44,6 +44,8 @@ namespace EAHT_App_UI
         private void MgmtHome_StaffReportButton_Click(object sender, EventArgs e)
         {
             TogglePage(MgmtStaffReports_BackPanel, true);
+            //StaffList staffList = new StaffList();
+            //staffList.Show();
         }
 
         private void MgmtHome_MedicalRecordsButton_Click(object sender, EventArgs e)
@@ -89,8 +91,7 @@ namespace EAHT_App_UI
 
         private void MgmtStaffReports_BackPanel_Paint(object sender, PaintEventArgs e)
         {
-            StaffList staffList = new StaffList();
-            staffList.Show();
+       
         }
     }
 }

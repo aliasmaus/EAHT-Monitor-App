@@ -14,7 +14,10 @@ namespace EAHT_App_UI
 {
     public partial class StaffContactAdd : Form
     {
-
+        /// <summary>
+        /// This is a page to add staff contact details
+        /// <code></code>
+        /// </summary>
         public StaffContactAdd()
         {
             InitializeComponent();
