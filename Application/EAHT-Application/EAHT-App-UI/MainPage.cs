@@ -120,23 +120,17 @@ namespace EAHT_App_UI
                 }
             }
 
-            //This was debugging to check that alarms were being entered into the database correctly - Remove at end
-            //AlarmDbTestLabel.Text = "";
-            //DataSet alarmData = SqlQueryExecutor.SelectAllFromTable("Alarm_Records");
-            //DataTableReader alarmReader = alarmData.CreateDataReader();
-            //if(alarmReader.Read())
-            //{
-            //    AlarmDbTestLabel.Text = alarmReader.GetString(1) + " ";
-            //    AlarmDbTestLabel.Text += alarmReader.GetValue(2).ToString() + " ";
-            //    AlarmDbTestLabel.Text += alarmReader.GetValue(3).ToString() + " ";
-            //    AlarmDbTestLabel.Text += alarmReader.GetValue(4).ToString() + " ";
-            //    AlarmDbTestLabel.Text += alarmReader.GetString(5) + " ";
-            //    AlarmDbTestLabel.Text += alarmReader.GetValue(6).ToString() + " ";
-            //    AlarmDbTestLabel.Text += alarmReader.GetValue(7).ToString() + " ";
-            //    AlarmDbTestLabel.Text += alarmReader.GetValue(8).ToString() + " ";
-            //    AlarmDbTestLabel.Text += alarmReader.GetValue(9).ToString() + " ";
-
-            //}
+            DebugLabel.Text = "Debug:" + Environment.NewLine;
+            DataSet data = SqlQueryExecutor.SelectAllFromTable("Monitors_In_Beds");
+            DataTableReader reader = data.CreateDataReader();
+            while(reader.Read())
+            {
+                DebugLabel.Text += reader.GetValue(1).ToString() + " ";
+                DebugLabel.Text += reader.GetValue(2).ToString() + " ";
+                DebugLabel.Text += reader.GetValue(3).ToString() + " ";
+                DebugLabel.Text += reader.GetValue(4).ToString() + " ";
+                DebugLabel.Text += reader.GetValue(5).ToString() + " " + Environment.NewLine;
+            }
 
         }
 

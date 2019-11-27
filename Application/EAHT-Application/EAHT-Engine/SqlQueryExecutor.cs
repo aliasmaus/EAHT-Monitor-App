@@ -126,6 +126,7 @@ namespace EAHT_Engine
         /// </summary>
         /// <param name="tableName">name of the table to insert into</param>
         /// <param name="dataRow">values to insert as strings</param>
+        /// <param name="columnString">the columns in bracket separated by commas written as a </param>
         public static void InsertIntoTable(string tableName, string[] dataRow, string columnString)
         {
             DbConnection connection = new DbConnection(Properties.Settings.Default.DbConnection);
@@ -152,9 +153,10 @@ namespace EAHT_Engine
         public static void UpdateTable(string tableName, string updates, string whereCondition)
         {
             DbConnection connection = new DbConnection(Properties.Settings.Default.DbConnection);
-            connection.OpenConnection();
-            string statement = "UPDATE " + tableName + " ADD (" + updates + whereClause + whereCondition + endQuery;
+            System.Data.SqlClient.SqlConnection sqlconnection = connection.OpenConnection();
+            string statement = "UPDATE " + tableName + " SET " + updates + whereClause + whereCondition + endQuery;
             System.Data.SqlClient.SqlCommand sqlCommand = connection.GetSqlCommand(statement);
+            sqlCommand.Connection = sqlconnection;
             sqlCommand.ExecuteNonQuery();
             sqlCommand.Dispose();
             connection.CloseConnection();

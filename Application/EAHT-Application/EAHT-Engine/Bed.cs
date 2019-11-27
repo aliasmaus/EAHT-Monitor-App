@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
 
 namespace EAHT_Engine
 {
@@ -20,6 +21,9 @@ namespace EAHT_Engine
         /// Initializes the bed
         /// </summary>
         /// <param name="ID">The bed number</param>
+        /// <param name="nMonitors"></param>
+        /// <param name="ward"></param>
+        /// <param name="bay"></param>
         public Bed(int ID, int nMonitors, Ward ward, int bay)
         {
             this.bedNumber = ID;
@@ -49,7 +53,26 @@ namespace EAHT_Engine
             monitor = new Monitor(monitorType, wardRef, bayID, bedNumber, monitorNumber);
             //insert the monitor
             monitors[monitorNumber] = monitor;
+            UpdateMonitorsInBedsDatabase(monitorNumber,monitorType);
+            
         }
+        // TODO: If setting exists update it, otherwise insert new entry
+        private void UpdateMonitorsInBedsDatabase(int monitorNumber, int monitorType)
+        {
+            string whereClause = "(Ward=" + wardRef.Id + ") AND (Bay=" + bayID + ") AND (Bed=" + bedNumber + ") AND (Monitor_Number=" + monitorNumber + ")";
+            DataSet data = SqlQueryExecutor.SelectAllFromTable("Monitors_In_Beds", whereClause);
+            DataTableReader reader = data.CreateDataReader();
+            if(reader.Read())
+            {
+                SqlQueryExecutor.UpdateTable("Monitors_In_Beds", "Monitor_Type=" + monitorType, whereClause);
+            }
+            else
+            {
+                SqlQueryExecutor.InsertIntoTable("Monitors_In_Beds", new string[5] { wardRef.Id.ToString(), bayID.ToString(), bedNumber.ToString(), monitorNumber.ToString(), monitorType.ToString() }, "(Ward, Bay, Bed, Monitor_Number, Monitor_Type)");
+            }
+            
+        }
+
         public string[] GetPossibleMonitors()
         {
             return SqlQueryExecutor.GetColumnValuesAsString("Monitors");
