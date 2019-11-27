@@ -49,7 +49,11 @@ namespace EAHT_App_UI
                 //check if eligible to be logged in 
                 if (login.IsLoggedIn(user, pass))
                 {
+
                     MessageBox.Show("You are logged in successfully");
+                    MainPage mainPage = new MainPage();
+                    this.Hide();
+                    mainPage.ShowDialog();
                 }
                 else
                 {
@@ -57,7 +61,22 @@ namespace EAHT_App_UI
                     MessageBox.Show("Login Error!");
                 }
             }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
         }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+    }
 
   
 }

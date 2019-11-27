@@ -17,7 +17,7 @@ namespace EAHT_Engine.Tests
             // Arrange
             double initialVal = 50;
             double range = 0.5;
-            MonitorSensor monitor = new MonitorSensor(1000,initialVal,range);
+            var monitor = new MonitorSensor(1000,initialVal,range);
 
             //Act
             double result = monitor.TakeReading();

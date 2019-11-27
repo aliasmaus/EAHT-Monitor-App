@@ -19,6 +19,9 @@ namespace EAHT_Engine
         private double currentUpper; // the upper limit for acceptable readings (value greater than this will trigger alarm)
         private double currentLower; // the lower limit for acceptable readings (value lower than this will trigger alarm)
         private bool isAlarmed;
+        private int v;
+        private double initialVal;
+        private double range;
 
 
         /// <summary>
@@ -54,6 +57,13 @@ namespace EAHT_Engine
 
             readTimer.Elapsed += ReadTimer_Elapsed;
             readTimer.Start();
+        }
+
+        public MonitorSensor(int v, double initialVal, double range)
+        {
+            this.v = v;
+            this.initialVal = initialVal;
+            this.range = range;
         }
 
         private void ReadTimer_Elapsed(object sender, ElapsedEventArgs e)

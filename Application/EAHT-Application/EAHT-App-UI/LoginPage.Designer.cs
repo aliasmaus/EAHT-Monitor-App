@@ -75,6 +75,7 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(297, 38);
             this.textBox2.TabIndex = 3;
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // Username
             // 
@@ -121,6 +122,7 @@
             this.Name = "LoginPage";
             this.Tag = "Login Page";
             this.Text = "Login Page";
+            this.Load += new System.EventHandler(this.LoginPage_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
