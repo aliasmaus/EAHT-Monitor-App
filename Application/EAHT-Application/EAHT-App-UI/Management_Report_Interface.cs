@@ -95,12 +95,7 @@ namespace EAHT_App_UI
 
         private void MgmtStaffReports_BackPanel_Paint(object sender, PaintEventArgs e)
         {
-<<<<<<< HEAD
-       
-=======
-            //StaffList staffList = new StaffList();
-            //staffList.Show();
->>>>>>> master
+
         }
     }
 }

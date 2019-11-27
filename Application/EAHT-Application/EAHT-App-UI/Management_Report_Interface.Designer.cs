@@ -124,22 +124,22 @@
             this.MgmtHome_BackPanel.Controls.Add(this.MgmtHome_MedicalRecordsButton);
             this.MgmtHome_BackPanel.Controls.Add(this.MgmtHome_AlarmReportButton);
             this.MgmtHome_BackPanel.Controls.Add(this.MgmtHome_StaffReportButton);
-<<<<<<< HEAD
+
             this.MgmtHome_BackPanel.Location = new System.Drawing.Point(110, 4);
             this.MgmtHome_BackPanel.Margin = new System.Windows.Forms.Padding(4);
-=======
+
             this.MgmtHome_BackPanel.Location = new System.Drawing.Point(178, 81);
->>>>>>> master
+
             this.MgmtHome_BackPanel.Name = "MgmtHome_BackPanel";
             this.MgmtHome_BackPanel.Size = new System.Drawing.Size(533, 416);
             this.MgmtHome_BackPanel.TabIndex = 5;
             // 
             // MgmtAlarmLog_BackPanel
             // 
-<<<<<<< HEAD
+
             this.MgmtAlarmLog_BackPanel.Controls.Add(this.MgmtMedicalRecords_BackPanel);
-=======
->>>>>>> master
+
+
             this.MgmtAlarmLog_BackPanel.Controls.Add(this.MgmtAlarmLog_BackButton);
             this.MgmtAlarmLog_BackPanel.Controls.Add(this.MgmtAlarmLog_TitleText);
             this.MgmtAlarmLog_BackPanel.Controls.Add(this.MgmtAlarmLog_LogDataTable);
@@ -156,12 +156,12 @@
             this.MgmtStaffReports_BackPanel.Controls.Add(this.MgmtStaffReport_TitleText);
             this.MgmtStaffReports_BackPanel.Controls.Add(this.MgmtHome_BackPanel);
             this.MgmtStaffReports_BackPanel.Enabled = false;
-<<<<<<< HEAD
+
             this.MgmtStaffReports_BackPanel.Location = new System.Drawing.Point(32, 91);
             this.MgmtStaffReports_BackPanel.Margin = new System.Windows.Forms.Padding(4);
-=======
+
             this.MgmtStaffReports_BackPanel.Location = new System.Drawing.Point(211, 49);
->>>>>>> master
+
             this.MgmtStaffReports_BackPanel.Name = "MgmtStaffReports_BackPanel";
             this.MgmtStaffReports_BackPanel.Size = new System.Drawing.Size(800, 400);
             this.MgmtStaffReports_BackPanel.TabIndex = 6;
@@ -191,7 +191,7 @@
             // 
             // MgmtMedicalRecords_BackPanel
             // 
-<<<<<<< HEAD
+
             this.MgmtMedicalRecords_BackPanel.Controls.Add(this.MgmtAlarmReports_BackPanel);
             this.MgmtMedicalRecords_BackPanel.Controls.Add(this.MgmtMedicalRecords_BackButton);
             this.MgmtMedicalRecords_BackPanel.Controls.Add(this.MgmtMedicalRecords_TitleText);
@@ -200,14 +200,12 @@
             this.MgmtMedicalRecords_BackPanel.Margin = new System.Windows.Forms.Padding(4);
             this.MgmtMedicalRecords_BackPanel.Name = "MgmtMedicalRecords_BackPanel";
             this.MgmtMedicalRecords_BackPanel.Size = new System.Drawing.Size(1067, 492);
-=======
             this.MgmtMedicalRecords_BackPanel.Controls.Add(this.MgmtMedicalRecords_BackButton);
             this.MgmtMedicalRecords_BackPanel.Controls.Add(this.MgmtMedicalRecords_TitleText);
             this.MgmtMedicalRecords_BackPanel.Enabled = false;
             this.MgmtMedicalRecords_BackPanel.Location = new System.Drawing.Point(39, 46);
             this.MgmtMedicalRecords_BackPanel.Name = "MgmtMedicalRecords_BackPanel";
             this.MgmtMedicalRecords_BackPanel.Size = new System.Drawing.Size(800, 400);
->>>>>>> master
             this.MgmtMedicalRecords_BackPanel.TabIndex = 3;
             this.MgmtMedicalRecords_BackPanel.Visible = false;
             // 
@@ -216,16 +214,13 @@
             this.MgmtAlarmReports_BackPanel.Controls.Add(this.MgmtAlarmReports_BackButton);
             this.MgmtAlarmReports_BackPanel.Controls.Add(this.MgmtAlarmReports_TitleText);
             this.MgmtAlarmReports_BackPanel.Enabled = false;
-<<<<<<< HEAD
             this.MgmtAlarmReports_BackPanel.Location = new System.Drawing.Point(109, 97);
             this.MgmtAlarmReports_BackPanel.Margin = new System.Windows.Forms.Padding(4);
             this.MgmtAlarmReports_BackPanel.Name = "MgmtAlarmReports_BackPanel";
             this.MgmtAlarmReports_BackPanel.Size = new System.Drawing.Size(1067, 492);
-=======
             this.MgmtAlarmReports_BackPanel.Location = new System.Drawing.Point(61, 16);
             this.MgmtAlarmReports_BackPanel.Name = "MgmtAlarmReports_BackPanel";
             this.MgmtAlarmReports_BackPanel.Size = new System.Drawing.Size(800, 400);
->>>>>>> master
             this.MgmtAlarmReports_BackPanel.TabIndex = 7;
             this.MgmtAlarmReports_BackPanel.Visible = false;
             // 
@@ -305,13 +300,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.BurlyWood;
-<<<<<<< HEAD
             this.ClientSize = new System.Drawing.Size(1123, 626);
-=======
             this.ClientSize = new System.Drawing.Size(842, 509);
             this.Controls.Add(this.MgmtAlarmReports_BackPanel);
             this.Controls.Add(this.MgmtMedicalRecords_BackPanel);
->>>>>>> master
             this.Controls.Add(this.MgmtStaffReports_BackPanel);
             this.Controls.Add(this.MgmtAlarmLog_BackPanel);
             this.Controls.Add(this.Mgmt_TitleText);
