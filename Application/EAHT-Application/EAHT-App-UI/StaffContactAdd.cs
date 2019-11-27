@@ -21,8 +21,6 @@ namespace EAHT_App_UI
         public StaffContactAdd()
         {
             InitializeComponent();
-         
-
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -62,15 +60,15 @@ namespace EAHT_App_UI
         private void button5_Click(object sender, EventArgs e)
         {
             // Button used to return to the main page
-            //MainPage mainPage = new MainPage();
-            //mainPage.Show();
+            MainPage mainPage = new MainPage();
+            mainPage.Show();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             // Button used to return to the previous page
-            //MonitorPage monitorPage = new MonitorPage();
-            //monitorPage.Show();
+            StaffList staafList = new StaffList();
+            staafList.Show();
 
         }
 

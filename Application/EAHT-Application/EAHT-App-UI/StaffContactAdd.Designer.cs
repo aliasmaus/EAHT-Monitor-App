@@ -52,7 +52,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(401, 436);
+            this.button1.Location = new System.Drawing.Point(309, 457);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(100, 28);
@@ -63,7 +63,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(620, 436);
+            this.button3.Location = new System.Drawing.Point(547, 457);
             this.button3.Margin = new System.Windows.Forms.Padding(4);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(100, 28);
@@ -74,7 +74,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(275, 540);
+            this.button4.Location = new System.Drawing.Point(132, 540);
             this.button4.Margin = new System.Windows.Forms.Padding(4);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(236, 28);
@@ -157,7 +157,7 @@
             // 
             // txtFirstName
             // 
-            this.txtFirstName.Location = new System.Drawing.Point(401, 63);
+            this.txtFirstName.Location = new System.Drawing.Point(393, 63);
             this.txtFirstName.Margin = new System.Windows.Forms.Padding(4);
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(132, 22);
@@ -166,7 +166,7 @@
             // 
             // txtPosition
             // 
-            this.txtPosition.Location = new System.Drawing.Point(401, 158);
+            this.txtPosition.Location = new System.Drawing.Point(393, 158);
             this.txtPosition.Margin = new System.Windows.Forms.Padding(4);
             this.txtPosition.Name = "txtPosition";
             this.txtPosition.Size = new System.Drawing.Size(132, 22);
@@ -174,7 +174,7 @@
             // 
             // txtIdNumber
             // 
-            this.txtIdNumber.Location = new System.Drawing.Point(401, 204);
+            this.txtIdNumber.Location = new System.Drawing.Point(393, 204);
             this.txtIdNumber.Margin = new System.Windows.Forms.Padding(4);
             this.txtIdNumber.Name = "txtIdNumber";
             this.txtIdNumber.Size = new System.Drawing.Size(132, 22);
@@ -183,7 +183,7 @@
             // 
             // txtContactNumber
             // 
-            this.txtContactNumber.Location = new System.Drawing.Point(401, 249);
+            this.txtContactNumber.Location = new System.Drawing.Point(393, 249);
             this.txtContactNumber.Margin = new System.Windows.Forms.Padding(4);
             this.txtContactNumber.Name = "txtContactNumber";
             this.txtContactNumber.Size = new System.Drawing.Size(132, 22);
@@ -191,7 +191,7 @@
             // 
             // txtAddress
             // 
-            this.txtAddress.Location = new System.Drawing.Point(401, 294);
+            this.txtAddress.Location = new System.Drawing.Point(393, 294);
             this.txtAddress.Margin = new System.Windows.Forms.Padding(4);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(132, 22);
@@ -199,7 +199,7 @@
             // 
             // txtAddInformation
             // 
-            this.txtAddInformation.Location = new System.Drawing.Point(401, 345);
+            this.txtAddInformation.Location = new System.Drawing.Point(393, 345);
             this.txtAddInformation.Margin = new System.Windows.Forms.Padding(4);
             this.txtAddInformation.Name = "txtAddInformation";
             this.txtAddInformation.Size = new System.Drawing.Size(132, 22);
@@ -207,7 +207,7 @@
             // 
             // txtLastName
             // 
-            this.txtLastName.Location = new System.Drawing.Point(401, 108);
+            this.txtLastName.Location = new System.Drawing.Point(393, 108);
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(132, 22);
             this.txtLastName.TabIndex = 17;
@@ -223,7 +223,7 @@
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(401, 391);
+            this.txtPassword.Location = new System.Drawing.Point(393, 391);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(132, 22);
             this.txtPassword.TabIndex = 19;

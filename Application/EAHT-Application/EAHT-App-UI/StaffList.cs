@@ -37,5 +37,12 @@ namespace EAHT_App_UI
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            // Button used to call the form to add a new staff member
+            StaffContactAdd staffContactAdd = new StaffContactAdd();
+            staffContactAdd.Show();
+        }
     }
 }
