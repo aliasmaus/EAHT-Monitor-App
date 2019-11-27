@@ -14,12 +14,14 @@ namespace EAHT_Engine
     {
         private readonly string name;
         private readonly Bay[] bays;
+        private int id;
         /// <summary>
         /// Initializes the ward by retrieving ward data from the database
         /// </summary>
         /// <param name="ID"></param>
         public Ward(int ID)
         {
+            this.id = ID;
             //Load info from database
             DataSet wardInfo;
             wardInfo = SqlQueryExecutor.SelectAllFromTable("Ward_Settings","Id = "+ID.ToString());
@@ -42,6 +44,8 @@ namespace EAHT_Engine
         public Bay[] Bays { get => bays; }
         //The name of the ward
         public string Name { get => name; }
+        public int Id { get => id; }
+
         /// <summary>
         /// Get an array of bools representing required alarm locations
         /// true 

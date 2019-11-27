@@ -37,6 +37,7 @@
             this.Updater = new System.Windows.Forms.Timer(this.components);
             this.WardLabel = new System.Windows.Forms.Label();
             this.AlarmMessages = new System.Windows.Forms.TextBox();
+            this.DebugLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
@@ -116,6 +117,15 @@
             this.AlarmMessages.Size = new System.Drawing.Size(661, 58);
             this.AlarmMessages.TabIndex = 7;
             // 
+            // DebugLabel
+            // 
+            this.DebugLabel.AutoSize = true;
+            this.DebugLabel.Location = new System.Drawing.Point(1, 66);
+            this.DebugLabel.Name = "DebugLabel";
+            this.DebugLabel.Size = new System.Drawing.Size(42, 13);
+            this.DebugLabel.TabIndex = 8;
+            this.DebugLabel.Text = "Debug:\r\n";
+            // 
             // MainPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -123,6 +133,7 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.BurlyWood;
             this.ClientSize = new System.Drawing.Size(842, 509);
+            this.Controls.Add(this.DebugLabel);
             this.Controls.Add(this.AlarmMessages);
             this.Controls.Add(this.WardLabel);
             this.Controls.Add(this.button3);
@@ -148,5 +159,6 @@
         private System.Windows.Forms.Timer Updater;
         private System.Windows.Forms.Label WardLabel;
         private System.Windows.Forms.TextBox AlarmMessages;
+        private System.Windows.Forms.Label DebugLabel;
     }
 }
