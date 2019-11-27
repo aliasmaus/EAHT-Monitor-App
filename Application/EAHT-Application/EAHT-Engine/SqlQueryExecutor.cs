@@ -107,13 +107,16 @@ namespace EAHT_Engine
         /// <returns></returns>
         public static DataSet SelectColumnsFromTable(string[] columns, string tableName, string whereCondition)
         {
-            string statement = "SELECT (";
+            string statement = "SELECT ";
             foreach (string column in columns)
             {
-                statement += column + ", ";
+                statement += column;
+                if (column != columns[columns.Length-1])
+                {
+                    statement += ", ";
+                }
             }
-            statement.Remove(statement.Length - 2);
-            statement += ") FROM " + tableName;
+            statement += " FROM " + tableName;
             statement += whereClause + whereCondition + endQuery;
             DbConnection connection = new DbConnection(connectionString);
             connection.OpenConnection();

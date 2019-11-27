@@ -30,6 +30,37 @@ namespace EAHT_Engine
             this.monitors = new Monitor[nMonitors];
             this.wardRef = ward;
             this.bayID = bay;
+
+            LoadMonitorConfigurationFromDatabase();
+        }
+
+        private void LoadMonitorConfigurationFromDatabase()
+        {
+            int[] monitorConfig = GetMonitorConfigurationFromDatabase();
+            for (int monitor = 0; monitor < monitors.Length; monitor++)
+            {
+                if(monitorConfig[monitor]>=0)
+                {
+                    monitors[monitor] = new Monitor(monitorConfig[monitor],wardRef,bayID,bedNumber,monitor);
+                }
+            }
+        }
+
+        private int[] GetMonitorConfigurationFromDatabase()
+        {
+            string AND = ") AND ";
+            DataSet monitorData = SqlQueryExecutor.SelectColumnsFromTable(new string[2] { "Monitor_Number", "Monitor_Type" }, "Monitors_In_Beds", "(Ward=" + wardRef.Id + AND + "(Bay=" + bayID + AND + "(Bed=" + bedNumber + AND + "(Monitor_Number<" + monitors.Length + ")");
+            DataTableReader reader = monitorData.CreateDataReader();
+            int[] types = new int[monitors.Length];
+            for (int monitor = 0;  monitor < types.Length; monitor++)
+            {
+                types[monitor] = -1;
+            }
+            while (reader.Read())
+            {
+                types[reader.GetInt32(0)] = reader.GetInt32(1);
+            }
+            return types;
         }
 
         /// <summary>

@@ -16,24 +16,18 @@ namespace EAHT_App_UI
         static void Main()
         {
 
-//<<<<<<< Updated upstream
+// FOR DEBUGGING WELCOME PAGE
          Application.EnableVisualStyles();
          Application.SetCompatibleTextRenderingDefault(false);
-         //Application.Run(new WelcomePage(SqlQueryExecutor.GetColumnValuesAsString("Ward_Settings")));
-         Application.Run(new LoginPage());
+         Application.Run(new WelcomePage(SqlQueryExecutor.GetColumnValuesAsString("Ward_Settings")));
 
-            //Program opens with Login page
+//Program opens with Login page
             //Application.EnableVisualStyles();
             //Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new Login());
 
-//=======
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new WelcomePage(SqlQueryExecutor.GetColumnValuesAsString("Ward_Settings")));
-            Application.Run(new Login());
             
-//>>>>>>> Stashed changes
+
         }
     }
 }
