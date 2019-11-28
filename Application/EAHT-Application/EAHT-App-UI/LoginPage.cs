@@ -34,14 +34,19 @@ namespace EAHT_App_UI
         {
             string userName = textBox1.Text;
             string password = textBox2.Text;
+
+            // Get whether login successful
             bool success = LoginBackEnd.LogUserIn(userName, password);
 
+            // if successful
             if(success)
             {
-                WelcomePage welcomePage = new WelcomePage(SqlQueryExecutor.GetColumnValuesAsString("Ward_Settings"));
+                // hide this window and show a new welcome page
+                WelcomePage welcomePage = new WelcomePage(SqlQueryExecutor.GetColumnValuesAsString("Ward_Settings"),userName);
                 welcomePage.Show();
                 this.Hide();
             }
+            // otherwise show error
             else
             {
                 //Error message

@@ -13,10 +13,12 @@ namespace EAHT_App_UI
 {
     public partial class WelcomePage : Form
     {
-        public WelcomePage(string[] wardNames)
+
+        public WelcomePage(string[] wardNames, string userName)
         {
             InitializeComponent();
             WardSelectorBox.Items.AddRange(wardNames);
+
         }
 
         private void LoadWardMainPage(object sender, EventArgs e)
