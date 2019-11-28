@@ -15,17 +15,19 @@ namespace EAHT_App_UI
         [STAThread]
         static void Main()
         {
+         // Read the comments, save some time :)
 
-// FOR DEBUGGING WELCOME PAGE
-         Application.EnableVisualStyles();
-         Application.SetCompatibleTextRenderingDefault(false);
+// UNCOMMENT THIS CODE FOR DEBUGGING WELCOME PAGE
+
+         //Application.EnableVisualStyles();
+         //Application.SetCompatibleTextRenderingDefault(false);
          //Application.Run(new WelcomePage(SqlQueryExecutor.GetColumnValuesAsString("Ward_Settings")));
-            Application.Run(new Login());
 
-            //Program opens with Login page
-            //Application.EnableVisualStyles();
-            //Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new Login());
+// UNCOMMENT THIS CODE FOR FINAL APPLICATION / DEBUGGING LOGIN PAGE
+
+        //Application.EnableVisualStyles();
+        //Application.SetCompatibleTextRenderingDefault(false);
+        //Application.Run(new Login());
 
 
 

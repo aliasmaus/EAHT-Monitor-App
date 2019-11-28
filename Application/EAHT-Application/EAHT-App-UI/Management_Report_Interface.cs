@@ -14,16 +14,18 @@ namespace EAHT_App_UI
 {
     public partial class Management_Report_Interface : Form
     {
+        MainPage wardPage;
         /// <summary>
         /// Initializer for Interface
         /// </summary>
-        public Management_Report_Interface()
+        public Management_Report_Interface(MainPage wardPage)
         {
             InitializeComponent();
             MgmtAlarmLog_BackPanel.Location = new System.Drawing.Point(21,81);
             MgmtAlarmReports_BackPanel.Location = new System.Drawing.Point(21, 81);
             MgmtMedicalRecords_BackPanel.Location = new System.Drawing.Point(21, 81);
             MgmtStaffReports_BackPanel.Location = new System.Drawing.Point(21, 81);
+            this.wardPage = wardPage;
         }
 
         private void Management_Report_Interface_Load(object sender, EventArgs e)
@@ -96,6 +98,12 @@ namespace EAHT_App_UI
         private void MgmtStaffReports_BackPanel_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void ReturnToWard(object sender, EventArgs e)
+        {
+            wardPage.Show();
+            this.Close();
         }
     }
 }

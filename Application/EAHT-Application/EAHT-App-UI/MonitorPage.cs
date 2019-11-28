@@ -32,6 +32,7 @@ namespace EAHT_App_UI
         private void MonitorPage_Load(object sender, EventArgs e)
         {
             this.BedValue.Text = "BED " + (bed.BedNumber+1).ToString();
+            this.Text = bed.WardRef.Name + "- " + this.Text;
             //initialize arrays
             int nMonitors = bed.Monitors.Length;
             frames = new GroupBox[nMonitors];
@@ -97,7 +98,7 @@ namespace EAHT_App_UI
                 // set fonts
                 values[monitor].Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                 // set colours
-                frames[monitor].BackColor = System.Drawing.Color.CadetBlue;
+                frames[monitor].BackColor = System.Drawing.Color.PowderBlue;
                 // add events
                 dropdowns[monitor].SelectedIndexChanged += new EventHandler(ChangeMonitor);
                 minSelectors[monitor].ValueChanged += new EventHandler(MonitorMinChanged);
@@ -149,7 +150,7 @@ namespace EAHT_App_UI
                         // indicate the alarm is silenced in the message box
                         else
                         {
-                            frames[monitor].BackColor = System.Drawing.Color.CadetBlue;
+                            frames[monitor].BackColor = System.Drawing.Color.PowderBlue;
                             silenceButtons[monitor].Visible = false;
                             silenceButtons[monitor].Enabled = false;
                             message += bed.Monitors[monitor].Name + " alarm has been silenced (monitor " + (monitor + 1).ToString() + ")"  + Environment.NewLine;
@@ -158,7 +159,7 @@ namespace EAHT_App_UI
                     // If there's no alarm make the display normal
                     else
                     {
-                        frames[monitor].BackColor = System.Drawing.Color.CadetBlue;
+                        frames[monitor].BackColor = System.Drawing.Color.PowderBlue;
                         silenceButtons[monitor].Visible = false;
                         silenceButtons[monitor].Enabled = false;
                     }
@@ -209,6 +210,20 @@ namespace EAHT_App_UI
             }
         }
 
+        private void RegisterStaffForNotifications(object sender, EventArgs e)
+        {
+            bed.RegisterStaffForNotifications();
+        }
+
+        private void DeregisterStaffForNotifications(object sender, EventArgs e)
+        {
+            bed.DeregisterStaffForNotifications();
+        }
+
+        private void AlarmMessage_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }

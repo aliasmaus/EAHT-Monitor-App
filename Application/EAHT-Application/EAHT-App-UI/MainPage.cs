@@ -36,26 +36,6 @@ namespace EAHT_App_UI
             // Load dynamic display elements
             InitializeDynamicControls(nBays, nBeds, nMonitors);
         }
-
-        private void fontDialog1_Apply(object sender, EventArgs e)
-        {
-            Console.WriteLine("Insert your credentials");
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            //By clicking on this button, moves to another form, in this case to Managemnet report
-            Management_Report_Interface management_Report_Interface = new Management_Report_Interface();
-            management_Report_Interface.ShowDialog();
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            //It goes to Login page
-            Login login = new Login();
-            login.ShowDialog();
-        }
-
         private void Open_Bed(object sender, EventArgs e)
         {
             string[] info = (sender as Control).Name.Split( '_' );
@@ -64,7 +44,6 @@ namespace EAHT_App_UI
             MonitorPage monitorPage = new MonitorPage(ward.Bays[bayIndex].Beds[bedIndex]);
             monitorPage.Show();
         }
-
         private void Update_MainPage(object sender, EventArgs e)
         {
             string messages = "";
@@ -114,23 +93,23 @@ namespace EAHT_App_UI
                     }
                     else
                     {
-                        frames[bay][bed].BackColor = System.Drawing.Color.CadetBlue;
+                        frames[bay][bed].BackColor = System.Drawing.Color.PowderBlue;
                     }
 
                 }
             }
 
-            DebugLabel.Text = "Debug:" + Environment.NewLine;
-            DataSet data = SqlQueryExecutor.SelectAllFromTable("Monitors_In_Beds");
-            DataTableReader reader = data.CreateDataReader();
-            while(reader.Read())
-            {
-                DebugLabel.Text += reader.GetValue(1).ToString() + " ";
-                DebugLabel.Text += reader.GetValue(2).ToString() + " ";
-                DebugLabel.Text += reader.GetValue(3).ToString() + " ";
-                DebugLabel.Text += reader.GetValue(4).ToString() + " ";
-                DebugLabel.Text += reader.GetValue(5).ToString() + " " + Environment.NewLine;
-            }
+            //DebugLabel.Text = "Debug:" + Environment.NewLine;
+            //DataSet data = SqlQueryExecutor.SelectAllFromTable("Monitors_In_Beds");
+            //DataTableReader reader = data.CreateDataReader();
+            //while(reader.Read())
+            //{
+            //    DebugLabel.Text += reader.GetValue(1).ToString() + " ";
+            //    DebugLabel.Text += reader.GetValue(2).ToString() + " ";
+            //    DebugLabel.Text += reader.GetValue(3).ToString() + " ";
+            //    DebugLabel.Text += reader.GetValue(4).ToString() + " ";
+            //    DebugLabel.Text += reader.GetValue(5).ToString() + " " + Environment.NewLine;
+            //}
 
         }
 
@@ -178,8 +157,9 @@ namespace EAHT_App_UI
             bayTabs[bay].Controls.Add(bayFlowPanels[bay]);
             //configure tabs
             bayTabs[bay].Text = "Bay " + (bay + 1).ToString();
+            bayTabs[bay].BackColor = System.Drawing.Color.Wheat;
             //configure flow layout panels
-            bayFlowPanels[bay].Size = new System.Drawing.Size(650, 370);
+            bayFlowPanels[bay].Size = bayTabs[bay].Size;
             frames[bay] = new GroupBox[nBeds];
             monitorNameLabels[bay] = new Label[nBeds][];
             monitorValueLabels[bay] = new Label[nBeds][];
@@ -241,6 +221,29 @@ namespace EAHT_App_UI
             }
             monitorNameLabels[bay][bed][monitor].Location = new System.Drawing.Point(x, y1);
             monitorValueLabels[bay][bed][monitor].Location = new System.Drawing.Point(x, y2);
+        }
+
+        //private void ResizeComponents(object sender, EventArgs e)
+        //{
+        //    int margin = this.Size.Height/20;
+        //    LogOffButton.Location = new System.Drawing.Point();
+        //}
+
+        private void LogOff(object sender, EventArgs e)
+        {
+            //It goes to Login page
+            LoginPage login = new LoginPage();
+            login.ShowDialog();
+            // Close this form
+            this.Close();
+        }
+
+        private void OpenManagementPage(object sender, EventArgs e)
+        {
+            //By clicking on this button, moves to another form, in this case to Managemnet report
+            Management_Report_Interface management_Report_Interface = new Management_Report_Interface(this);
+            management_Report_Interface.Show();
+            this.Hide();
         }
     }
 }

@@ -26,11 +26,13 @@ namespace EAHT_Engine
         /// <param name="bay"></param>
         public Bed(int ID, int nMonitors, Ward ward, int bay)
         {
+            // Initialise fields
             this.bedNumber = ID;
             this.monitors = new Monitor[nMonitors];
             this.wardRef = ward;
             this.bayID = bay;
 
+            // Load any existing monitors
             LoadMonitorConfigurationFromDatabase();
         }
 
@@ -71,6 +73,8 @@ namespace EAHT_Engine
         /// Gets the list of monitors for the bed
         /// </summary>
         public Monitor[] Monitors { get => monitors; }
+
+        public Ward WardRef => wardRef;
 
         /// <summary>
         /// <para>Creates a new instance of a monitor of the chosen type and inserts it into the chosen slot</para>
@@ -119,6 +123,16 @@ namespace EAHT_Engine
                 }
             }
             return statuses;
+        }
+
+        public void RegisterStaffForNotifications()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeregisterStaffForNotifications()
+        {
+            throw new NotImplementedException();
         }
     }
 }
