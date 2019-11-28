@@ -32,6 +32,7 @@ namespace EAHT_App_UI
 
         private void Login_Click(object sender, EventArgs e)
         {
+            // Get values from text boxes
             string userName = textBox1.Text;
             string password = textBox2.Text;
 
@@ -42,9 +43,10 @@ namespace EAHT_App_UI
             if(success)
             {
                 // hide this window and show a new welcome page
-                WelcomePage welcomePage = new WelcomePage(SqlQueryExecutor.GetColumnValuesAsString("Ward_Settings"),userName);
-                welcomePage.Show();
+                Program.welcome = new WelcomePage(SqlQueryExecutor.GetColumnValuesAsString("Ward_Settings"),userName);
+                Program.welcome.Show();
                 this.Hide();
+                textBox2.Text = "";
             }
             // otherwise show error
             else
@@ -56,16 +58,6 @@ namespace EAHT_App_UI
         }
 
         private void LoginPage_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }

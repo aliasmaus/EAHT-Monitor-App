@@ -13,12 +13,13 @@ namespace EAHT_App_UI
 {
     public partial class WelcomePage : Form
     {
+        private string userName;
 
-        public WelcomePage(string[] wardNames, string userName)
+        public WelcomePage(string[] wardNames, string user)
         {
             InitializeComponent();
             WardSelectorBox.Items.AddRange(wardNames);
-
+            this.userName = user;
         }
 
         private void LoadWardMainPage(object sender, EventArgs e)
@@ -26,6 +27,18 @@ namespace EAHT_App_UI
             MainPage main = new MainPage(new Ward(WardSelectorBox.SelectedIndex));
             this.Close();
             main.Show();
+        }
+
+        private void OpenWardConfig(object sender, EventArgs e)
+        {
+            WardConfigPage configPage = new WardConfigPage(userName);
+            configPage.Show();
+            this.Close();
+        }
+
+        private void ShowLoginDialogue(object sender, FormClosedEventArgs e)
+        {
+            //Program.login.Show();
         }
     }
 }

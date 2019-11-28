@@ -9,13 +9,14 @@ namespace EAHT_App_UI
 {
     static class Program
     {
+        public static WelcomePage welcome;
+        public static LoginPage login;
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
         static void Main()
-        {
-            // Read the comments, save some time :)
+        { 
 
             // UNCOMMENT THIS CODE FOR DEBUGGING WELCOME PAGE
 
@@ -27,10 +28,8 @@ namespace EAHT_App_UI
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LoginPage());
-
-
-
+            login = new LoginPage();
+            Application.Run(login);
         }
     }
 }

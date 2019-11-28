@@ -112,6 +112,12 @@
     <Compile Include="StaffDetails.Designer.cs">
       <DependentUpon>StaffDetails.cs</DependentUpon>
     </Compile>
+    <Compile Include="WardConfigPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WardConfigPage.Designer.cs">
+      <DependentUpon>WardConfigPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="WelcomePage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,6 +157,9 @@
     </EmbeddedResource>
     <None Include=".gitignore" />
     <None Include="api\.gitignore" />
+    <EmbeddedResource Include="WardConfigPage.resx">
+      <DependentUpon>WardConfigPage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WelcomePage.resx">
       <DependentUpon>WelcomePage.cs</DependentUpon>
     </EmbeddedResource>

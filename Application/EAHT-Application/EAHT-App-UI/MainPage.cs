@@ -231,11 +231,11 @@ namespace EAHT_App_UI
 
         private void LogOff(object sender, EventArgs e)
         {
+
+            //It goes to Login page
+            Program.login.Show();
             // Close this form
             this.Close();
-            //It goes to Login page
-            LoginPage login = new LoginPage();
-            login.ShowDialog();
         }
 
         private void OpenManagementPage(object sender, EventArgs e)
@@ -244,6 +244,11 @@ namespace EAHT_App_UI
             Management_Report_Interface management_Report_Interface = new Management_Report_Interface(this);
             management_Report_Interface.Show();
             this.Hide();
+        }
+
+        private void ShowLoginDialogue(object sender, FormClosedEventArgs e)
+        {
+            //Program.login.Show();
         }
     }
 }
