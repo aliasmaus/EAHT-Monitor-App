@@ -17,7 +17,6 @@ namespace EAHT_App_UI
     /// </summary>
     public partial class LoginPage : Form
     {
-        string hash = PasswordCryptography.ComputeSha256Hash("password");
         /// <summary>
         /// 
         /// </summary>

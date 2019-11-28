@@ -46,7 +46,14 @@ namespace EAHT_Engine
                 return false;
             }
         }
-
+        /// <summary>
+        /// Checks if a username password combination exists
+        /// Still needs to record login times to database
+        /// Need to make a session/login class to record session data
+        /// </summary>
+        /// <param name="userName">username to find in database</param>
+        /// <param name="password">password to check</param>
+        /// <returns>True for match found, false for no match found</returns>
         public static bool LogUserIn(string userName, string password)
         {
             // commented out so code is still present
@@ -64,22 +71,30 @@ namespace EAHT_Engine
 
             // Fixed and refactored to simplify
 
-            if (!(userName is null) && userName.Length > 1 && !(userName.Contains(" ")))
+            // Checks input for conditions that would cause errors
+            // not null and 1 character or more
+            if (!(userName is null) && userName.Length > 1)
             {
                 // Get password hash from database where first name matches
                 DataSet dataset = SqlQueryExecutor.SelectColumnsFromTable(new string[1] { "Password_Hash" }, "Staff", "First_Name=\'" + userName + "\'");
                 DataTableReader reader = dataset.CreateDataReader();
+
                 // If there is a result
                 if (reader.Read())
                 {
-                    //If the hashed password entered matches the stored hash
+
+                    // If the hashed password entered matches the stored hash
                     if (reader.GetString(0) == PasswordCryptography.ComputeSha256Hash(password))
                     {
+                        // Password matches
                         return true;
                     }
+                    // Password doesn't match
                     return false;
                 }
+                // Username not found or
             }
+            // Input is invalid
             return false;
         }
 
