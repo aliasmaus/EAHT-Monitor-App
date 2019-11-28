@@ -68,6 +68,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(297, 38);
             this.textBox1.TabIndex = 2;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // textBox2
             // 
@@ -89,6 +90,7 @@
             this.Username.TabIndex = 4;
             this.Username.Tag = "Username";
             this.Username.Text = "Username";
+            this.Username.Click += new System.EventHandler(this.Username_Click);
             // 
             // Password
             // 

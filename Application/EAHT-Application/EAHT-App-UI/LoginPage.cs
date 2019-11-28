@@ -70,5 +70,15 @@ namespace EAHT_App_UI
         {
 
         }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Username_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

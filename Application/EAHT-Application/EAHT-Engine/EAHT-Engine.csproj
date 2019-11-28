@@ -63,6 +63,7 @@
     <Compile Include="Alarm.cs" />
     <Compile Include="Bay.cs" />
     <Compile Include="Bed.cs" />
+    <Compile Include="LoginBackEnd.cs" />
     <Compile Include="PasswordCryptography.cs" />
     <Compile Include="DbConnection.cs" />
     <Compile Include="Make_Your_Code_Classes_In_This_Project_Not_The_UI.cs" />

@@ -13,7 +13,7 @@ namespace EAHT_Engine
         public static string ComputeSha256Hash(string rawData)
         {
             // Create a SHA256   
-            // code taken from C# corner
+            // code taken from C# Corner
             using (SHA256 sha256Hash = SHA256.Create())
             {
                 // ComputeHash - returns byte array  
