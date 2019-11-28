@@ -43,7 +43,6 @@
             // ManagementButton
             // 
             this.ManagementButton.BackColor = System.Drawing.Color.MediumAquamarine;
-            this.ManagementButton.Enabled = false;
             this.ManagementButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ManagementButton.ForeColor = System.Drawing.Color.Maroon;
             this.ManagementButton.Location = new System.Drawing.Point(565, 17);
@@ -141,7 +140,6 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MainPage";
             this.Load += new System.EventHandler(this.MainPage_Load);
-            //this.SizeChanged += new System.EventHandler(this.ResizeComponents);
             this.ResumeLayout(false);
             this.PerformLayout();
 

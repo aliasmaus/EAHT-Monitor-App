@@ -22,6 +22,7 @@ namespace EAHT_App_UI
         private void LoadWardMainPage(object sender, EventArgs e)
         {
             MainPage main = new MainPage(new Ward(WardSelectorBox.SelectedIndex));
+            this.Close();
             main.Show();
         }
     }

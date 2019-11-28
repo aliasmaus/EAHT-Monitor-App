@@ -231,11 +231,11 @@ namespace EAHT_App_UI
 
         private void LogOff(object sender, EventArgs e)
         {
+            // Close this form
+            this.Close();
             //It goes to Login page
             LoginPage login = new LoginPage();
             login.ShowDialog();
-            // Close this form
-            this.Close();
         }
 
         private void OpenManagementPage(object sender, EventArgs e)

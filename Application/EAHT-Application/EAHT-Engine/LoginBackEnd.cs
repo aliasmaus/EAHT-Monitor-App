@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Data;
 
 namespace EAHT_Engine
 {
@@ -45,6 +46,43 @@ namespace EAHT_Engine
                 return false;
             }
         }
+
+        public static bool LogUserIn(string userName, string password)
+        {
+            // commented out so code is still present
+            //string connStr = Properties.Settings.Default.DBconnection;
+
+            //// It allows comunication between the Database's source and the application
+            //System.Data.SqlClient.SqlConnection dbConnection = new SqlConnection(connStr);  // @"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = C:\EAHT - Monitor - App\Application\EAHT - Application\EAHT - Engine\EAHT - Database.mdf; Integrated Security = True; Connect Timeout = 30");
+
+            ////SQL query. 
+            //SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT * FROM Staff WHERE First_Name = ' " + userName + " 'AND Password_Hash = ' " + password + "'", dbConnection);
+            //DataTable data = new DataTable();
+            //dataAdapter.Fill(data);
+
+
+
+            // Fixed and refactored to simplify
+
+            if (!(userName is null) && userName.Length > 1 && !(userName.Contains(" ")))
+            {
+                // Get password hash from database where first name matches
+                DataSet dataset = SqlQueryExecutor.SelectColumnsFromTable(new string[1] { "Password_Hash" }, "Staff", "First_Name=\'" + userName + "\'");
+                DataTableReader reader = dataset.CreateDataReader();
+                // If there is a result
+                if (reader.Read())
+                {
+                    //If the hashed password entered matches the stored hash
+                    if (reader.GetString(0) == PasswordCryptography.ComputeSha256Hash(password))
+                    {
+                        return true;
+                    }
+                    return false;
+                }
+            }
+            return false;
+        }
+
         //clear user inputs 
         private void ClearTexts(string user, string pass)
         {
