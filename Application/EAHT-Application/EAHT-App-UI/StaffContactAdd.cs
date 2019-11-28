@@ -60,15 +60,15 @@ namespace EAHT_App_UI
         private void button5_Click(object sender, EventArgs e)
         {
             // Button used to return to the main page
-            MainPage mainPage = new MainPage();
-            mainPage.Show();
+            //MainPage mainPage = new MainPage();
+            //mainPage.Show();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             // Button used to return to the previous page
-            StaffList staafList = new StaffList();
-            staafList.Show();
+            //StaffList staafList = new StaffList();
+            //staafList.Show();
 
         }
 

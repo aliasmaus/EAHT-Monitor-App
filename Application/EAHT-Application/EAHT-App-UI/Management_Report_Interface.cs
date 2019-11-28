@@ -48,8 +48,8 @@ namespace EAHT_App_UI
         private void MgmtHome_StaffReportButton_Click(object sender, EventArgs e)
         {
             TogglePage(MgmtStaffReports_BackPanel, true);
-            //StaffList staffList = new StaffList();
-            //staffList.Show();
+            StaffList staffList = new StaffList();
+            staffList.Show();
         }
 
         private void MgmtHome_MedicalRecordsButton_Click(object sender, EventArgs e)

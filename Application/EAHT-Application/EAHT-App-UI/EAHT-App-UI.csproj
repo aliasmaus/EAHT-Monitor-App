@@ -93,24 +93,6 @@
     <Compile Include="MonitorPage.designer.cs">
       <DependentUpon>MonitorPage.cs</DependentUpon>
     </Compile>
-    <Compile Include="patientConactAdd.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="patientConactAdd.Designer.cs">
-      <DependentUpon>patientConactAdd.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PatientDetails.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PatientDetails.Designer.cs">
-      <DependentUpon>PatientDetails.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PatientList.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PatientList.Designer.cs">
-      <DependentUpon>PatientList.cs</DependentUpon>
-    </Compile>
     <Compile Include="StaffContactAdd.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -157,15 +139,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MonitorPage.resx">
       <DependentUpon>MonitorPage.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="patientConactAdd.resx">
-      <DependentUpon>patientConactAdd.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PatientDetails.resx">
-      <DependentUpon>PatientDetails.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PatientList.resx">
-      <DependentUpon>PatientList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
