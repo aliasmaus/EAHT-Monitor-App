@@ -24,7 +24,8 @@ namespace EAHT_App_UI
 
         private void LoadWardMainPage(object sender, EventArgs e)
         {
-            MainPage main = new MainPage(new Ward(WardSelectorBox.SelectedIndex));
+            string wardID = SqlQueryExecutor.GetColumnValuesAsString("Ward_Settings",0,"Ward_Name=\'" + WardSelectorBox.SelectedItem + "\'")[0];
+            MainPage main = new MainPage(new Ward(Convert.ToInt32(wardID)));
             this.Close();
             main.Show();
         }

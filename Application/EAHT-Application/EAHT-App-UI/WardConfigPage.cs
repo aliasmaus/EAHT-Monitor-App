@@ -14,6 +14,10 @@ namespace EAHT_App_UI
     public partial class WardConfigPage : Form
     {
         private string user;
+        /// <summary>
+        /// Construct interface for configuring ward layouts and adding new wards
+        /// </summary>
+        /// <param name="userName">The username of the signed in user</param>
         public WardConfigPage(string userName)
         {
             InitializeComponent();
