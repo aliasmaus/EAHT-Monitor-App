@@ -40,10 +40,17 @@ namespace EAHT_Engine
             }
 
         }
-        //The bays on the ward
+        /// <summary>
+        /// The bays on the ward
+        /// </summary>
         public Bay[] Bays { get => bays; }
-        //The name of the ward
+        /// <summary>
+        /// The ward's name
+        /// </summary>
         public string Name { get => name; }
+        /// <summary>
+        /// The database Id of the ward
+        /// </summary>
         public int Id { get => id; }
 
         /// <summary>

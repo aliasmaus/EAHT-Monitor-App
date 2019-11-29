@@ -37,7 +37,7 @@ namespace EAHT_App_UI
             this.MonitorPageFlowPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.AlarmMessage = new System.Windows.Forms.TextBox();
             this.RegisterButton = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.DeregisterButton = new System.Windows.Forms.Button();
             this.AlarmNotificationLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -89,17 +89,17 @@ namespace EAHT_App_UI
             this.RegisterButton.UseVisualStyleBackColor = false;
             this.RegisterButton.Click += new System.EventHandler(this.RegisterStaffForNotifications);
             // 
-            // button1
+            // DeregisterButton
             // 
-            this.button1.BackColor = System.Drawing.Color.MediumAquamarine;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(381, 423);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(177, 37);
-            this.button1.TabIndex = 33;
-            this.button1.Text = "Deregister for Notifications";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.DeregisterStaffForNotifications);
+            this.DeregisterButton.BackColor = System.Drawing.Color.MediumAquamarine;
+            this.DeregisterButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DeregisterButton.Location = new System.Drawing.Point(381, 423);
+            this.DeregisterButton.Name = "DeregisterButton";
+            this.DeregisterButton.Size = new System.Drawing.Size(177, 37);
+            this.DeregisterButton.TabIndex = 33;
+            this.DeregisterButton.Text = "Deregister for Notifications";
+            this.DeregisterButton.UseVisualStyleBackColor = false;
+            this.DeregisterButton.Click += new System.EventHandler(this.DeregisterStaffForNotifications);
             // 
             // AlarmNotificationLabel
             // 
@@ -118,7 +118,7 @@ namespace EAHT_App_UI
             this.BackColor = System.Drawing.Color.Wheat;
             this.ClientSize = new System.Drawing.Size(593, 487);
             this.Controls.Add(this.AlarmNotificationLabel);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.DeregisterButton);
             this.Controls.Add(this.RegisterButton);
             this.Controls.Add(this.AlarmMessage);
             this.Controls.Add(this.MonitorPageFlowPanel);
@@ -141,7 +141,7 @@ namespace EAHT_App_UI
         private System.Windows.Forms.FlowLayoutPanel MonitorPageFlowPanel;
         private System.Windows.Forms.TextBox AlarmMessage;
         private System.Windows.Forms.Button RegisterButton;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button DeregisterButton;
         private System.Windows.Forms.Label AlarmNotificationLabel;
     }
 }

@@ -58,8 +58,6 @@ namespace EAHT_Engine
         {
             CheckStatus();
         }
-
-        // TODO: update record alarm function to account staff member that silenced
         /// <summary>
         /// Record alarm data in to database
         /// </summary>
@@ -72,7 +70,7 @@ namespace EAHT_Engine
                 values = new string[10];
                 datacolumnstring = "(Ward, Bay, Bed, Monitor, Monitor_Type, Start_Time, End_Time, Notes, Intervening_Staff_Member, Time_Silenced)";
                 // NEED TO IMPLEMENT STAFF ID HERE
-                values[8] = "\'to implement\'";
+                values[8] = "\'" + LoginBackEnd.user + "\'";
                 values[9] = "\'" + silencedTime.ToString() + "\'";
             }
             else
@@ -92,6 +90,7 @@ namespace EAHT_Engine
             values[7] = "\'" + notes + "\'";
             SqlQueryExecutor.InsertIntoTable("Alarm_Records", values, datacolumnstring);
         }
+        
         /// <summary>
         /// Called when the alarm ends (because vital signs fall within accepted levels again)
         /// </summary>

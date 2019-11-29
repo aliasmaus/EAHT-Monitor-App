@@ -8,17 +8,20 @@ using System.Data;
 
 namespace EAHT_Engine
 {
+    // TODO: when a staff logs in the time needs to be recorded in the database
+    // TODO: when a staff member logs in need to know if they are a manager, consultant or medical staff (or more than one of these) - see week 5 DB slides on users with multiple roles
+    // TODO: when a staff member logs out the time needs to be recorded in the database
     public class LoginBackEnd
     {
         //decalre properties 
-        public string Username { get; set; }
-        public string Userpassword { get; set; }
+        private readonly string Username;
+        public static string user;
 
         //intialise  
-        public LoginBackEnd(string user, string pass)
+        public LoginBackEnd(string user)
         {
             this.Username = user;
-            this.Userpassword = pass;
+            
         }
         //validate string 
         private bool StringValidator(string input)
@@ -87,6 +90,7 @@ namespace EAHT_Engine
                     if (reader.GetString(0) == PasswordCryptography.ComputeSha256Hash(password))
                     {
                         // Password matches
+                        user = userName;
                         return true;
                     }
                     // Password doesn't match
