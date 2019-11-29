@@ -29,7 +29,7 @@ namespace EAHT_App_UI
                 this.bed = bed;   
             }
         }
-        // TODO: if active monitor, put the values in dropdown, min, max
+        
         private void MonitorPage_Load(object sender, EventArgs e)
         {
             this.BedValue.Text = "BED " + (bed.BedNumber+1).ToString();

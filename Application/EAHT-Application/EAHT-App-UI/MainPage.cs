@@ -231,11 +231,24 @@ namespace EAHT_App_UI
             monitorValueLabels[bay][bed][monitor].Location = new System.Drawing.Point(x, y2);
         }
 
-        //private void ResizeComponents(object sender, EventArgs e)
-        //{
-        //    int margin = this.Size.Height/20;
-        //    LogOffButton.Location = new System.Drawing.Point();
-        //}
+        private void ResizeComponents(object sender, EventArgs e)
+        {
+            int margin = this.Size.Height / 20;
+            LogOffButton.Location = new System.Drawing.Point(margin, margin);
+            TitleLabel.Location = new System.Drawing.Point(this.Width / 2 - TitleLabel.Width / 2, margin);
+            ManagementButton.Location = new System.Drawing.Point(this.Width - 2 * margin - ManagementButton.Width, margin);
+            WardLabel.Location = new System.Drawing.Point(this.Width / 2 - WardLabel.Width / 2, margin + TitleLabel.Height);
+            BayDisplayTabControl.Height = this.Height - 4 * margin - LogOffButton.Height - AlarmMessages.Height - AlarmBoxLabel.Height;
+            BayDisplayTabControl.Width = this.Width - 3 * margin;
+            BayDisplayTabControl.Location = new System.Drawing.Point(margin, margin + ManagementButton.Height + margin / 2);
+            AlarmBoxLabel.Location = new System.Drawing.Point(margin, margin + margin/2 + ManagementButton.Height + BayDisplayTabControl.Height);
+            AlarmMessages.Width = this.Width - 3 * margin;
+            AlarmMessages.Location = new System.Drawing.Point(margin, margin + margin / 2 + ManagementButton.Height + BayDisplayTabControl.Height + AlarmBoxLabel.Height);
+            foreach (FlowLayoutPanel bay in bayFlowPanels)
+            {
+                bay.Size = bayTabs[0].Size;
+            }
+        }
 
         private void LogOff(object sender, EventArgs e)
         {

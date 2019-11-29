@@ -16,7 +16,7 @@ namespace EAHT_App_UI
         /// </summary>
         [STAThread]
         static void Main()
-        { 
+        {
 
             // UNCOMMENT THIS CODE FOR DEBUGGING WELCOME PAGE
 
@@ -28,8 +28,9 @@ namespace EAHT_App_UI
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            login = new LoginPage();
-            Application.Run(login);
+            //login = new LoginPage();
+            //Application.Run(login);
+            Application.Run(new MainPage(new Ward(0)));
         }
     }
 }
