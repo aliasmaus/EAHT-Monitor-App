@@ -62,7 +62,6 @@ namespace EAHT_App_UI
             // 
             this.MonitorPageFlowPanel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.MonitorPageFlowPanel.AutoScroll = true;
-            this.MonitorPageFlowPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.MonitorPageFlowPanel.Location = new System.Drawing.Point(28, 59);
             this.MonitorPageFlowPanel.Name = "MonitorPageFlowPanel";
             this.MonitorPageFlowPanel.Size = new System.Drawing.Size(530, 280);

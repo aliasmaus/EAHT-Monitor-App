@@ -104,8 +104,14 @@ namespace EAHT_App_UI
                 minSelectors[monitor].ValueChanged += new EventHandler(MonitorMinChanged);
                 maxSelectors[monitor].ValueChanged += new EventHandler(MonitorMaxChanged);
                 silenceButtons[monitor].Click += new EventHandler(SilenceAlarm);
-                //debugging
-                //values[monitor].Visible = false;
+
+                // set initial values
+                if(!(bed.Monitors[monitor] is null))
+                {
+                    dropdowns[monitor].Text = bed.Monitors[monitor].Name;
+                    SetValuesForMonitors(monitor);
+                }
+                
             }
         }
 
@@ -178,6 +184,11 @@ namespace EAHT_App_UI
             int monitor = Convert.ToInt32((sender as Control).Name.Substring(9));
             int monitorType = (sender as ComboBox).SelectedIndex;
             bed.InsertMonitor(monitorType, monitor);
+            SetValuesForMonitors(monitor);
+        }
+
+        private void SetValuesForMonitors(int monitor)
+        {
             double low = bed.Monitors[monitor].Sensor.CurrentLower;
             double high = bed.Monitors[monitor].Sensor.CurrentUpper;
             double range = low / 2;
