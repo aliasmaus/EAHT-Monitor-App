@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WardConfigPage));
             this.BackButton = new System.Windows.Forms.Button();
             this.WardConfigTabs = new System.Windows.Forms.TabControl();
             this.EditTab = new System.Windows.Forms.TabPage();
@@ -48,6 +49,11 @@
             this.ConfigureBedsInBaysBox = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.AddTab = new System.Windows.Forms.TabPage();
+            this.DeleteButton = new System.Windows.Forms.Button();
+            this.DeleteWardSelectLabel = new System.Windows.Forms.Label();
+            this.DeleteWardSelectBox = new System.Windows.Forms.ComboBox();
+            this.DeleteWardLabel = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.AddWardButton = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -57,11 +63,8 @@
             this.AddWardDefaultBayNumber = new System.Windows.Forms.NumericUpDown();
             this.AddWardNameText = new System.Windows.Forms.TextBox();
             this.AddWardNameLabel = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.DeleteWardLabel = new System.Windows.Forms.Label();
-            this.DeleteWardSelectBox = new System.Windows.Forms.ComboBox();
-            this.DeleteWardSelectLabel = new System.Windows.Forms.Label();
-            this.DeleteButton = new System.Windows.Forms.Button();
+            this.viewTab = new System.Windows.Forms.TabPage();
+            this.WardDataGridView = new System.Windows.Forms.DataGridView();
             this.WardConfigTabs.SuspendLayout();
             this.EditTab.SuspendLayout();
             this.EditWardFlowPanel.SuspendLayout();
@@ -76,6 +79,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.AddWardDefaultBedsNumber)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AddWardDefaultMonitorsNumber)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AddWardDefaultBayNumber)).BeginInit();
+            this.viewTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.WardDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // BackButton
@@ -93,6 +98,7 @@
             // 
             this.WardConfigTabs.Controls.Add(this.EditTab);
             this.WardConfigTabs.Controls.Add(this.AddTab);
+            this.WardConfigTabs.Controls.Add(this.viewTab);
             this.WardConfigTabs.Location = new System.Drawing.Point(31, 66);
             this.WardConfigTabs.Name = "WardConfigTabs";
             this.WardConfigTabs.SelectedIndex = 0;
@@ -296,6 +302,54 @@
             this.AddTab.TabIndex = 1;
             this.AddTab.Text = "Add/delete ward";
             // 
+            // DeleteButton
+            // 
+            this.DeleteButton.BackColor = System.Drawing.Color.MediumAquamarine;
+            this.DeleteButton.Location = new System.Drawing.Point(530, 108);
+            this.DeleteButton.Name = "DeleteButton";
+            this.DeleteButton.Size = new System.Drawing.Size(75, 35);
+            this.DeleteButton.TabIndex = 13;
+            this.DeleteButton.Text = "Delete";
+            this.DeleteButton.UseVisualStyleBackColor = false;
+            this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
+            // 
+            // DeleteWardSelectLabel
+            // 
+            this.DeleteWardSelectLabel.AutoSize = true;
+            this.DeleteWardSelectLabel.Location = new System.Drawing.Point(453, 64);
+            this.DeleteWardSelectLabel.Name = "DeleteWardSelectLabel";
+            this.DeleteWardSelectLabel.Size = new System.Drawing.Size(62, 13);
+            this.DeleteWardSelectLabel.TabIndex = 12;
+            this.DeleteWardSelectLabel.Text = "Ward name";
+            // 
+            // DeleteWardSelectBox
+            // 
+            this.DeleteWardSelectBox.FormattingEnabled = true;
+            this.DeleteWardSelectBox.Location = new System.Drawing.Point(555, 61);
+            this.DeleteWardSelectBox.Name = "DeleteWardSelectBox";
+            this.DeleteWardSelectBox.Size = new System.Drawing.Size(121, 21);
+            this.DeleteWardSelectBox.TabIndex = 11;
+            // 
+            // DeleteWardLabel
+            // 
+            this.DeleteWardLabel.AutoSize = true;
+            this.DeleteWardLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DeleteWardLabel.Location = new System.Drawing.Point(514, 23);
+            this.DeleteWardLabel.Name = "DeleteWardLabel";
+            this.DeleteWardLabel.Size = new System.Drawing.Size(91, 16);
+            this.DeleteWardLabel.TabIndex = 10;
+            this.DeleteWardLabel.Text = "Delete ward";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(138, 23);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(73, 16);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "Add ward";
+            // 
             // AddWardButton
             // 
             this.AddWardButton.BackColor = System.Drawing.Color.MediumAquamarine;
@@ -371,53 +425,26 @@
             this.AddWardNameLabel.TabIndex = 0;
             this.AddWardNameLabel.Text = "Ward name";
             // 
-            // label5
+            // viewTab
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(138, 23);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(73, 16);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "Add ward";
+            this.viewTab.BackColor = System.Drawing.Color.Wheat;
+            this.viewTab.Controls.Add(this.WardDataGridView);
+            this.viewTab.Location = new System.Drawing.Point(4, 22);
+            this.viewTab.Name = "viewTab";
+            this.viewTab.Size = new System.Drawing.Size(739, 330);
+            this.viewTab.TabIndex = 2;
+            this.viewTab.Text = "View wards";
             // 
-            // DeleteWardLabel
+            // WardDataGridView
             // 
-            this.DeleteWardLabel.AutoSize = true;
-            this.DeleteWardLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DeleteWardLabel.Location = new System.Drawing.Point(514, 23);
-            this.DeleteWardLabel.Name = "DeleteWardLabel";
-            this.DeleteWardLabel.Size = new System.Drawing.Size(91, 16);
-            this.DeleteWardLabel.TabIndex = 10;
-            this.DeleteWardLabel.Text = "Delete ward";
-            // 
-            // DeleteWardSelectBox
-            // 
-            this.DeleteWardSelectBox.FormattingEnabled = true;
-            this.DeleteWardSelectBox.Location = new System.Drawing.Point(555, 61);
-            this.DeleteWardSelectBox.Name = "DeleteWardSelectBox";
-            this.DeleteWardSelectBox.Size = new System.Drawing.Size(121, 21);
-            this.DeleteWardSelectBox.TabIndex = 11;
-            // 
-            // DeleteWardSelectLabel
-            // 
-            this.DeleteWardSelectLabel.AutoSize = true;
-            this.DeleteWardSelectLabel.Location = new System.Drawing.Point(453, 64);
-            this.DeleteWardSelectLabel.Name = "DeleteWardSelectLabel";
-            this.DeleteWardSelectLabel.Size = new System.Drawing.Size(62, 13);
-            this.DeleteWardSelectLabel.TabIndex = 12;
-            this.DeleteWardSelectLabel.Text = "Ward name";
-            // 
-            // DeleteButton
-            // 
-            this.DeleteButton.BackColor = System.Drawing.Color.MediumAquamarine;
-            this.DeleteButton.Location = new System.Drawing.Point(530, 108);
-            this.DeleteButton.Name = "DeleteButton";
-            this.DeleteButton.Size = new System.Drawing.Size(75, 35);
-            this.DeleteButton.TabIndex = 13;
-            this.DeleteButton.Text = "Delete";
-            this.DeleteButton.UseVisualStyleBackColor = false;
-            this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
+            this.WardDataGridView.AllowUserToAddRows = false;
+            this.WardDataGridView.AllowUserToDeleteRows = false;
+            this.WardDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.WardDataGridView.Location = new System.Drawing.Point(26, 26);
+            this.WardDataGridView.Name = "WardDataGridView";
+            this.WardDataGridView.ReadOnly = true;
+            this.WardDataGridView.Size = new System.Drawing.Size(684, 278);
+            this.WardDataGridView.TabIndex = 0;
             // 
             // WardConfigPage
             // 
@@ -427,8 +454,9 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.WardConfigTabs);
             this.Controls.Add(this.BackButton);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "WardConfigPage";
-            this.Text = "WardConfigPage";
+            this.Text = "Configure wards";
             this.WardConfigTabs.ResumeLayout(false);
             this.EditTab.ResumeLayout(false);
             this.EditWardFlowPanel.ResumeLayout(false);
@@ -445,6 +473,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.AddWardDefaultBedsNumber)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AddWardDefaultMonitorsNumber)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AddWardDefaultBayNumber)).EndInit();
+            this.viewTab.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.WardDataGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -485,5 +515,7 @@
         private System.Windows.Forms.Label DeleteWardSelectLabel;
         private System.Windows.Forms.ComboBox DeleteWardSelectBox;
         private System.Windows.Forms.Label DeleteWardLabel;
+        private System.Windows.Forms.TabPage viewTab;
+        private System.Windows.Forms.DataGridView WardDataGridView;
     }
 }

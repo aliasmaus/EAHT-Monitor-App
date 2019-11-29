@@ -26,12 +26,12 @@ namespace EAHT_Engine
         {
             DataSet data = SelectAllFromTable(tableName);
             DataTableReader reader = data.CreateDataReader();
-            List<string> wardNames = new List<string>();
+            List<string> values = new List<string>();
             while (reader.Read())
             {
-                wardNames.Add(reader.GetString(1));
+                values.Add(reader.GetString(1));
             }
-            return wardNames.ToArray();
+            return values.ToArray();
         }
         /// <summary>
         /// Gets the values of the specified column in the named table in the database
@@ -43,18 +43,30 @@ namespace EAHT_Engine
         {
             DataSet data = SelectAllFromTable(tableName);
             DataTableReader reader = data.CreateDataReader();
-            List<string> wardNames = new List<string>();
+            List<string> values = new List<string>();
             while (reader.Read())
             {
-                wardNames.Add(reader.GetString(columnNumber));
+                values.Add(reader.GetString(columnNumber));
             }
-            return wardNames.ToArray();
+            return values.ToArray();
         }
+        public static string[] GetColumnValuesAsString(string tableName, int columnNumber, string whereCondition)
+        {
+            DataSet data = SelectAllFromTable(tableName,whereCondition);
+            DataTableReader reader = data.CreateDataReader();
+            List<string> values = new List<string>();
+            while (reader.Read())
+            {
+                values.Add(reader.GetString(columnNumber));
+            }
+            return values.ToArray();
+        }
+
         /// <summary>
         /// Selects all columns from the given table
         /// </summary>
         /// <param name="tableName"></param>
-        /// <returns></returns>
+        /// <returns>Table named in argument</returns>
         public static DataSet SelectAllFromTable(string tableName)
         {
             DbConnection connection = new DbConnection(connectionString);
@@ -158,6 +170,28 @@ namespace EAHT_Engine
             DbConnection connection = new DbConnection(Properties.Settings.Default.DbConnection);
             System.Data.SqlClient.SqlConnection sqlconnection = connection.OpenConnection();
             string statement = "UPDATE " + tableName + " SET " + updates + whereClause + whereCondition + endQuery;
+            System.Data.SqlClient.SqlCommand sqlCommand = connection.GetSqlCommand(statement);
+            sqlCommand.Connection = sqlconnection;
+            sqlCommand.ExecuteNonQuery();
+            sqlCommand.Dispose();
+            connection.CloseConnection();
+        }
+        public static void DeleteRowFromTable(string tableName, string Id)
+        {
+            DbConnection connection = new DbConnection(Properties.Settings.Default.DbConnection);
+            System.Data.SqlClient.SqlConnection sqlconnection = connection.OpenConnection();
+            string statement = "DELETE FROM " + tableName + " WHERE Id=" + Id + endQuery;
+            System.Data.SqlClient.SqlCommand sqlCommand = connection.GetSqlCommand(statement);
+            sqlCommand.Connection = sqlconnection;
+            sqlCommand.ExecuteNonQuery();
+            sqlCommand.Dispose();
+            connection.CloseConnection();
+        }
+        public static void DeleteRowsFromTable(string tableName, string whereCondition)
+        {
+            DbConnection connection = new DbConnection(Properties.Settings.Default.DbConnection);
+            System.Data.SqlClient.SqlConnection sqlconnection = connection.OpenConnection();
+            string statement = "DELETE FROM " + tableName + " WHERE " + whereCondition + endQuery;
             System.Data.SqlClient.SqlCommand sqlCommand = connection.GetSqlCommand(statement);
             sqlCommand.Connection = sqlconnection;
             sqlCommand.ExecuteNonQuery();

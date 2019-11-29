@@ -87,8 +87,8 @@ namespace EAHT_Engine
             values[2] = bedNumber.ToString();
             values[4] = "\'" + monitorName + "\'";
             values[3] = monitorNumber.ToString();
-            values[5] = "\'" + startTime.ToString() + "\'";
-            values[6] = "\'" + endTime.ToString() + "\'";
+            values[5] = "\'" + startTime.Year + "-" + startTime.Month .ToString() + "-" + startTime.Day + " " + startTime.Hour + ":" + startTime.Minute + ":" + startTime.Second + "\'";
+            values[6] = "\'" + endTime.Year + "-" + endTime.Month.ToString() + "-" + endTime.Day + " " + endTime.Hour + ":" + endTime.Minute + ":" + endTime.Second + "\'";
             values[7] = "\'" + notes + "\'";
             SqlQueryExecutor.InsertIntoTable("Alarm_Records", values, datacolumnstring);
         }
