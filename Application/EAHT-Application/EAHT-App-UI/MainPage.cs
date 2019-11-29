@@ -58,6 +58,7 @@ namespace EAHT_App_UI
                     //for each monitor
                     for (int monitor = 0; monitor < ward.Bays[bay].Beds[bed].Monitors.Length; monitor++)
                     {
+                        // display reading information
                         if (!(ward.Bays[bay].Beds[bed].Monitors[monitor] is null))
                         {
                             monitorNameLabels[bay][bed][monitor].Text = ward.Bays[bay].Beds[bed].Monitors[monitor].Name;
@@ -68,8 +69,10 @@ namespace EAHT_App_UI
                             monitorNameLabels[bay][bed][monitor].Text = "Monitor " + (monitor + 1).ToString();
                             monitorValueLabels[bay][bed][monitor].Text = "inactive";
                         }
+                        // display alarm information
                         if(alarmLocations[bay][bed][monitor])
                         {
+                            // add alarm text
                             messages += ward.Bays[bay].Beds[bed].Monitors[monitor].Name + " alarm is active at - Bay: " + (bay+1) + " Bed: " + (bed+1);
                             if(!ward.Bays[bay].Beds[bed].Monitors[monitor].Alarm.IsSilenced)
                             {
@@ -81,6 +84,11 @@ namespace EAHT_App_UI
                                 messages += " (This alarm has been silenced)";
                             }
                             messages += Environment.NewLine;
+                            //  add notification text
+                            foreach(string name in ward.Bays[bay].Beds[bed].Monitors[monitor].Alarm.notified)
+                            {
+                                messages += name + " has been sent a notification" + Environment.NewLine;
+                            }
                         }
                     }
                     if (messages != AlarmMessages.Text)

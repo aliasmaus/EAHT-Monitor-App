@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Timers;
+using System.Data;
 
 namespace EAHT_Engine
 {
@@ -29,6 +30,7 @@ namespace EAHT_Engine
         private readonly Timer updater;
         private bool isSilenced;
         private DateTime silencedTime;
+        public string[] notified;
 
         /// <summary>
         /// Indicates wether or not a staff member has intervened and silenced the alarm
@@ -51,7 +53,7 @@ namespace EAHT_Engine
             updater = new Timer(1000);
             updater.Elapsed += Updater_Elapsed;
             updater.Start();
-            SendNotification();
+            notified = SendNotifications();
         }
 
         private void Updater_Elapsed(object sender, ElapsedEventArgs e)
@@ -122,12 +124,25 @@ namespace EAHT_Engine
                 }
             }
         }
-        // TODO: properly implement alarm notification 
-        private void SendNotification()
+         
+        private string[] SendNotifications()
         {
-            notificationsSent = true;
+            DataSet data = SqlQueryExecutor.SelectColumnsFromTable(new string[2] { "Staff_Id", "Notification_Type"},"Staff_To_Notify_About_Beds", "(Ward_Id=" + wardRef.Id + ") AND (Bay_Number=" + bayNumber + ") AND (Bed_Number=" + bedNumber + ")");
+            DataTableReader reader = data.CreateDataReader();
+            List<string> StaffNames = new List<string>();
+            while(reader.Read())
+            {
+                // Here would add code to send emails/pager alerts to staff
+                // Instead making a list of staff names so that other feedback
+                // can be given
+                string id = reader.GetInt32(0).ToString();
+                StaffNames.Add(SqlQueryExecutor.GetColumnValuesAsString("Staff", 1, "ID_Number=" + id)[0]);
+            }
+            
+            return StaffNames.ToArray();
+
         }
-        // TODO: when login class completed alarm needs to record person that silenced the alarm.
+        
         public void SilenceAlarm()
         {
             isSilenced = true;

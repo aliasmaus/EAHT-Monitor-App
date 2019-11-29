@@ -26,20 +26,21 @@ namespace EAHT_App_UI
         private void button1_Click(object sender, EventArgs e)
         {
             // Create objects from values type on textbox in Contact Register
-            string[] obj = new string[7];
-            obj[0] = txtFirstName.Text;
-            obj[1] = txtLastName.Text;
-            obj[2] = txtPosition.Text;
+            string[] obj = new string[8];
+            obj[0] = "\'" + txtFirstName.Text + "\'";
+            obj[1] = "\'" + txtLastName.Text + "\'";
+            obj[2] = "\'" + txtPosition.Text + "\'";
             obj[3] = txtIdNumber.Text;
             obj[4] = txtContactNumber.Text;
-            obj[5] = txtAddress.Text;
-            obj[6] = txtAddInformation.Text;
-            obj[7] = txtPassword.Text;
+            obj[5] = "\'" + txtAddress.Text + "\'";
+            obj[6] = "\'" + txtAddInformation.Text + "\'";
+            obj[7] = "\'" + PasswordCryptography.ComputeSha256Hash(txtPassword.Text) + "\'";
 
             //listStaff.Items.Add(obj.ToString());
             SqlQueryExecutor.InsertIntoTable("Staff", obj, "(First_Name, Last_Name, Position, Id_Number, Contact_Number, Address, Add_Information, Password_Hash)");
-            StaffDetails stdtils = new StaffDetails();
-            stdtils.Show();
+            MessageBox.Show("Staff added");
+            //StaffDetails stdtils = new StaffDetails();
+            //stdtils.Show();
         }
 
         private void txtName_TextChanged(object sender, EventArgs e)

@@ -65,7 +65,7 @@ namespace EAHT_Engine
             List<string> values = new List<string>();
             while (reader.Read())
             {
-                values.Add(reader.GetInt32(columnNumber).ToString());
+                values.Add(reader.GetValue(columnNumber).ToString());
             }
             return values.ToArray();
         }
