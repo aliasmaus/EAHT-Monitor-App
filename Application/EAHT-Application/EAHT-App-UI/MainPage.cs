@@ -58,6 +58,7 @@ namespace EAHT_App_UI
                     //for each monitor
                     for (int monitor = 0; monitor < ward.Bays[bay].Beds[bed].Monitors.Length; monitor++)
                     {
+                        // display reading information
                         if (!(ward.Bays[bay].Beds[bed].Monitors[monitor] is null))
                         {
                             monitorNameLabels[bay][bed][monitor].Text = ward.Bays[bay].Beds[bed].Monitors[monitor].Name;
@@ -68,8 +69,10 @@ namespace EAHT_App_UI
                             monitorNameLabels[bay][bed][monitor].Text = "Monitor " + (monitor + 1).ToString();
                             monitorValueLabels[bay][bed][monitor].Text = "inactive";
                         }
+                        // display alarm information
                         if(alarmLocations[bay][bed][monitor])
                         {
+                            // add alarm text
                             messages += ward.Bays[bay].Beds[bed].Monitors[monitor].Name + " alarm is active at - Bay: " + (bay+1) + " Bed: " + (bed+1);
                             if(!ward.Bays[bay].Beds[bed].Monitors[monitor].Alarm.IsSilenced)
                             {
@@ -81,6 +84,11 @@ namespace EAHT_App_UI
                                 messages += " (This alarm has been silenced)";
                             }
                             messages += Environment.NewLine;
+                            //  add notification text
+                            foreach(string name in ward.Bays[bay].Beds[bed].Monitors[monitor].Alarm.notified)
+                            {
+                                messages += name + " has been sent a notification" + Environment.NewLine;
+                            }
                         }
                     }
                     if (messages != AlarmMessages.Text)
@@ -223,11 +231,24 @@ namespace EAHT_App_UI
             monitorValueLabels[bay][bed][monitor].Location = new System.Drawing.Point(x, y2);
         }
 
-        //private void ResizeComponents(object sender, EventArgs e)
-        //{
-        //    int margin = this.Size.Height/20;
-        //    LogOffButton.Location = new System.Drawing.Point();
-        //}
+        private void ResizeComponents(object sender, EventArgs e)
+        {
+            int margin = this.Size.Height / 20;
+            LogOffButton.Location = new System.Drawing.Point(margin, margin);
+            TitleLabel.Location = new System.Drawing.Point(this.Width / 2 - TitleLabel.Width / 2, margin);
+            ManagementButton.Location = new System.Drawing.Point(this.Width - 2 * margin - ManagementButton.Width, margin);
+            WardLabel.Location = new System.Drawing.Point(this.Width / 2 - WardLabel.Width / 2, margin + TitleLabel.Height);
+            BayDisplayTabControl.Height = this.Height - 4 * margin - LogOffButton.Height - AlarmMessages.Height - AlarmBoxLabel.Height;
+            BayDisplayTabControl.Width = this.Width - 3 * margin;
+            BayDisplayTabControl.Location = new System.Drawing.Point(margin, margin + ManagementButton.Height + margin / 2);
+            AlarmBoxLabel.Location = new System.Drawing.Point(margin, margin + margin/2 + ManagementButton.Height + BayDisplayTabControl.Height);
+            AlarmMessages.Width = this.Width - 3 * margin;
+            AlarmMessages.Location = new System.Drawing.Point(margin, margin + margin / 2 + ManagementButton.Height + BayDisplayTabControl.Height + AlarmBoxLabel.Height);
+            foreach (FlowLayoutPanel bay in bayFlowPanels)
+            {
+                bay.Size = bayTabs[0].Size;
+            }
+        }
 
         private void LogOff(object sender, EventArgs e)
         {

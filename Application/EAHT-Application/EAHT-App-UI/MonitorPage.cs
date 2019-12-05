@@ -1,6 +1,7 @@
 ﻿using EAHT_Engine;
 using System;
 using System.Windows.Forms;
+using System.Data;
 
 namespace EAHT_App_UI
 {
@@ -28,7 +29,7 @@ namespace EAHT_App_UI
                 this.bed = bed;   
             }
         }
-        // TODO: if active monitor, put the values in dropdown, min, max
+        
         private void MonitorPage_Load(object sender, EventArgs e)
         {
             this.BedValue.Text = "BED " + (bed.BedNumber+1).ToString();
@@ -104,8 +105,28 @@ namespace EAHT_App_UI
                 minSelectors[monitor].ValueChanged += new EventHandler(MonitorMinChanged);
                 maxSelectors[monitor].ValueChanged += new EventHandler(MonitorMaxChanged);
                 silenceButtons[monitor].Click += new EventHandler(SilenceAlarm);
-                //debugging
-                //values[monitor].Visible = false;
+
+                // set initial values
+                if(!(bed.Monitors[monitor] is null))
+                {
+                    dropdowns[monitor].Text = bed.Monitors[monitor].Name;
+                    SetValuesForMonitors(monitor);
+                }
+
+                // enable/disable register/deregister buttons
+                string staffid = SqlQueryExecutor.GetColumnValuesAsString("Staff", 0, "First_Name=\'" + LoginBackEnd.user + "\'")[0];
+                DataSet data = SqlQueryExecutor.SelectAllFromTable("Staff_To_Notify_About_Beds", "(Ward_Id=" + bed.WardRef.Id + ") AND (Bay_Number=" + bed.BayID + ") AND (Bed_Number=" + bed.BedNumber + ") AND (Staff_Id=\'" + staffid + "\')");
+                DataTableReader reader = data.CreateDataReader();
+                if (reader.Read())
+                {
+                    DeregisterButton.Enabled = true;
+                    RegisterButton.Enabled = false;
+                }
+                else
+                {
+                    DeregisterButton.Enabled = false;
+                    RegisterButton.Enabled = true;
+                }
             }
         }
 
@@ -178,6 +199,11 @@ namespace EAHT_App_UI
             int monitor = Convert.ToInt32((sender as Control).Name.Substring(9));
             int monitorType = (sender as ComboBox).SelectedIndex;
             bed.InsertMonitor(monitorType, monitor);
+            SetValuesForMonitors(monitor);
+        }
+
+        private void SetValuesForMonitors(int monitor)
+        {
             double low = bed.Monitors[monitor].Sensor.CurrentLower;
             double high = bed.Monitors[monitor].Sensor.CurrentUpper;
             double range = low / 2;
@@ -212,12 +238,18 @@ namespace EAHT_App_UI
 
         private void RegisterStaffForNotifications(object sender, EventArgs e)
         {
-            bed.RegisterStaffForNotifications();
+            bed.RegisterStaffForNotifications(0);
+            MessageBox.Show("Registered for notifications");
+            RegisterButton.Enabled = false;
+            DeregisterButton.Enabled = true;
         }
 
         private void DeregisterStaffForNotifications(object sender, EventArgs e)
         {
             bed.DeregisterStaffForNotifications();
+            MessageBox.Show("Deregistered for notifications");
+            DeregisterButton.Enabled = false;
+            RegisterButton.Enabled = true;
         }
 
         private void AlarmMessage_TextChanged(object sender, EventArgs e)

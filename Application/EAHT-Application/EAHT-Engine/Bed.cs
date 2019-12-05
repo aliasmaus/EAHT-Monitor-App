@@ -15,7 +15,7 @@ namespace EAHT_Engine
         private readonly int bedNumber;
         private readonly Monitor[] monitors;
         private readonly Ward wardRef;
-        private int bayID;
+        private readonly int bayID;
 
         /// <summary>
         /// Initializes the bed
@@ -29,8 +29,8 @@ namespace EAHT_Engine
             // Initialise fields
             this.bedNumber = ID;
             this.monitors = new Monitor[nMonitors];
-            this.wardRef = ward;
-            this.bayID = bay;
+            wardRef = ward;
+            bayID = bay;
 
             // Load any existing monitors
             LoadMonitorConfigurationFromDatabase();
@@ -43,7 +43,7 @@ namespace EAHT_Engine
             {
                 if(monitorConfig[monitor]>=0)
                 {
-                    monitors[monitor] = new Monitor(monitorConfig[monitor],wardRef,bayID,bedNumber,monitor);
+                    monitors[monitor] = new Monitor(monitorConfig[monitor],wardRef,BayID,bedNumber,monitor);
                 }
             }
         }
@@ -51,7 +51,7 @@ namespace EAHT_Engine
         private int[] GetMonitorConfigurationFromDatabase()
         {
             string AND = ") AND ";
-            DataSet monitorData = SqlQueryExecutor.SelectColumnsFromTable(new string[2] { "Monitor_Number", "Monitor_Type" }, "Monitors_In_Beds", "(Ward=" + wardRef.Id + AND + "(Bay=" + bayID + AND + "(Bed=" + bedNumber + AND + "(Monitor_Number<" + monitors.Length + ")");
+            DataSet monitorData = SqlQueryExecutor.SelectColumnsFromTable(new string[2] { "Monitor_Number", "Monitor_Type" }, "Monitors_In_Beds", "(Ward=" + wardRef.Id + AND + "(Bay=" + BayID + AND + "(Bed=" + bedNumber + AND + "(Monitor_Number<" + monitors.Length + ")");
             DataTableReader reader = monitorData.CreateDataReader();
             int[] types = new int[monitors.Length];
             for (int monitor = 0;  monitor < types.Length; monitor++)
@@ -76,6 +76,8 @@ namespace EAHT_Engine
 
         public Ward WardRef => wardRef;
 
+        public int BayID { get => bayID;  }
+
         /// <summary>
         /// <para>Creates a new instance of a monitor of the chosen type and inserts it into the chosen slot</para>
         /// </summary>
@@ -85,7 +87,7 @@ namespace EAHT_Engine
         {
             Monitor monitor;
             //create the monitor to insert
-            monitor = new Monitor(monitorType, wardRef, bayID, bedNumber, monitorNumber);
+            monitor = new Monitor(monitorType, wardRef, BayID, bedNumber, monitorNumber);
             //insert the monitor
             monitors[monitorNumber] = monitor;
             UpdateMonitorsInBedsDatabase(monitorNumber,monitorType);
@@ -94,7 +96,7 @@ namespace EAHT_Engine
         // TODO: If setting exists update it, otherwise insert new entry
         private void UpdateMonitorsInBedsDatabase(int monitorNumber, int monitorType)
         {
-            string whereClause = "(Ward=" + wardRef.Id + ") AND (Bay=" + bayID + ") AND (Bed=" + bedNumber + ") AND (Monitor_Number=" + monitorNumber + ")";
+            string whereClause = "(Ward=" + wardRef.Id + ") AND (Bay=" + BayID + ") AND (Bed=" + bedNumber + ") AND (Monitor_Number=" + monitorNumber + ")";
             DataSet data = SqlQueryExecutor.SelectAllFromTable("Monitors_In_Beds", whereClause);
             DataTableReader reader = data.CreateDataReader();
             if(reader.Read())
@@ -103,15 +105,23 @@ namespace EAHT_Engine
             }
             else
             {
-                SqlQueryExecutor.InsertIntoTable("Monitors_In_Beds", new string[5] { wardRef.Id.ToString(), bayID.ToString(), bedNumber.ToString(), monitorNumber.ToString(), monitorType.ToString() }, "(Ward, Bay, Bed, Monitor_Number, Monitor_Type)");
+                SqlQueryExecutor.InsertIntoTable("Monitors_In_Beds", new string[5] { wardRef.Id.ToString(), BayID.ToString(), bedNumber.ToString(), monitorNumber.ToString(), monitorType.ToString() }, "(Ward, Bay, Bed, Monitor_Number, Monitor_Type)");
             }
             
         }
 
+        /// <summary>
+        /// Get the names of possible monitors
+        /// </summary>
+        /// <returns>monitor names as array of strings</returns>
         public string[] GetPossibleMonitors()
         {
             return SqlQueryExecutor.GetColumnValuesAsString("Monitors");
         }
+        /// <summary>
+        /// Get bools for if monitors are alarmed
+        /// </summary>
+        /// <returns>alarm statuses (true/false)</returns>
         public bool[] GetMonitorAlarmStatuses()
         {
             bool[] statuses = new bool[monitors.Length];
@@ -125,14 +135,18 @@ namespace EAHT_Engine
             return statuses;
         }
 
-        public void RegisterStaffForNotifications()
+        public void RegisterStaffForNotifications(int type)
         {
-            throw new NotImplementedException();
+            string staffID = SqlQueryExecutor.GetColumnValuesAsString("Staff", 0, "First_Name=\'" + LoginBackEnd.user + "\'")[0];
+            string[] data = new string[5] {staffID, wardRef.Id.ToString(), BayID.ToString(), bedNumber.ToString(), type.ToString()};
+            string columns = "(Staff_Id, Ward_Id, Bay_Number, Bed_Number, Notification_Type)";
+            SqlQueryExecutor.InsertIntoTable("Staff_To_Notify_About_Beds",data, columns);
         }
 
         public void DeregisterStaffForNotifications()
         {
-            throw new NotImplementedException();
+            string staffid = SqlQueryExecutor.GetColumnValuesAsString("Staff", 0, "First_Name=\'" + LoginBackEnd.user + "\'")[0];
+            SqlQueryExecutor.DeleteRowsFromTable("Staff_To_Notify_About_Beds", "(Ward_Id=" + WardRef.Id + ") AND (Bay_Number=" + BayID + ") AND (Bed_Number=" + BedNumber + ") AND (Staff_Id=\'" + staffid + "\')");
         }
     }
 }

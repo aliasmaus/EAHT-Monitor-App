@@ -35,19 +35,20 @@ namespace EAHT_App_UI
         {
             // Create objects from values type on textbox in Contact Register
             string[] obj = new string[8];
-            obj[0] = "\'" + txtIdNumber.Text + "\'";
-            obj[1] = "\'" + txtFirstName.Text + "\'";
-            obj[2] = "\'" + txtLastName.Text + "\'";
-            obj[3] = "\'" + txtPosition.Text + "\'";
-            obj[4] = "\'" + txtContactNumber.Text + "\'";
+            obj[0] = "\'" + txtFirstName.Text + "\'";
+            obj[1] = "\'" + txtLastName.Text + "\'";
+            obj[2] = "\'" + txtPosition.Text + "\'";
+            obj[3] = txtIdNumber.Text;
+            obj[4] = txtContactNumber.Text;
             obj[5] = "\'" + txtAddress.Text + "\'";
             obj[6] = "\'" + txtAddInformation.Text + "\'";
             obj[7] = "\'" + PasswordCryptography.ComputeSha256Hash(txtPassword.Text) + "\'";
 
             //listStaff.Items.Add(obj.ToString());
-            SqlQueryExecutor.InsertIntoTable("Staff", obj, ColumnString1);
-            StaffList stflist = new StaffList();
-            stflist.Show();
+            SqlQueryExecutor.InsertIntoTable("Staff", obj, "(First_Name, Last_Name, Position, Id_Number, Contact_Number, Address, Add_Information, Password_Hash)");
+            MessageBox.Show("Staff added");
+            //StaffDetails stdtils = new StaffDetails();
+            //stdtils.Show();
         }
 
         private void button5_Click(object sender, EventArgs e)

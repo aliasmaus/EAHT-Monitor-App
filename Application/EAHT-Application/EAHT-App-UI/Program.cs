@@ -16,7 +16,7 @@ namespace EAHT_App_UI
         /// </summary>
         [STAThread]
         static void Main()
-        { 
+        {
 
             // UNCOMMENT THIS CODE FOR DEBUGGING WELCOME PAGE
 

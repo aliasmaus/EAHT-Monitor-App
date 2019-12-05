@@ -40,10 +40,17 @@ namespace EAHT_Engine
             }
 
         }
-        //The bays on the ward
+        /// <summary>
+        /// The bays on the ward
+        /// </summary>
         public Bay[] Bays { get => bays; }
-        //The name of the ward
+        /// <summary>
+        /// The ward's name
+        /// </summary>
         public string Name { get => name; }
+        /// <summary>
+        /// The database Id of the ward
+        /// </summary>
         public int Id { get => id; }
 
         /// <summary>
@@ -59,15 +66,7 @@ namespace EAHT_Engine
                 alarmLocations[bay] = new bool[bays[bay].Beds.Length][];
                 for(int bed = 0; bed< bays[bay].Beds.Length; bed++)
                 {
-                    alarmLocations[bay][bed] = new bool[bays[bay].Beds[bed].Monitors.Length];
-                    for(int monitor = 0; monitor < bays[bay].Beds[bed].Monitors.Length; monitor++)
-                    {
-                        if (!(bays[bay].Beds[bed].Monitors[monitor] is null))
-                        {
-                            alarmLocations[bay][bed][monitor] = bays[bay].Beds[bed].Monitors[monitor].CheckForAlarm();
-                        }
-                        
-                    }
+                    alarmLocations[bay][bed] = bays[bay].Beds[bed].GetMonitorAlarmStatuses();
                 }
             }
             return alarmLocations;

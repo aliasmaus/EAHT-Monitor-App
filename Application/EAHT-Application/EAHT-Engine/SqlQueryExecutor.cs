@@ -8,10 +8,11 @@ using System.Data;
 namespace EAHT_Engine
 {
     /// <summary>
-    /// Code to execute some simple sql queries
+    /// Static class for methods andn properties relating to executing simple queries in the database with SQL
     /// </summary>
-    public class SqlQueryExecutor
+    public static class SqlQueryExecutor
     {
+
         private static readonly string selectAllStatement = "SELECT * FROM ";
         private static readonly string whereClause = " WHERE ";
         private static readonly string endQuery = ";";
@@ -50,6 +51,13 @@ namespace EAHT_Engine
             }
             return values.ToArray();
         }
+        /// <summary>
+        /// Gets the values of the specified column in the named table in the database with a where condition
+        /// </summary>
+        /// <param name="tableName">Name of table to get column values from</param>
+        /// <param name="columnNumber">the identity of the column to retrieve (0 based index)</param>
+        /// <param name="whereCondition">filters rows by this condition</param>
+        /// <returns></returns>
         public static string[] GetColumnValuesAsString(string tableName, int columnNumber, string whereCondition)
         {
             DataSet data = SelectAllFromTable(tableName,whereCondition);
@@ -57,11 +65,10 @@ namespace EAHT_Engine
             List<string> values = new List<string>();
             while (reader.Read())
             {
-                values.Add(reader.GetString(columnNumber));
+                values.Add(reader.GetValue(columnNumber).ToString());
             }
             return values.ToArray();
         }
-
         /// <summary>
         /// Selects all columns from the given table
         /// </summary>

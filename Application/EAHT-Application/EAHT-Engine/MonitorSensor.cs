@@ -76,7 +76,7 @@ namespace EAHT_Engine
         /// Takes the current value and returns a new one within the read range
         /// </summary>
         /// <returns>Returns a double in the range of currentValue +/- readRange</returns>
-        public double TakeReading() => (random.NextDouble() - 0.5) * readRange + currentValue;
+        private double TakeReading() => (random.NextDouble() - 0.5) * readRange + currentValue;
 
         private void UpdateSelf() => currentValue = TakeReading();
 

@@ -8,7 +8,7 @@ using System.Security.Cryptography;
 
 namespace EAHT_Engine
 {
-    public class PasswordCryptography
+    public static class PasswordCryptography
     {
         public static string ComputeSha256Hash(string rawData)
         {
@@ -26,6 +26,7 @@ namespace EAHT_Engine
                     builder.Append(bytes[i].ToString("x2"));
                 }
                 return builder.ToString();
+            }
+        }
     }
-        }   }
 }
