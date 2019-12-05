@@ -14,6 +14,10 @@ namespace EAHT_App_UI
 {
     public partial class StaffContactAdd : Form
     {
+        private const string ColumnString = "(First_Name, Last_Name, Position, Contact_Number, Address, Add_Information, Password_Hash)";
+
+        public static string ColumnString1 => ColumnString;
+
         /// <summary>
         /// This is a page to add staff contact details
         /// <code></code>
@@ -37,7 +41,7 @@ namespace EAHT_App_UI
             obj[7] = txtPassword.Text;
 
             //listStaff.Items.Add(obj.ToString());
-            SqlQueryExecutor.InsertIntoTable("Staff", obj, "(First_Name, Last_Name, Position, Id_Number, Contact_Number, Address, Add_Information, Password_Hash)");
+            SqlQueryExecutor.InsertIntoTable("Staff", obj, ColumnString1);
             StaffDetails stdtils = new StaffDetails();
             stdtils.Show();
         }
