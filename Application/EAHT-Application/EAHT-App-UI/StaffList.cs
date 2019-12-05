@@ -17,9 +17,20 @@ namespace EAHT_App_UI
         {
             InitializeComponent();
             string[] columns = new string[7] {"ID_Number","First_Name","Last_Name","Position","Contact_Number","Address","Add_Information"};
-            dataGridView1.DataSource = SqlQueryExecutor.SelectColumnsFromTable(columns,"Staff");
+            UpdateStaffList(columns);
         }
+         private void UpdateStaffList(string[] columns)
+        {
 
+            // get table from database
+            DataSet dataSource = SqlQueryExecutor.SelectColumnsFromTable(columns, "Staff");
+            // name table
+            dataSource.Tables[0].TableName = "Staff";
+            // populate DataGridViewer
+            dataGridView1.AutoGenerateColumns = true;
+            dataGridView1.DataSource = dataSource;
+            dataGridView1.DataMember = "Staff";
+        }
 
         private void button3_Click(object sender, EventArgs e)
         {
