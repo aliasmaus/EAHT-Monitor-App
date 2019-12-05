@@ -16,13 +16,8 @@ namespace EAHT_App_UI
         public StaffList()
         {
             InitializeComponent();
-            string[] columns = new string[7] {"Id_Number","First_Name","Last_Name","Position","Contact_Number","Address","Add_Information" };
-            //dataGridView1.DataSource = SqlQueryExecutor.SelectColumnsFromTable(columns,"Staff");
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
+            string[] columns = new string[7] {"ID_Number","First_Name","Last_Name","Position","Contact_Number","Address","Add_Information"};
+            dataGridView1.DataSource = SqlQueryExecutor.SelectColumnsFromTable(columns,"Staff");
         }
 
 
