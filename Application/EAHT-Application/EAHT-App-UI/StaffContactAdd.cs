@@ -36,11 +36,25 @@ namespace EAHT_App_UI
         {
             // Create objects from values type on textbox in Contact Register
             string[] obj = new string[8];
+<<<<<<< Updated upstream
             obj[0] = "\'" + txtFirstName.Text + "\'";
             obj[1] = "\'" + txtLastName.Text + "\'";
             obj[2] = "\'" + txtPosition.Text + "\'";
             obj[3] = "\'" + txtIdNumber.Text + "\'";
             obj[4] = "\'" + txtContactNumber.Text + "\'";
+=======
+            //Updated upstream
+            obj[0] = "\'" + txtFirstName.Text + "\'";
+            obj[1] = "\'" + txtLastName.Text + "\'";
+            obj[2] = "\'" + txtPosition.Text + "\'";
+
+            obj[0] = txtFirstName.Text;
+            obj[1] = txtLastName.Text;
+            obj[2] = txtPosition.Text;
+            //Stashed changes
+            obj[3] = txtIdNumber.Text;
+            obj[4] = txtContactNumber.Text;
+>>>>>>> Stashed changes
             obj[5] = "\'" + txtAddress.Text + "\'";
             obj[6] = "\'" + txtAddInformation.Text + "\'";
             obj[7] = "\'" + PasswordCryptography.ComputeSha256Hash(txtPassword.Text) + "\'";
