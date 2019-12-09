@@ -15,7 +15,6 @@ namespace EAHT_App_UI
     public partial class StaffContactAdd : Form
     {
         private const string ColumnString = "(First_Name, Last_Name, Position, , Contact_Number, Address, Add_Information, Password_Hash)";
-        private const string V = "\'";
 
         public static string ColumnString1 => ColumnString;
 
@@ -42,6 +41,7 @@ namespace EAHT_App_UI
             obj[2] = "\'" + txtPosition.Text + "\'";
             obj[3] = "\'" + txtIdNumber.Text + "\'";
             obj[4] = "\'" + txtContactNumber.Text + "\'";
+<<<<<<< Updated upstream
 =======
             //Updated upstream
             obj[0] = "\'" + txtFirstName.Text + "\'";
@@ -52,6 +52,16 @@ namespace EAHT_App_UI
             obj[1] = txtLastName.Text;
             obj[2] = txtPosition.Text;
             //Stashed changes
+            obj[3] = txtIdNumber.Text;
+            obj[4] = txtContactNumber.Text;
+>>>>>>> Stashed changes
+=======
+            obj[0] = "\'" + txtFirstName.Text + "\'";
+            obj[1] = "\'" + txtLastName.Text + "\'";
+            obj[2] = "\'" + txtPosition.Text + "\'";
+            obj[0] = txtFirstName.Text;
+            obj[1] = txtLastName.Text;
+            obj[2] = txtPosition.Text;
             obj[3] = txtIdNumber.Text;
             obj[4] = txtContactNumber.Text;
 >>>>>>> Stashed changes
