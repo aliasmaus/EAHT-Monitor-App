@@ -34,6 +34,12 @@ namespace EAHT_Engine
             }
             return values.ToArray();
         }
+
+        public static DataSet InsertIntoTable(string v)
+        {
+            throw new NotImplementedException();
+        }
+
         /// <summary>
         /// Gets the values of the specified column in the named table in the database
         /// </summary>
