@@ -1,0 +1,1 @@
+﻿SELECT ID_Number, First_Name, Last_Name, Position, Contact_Number, Address, Add_Information FROM Staff
