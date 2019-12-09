@@ -97,6 +97,7 @@ namespace EAHT_App_UI
 
         private void MgmtStaffReports_BackPanel_Paint(object sender, PaintEventArgs e)
         {
+
         }
 
         private void ReturnToWard(object sender, EventArgs e)
