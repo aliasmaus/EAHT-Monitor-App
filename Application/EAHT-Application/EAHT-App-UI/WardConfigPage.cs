@@ -170,15 +170,5 @@ namespace EAHT_App_UI
             // Feedback for user
             MessageBox.Show("Ward updated");
         }
-
-        private void WardConfigPage_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void AddTab_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
