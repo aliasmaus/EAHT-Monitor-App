@@ -86,9 +86,10 @@
             // BackButton
             // 
             this.BackButton.BackColor = System.Drawing.Color.MediumAquamarine;
-            this.BackButton.Location = new System.Drawing.Point(699, 25);
+            this.BackButton.Location = new System.Drawing.Point(932, 31);
+            this.BackButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.BackButton.Name = "BackButton";
-            this.BackButton.Size = new System.Drawing.Size(75, 35);
+            this.BackButton.Size = new System.Drawing.Size(100, 43);
             this.BackButton.TabIndex = 0;
             this.BackButton.Text = "Back";
             this.BackButton.UseVisualStyleBackColor = false;
@@ -99,20 +100,22 @@
             this.WardConfigTabs.Controls.Add(this.EditTab);
             this.WardConfigTabs.Controls.Add(this.AddTab);
             this.WardConfigTabs.Controls.Add(this.viewTab);
-            this.WardConfigTabs.Location = new System.Drawing.Point(31, 66);
+            this.WardConfigTabs.Location = new System.Drawing.Point(41, 81);
+            this.WardConfigTabs.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.WardConfigTabs.Name = "WardConfigTabs";
             this.WardConfigTabs.SelectedIndex = 0;
-            this.WardConfigTabs.Size = new System.Drawing.Size(747, 356);
+            this.WardConfigTabs.Size = new System.Drawing.Size(996, 438);
             this.WardConfigTabs.TabIndex = 1;
             // 
             // EditTab
             // 
             this.EditTab.BackColor = System.Drawing.Color.Wheat;
             this.EditTab.Controls.Add(this.EditWardFlowPanel);
-            this.EditTab.Location = new System.Drawing.Point(4, 22);
+            this.EditTab.Location = new System.Drawing.Point(4, 25);
+            this.EditTab.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.EditTab.Name = "EditTab";
-            this.EditTab.Padding = new System.Windows.Forms.Padding(3);
-            this.EditTab.Size = new System.Drawing.Size(739, 330);
+            this.EditTab.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.EditTab.Size = new System.Drawing.Size(988, 409);
             this.EditTab.TabIndex = 0;
             this.EditTab.Text = "Edit ward";
             // 
@@ -124,17 +127,20 @@
             this.EditWardFlowPanel.Controls.Add(this.ConfigureDefaultsBox);
             this.EditWardFlowPanel.Controls.Add(this.ConfigureBedsInBaysBox);
             this.EditWardFlowPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.EditWardFlowPanel.Location = new System.Drawing.Point(7, 7);
+            this.EditWardFlowPanel.Location = new System.Drawing.Point(9, 9);
+            this.EditWardFlowPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.EditWardFlowPanel.Name = "EditWardFlowPanel";
-            this.EditWardFlowPanel.Size = new System.Drawing.Size(726, 320);
+            this.EditWardFlowPanel.Size = new System.Drawing.Size(968, 394);
             this.EditWardFlowPanel.TabIndex = 0;
             // 
             // SelectWardBox
             // 
             this.SelectWardBox.Controls.Add(this.EditSelectWardDropdown);
-            this.SelectWardBox.Location = new System.Drawing.Point(3, 3);
+            this.SelectWardBox.Location = new System.Drawing.Point(4, 4);
+            this.SelectWardBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.SelectWardBox.Name = "SelectWardBox";
-            this.SelectWardBox.Size = new System.Drawing.Size(355, 70);
+            this.SelectWardBox.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.SelectWardBox.Size = new System.Drawing.Size(473, 86);
             this.SelectWardBox.TabIndex = 0;
             this.SelectWardBox.TabStop = false;
             this.SelectWardBox.Text = "Select ward";
@@ -142,9 +148,10 @@
             // EditSelectWardDropdown
             // 
             this.EditSelectWardDropdown.FormattingEnabled = true;
-            this.EditSelectWardDropdown.Location = new System.Drawing.Point(16, 29);
+            this.EditSelectWardDropdown.Location = new System.Drawing.Point(21, 36);
+            this.EditSelectWardDropdown.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.EditSelectWardDropdown.Name = "EditSelectWardDropdown";
-            this.EditSelectWardDropdown.Size = new System.Drawing.Size(143, 21);
+            this.EditSelectWardDropdown.Size = new System.Drawing.Size(189, 24);
             this.EditSelectWardDropdown.TabIndex = 0;
             this.EditSelectWardDropdown.SelectionChangeCommitted += new System.EventHandler(this.EditWardSelected);
             // 
@@ -153,9 +160,11 @@
             this.SelectBayBox.Controls.Add(this.SelectBayBackButton);
             this.SelectBayBox.Controls.Add(this.SelectBayDropdown);
             this.SelectBayBox.Enabled = false;
-            this.SelectBayBox.Location = new System.Drawing.Point(3, 79);
+            this.SelectBayBox.Location = new System.Drawing.Point(4, 98);
+            this.SelectBayBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.SelectBayBox.Name = "SelectBayBox";
-            this.SelectBayBox.Size = new System.Drawing.Size(355, 70);
+            this.SelectBayBox.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.SelectBayBox.Size = new System.Drawing.Size(473, 86);
             this.SelectBayBox.TabIndex = 1;
             this.SelectBayBox.TabStop = false;
             this.SelectBayBox.Text = "Select bay";
@@ -164,9 +173,10 @@
             // SelectBayBackButton
             // 
             this.SelectBayBackButton.Enabled = false;
-            this.SelectBayBackButton.Location = new System.Drawing.Point(205, 29);
+            this.SelectBayBackButton.Location = new System.Drawing.Point(273, 36);
+            this.SelectBayBackButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.SelectBayBackButton.Name = "SelectBayBackButton";
-            this.SelectBayBackButton.Size = new System.Drawing.Size(75, 23);
+            this.SelectBayBackButton.Size = new System.Drawing.Size(100, 28);
             this.SelectBayBackButton.TabIndex = 1;
             this.SelectBayBackButton.Text = "Back";
             this.SelectBayBackButton.UseVisualStyleBackColor = true;
@@ -176,9 +186,10 @@
             // SelectBayDropdown
             // 
             this.SelectBayDropdown.FormattingEnabled = true;
-            this.SelectBayDropdown.Location = new System.Drawing.Point(16, 29);
+            this.SelectBayDropdown.Location = new System.Drawing.Point(21, 36);
+            this.SelectBayDropdown.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.SelectBayDropdown.Name = "SelectBayDropdown";
-            this.SelectBayDropdown.Size = new System.Drawing.Size(143, 21);
+            this.SelectBayDropdown.Size = new System.Drawing.Size(189, 24);
             this.SelectBayDropdown.TabIndex = 0;
             this.SelectBayDropdown.SelectionChangeCommitted += new System.EventHandler(this.ShowBedsInBaysConfig);
             // 
@@ -192,9 +203,11 @@
             this.ConfigureDefaultsBox.Controls.Add(this.label1);
             this.ConfigureDefaultsBox.Controls.Add(this.EditDefaultNumberOfBaysSelect);
             this.ConfigureDefaultsBox.Enabled = false;
-            this.ConfigureDefaultsBox.Location = new System.Drawing.Point(364, 3);
+            this.ConfigureDefaultsBox.Location = new System.Drawing.Point(485, 4);
+            this.ConfigureDefaultsBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ConfigureDefaultsBox.Name = "ConfigureDefaultsBox";
-            this.ConfigureDefaultsBox.Size = new System.Drawing.Size(355, 238);
+            this.ConfigureDefaultsBox.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ConfigureDefaultsBox.Size = new System.Drawing.Size(473, 293);
             this.ConfigureDefaultsBox.TabIndex = 1;
             this.ConfigureDefaultsBox.TabStop = false;
             this.ConfigureDefaultsBox.Text = "Configure defaults";
@@ -202,9 +215,10 @@
             // 
             // EditDefaultsUpdateButton
             // 
-            this.EditDefaultsUpdateButton.Location = new System.Drawing.Point(138, 175);
+            this.EditDefaultsUpdateButton.Location = new System.Drawing.Point(184, 215);
+            this.EditDefaultsUpdateButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.EditDefaultsUpdateButton.Name = "EditDefaultsUpdateButton";
-            this.EditDefaultsUpdateButton.Size = new System.Drawing.Size(75, 23);
+            this.EditDefaultsUpdateButton.Size = new System.Drawing.Size(100, 28);
             this.EditDefaultsUpdateButton.TabIndex = 6;
             this.EditDefaultsUpdateButton.Text = "Update";
             this.EditDefaultsUpdateButton.UseVisualStyleBackColor = true;
@@ -213,58 +227,66 @@
             // MonitorsPerBedLabel
             // 
             this.MonitorsPerBedLabel.AutoSize = true;
-            this.MonitorsPerBedLabel.Location = new System.Drawing.Point(32, 125);
+            this.MonitorsPerBedLabel.Location = new System.Drawing.Point(43, 154);
+            this.MonitorsPerBedLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.MonitorsPerBedLabel.Name = "MonitorsPerBedLabel";
-            this.MonitorsPerBedLabel.Size = new System.Drawing.Size(172, 13);
+            this.MonitorsPerBedLabel.Size = new System.Drawing.Size(232, 17);
             this.MonitorsPerBedLabel.TabIndex = 5;
             this.MonitorsPerBedLabel.Text = "Default number of monitors per bed";
             // 
             // EditDefaultMonitorsPerBedSelect
             // 
-            this.EditDefaultMonitorsPerBedSelect.Location = new System.Drawing.Point(206, 123);
+            this.EditDefaultMonitorsPerBedSelect.Location = new System.Drawing.Point(275, 151);
+            this.EditDefaultMonitorsPerBedSelect.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.EditDefaultMonitorsPerBedSelect.Name = "EditDefaultMonitorsPerBedSelect";
-            this.EditDefaultMonitorsPerBedSelect.Size = new System.Drawing.Size(120, 20);
+            this.EditDefaultMonitorsPerBedSelect.Size = new System.Drawing.Size(160, 22);
             this.EditDefaultMonitorsPerBedSelect.TabIndex = 4;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(32, 77);
+            this.label2.Location = new System.Drawing.Point(43, 95);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(155, 13);
+            this.label2.Size = new System.Drawing.Size(208, 17);
             this.label2.TabIndex = 3;
             this.label2.Text = "Default number of beds per bay";
             // 
             // EditDefaultBedsPerBaySelect
             // 
-            this.EditDefaultBedsPerBaySelect.Location = new System.Drawing.Point(206, 75);
+            this.EditDefaultBedsPerBaySelect.Location = new System.Drawing.Point(275, 92);
+            this.EditDefaultBedsPerBaySelect.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.EditDefaultBedsPerBaySelect.Name = "EditDefaultBedsPerBaySelect";
-            this.EditDefaultBedsPerBaySelect.Size = new System.Drawing.Size(120, 20);
+            this.EditDefaultBedsPerBaySelect.Size = new System.Drawing.Size(160, 22);
             this.EditDefaultBedsPerBaySelect.TabIndex = 2;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(32, 32);
+            this.label1.Location = new System.Drawing.Point(43, 39);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(81, 13);
+            this.label1.Size = new System.Drawing.Size(108, 17);
             this.label1.TabIndex = 1;
             this.label1.Text = "Number of bays";
             // 
             // EditDefaultNumberOfBaysSelect
             // 
-            this.EditDefaultNumberOfBaysSelect.Location = new System.Drawing.Point(206, 30);
+            this.EditDefaultNumberOfBaysSelect.Location = new System.Drawing.Point(275, 37);
+            this.EditDefaultNumberOfBaysSelect.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.EditDefaultNumberOfBaysSelect.Name = "EditDefaultNumberOfBaysSelect";
-            this.EditDefaultNumberOfBaysSelect.Size = new System.Drawing.Size(120, 20);
+            this.EditDefaultNumberOfBaysSelect.Size = new System.Drawing.Size(160, 22);
             this.EditDefaultNumberOfBaysSelect.TabIndex = 0;
             // 
             // ConfigureBedsInBaysBox
             // 
             this.ConfigureBedsInBaysBox.Controls.Add(this.flowLayoutPanel1);
             this.ConfigureBedsInBaysBox.Enabled = false;
-            this.ConfigureBedsInBaysBox.Location = new System.Drawing.Point(725, 3);
+            this.ConfigureBedsInBaysBox.Location = new System.Drawing.Point(966, 4);
+            this.ConfigureBedsInBaysBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ConfigureBedsInBaysBox.Name = "ConfigureBedsInBaysBox";
-            this.ConfigureBedsInBaysBox.Size = new System.Drawing.Size(355, 295);
+            this.ConfigureBedsInBaysBox.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ConfigureBedsInBaysBox.Size = new System.Drawing.Size(473, 363);
             this.ConfigureBedsInBaysBox.TabIndex = 6;
             this.ConfigureBedsInBaysBox.TabStop = false;
             this.ConfigureBedsInBaysBox.Text = "Configure custom number of beds in bay";
@@ -273,9 +295,10 @@
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(7, 20);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(9, 25);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(342, 269);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(456, 331);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // AddTab
@@ -295,19 +318,22 @@
             this.AddTab.Controls.Add(this.AddWardDefaultBayNumber);
             this.AddTab.Controls.Add(this.AddWardNameText);
             this.AddTab.Controls.Add(this.AddWardNameLabel);
-            this.AddTab.Location = new System.Drawing.Point(4, 22);
+            this.AddTab.Location = new System.Drawing.Point(4, 25);
+            this.AddTab.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.AddTab.Name = "AddTab";
-            this.AddTab.Padding = new System.Windows.Forms.Padding(3);
-            this.AddTab.Size = new System.Drawing.Size(739, 330);
+            this.AddTab.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.AddTab.Size = new System.Drawing.Size(988, 409);
             this.AddTab.TabIndex = 1;
             this.AddTab.Text = "Add/delete ward";
+            this.AddTab.Click += new System.EventHandler(this.AddTab_Click);
             // 
             // DeleteButton
             // 
             this.DeleteButton.BackColor = System.Drawing.Color.MediumAquamarine;
-            this.DeleteButton.Location = new System.Drawing.Point(530, 108);
+            this.DeleteButton.Location = new System.Drawing.Point(707, 133);
+            this.DeleteButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.DeleteButton.Name = "DeleteButton";
-            this.DeleteButton.Size = new System.Drawing.Size(75, 35);
+            this.DeleteButton.Size = new System.Drawing.Size(100, 43);
             this.DeleteButton.TabIndex = 13;
             this.DeleteButton.Text = "Delete";
             this.DeleteButton.UseVisualStyleBackColor = false;
@@ -316,27 +342,30 @@
             // DeleteWardSelectLabel
             // 
             this.DeleteWardSelectLabel.AutoSize = true;
-            this.DeleteWardSelectLabel.Location = new System.Drawing.Point(453, 64);
+            this.DeleteWardSelectLabel.Location = new System.Drawing.Point(604, 79);
+            this.DeleteWardSelectLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.DeleteWardSelectLabel.Name = "DeleteWardSelectLabel";
-            this.DeleteWardSelectLabel.Size = new System.Drawing.Size(62, 13);
+            this.DeleteWardSelectLabel.Size = new System.Drawing.Size(81, 17);
             this.DeleteWardSelectLabel.TabIndex = 12;
             this.DeleteWardSelectLabel.Text = "Ward name";
             // 
             // DeleteWardSelectBox
             // 
             this.DeleteWardSelectBox.FormattingEnabled = true;
-            this.DeleteWardSelectBox.Location = new System.Drawing.Point(555, 61);
+            this.DeleteWardSelectBox.Location = new System.Drawing.Point(740, 75);
+            this.DeleteWardSelectBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.DeleteWardSelectBox.Name = "DeleteWardSelectBox";
-            this.DeleteWardSelectBox.Size = new System.Drawing.Size(121, 21);
+            this.DeleteWardSelectBox.Size = new System.Drawing.Size(160, 24);
             this.DeleteWardSelectBox.TabIndex = 11;
             // 
             // DeleteWardLabel
             // 
             this.DeleteWardLabel.AutoSize = true;
             this.DeleteWardLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DeleteWardLabel.Location = new System.Drawing.Point(514, 23);
+            this.DeleteWardLabel.Location = new System.Drawing.Point(685, 28);
+            this.DeleteWardLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.DeleteWardLabel.Name = "DeleteWardLabel";
-            this.DeleteWardLabel.Size = new System.Drawing.Size(91, 16);
+            this.DeleteWardLabel.Size = new System.Drawing.Size(110, 20);
             this.DeleteWardLabel.TabIndex = 10;
             this.DeleteWardLabel.Text = "Delete ward";
             // 
@@ -344,18 +373,20 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(138, 23);
+            this.label5.Location = new System.Drawing.Point(184, 28);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(73, 16);
+            this.label5.Size = new System.Drawing.Size(87, 20);
             this.label5.TabIndex = 9;
             this.label5.Text = "Add ward";
             // 
             // AddWardButton
             // 
             this.AddWardButton.BackColor = System.Drawing.Color.MediumAquamarine;
-            this.AddWardButton.Location = new System.Drawing.Point(141, 250);
+            this.AddWardButton.Location = new System.Drawing.Point(188, 308);
+            this.AddWardButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.AddWardButton.Name = "AddWardButton";
-            this.AddWardButton.Size = new System.Drawing.Size(75, 35);
+            this.AddWardButton.Size = new System.Drawing.Size(100, 43);
             this.AddWardButton.TabIndex = 8;
             this.AddWardButton.Text = "Add";
             this.AddWardButton.UseVisualStyleBackColor = false;
@@ -364,64 +395,72 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(44, 197);
+            this.label3.Location = new System.Drawing.Point(59, 242);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(172, 13);
+            this.label3.Size = new System.Drawing.Size(232, 17);
             this.label3.TabIndex = 7;
             this.label3.Text = "Default number of monitors per bed";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(44, 153);
+            this.label4.Location = new System.Drawing.Point(59, 188);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(155, 13);
+            this.label4.Size = new System.Drawing.Size(208, 17);
             this.label4.TabIndex = 6;
             this.label4.Text = "Default number of beds per bay";
             // 
             // AddDefaultBaysLabel
             // 
             this.AddDefaultBaysLabel.AutoSize = true;
-            this.AddDefaultBaysLabel.Location = new System.Drawing.Point(44, 108);
+            this.AddDefaultBaysLabel.Location = new System.Drawing.Point(59, 133);
+            this.AddDefaultBaysLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.AddDefaultBaysLabel.Name = "AddDefaultBaysLabel";
-            this.AddDefaultBaysLabel.Size = new System.Drawing.Size(116, 13);
+            this.AddDefaultBaysLabel.Size = new System.Drawing.Size(155, 17);
             this.AddDefaultBaysLabel.TabIndex = 5;
             this.AddDefaultBaysLabel.Text = "Default number of bays";
             // 
             // AddWardDefaultBedsNumber
             // 
-            this.AddWardDefaultBedsNumber.Location = new System.Drawing.Point(245, 151);
+            this.AddWardDefaultBedsNumber.Location = new System.Drawing.Point(327, 186);
+            this.AddWardDefaultBedsNumber.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.AddWardDefaultBedsNumber.Name = "AddWardDefaultBedsNumber";
-            this.AddWardDefaultBedsNumber.Size = new System.Drawing.Size(73, 20);
+            this.AddWardDefaultBedsNumber.Size = new System.Drawing.Size(97, 22);
             this.AddWardDefaultBedsNumber.TabIndex = 4;
             // 
             // AddWardDefaultMonitorsNumber
             // 
-            this.AddWardDefaultMonitorsNumber.Location = new System.Drawing.Point(245, 195);
+            this.AddWardDefaultMonitorsNumber.Location = new System.Drawing.Point(327, 240);
+            this.AddWardDefaultMonitorsNumber.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.AddWardDefaultMonitorsNumber.Name = "AddWardDefaultMonitorsNumber";
-            this.AddWardDefaultMonitorsNumber.Size = new System.Drawing.Size(73, 20);
+            this.AddWardDefaultMonitorsNumber.Size = new System.Drawing.Size(97, 22);
             this.AddWardDefaultMonitorsNumber.TabIndex = 3;
             // 
             // AddWardDefaultBayNumber
             // 
-            this.AddWardDefaultBayNumber.Location = new System.Drawing.Point(245, 106);
+            this.AddWardDefaultBayNumber.Location = new System.Drawing.Point(327, 130);
+            this.AddWardDefaultBayNumber.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.AddWardDefaultBayNumber.Name = "AddWardDefaultBayNumber";
-            this.AddWardDefaultBayNumber.Size = new System.Drawing.Size(73, 20);
+            this.AddWardDefaultBayNumber.Size = new System.Drawing.Size(97, 22);
             this.AddWardDefaultBayNumber.TabIndex = 2;
             // 
             // AddWardNameText
             // 
-            this.AddWardNameText.Location = new System.Drawing.Point(188, 64);
+            this.AddWardNameText.Location = new System.Drawing.Point(251, 79);
+            this.AddWardNameText.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.AddWardNameText.Name = "AddWardNameText";
-            this.AddWardNameText.Size = new System.Drawing.Size(130, 20);
+            this.AddWardNameText.Size = new System.Drawing.Size(172, 22);
             this.AddWardNameText.TabIndex = 1;
             // 
             // AddWardNameLabel
             // 
             this.AddWardNameLabel.AutoSize = true;
-            this.AddWardNameLabel.Location = new System.Drawing.Point(44, 64);
+            this.AddWardNameLabel.Location = new System.Drawing.Point(59, 79);
+            this.AddWardNameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.AddWardNameLabel.Name = "AddWardNameLabel";
-            this.AddWardNameLabel.Size = new System.Drawing.Size(62, 13);
+            this.AddWardNameLabel.Size = new System.Drawing.Size(81, 17);
             this.AddWardNameLabel.TabIndex = 0;
             this.AddWardNameLabel.Text = "Ward name";
             // 
@@ -429,9 +468,10 @@
             // 
             this.viewTab.BackColor = System.Drawing.Color.Wheat;
             this.viewTab.Controls.Add(this.WardDataGridView);
-            this.viewTab.Location = new System.Drawing.Point(4, 22);
+            this.viewTab.Location = new System.Drawing.Point(4, 25);
+            this.viewTab.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.viewTab.Name = "viewTab";
-            this.viewTab.Size = new System.Drawing.Size(739, 330);
+            this.viewTab.Size = new System.Drawing.Size(988, 409);
             this.viewTab.TabIndex = 2;
             this.viewTab.Text = "View wards";
             // 
@@ -440,23 +480,26 @@
             this.WardDataGridView.AllowUserToAddRows = false;
             this.WardDataGridView.AllowUserToDeleteRows = false;
             this.WardDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.WardDataGridView.Location = new System.Drawing.Point(26, 26);
+            this.WardDataGridView.Location = new System.Drawing.Point(35, 32);
+            this.WardDataGridView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.WardDataGridView.Name = "WardDataGridView";
             this.WardDataGridView.ReadOnly = true;
-            this.WardDataGridView.Size = new System.Drawing.Size(684, 278);
+            this.WardDataGridView.Size = new System.Drawing.Size(912, 342);
             this.WardDataGridView.TabIndex = 0;
             // 
             // WardConfigPage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Wheat;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.WardConfigTabs);
             this.Controls.Add(this.BackButton);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "WardConfigPage";
             this.Text = "Configure wards";
+            this.Load += new System.EventHandler(this.WardConfigPage_Load);
             this.WardConfigTabs.ResumeLayout(false);
             this.EditTab.ResumeLayout(false);
             this.EditWardFlowPanel.ResumeLayout(false);
