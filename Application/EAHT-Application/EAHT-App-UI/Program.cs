@@ -17,7 +17,7 @@ namespace EAHT_App_UI
         [STAThread]
         static void Main()
         {
-
+            //This is a test
             // UNCOMMENT THIS CODE FOR DEBUGGING WELCOME PAGE
 
             //Application.EnableVisualStyles();
