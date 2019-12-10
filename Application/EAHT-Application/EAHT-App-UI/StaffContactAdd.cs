@@ -18,7 +18,7 @@ namespace EAHT_App_UI
 
         public static string ColumnString1 => ColumnString;
 
-        /// <summary>
+        /// <summary
         /// This is the page to add or delete staff member details
         /// <code></code>
         /// </summary>
@@ -35,20 +35,28 @@ namespace EAHT_App_UI
         {
             // Create objects from values type on textbox in Contact Register
             string[] obj = new string[8];
+<<<<<<< HEAD
             obj[0] = "\'" + txtFirstName.Text + "\'";
             obj[1] = "\'" + txtLastName.Text + "\'";
             obj[2] = "\'" + txtPosition.Text + "\'";
             obj[3] = txtIdNumber.Text;
             obj[4] = txtContactNumber.Text;
+=======
+
+            obj[0] = "\'" + txtFirstName.Text + "\'";
+            obj[1] = "\'" + txtLastName.Text + "\'";
+            obj[2] = "\'" + txtPosition.Text + "\'";
+            obj[3] = "\'" + txtIdNumber.Text + "\'";
+            obj[4] = "\'" + txtContactNumber.Text + "\'";
+>>>>>>> master
             obj[5] = "\'" + txtAddress.Text + "\'";
             obj[6] = "\'" + txtAddInformation.Text + "\'";
             obj[7] = "\'" + PasswordCryptography.ComputeSha256Hash(txtPassword.Text) + "\'";
 
-            //listStaff.Items.Add(obj.ToString());
+            // Save all values to the Database
             SqlQueryExecutor.InsertIntoTable("Staff", obj, "(First_Name, Last_Name, Position, Id_Number, Contact_Number, Address, Add_Information, Password_Hash)");
+            // Display a confirmation message
             MessageBox.Show("Staff added");
-            //StaffDetails stdtils = new StaffDetails();
-            //stdtils.Show();
         }
 
         private void button5_Click(object sender, EventArgs e)
