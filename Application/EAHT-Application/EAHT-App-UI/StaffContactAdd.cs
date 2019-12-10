@@ -36,11 +36,20 @@ namespace EAHT_App_UI
             // Create objects from values type on textbox in Contact Register
             string[] obj = new string[8];
 <<<<<<< HEAD
+<<<<<<< HEAD
             obj[0] = "\'" + txtFirstName.Text + "\'";
             obj[1] = "\'" + txtLastName.Text + "\'";
             obj[2] = "\'" + txtPosition.Text + "\'";
             obj[3] = txtIdNumber.Text;
             obj[4] = txtContactNumber.Text;
+=======
+
+            obj[0] = "\'" + txtFirstName.Text + "\'";
+            obj[1] = "\'" + txtLastName.Text + "\'";
+            obj[2] = "\'" + txtPosition.Text + "\'";
+            obj[3] = "\'" + txtIdNumber.Text + "\'";
+            obj[4] = "\'" + txtContactNumber.Text + "\'";
+>>>>>>> master
 =======
 
             obj[0] = "\'" + txtFirstName.Text + "\'";
