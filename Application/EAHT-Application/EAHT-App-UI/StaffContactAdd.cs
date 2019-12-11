@@ -15,11 +15,10 @@ namespace EAHT_App_UI
     public partial class StaffContactAdd : Form
     {
         private const string ColumnString = "(First_Name, Last_Name, Position, , Contact_Number, Address, Add_Information, Password_Hash)";
-        private const string V = "\'";
 
         public static string ColumnString1 => ColumnString;
 
-        /// <summary
+        /// <summary>
         /// This is the page to add or delete staff member details
         /// <code></code>
         /// </summary>
@@ -45,10 +44,11 @@ namespace EAHT_App_UI
             obj[6] = "\'" + txtAddInformation.Text + "\'";
             obj[7] = "\'" + PasswordCryptography.ComputeSha256Hash(txtPassword.Text) + "\'";
 
-            // Save all values to the Database
+            //listStaff.Items.Add(obj.ToString());
             SqlQueryExecutor.InsertIntoTable("Staff", obj, "(First_Name, Last_Name, Position, Id_Number, Contact_Number, Address, Add_Information, Password_Hash)");
-            // Display a confirmation message
             MessageBox.Show("Staff added");
+            //StaffDetails stdtils = new StaffDetails();
+            //stdtils.Show();
         }
 
         private void button5_Click(object sender, EventArgs e)
