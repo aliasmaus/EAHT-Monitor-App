@@ -38,8 +38,8 @@ namespace EAHT_App_UI
             obj[0] = "\'" + txtFirstName.Text + "\'";
             obj[1] = "\'" + txtLastName.Text + "\'";
             obj[2] = "\'" + txtPosition.Text + "\'";
-            obj[3] = txtIdNumber.Text;
-            obj[4] = txtContactNumber.Text;
+            obj[3] = "\'" + txtIdNumber.Text + "\'";
+            obj[4] = "\'" + txtContactNumber.Text + "\'";
             obj[5] = "\'" + txtAddress.Text + "\'";
             obj[6] = "\'" + txtAddInformation.Text + "\'";
             obj[7] = "\'" + PasswordCryptography.ComputeSha256Hash(txtPassword.Text) + "\'";
