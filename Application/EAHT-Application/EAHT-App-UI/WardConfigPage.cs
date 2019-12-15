@@ -68,7 +68,8 @@ namespace EAHT_App_UI
         }
         private void ResetBaysList(int nBays)
         {
-            // get list of numbers in range 1-nBays as strings
+            SelectBayDropdown.Items.Clear();
+            // get list of numbers in range nBays as strings
             string[] menuItems = new string[nBays];
             for (int i = 0; i < nBays; i++)
             {
