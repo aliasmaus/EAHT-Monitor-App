@@ -67,6 +67,10 @@ namespace EAHT_App_UI
 
         }
 
+        private void StaffContactAdd_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 
