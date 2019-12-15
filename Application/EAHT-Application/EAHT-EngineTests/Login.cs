@@ -13,7 +13,11 @@ namespace EAHT_EngineTests
             string password = "";
             string userResponse = "";
             userResponse = username;
+<<<<<<< HEAD
             userResponse = password;
+=======
+            username = password;
+>>>>>>> master
         }
     }
 }

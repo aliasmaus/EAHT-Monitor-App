@@ -62,7 +62,11 @@
     <Compile Include="Monitor_Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlQueryExecutor_Tests.cs" />
+<<<<<<< HEAD
     <Compile Include="Login.cs" />
+=======
+    <Compile Include="UnitTest1.cs" />
+>>>>>>> master
     <Compile Include="Ward_Tests.cs" />
   </ItemGroup>
   <ItemGroup>
