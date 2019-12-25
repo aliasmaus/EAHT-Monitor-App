@@ -28,9 +28,8 @@ namespace EAHT_App_UI
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //login = new LoginPage();
-            //Application.Run(login);
-            Application.Run(new MainPage(new Ward(0)));
+            login = new LoginPage();
+            Application.Run(login);
         }
     }
 }

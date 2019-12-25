@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,6 +14,10 @@ namespace EAHT_App_UI
 {
     public partial class StaffContactAdd : Form
     {
+        private const string ColumnString = "(First_Name, Last_Name, Position, Contact_Number, Address, Add_Information, Password_Hash)";
+
+        public static string ColumnString1 => ColumnString;
+
         /// <summary>
         /// This is a page to add staff contact details
         /// <code></code>
